@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblDoc">
+    <Key>
+      <PropertyRef Name="DOCID" />
+    </Key>
+    <Property Name="DOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DTID" Type="Int32" Nullable="false" />
+    <Property Name="DOC_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDocAppDetail">
+    <Key>
+      <PropertyRef Name="DADID" />
+    </Key>
+    <Property Name="DADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="DAD_Approved" Type="DateTime" Precision="3" />
+    <Property Name="DAD_Viewed" Type="DateTime" Precision="3" />
+    <Property Name="DAD_Order" Type="Int32" />
+    <Property Name="DAATID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblDocApproval">
+    <Key>
+      <PropertyRef Name="DAID" />
+    </Key>
+    <Property Name="DAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DLID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="DOCID" Type="Int32" Nullable="false" />
+    <Property Name="DASID" Type="Int32" Nullable="false" />
+    <Property Name="DA_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ASID_Creator" Type="Int32" />
+    <Property Name="DA_Subtitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DA_Amendment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DA_Hot" Type="Boolean" />
+    <Property Name="DA_New" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblDocAppStatus">
+    <Key>
+      <PropertyRef Name="DASID" />
+    </Key>
+    <Property Name="DASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAS_Desc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DAS_Active" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDocLine">
+    <Key>
+      <PropertyRef Name="DLID" />
+    </Key>
+    <Property Name="DLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DL_Long" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DL_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="DL_Active" Type="Boolean" Nullable="false" />
+    <Property Name="ASID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblDocLineAsc">
+    <Key>
+      <PropertyRef Name="DLDID" />
+    </Key>
+    <Property Name="DLDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DLID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="DLD_Type" Type="Int32" Nullable="false" />
+    <Property Name="DAATID" Type="Int32" />
+    <Property Name="DLD_Created" Type="DateTime" Precision="3" />
+    <Property Name="DLD_Updated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblDocType">
+    <Key>
+      <PropertyRef Name="DTID" />
+    </Key>
+    <Property Name="DTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DT_Short" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DT_Active" Type="Int32" Nullable="false" />
+    <Property Name="DT_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwDocApproval">
+    <Key>
+      <PropertyRef Name="DAID" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Document" />
+      <PropertyRef Name="Rev" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="DOCID" />
+      <PropertyRef Name="DASID" />
+      <PropertyRef Name="DTID" />
+      <PropertyRef Name="DOC_URL" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="DLID" />
+      <PropertyRef Name="Approved" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="DA_Created" />
+    </Key>
+    <Property Name="DAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOCID" Type="Int32" Nullable="false" />
+    <Property Name="DASID" Type="Int32" Nullable="false" />
+    <Property Name="DTID" Type="Int32" Nullable="false" />
+    <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DLID" Type="Int32" Nullable="false" />
+    <Property Name="Approved" Type="Int32" Nullable="false" />
+    <Property Name="AS_First" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASID_Creator" Type="Int32" />
+    <Property Name="Creator" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatorEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DA_Subtitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DA_Amendment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="DaysOpen" Type="Int32" />
+    <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DA_Hot" Type="Boolean" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="OwnerDisplay" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerFirst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerLast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DA_New" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vwDocApproved">
+    <Key>
+      <PropertyRef Name="DAID" />
+      <PropertyRef Name="Approved" />
+    </Key>
+    <Property Name="DAID" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="Approvals" Type="Int32" />
+    <Property Name="Approved" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwDocApprovers">
+    <Key>
+      <PropertyRef Name="DAID" />
+      <PropertyRef Name="Product" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Document" />
+      <PropertyRef Name="Rev" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="DOCID" />
+      <PropertyRef Name="DASID" />
+      <PropertyRef Name="DTID" />
+      <PropertyRef Name="DOC_URL" />
+      <PropertyRef Name="DLID" />
+      <PropertyRef Name="DADID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="DLD_Type" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="DAAT_Desc" />
+      <PropertyRef Name="DA_Created" />
+      <PropertyRef Name="DA_Hot" />
+    </Key>
+    <Property Name="DAID" Type="Int32" Nullable="false" />
+    <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="753" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOCID" Type="Int32" Nullable="false" />
+    <Property Name="DASID" Type="Int32" Nullable="false" />
+    <Property Name="DTID" Type="Int32" Nullable="false" />
+    <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DLID" Type="Int32" Nullable="false" />
+    <Property Name="DAD_Approved" Type="DateTime" Precision="3" />
+    <Property Name="DAD_Viewed" Type="DateTime" Precision="3" />
+    <Property Name="DADID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="DLD_Type" Type="Int32" Nullable="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AS_First" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Last" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DAD_Order" Type="Int32" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="DAAT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DAATID" Type="Int32" />
+    <Property Name="DAAT_DescLong" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DaysOpen" Type="Int32" />
+    <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DA_Hot" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ECREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblDoc" EntityType="Self.tblDoc" />
+    <EntitySet Name="tblDocAppDetail" EntityType="Self.tblDocAppDetail" />
+    <EntitySet Name="tblDocApproval" EntityType="Self.tblDocApproval" />
+    <EntitySet Name="tblDocAppStatus" EntityType="Self.tblDocAppStatus" />
+    <EntitySet Name="tblDocLine" EntityType="Self.tblDocLine" />
+    <EntitySet Name="tblDocLineAsc" EntityType="Self.tblDocLineAsc" />
+    <EntitySet Name="tblDocType" EntityType="Self.tblDocType" />
+    <EntitySet Name="vwDocApproval" EntityType="Self.vwDocApproval" />
+    <EntitySet Name="vwDocApproved" EntityType="Self.vwDocApproved" />
+    <EntitySet Name="vwDocApprovers" EntityType="Self.vwDocApprovers" />
+    <FunctionImport Name="p_GetDocApprovers">
+      <Parameter Name="DAID" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocDel">
+      <Parameter Name="DAID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocFind">
+      <Parameter Name="PLID" Mode="In" Type="String" />
+      <Parameter Name="Doc" Mode="In" Type="String" />
+      <Parameter Name="DASID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocInUp" ReturnType="Collection(ECRModel.p_tblDocInUp_Result)">
+      <Parameter Name="DAID" Mode="In" Type="String" />
+      <Parameter Name="DLID" Mode="In" Type="String" />
+      <Parameter Name="ASID" Mode="In" Type="String" />
+      <Parameter Name="Doc" Mode="In" Type="String" />
+      <Parameter Name="DTID" Mode="In" Type="String" />
+      <Parameter Name="Rev" Mode="In" Type="String" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="BriefText" Mode="In" Type="String" />
+      <Parameter Name="Path" Mode="In" Type="String" />
+      <Parameter Name="DASID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocLineAsc_Cross" />
+    <FunctionImport Name="p_tblDocLineAsc_Del">
+      <Parameter Name="ASIDs" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocLineAsc_Up">
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Val" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblDocLineAsc_Up2">
+      <Parameter Name="ASIDs" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblAssociate" EntityType="ECRModel.tblAssociate" />
+    <EntitySet Name="tblDocApprovalType" EntityType="ECRModel.tblDocApprovalType" />
+    <EntitySet Name="tblFile" EntityType="ECRModel.tblFile" />
+    <EntitySet Name="vwDocAssociates" EntityType="ECRModel.vwDocAssociates" />
+    <EntitySet Name="tblAssociateDocShow" EntityType="ECRModel.tblAssociateDocShow" />
+    <EntitySet Name="tblConcessionGroup" EntityType="ECRModel.tblConcessionGroup" />
+    <EntitySet Name="tblConcessionRole" EntityType="ECRModel.tblConcessionRole" />
+    <EntitySet Name="tblConcessionRoleAssign" EntityType="ECRModel.tblConcessionRoleAssign" />
+    <EntitySet Name="tblConcessionDeviation" EntityType="ECRModel.tblConcessionDeviation" />
+    <EntitySet Name="tblConcession" EntityType="ECRModel.tblConcession" />
+    <EntitySet Name="tblConcessionApproval" EntityType="ECRModel.tblConcessionApproval" />
+    <EntitySet Name="tblConcessionMaterial" EntityType="ECRModel.tblConcessionMaterial" />
+    <EntitySet Name="vwConcessionDiviationRiskPerson" EntityType="ECRModel.vwConcessionDiviationRiskPerson" />
+    <EntitySet Name="tblDocAppStatusHistory" EntityType="ECRModel.tblDocAppStatusHistory" />
+  </EntityContainer>
+  <ComplexType Name="p_tblDocInUp_Result">
+    <Property Type="Int32" Name="DAID" Nullable="false" />
+    <Property Type="Int32" Name="DLID" Nullable="false" />
+    <Property Type="Int32" Name="ASID" Nullable="false" />
+    <Property Type="Int32" Name="DOCID" Nullable="false" />
+    <Property Type="Int32" Name="DASID" Nullable="false" />
+    <Property Type="DateTime" Name="DA_Date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="DA_BriefText" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <EntityType Name="tblAssociate">
+    <Key>
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="AS_User" />
+      <PropertyRef Name="AS_Active" />
+      <PropertyRef Name="AS_Reso" />
+    </Key>
+    <Property Name="ASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DPID" Type="Int32" />
+    <Property Name="OFID" Type="Int32" />
+    <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_First" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Last" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AS_User" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AS_OutID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Sync" Type="DateTime" Precision="3" />
+    <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Reso" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Domain" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_DC" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblDocApprovalType">
+    <Key>
+      <PropertyRef Name="DAATID" />
+    </Key>
+    <Property Name="DAATID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAAT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DAAT_DescLong" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DAAT_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblFile">
+    <Key>
+      <PropertyRef Name="FLID" />
+    </Key>
+    <Property Name="FLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FL_Desc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FL_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FL_DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="FTID" Type="Int32" Nullable="false" />
+    <Property Name="FL_DescArchive" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FL_Completed" Type="DateTime" Precision="3" />
+    <Property Name="FL_DetailCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwDocAssociates">
+    <Key>
+      <PropertyRef Name="DAID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="Role" />
+      <PropertyRef Name="DADID" />
+    </Key>
+    <Property Name="DAID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Viewed" Type="DateTime" Precision="3" />
+    <Property Name="Approved" Type="DateTime" Precision="3" />
+    <Property Name="DADID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblAssociateDocShow">
+    <Key>
+      <PropertyRef Name="ASBID" />
+    </Key>
+    <Property Name="ASBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="ASB_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblConcessionGroup">
+    <Key>
+      <PropertyRef Name="CZGID" />
+    </Key>
+    <Property Name="CZGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CZG_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CZG_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblConcessionRole">
+    <Key>
+      <PropertyRef Name="CZRID" />
+    </Key>
+    <Property Name="CZRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CZR_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CZR_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="CZR_DefaultTask" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblConcessionRoleAssign">
+    <Key>
+      <PropertyRef Name="CZAID" />
+    </Key>
+    <Property Name="CZAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CZGID" Type="Int32" Nullable="false" />
+    <Property Name="CZRID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblConcessionDeviation">
+    <Key>
+      <PropertyRef Name="CVID" />
+    </Key>
+    <Property Name="CVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="CV_Desc" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="CV_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="CZRID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblConcession">
+    <Key>
+      <PropertyRef Name="CSSID" />
+    </Key>
+    <Property Name="CSSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CZGID" Type="Int32" Nullable="false" />
+    <Property Name="CVID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="CSS_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CSS_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="ASID_Entered" Type="Int32" Nullable="false" />
+    <Property Name="CSS_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_Hot" Type="Boolean" Nullable="false" />
+    <Property Name="CSS_Repeat" Type="Boolean" Nullable="false" />
+    <Property Name="CSS_RegNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSS_Supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_UsedIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_UseBy" Type="DateTime" Precision="3" />
+    <Property Name="CSS_SpecialRequirement" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_ActualValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_RootCause" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_AttachList" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CSS_UseStart" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblConcessionApproval">
+    <Key>
+      <PropertyRef Name="CSAID" />
+    </Key>
+    <Property Name="CSAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSSID" Type="Int32" Nullable="false" />
+    <Property Name="CZRID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="CSA_Approved" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblConcessionMaterial">
+    <Key>
+      <PropertyRef Name="CSMID" />
+    </Key>
+    <Property Name="CSMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSSID" Type="Int32" Nullable="false" />
+    <Property Name="CSM_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSM_Qty" Type="Int32" />
+    <Property Name="CSM_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwConcessionDiviationRiskPerson">
+    <Key>
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="CVID" />
+      <PropertyRef Name="CZR_Desc" />
+      <PropertyRef Name="CZRID" />
+      <PropertyRef Name="ASID" />
+    </Key>
+    <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CVID" Type="Int32" Nullable="false" />
+    <Property Name="CZR_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CZRID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDocAppStatusHistory">
+    <Key>
+      <PropertyRef Name="DHID" />
+    </Key>
+    <Property Name="DHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DAID" Type="Int32" Nullable="false" />
+    <Property Name="DASID" Type="Int32" Nullable="false" />
+    <Property Name="DH_Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+</Schema>

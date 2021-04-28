@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ECRModelStoreContainer" CdmEntityContainer="ECREntities">
+    <EntitySetMapping Name="tblDoc">
+      <EntityTypeMapping TypeName="ECRModel.tblDoc">
+        <MappingFragment StoreEntitySet="tblDoc">
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="DTID" ColumnName="DTID" />
+          <ScalarProperty Name="DOC_Num" ColumnName="DOC_Num" />
+          <ScalarProperty Name="DOC_Rev" ColumnName="DOC_Rev" />
+          <ScalarProperty Name="DOC_Title" ColumnName="DOC_Title" />
+          <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocAppDetail">
+      <EntityTypeMapping TypeName="ECRModel.tblDocAppDetail">
+        <MappingFragment StoreEntitySet="tblDocAppDetail">
+          <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+          <ScalarProperty Name="DAD_Order" ColumnName="DAD_Order" />
+          <ScalarProperty Name="DADID" ColumnName="DADID" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DAD_Approved" ColumnName="DAD_Approved" />
+          <ScalarProperty Name="DAD_Viewed" ColumnName="DAD_Viewed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocApproval">
+      <EntityTypeMapping TypeName="ECRModel.tblDocApproval">
+        <MappingFragment StoreEntitySet="tblDocApproval">
+          <ScalarProperty Name="DA_New" ColumnName="DA_New" />
+          <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+          <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+          <ScalarProperty Name="DA_Amendment" ColumnName="DA_Amendment" />
+          <ScalarProperty Name="DA_Subtitle" ColumnName="DA_Subtitle" />
+          <ScalarProperty Name="ASID_Creator" ColumnName="ASID_Creator" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DA_Date" ColumnName="DA_Date" />
+          <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocAppStatus">
+      <EntityTypeMapping TypeName="ECRModel.tblDocAppStatus">
+        <MappingFragment StoreEntitySet="tblDocAppStatus">
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DAS_Desc" ColumnName="DAS_Desc" />
+          <ScalarProperty Name="DAS_Active" ColumnName="DAS_Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocLine">
+      <EntityTypeMapping TypeName="ECRModel.tblDocLine">
+        <MappingFragment StoreEntitySet="tblDocLine">
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DL_Active" ColumnName="DL_Active" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="DL_Desc" ColumnName="DL_Desc" />
+          <ScalarProperty Name="DL_Long" ColumnName="DL_Long" />
+          <ScalarProperty Name="DL_Deleted" ColumnName="DL_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocLineAsc">
+      <EntityTypeMapping TypeName="ECRModel.tblDocLineAsc">
+        <MappingFragment StoreEntitySet="tblDocLineAsc">
+          <ScalarProperty Name="DLD_Updated" ColumnName="DLD_Updated" />
+          <ScalarProperty Name="DLD_Created" ColumnName="DLD_Created" />
+          <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+          <ScalarProperty Name="DLDID" ColumnName="DLDID" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DLD_Type" ColumnName="DLD_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocType">
+      <EntityTypeMapping TypeName="ECRModel.tblDocType">
+        <MappingFragment StoreEntitySet="tblDocType">
+          <ScalarProperty Name="DTID" ColumnName="DTID" />
+          <ScalarProperty Name="DT_Short" ColumnName="DT_Short" />
+          <ScalarProperty Name="DT_Desc" ColumnName="DT_Desc" />
+          <ScalarProperty Name="DT_Active" ColumnName="DT_Active" />
+          <ScalarProperty Name="DT_Deleted" ColumnName="DT_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDocApproval">
+      <EntityTypeMapping TypeName="ECRModel.vwDocApproval">
+        <MappingFragment StoreEntitySet="vwDocApproval">
+          <ScalarProperty Name="DA_New" ColumnName="DA_New" />
+          <ScalarProperty Name="OwnerLast" ColumnName="OwnerLast" />
+          <ScalarProperty Name="OwnerFirst" ColumnName="OwnerFirst" />
+          <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
+          <ScalarProperty Name="OwnerDisplay" ColumnName="OwnerDisplay" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+          <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+          <ScalarProperty Name="DaysOpen" ColumnName="DaysOpen" />
+          <ScalarProperty Name="DA_Amendment" ColumnName="DA_Amendment" />
+          <ScalarProperty Name="DA_Subtitle" ColumnName="DA_Subtitle" />
+          <ScalarProperty Name="CreatorEmail" ColumnName="CreatorEmail" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="ASID_Creator" ColumnName="ASID_Creator" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Document" ColumnName="Document" />
+          <ScalarProperty Name="Rev" ColumnName="Rev" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DTID" ColumnName="DTID" />
+          <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+          <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDocApproved">
+      <EntityTypeMapping TypeName="ECRModel.vwDocApproved">
+        <MappingFragment StoreEntitySet="vwDocApproved">
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Approvals" ColumnName="Approvals" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDocApprovers">
+      <EntityTypeMapping TypeName="ECRModel.vwDocApprovers">
+        <MappingFragment StoreEntitySet="vwDocApprovers">
+          <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+          <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+          <ScalarProperty Name="DaysOpen" ColumnName="DaysOpen" />
+          <ScalarProperty Name="DAAT_DescLong" ColumnName="DAAT_DescLong" />
+          <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+          <ScalarProperty Name="DAAT_Desc" ColumnName="DAAT_Desc" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="DAD_Order" ColumnName="DAD_Order" />
+          <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="DLD_Type" ColumnName="DLD_Type" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Document" ColumnName="Document" />
+          <ScalarProperty Name="Rev" ColumnName="Rev" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DTID" ColumnName="DTID" />
+          <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+          <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="DAD_Approved" ColumnName="DAD_Approved" />
+          <ScalarProperty Name="DAD_Viewed" ColumnName="DAD_Viewed" />
+          <ScalarProperty Name="DADID" ColumnName="DADID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_GetDocApprovers" FunctionName="ECRModel.Store.p_GetDocApprovers" />
+    <FunctionImportMapping FunctionImportName="p_tblDocDel" FunctionName="ECRModel.Store.p_tblDocDel" />
+    <FunctionImportMapping FunctionImportName="p_tblDocFind" FunctionName="ECRModel.Store.p_tblDocFind" />
+    <FunctionImportMapping FunctionImportName="p_tblDocInUp" FunctionName="ECRModel.Store.p_tblDocInUp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ECRModel.p_tblDocInUp_Result">
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="DLID" ColumnName="DLID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DA_Date" ColumnName="DA_Date" />
+          <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Cross" FunctionName="ECRModel.Store.p_tblDocLineAsc_Cross" />
+    <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Del" FunctionName="ECRModel.Store.p_tblDocLineAsc_Del" />
+    <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Up" FunctionName="ECRModel.Store.p_tblDocLineAsc_Up" />
+    <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Up2" FunctionName="ECRModel.Store.p_tblDocLineAsc_Up2" />
+    <EntitySetMapping Name="tblAssociate">
+      <EntityTypeMapping TypeName="ECRModel.tblAssociate">
+        <MappingFragment StoreEntitySet="tblAssociate">
+          <ScalarProperty Name="AS_DC" ColumnName="AS_DC" />
+          <ScalarProperty Name="AS_Group" ColumnName="AS_Group" />
+          <ScalarProperty Name="AS_Domain" ColumnName="AS_Domain" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="AS_Reso" ColumnName="AS_Reso" />
+          <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+          <ScalarProperty Name="AS_Sync" ColumnName="AS_Sync" />
+          <ScalarProperty Name="AS_OutID" ColumnName="AS_OutID" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+          <ScalarProperty Name="AS_Phone" ColumnName="AS_Phone" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="OFID" ColumnName="OFID" />
+          <ScalarProperty Name="DPID" ColumnName="DPID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocApprovalType">
+      <EntityTypeMapping TypeName="ECRModel.tblDocApprovalType">
+        <MappingFragment StoreEntitySet="tblDocApprovalType">
+          <ScalarProperty Name="DAAT_Deleted" ColumnName="DAAT_Deleted" />
+          <ScalarProperty Name="DAAT_DescLong" ColumnName="DAAT_DescLong" />
+          <ScalarProperty Name="DAAT_Desc" ColumnName="DAAT_Desc" />
+          <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFile">
+      <EntityTypeMapping TypeName="ECRModel.tblFile">
+        <MappingFragment StoreEntitySet="tblFile">
+          <ScalarProperty Name="FL_DetailCount" ColumnName="FL_DetailCount" />
+          <ScalarProperty Name="FL_Completed" ColumnName="FL_Completed" />
+          <ScalarProperty Name="FL_DescArchive" ColumnName="FL_DescArchive" />
+          <ScalarProperty Name="FTID" ColumnName="FTID" />
+          <ScalarProperty Name="FL_DateCreated" ColumnName="FL_DateCreated" />
+          <ScalarProperty Name="FL_Date" ColumnName="FL_Date" />
+          <ScalarProperty Name="FL_Desc" ColumnName="FL_Desc" />
+          <ScalarProperty Name="FLID" ColumnName="FLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDocAssociates">
+      <EntityTypeMapping TypeName="ECRModel.vwDocAssociates">
+        <MappingFragment StoreEntitySet="vwDocAssociates">
+          <ScalarProperty Name="DADID" ColumnName="DADID" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Viewed" ColumnName="Viewed" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAssociateDocShow">
+      <EntityTypeMapping TypeName="ECRModel.tblAssociateDocShow">
+        <MappingFragment StoreEntitySet="tblAssociateDocShow">
+          <ScalarProperty Name="ASB_Deleted" ColumnName="ASB_Deleted" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="ASBID" ColumnName="ASBID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionGroup">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionGroup">
+        <MappingFragment StoreEntitySet="tblConcessionGroup">
+          <ScalarProperty Name="CZG_Deleted" ColumnName="CZG_Deleted" />
+          <ScalarProperty Name="CZG_Desc" ColumnName="CZG_Desc" />
+          <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionRole">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionRole">
+        <MappingFragment StoreEntitySet="tblConcessionRole">
+          <ScalarProperty Name="CZR_DefaultTask" ColumnName="CZR_DefaultTask" />
+          <ScalarProperty Name="CZR_Deleted" ColumnName="CZR_Deleted" />
+          <ScalarProperty Name="CZR_Desc" ColumnName="CZR_Desc" />
+          <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionRoleAssign">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionRoleAssign">
+        <MappingFragment StoreEntitySet="tblConcessionRoleAssign">
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+          <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+          <ScalarProperty Name="CZAID" ColumnName="CZAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionDeviation">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionDeviation">
+        <MappingFragment StoreEntitySet="tblConcessionDeviation">
+          <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+          <ScalarProperty Name="CV_Deleted" ColumnName="CV_Deleted" />
+          <ScalarProperty Name="CV_Desc" ColumnName="CV_Desc" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="CVID" ColumnName="CVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcession">
+      <EntityTypeMapping TypeName="ECRModel.tblConcession">
+        <MappingFragment StoreEntitySet="tblConcession">
+          <ScalarProperty Name="CSS_UseStart" ColumnName="CSS_UseStart" />
+          <ScalarProperty Name="CSS_AttachList" ColumnName="CSS_AttachList" />
+          <ScalarProperty Name="CSS_Description" ColumnName="CSS_Description" />
+          <ScalarProperty Name="CSS_RootCause" ColumnName="CSS_RootCause" />
+          <ScalarProperty Name="CSS_ActualValue" ColumnName="CSS_ActualValue" />
+          <ScalarProperty Name="CSS_SpecialRequirement" ColumnName="CSS_SpecialRequirement" />
+          <ScalarProperty Name="CSS_UseBy" ColumnName="CSS_UseBy" />
+          <ScalarProperty Name="CSS_UsedIn" ColumnName="CSS_UsedIn" />
+          <ScalarProperty Name="CSS_Supplier" ColumnName="CSS_Supplier" />
+          <ScalarProperty Name="CSS_TimeStamp" ColumnName="CSS_TimeStamp" />
+          <ScalarProperty Name="CSS_Date" ColumnName="CSS_Date" />
+          <ScalarProperty Name="CSS_RegNumber" ColumnName="CSS_RegNumber" />
+          <ScalarProperty Name="CSS_Repeat" ColumnName="CSS_Repeat" />
+          <ScalarProperty Name="CSS_Hot" ColumnName="CSS_Hot" />
+          <ScalarProperty Name="CSS_Location" ColumnName="CSS_Location" />
+          <ScalarProperty Name="ASID_Entered" ColumnName="ASID_Entered" />
+          <ScalarProperty Name="CSS_Deleted" ColumnName="CSS_Deleted" />
+          <ScalarProperty Name="CSS_Image" ColumnName="CSS_Image" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="CVID" ColumnName="CVID" />
+          <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionApproval">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionApproval">
+        <MappingFragment StoreEntitySet="tblConcessionApproval">
+          <ScalarProperty Name="CSA_Approved" ColumnName="CSA_Approved" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="CSAID" ColumnName="CSAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblConcessionMaterial">
+      <EntityTypeMapping TypeName="ECRModel.tblConcessionMaterial">
+        <MappingFragment StoreEntitySet="tblConcessionMaterial">
+          <ScalarProperty Name="CSM_Deleted" ColumnName="CSM_Deleted" />
+          <ScalarProperty Name="CSM_Qty" ColumnName="CSM_Qty" />
+          <ScalarProperty Name="CSM_Desc" ColumnName="CSM_Desc" />
+          <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+          <ScalarProperty Name="CSMID" ColumnName="CSMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwConcessionDiviationRiskPerson">
+      <EntityTypeMapping TypeName="ECRModel.vwConcessionDiviationRiskPerson">
+        <MappingFragment StoreEntitySet="vwConcessionDiviationRiskPerson">
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+          <ScalarProperty Name="CZR_Desc" ColumnName="CZR_Desc" />
+          <ScalarProperty Name="CVID" ColumnName="CVID" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocAppStatusHistory">
+      <EntityTypeMapping TypeName="ECRModel.tblDocAppStatusHistory">
+        <MappingFragment StoreEntitySet="tblDocAppStatusHistory">
+          <ScalarProperty Name="DH_Created" ColumnName="DH_Created" />
+          <ScalarProperty Name="DASID" ColumnName="DASID" />
+          <ScalarProperty Name="DAID" ColumnName="DAID" />
+          <ScalarProperty Name="DHID" ColumnName="DHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

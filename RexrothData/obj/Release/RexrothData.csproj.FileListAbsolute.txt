@@ -1,0 +1,10 @@
+Z:\DriverLog\RexrothData\bin\Release\RexrothData.dll.config
+Z:\DriverLog\RexrothData\bin\Release\RexrothData.dll
+Z:\DriverLog\RexrothData\bin\Release\RexrothData.pdb
+Z:\DriverLog\RexrothData\bin\Release\EntityFramework.dll
+Z:\DriverLog\RexrothData\bin\Release\EntityFramework.SqlServer.dll
+Z:\DriverLog\RexrothData\bin\Release\EntityFramework.xml
+Z:\DriverLog\RexrothData\bin\Release\EntityFramework.SqlServer.xml
+Z:\DriverLog\RexrothData\obj\Release\RexrothData.dll
+Z:\DriverLog\RexrothData\obj\Release\RexrothData.pdb
+Z:\DriverLog\RexrothData\obj\Release\RexrothData.csprojResolveAssemblyReference.cache

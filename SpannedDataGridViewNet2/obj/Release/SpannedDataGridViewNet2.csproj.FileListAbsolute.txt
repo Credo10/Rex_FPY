@@ -1,0 +1,6 @@
+Z:\Rex_FPY\SpannedDataGridViewNet2\bin\Release\SpannedDataGridViewNet2.dll
+Z:\Rex_FPY\SpannedDataGridViewNet2\bin\Release\SpannedDataGridViewNet2.pdb
+Z:\Rex_FPY\SpannedDataGridViewNet2\obj\Release\SpannedDataGridViewNet2.csprojAssemblyReference.cache
+Z:\Rex_FPY\SpannedDataGridViewNet2\obj\Release\SpannedDataGridViewNet2.csproj.CoreCompileInputs.cache
+Z:\Rex_FPY\SpannedDataGridViewNet2\obj\Release\SpannedDataGridViewNet2.dll
+Z:\Rex_FPY\SpannedDataGridViewNet2\obj\Release\SpannedDataGridViewNet2.pdb

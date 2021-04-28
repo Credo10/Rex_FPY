@@ -1,0 +1,2770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisualModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="aaaPKOldLeakTest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="hour" Type="int" />
+    <Property Name="minit" Type="int" />
+    <Property Name="serialnumber" Type="int" />
+    <Property Name="PKLine" Type="int" />
+    <Property Name="cntPass" Type="int" />
+    <Property Name="cntFail" Type="int" />
+    <Property Name="WorkOrder" Type="varchar" MaxLength="10" />
+    <Property Name="GridCol" Type="int" />
+    <Property Name="Bucket" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bucket2" Type="int" />
+  </EntityType>
+  <EntityType Name="tblBuilding">
+    <Key>
+      <PropertyRef Name="BLDID" />
+    </Key>
+    <Property Name="BLDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRID" Type="int" />
+    <Property Name="BLD_Desc" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BLD_Long" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BLD_Deleted" Type="datetime" />
+    <Property Name="BLD_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCustomerNumber">
+    <Key>
+      <PropertyRef Name="CSNID" />
+    </Key>
+    <Property Name="CSNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSID" Type="int" Nullable="false" />
+    <Property Name="CSN_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CSN_Date" Type="datetime" Nullable="false" />
+    <Property Name="CSN_Long" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tblDSB_Status">
+    <Key>
+      <PropertyRef Name="DSTID" />
+    </Key>
+    <Property Name="DSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MASTID" Type="int" Nullable="false" />
+    <Property Name="DST_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DST_Active" Type="int" Nullable="false" />
+    <Property Name="DST_SAP" Type="varchar" MaxLength="50" />
+    <Property Name="DST_Sort" Type="int" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="DST_Short" Type="varchar" MaxLength="10" />
+    <Property Name="DST_Visual" Type="int" />
+    <Property Name="DST_SAP4" Type="varchar" MaxLength="5" />
+    <Property Name="DST_RptSort" Type="int" />
+    <Property Name="DST_QVS" Type="int" />
+  </EntityType>
+  <EntityType Name="tblFPYBreaks">
+    <Key>
+      <PropertyRef Name="FPYID" />
+    </Key>
+    <Property Name="FPYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FPY_Created" Type="datetime" Nullable="false" />
+    <Property Name="FPY_Deleted" Type="datetime" />
+    <Property Name="FPY_Hour" Type="int" />
+    <Property Name="FPY_Desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="FPY_Shift" Type="nvarchar" MaxLength="1" />
+    <Property Name="FPY_StartMinute" Type="int" />
+    <Property Name="FPY_TotalMinutes" Type="int" />
+  </EntityType>
+  <EntityType Name="tblFPYResults">
+    <Key>
+      <PropertyRef Name="FPYRID" />
+    </Key>
+    <Property Name="FPYRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TotalTests" Type="int" />
+    <Property Name="FirstPass" Type="int" />
+    <Property Name="Fails" Type="int" />
+    <Property Name="FPY" Type="float" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="Nu" Type="float" />
+    <Property Name="ResultsDate" Type="datetime" />
+    <Property Name="Source" Type="nvarchar" MaxLength="30" />
+    <Property Name="VSID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblFPYResultsTest">
+    <Key>
+      <PropertyRef Name="FPYRID" />
+    </Key>
+    <Property Name="FPYRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TotalTests" Type="int" />
+    <Property Name="FirstPass" Type="int" />
+    <Property Name="Fails" Type="int" />
+    <Property Name="FPY" Type="float" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="Nu" Type="float" />
+    <Property Name="ResultsDate" Type="datetime" />
+    <Property Name="Source" Type="nvarchar" MaxLength="30" />
+    <Property Name="TestStand" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblFPYTargets">
+    <Key>
+      <PropertyRef Name="FPYTID" />
+    </Key>
+    <Property Name="FPYTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FPYT_Created" Type="datetime" Nullable="false" />
+    <Property Name="FPYT_Deleted" Type="datetime" />
+    <Property Name="FPY_ShiftTarget" Type="int" />
+    <Property Name="FPY_TwentyFourTarget" Type="int" />
+    <Property Name="Nu_ShiftTarget" Type="int" />
+    <Property Name="Nu_TwentyFourTarget" Type="int" />
+    <Property Name="VSID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblFPYTargetsTest">
+    <Key>
+      <PropertyRef Name="FPYTSID" />
+    </Key>
+    <Property Name="FPYTSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FPYTS_Created" Type="datetime" Nullable="false" />
+    <Property Name="FPYTS_Deleted" Type="datetime" />
+    <Property Name="FPYTS_ShiftTarget" Type="int" />
+    <Property Name="FPYTS_TwentyFourTarget" Type="int" />
+    <Property Name="Nu_ShiftTarget" Type="int" />
+    <Property Name="Nu_TwentyFourTarget" Type="int" />
+    <Property Name="TestStand" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="tblIssue">
+    <Key>
+      <PropertyRef Name="IUID" />
+    </Key>
+    <Property Name="IUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDID" Type="int" Nullable="false" />
+    <Property Name="IVID" Type="int" />
+    <Property Name="ICID" Type="int" />
+    <Property Name="VSID" Type="int" />
+    <Property Name="DSTID" Type="int" />
+    <Property Name="IU_Order" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IU_Deleted" Type="datetime" />
+    <Property Name="IU_Part" Type="varchar" MaxLength="20" />
+    <Property Name="IU_Qty" Type="int" />
+    <Property Name="IX_BoxQty" Type="varchar" MaxLength="20" />
+    <Property Name="IU_UserID" Type="varchar" MaxLength="10" />
+    <Property Name="IU_Badge" Type="varchar" MaxLength="20" />
+    <Property Name="WOID" Type="int" />
+    <Property Name="IPID" Type="int" />
+    <Property Name="IU_TOCreated" Type="bit" Nullable="false" />
+    <Property Name="IU_SAP" Type="bit" Nullable="false" />
+    <Property Name="ITID" Type="int" />
+    <Property Name="IU_BinLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="VOID" Type="int" />
+    <Property Name="BldgOneCleared" Type="int" />
+  </EntityType>
+  <EntityType Name="tblKitter">
+    <Key>
+      <PropertyRef Name="KIID" />
+    </Key>
+    <Property Name="KIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KI_Badge" Type="nvarchar" MaxLength="50" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="WOID" Type="int" Nullable="false" />
+    <Property Name="KI_Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="AU_Badge" Type="nvarchar" MaxLength="50" />
+    <Property Name="AU_ASID" Type="int" />
+    <Property Name="AU_Timestamp" Type="datetime" />
+    <Property Name="KI_Good" Type="bit" Nullable="false" />
+    <Property Name="AEID" Type="int" />
+    <Property Name="AU_Comment" Type="nvarchar" MaxLength="300" />
+    <Property Name="AU_Count" Type="int" />
+  </EntityType>
+  <EntityType Name="tblKitterAudit">
+    <Key>
+      <PropertyRef Name="KQID" />
+    </Key>
+    <Property Name="KQID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KQ_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="KQ_Active" Type="bit" Nullable="false" />
+    <Property Name="KQ_Created" Type="datetime" Nullable="false" />
+    <Property Name="KQ_Deleted" Type="datetime" />
+    <Property Name="AQID" Type="int" />
+    <Property Name="KIID" Type="int" />
+    <Property Name="KQ_Answer" Type="int" />
+    <Property Name="KQ_Corrected" Type="bit" />
+    <Property Name="KQ_CorrectedDate" Type="datetime" />
+    <Property Name="KQ_Comment" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblKitterAuditError">
+    <Key>
+      <PropertyRef Name="AEID" />
+    </Key>
+    <Property Name="AEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AE_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AE_Active" Type="bit" Nullable="false" />
+    <Property Name="AE_Created" Type="datetime" Nullable="false" />
+    <Property Name="AE_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblKitterAuditQuestions">
+    <Key>
+      <PropertyRef Name="AQID" />
+    </Key>
+    <Property Name="AQID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AQ_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AQ_Active" Type="bit" Nullable="false" />
+    <Property Name="AQ_Created" Type="datetime" Nullable="false" />
+    <Property Name="AQ_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblKitterLog">
+    <Key>
+      <PropertyRef Name="KLID" />
+    </Key>
+    <Property Name="KLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KIID" Type="int" Nullable="false" />
+    <Property Name="KSID" Type="int" Nullable="false" />
+    <Property Name="KL_Timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblKitterStatus">
+    <Key>
+      <PropertyRef Name="KSID" />
+    </Key>
+    <Property Name="KSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="KS_Active" Type="bit" Nullable="false" />
+    <Property Name="KS_Created" Type="datetime" Nullable="false" />
+    <Property Name="KS_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblLeakTestCycleTime">
+    <Key>
+      <PropertyRef Name="LTCYID" />
+    </Key>
+    <Property Name="LTCYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LTCY_Created" Type="datetime" Nullable="false" />
+    <Property Name="LTCY_Deleted" Type="datetime" />
+    <Property Name="LTCY_Part" Type="nvarchar" MaxLength="12" />
+    <Property Name="LTCY_Time" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_Family" Type="nvarchar" MaxLength="100" />
+    <Property Name="LTCY_Line" Type="nvarchar" MaxLength="4" />
+    <Property Name="LTCY_HousingTime" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_FlangeTime" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_BoltUpTime" Type="decimal" Precision="4" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblMRPController">
+    <Key>
+      <PropertyRef Name="MRPID" />
+    </Key>
+    <Property Name="MRPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MPTID" Type="int" />
+    <Property Name="MRP_Number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MRP_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="MRP_Type" Type="int" Nullable="false" />
+    <Property Name="MRP_Active" Type="int" Nullable="false" />
+    <Property Name="MRP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPart">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PART_Active" Type="int" Nullable="false" />
+    <Property Name="PART_Rev" Type="varchar" MaxLength="20" />
+    <Property Name="BatchNumber" Type="varchar" MaxLength="50" />
+    <Property Name="DateImported" Type="datetime" />
+    <Property Name="PART_Deleted" Type="datetime" />
+    <Property Name="PSRID" Type="int" />
+    <Property Name="PPTID" Type="int" />
+    <Property Name="PPKID" Type="int" />
+    <Property Name="PDPID" Type="int" />
+    <Property Name="PSFID" Type="int" />
+    <Property Name="PSBID" Type="int" />
+    <Property Name="PSLID" Type="int" />
+    <Property Name="PSPID" Type="int" />
+    <Property Name="PCLID" Type="int" />
+    <Property Name="PART_Group" Type="tinyint" />
+    <Property Name="PART_MM" Type="varchar" MaxLength="10" />
+    <Property Name="PKList_Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="PART_CusNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PART_EBZnum" Type="varchar" MaxLength="31" />
+    <Property Name="US55_Part" Type="bit" />
+    <Property Name="Part_RevUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartBearing">
+    <Key>
+      <PropertyRef Name="PSBID" />
+    </Key>
+    <Property Name="PSBID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSB_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PSB_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartBOM">
+    <Key>
+      <PropertyRef Name="BPPID" />
+    </Key>
+    <Property Name="BPPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BPID" Type="int" Nullable="false" />
+    <Property Name="PTS_Lev" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_Item" Type="varchar" MaxLength="10" />
+    <Property Name="PTS_ICt" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_Component" Type="varchar" MaxLength="50" />
+    <Property Name="PTS_Asm" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_PrcoType" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_SPT" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_MatDoc" Type="varchar" MaxLength="20" />
+    <Property Name="PTS_MatDescription" Type="varchar" MaxLength="300" />
+    <Property Name="PTS_ValidFrom" Type="datetime" />
+    <Property Name="PTS_ValidTo" Type="datetime" />
+    <Property Name="PTS_ChangeNo" Type="varchar" MaxLength="20" />
+    <Property Name="PTS_TimeStamp" Type="datetime" />
+    <Property Name="PTS_Fam" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Type" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Size" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Control" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_X" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Rot" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Seal" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Shaft" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Flan" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_PB" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Thdr" Type="varchar" MaxLength="1000" />
+    <Property Name="PTS_Updated" Type="datetime" />
+    <Property Name="PTS_Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPartBOMComp">
+    <Key>
+      <PropertyRef Name="BCID" />
+    </Key>
+    <Property Name="BCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BC_ItemNo" Type="varchar" MaxLength="50" />
+    <Property Name="BC_Component" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BC_CompDesc" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="BC_Created" Type="datetime" Nullable="false" />
+    <Property Name="BC_Fam" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Type" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Size" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Control" Type="varchar" MaxLength="300" />
+    <Property Name="BC_X" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Rot" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Seal" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Shaft" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Flan" Type="varchar" MaxLength="300" />
+    <Property Name="BC_PB" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Thdr" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Fam1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Type1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Size1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Control1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_X1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Rot1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Seal1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Shaft1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Flan1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_PB1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Thdr1" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Prefix" Type="varchar" MaxLength="300" />
+    <Property Name="BC_Prefix1" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="tblPartBOMParent">
+    <Key>
+      <PropertyRef Name="BPID" />
+    </Key>
+    <Property Name="BPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="BP_Created" Type="datetime" Nullable="false" />
+    <Property Name="BP_Updated" Type="datetime" Nullable="false" />
+    <Property Name="BP_MaxValidFromPre" Type="datetime" />
+    <Property Name="BP_MaxValidFrom" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartDisp">
+    <Key>
+      <PropertyRef Name="PDPID" />
+    </Key>
+    <Property Name="PDPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PDP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PDP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartFolder">
+    <Key>
+      <PropertyRef Name="PTFLDID" />
+    </Key>
+    <Property Name="PTFLDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="PTFLD_Desc" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="PTFLD_Created" Type="datetime" Nullable="false" />
+    <Property Name="PTFLD_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartFolderPPT">
+    <Key>
+      <PropertyRef Name="PTPTID" />
+    </Key>
+    <Property Name="PTPTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTFLDID" Type="int" Nullable="false" />
+    <Property Name="PTPT_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PTPT_LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="PTPT_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="PTPT_PDFImage" Type="image" />
+  </EntityType>
+  <EntityType Name="tblPartFolderPPTPics">
+    <Key>
+      <PropertyRef Name="PTPPTID" />
+    </Key>
+    <Property Name="PTPPTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTPTID" Type="int" Nullable="false" />
+    <Property Name="PTPPT_Slide" Type="int" Nullable="false" />
+    <Property Name="PTPPT_PicName" Type="varchar" MaxLength="50" />
+    <Property Name="PTPPT_Top" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Left" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Height" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Width" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_AltText" Type="varchar" MaxLength="50" />
+    <Property Name="PTPPT_Path" Type="varchar" MaxLength="500" />
+    <Property Name="PTPPT_TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPartModelCodeBreakdown">
+    <Key>
+      <PropertyRef Name="MXID" />
+    </Key>
+    <Property Name="MXID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" />
+    <Property Name="MX_ModelCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MX_CorrectedModelCode" Type="varchar" MaxLength="50" />
+    <Property Name="MX_Part2" Type="varchar" MaxLength="25" />
+    <Property Name="MX_Part3" Type="varchar" MaxLength="25" />
+    <Property Name="MX_Prefix" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Family" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Type" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Size" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Control" Type="varchar" MaxLength="10" />
+    <Property Name="MX_AuxOptions" Type="varchar" MaxLength="10" />
+    <Property Name="MX_CtrlOptions" Type="varchar" MaxLength="10" />
+    <Property Name="MX_POR" Type="varchar" MaxLength="10" />
+    <Property Name="MX_NeutralPosSwitch" Type="varchar" MaxLength="10" />
+    <Property Name="MX_AngleSensor" Type="varchar" MaxLength="10" />
+    <Property Name="MX_StrokeLimiter" Type="varchar" MaxLength="10" />
+    <Property Name="MX_X3X4Ports" Type="varchar" MaxLength="10" />
+    <Property Name="MX_DAValve" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Damping" Type="varchar" MaxLength="10" />
+    <Property Name="MX_DispScrew" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Series" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Threads" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Rotation" Type="varchar" MaxLength="10" />
+    <Property Name="MX_MinDisp" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Dash" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Seals" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Bearing" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Shaft" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Flange" Type="varchar" MaxLength="10" />
+    <Property Name="MX_PortBlock" Type="varchar" MaxLength="10" />
+    <Property Name="MX_BoostPump" Type="varchar" MaxLength="10" />
+    <Property Name="MX_ThroughDrive" Type="varchar" MaxLength="10" />
+    <Property Name="MX_End" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Valve" Type="varchar" MaxLength="10" />
+    <Property Name="MX_PortsValve" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Filter" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Connector" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Version" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Sensor" Type="varchar" MaxLength="10" />
+    <Property Name="MX_SpecialOption" Type="varchar" MaxLength="10" />
+    <Property Name="MX_DiscountCombo" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Plant" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Product" Type="varchar" MaxLength="10" />
+    <Property Name="MX_Operation" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblPartPackage">
+    <Key>
+      <PropertyRef Name="PPKID" />
+    </Key>
+    <Property Name="PPKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPK_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PPK_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartPort">
+    <Key>
+      <PropertyRef Name="PPTID" />
+    </Key>
+    <Property Name="PPTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PPT_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartRineerMotor">
+    <Key>
+      <PropertyRef Name="PARTRID" />
+    </Key>
+    <Property Name="PARTRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="Motor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PARTR_Deleted" Type="datetime" />
+    <Property Name="RMTID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPartRineerMotorType">
+    <Key>
+      <PropertyRef Name="RMTID" />
+    </Key>
+    <Property Name="RMTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RMT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RMT_Deleted" Type="datetime" />
+    <Property Name="RMT_Path" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tblPartRineerPath">
+    <Key>
+      <PropertyRef Name="PPZID" />
+    </Key>
+    <Property Name="PPZID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSRID" Type="int" Nullable="false" />
+    <Property Name="PPTID" Type="int" Nullable="false" />
+    <Property Name="PPKID" Type="int" Nullable="false" />
+    <Property Name="PDPID" Type="int" Nullable="false" />
+    <Property Name="PSFID" Type="int" Nullable="false" />
+    <Property Name="PSBID" Type="int" Nullable="false" />
+    <Property Name="PSLID" Type="int" Nullable="false" />
+    <Property Name="PSPID" Type="int" Nullable="false" />
+    <Property Name="PPZ_Desc" Type="varchar" MaxLength="1000" />
+    <Property Name="PPZ_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartSeal">
+    <Key>
+      <PropertyRef Name="PSLID" />
+    </Key>
+    <Property Name="PSLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PSL_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartSeries">
+    <Key>
+      <PropertyRef Name="PSRID" />
+    </Key>
+    <Property Name="PSRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSR_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PSR_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartShaft">
+    <Key>
+      <PropertyRef Name="PSFID" />
+    </Key>
+    <Property Name="PSFID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSF_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PSF_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPartSpecial">
+    <Key>
+      <PropertyRef Name="PSPID" />
+    </Key>
+    <Property Name="PSPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PSP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PSP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblPath">
+    <Key>
+      <PropertyRef Name="PTID" />
+    </Key>
+    <Property Name="PTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LNID" Type="int" Nullable="false" />
+    <Property Name="PT_Desc" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="OPID" Type="int" />
+    <Property Name="FTID" Type="int" />
+    <Property Name="PT_ArchiveFolder" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblPrinter">
+    <Key>
+      <PropertyRef Name="PRID" />
+    </Key>
+    <Property Name="PRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PR_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PR_Long" Type="varchar" MaxLength="500" />
+    <Property Name="PR_Active" Type="bit" Nullable="false" />
+    <Property Name="PR_Created" Type="datetime" Nullable="false" />
+    <Property Name="PR_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShipping">
+    <Key>
+      <PropertyRef Name="SHID" />
+    </Key>
+    <Property Name="SHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SRCID" Type="int" />
+    <Property Name="CSNID" Type="int" Nullable="false" />
+    <Property Name="MRPID" Type="int" />
+    <Property Name="FLDID" Type="int" />
+    <Property Name="SH_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SH_Date" Type="datetime" Nullable="false" />
+    <Property Name="SH_Sort" Type="int" />
+    <Property Name="SH_Deleted" Type="datetime" />
+    <Property Name="SH_Created" Type="datetime" Nullable="false" />
+    <Property Name="SH_Location" Type="varchar" MaxLength="8" />
+    <Property Name="SH_ShipDate" Type="datetime" />
+    <Property Name="SH_SSSent" Type="varchar" MaxLength="15" />
+    <Property Name="SH_SSPull" Type="varchar" MaxLength="15" />
+    <Property Name="SH_FromPack" Type="bit" Nullable="false" />
+    <Property Name="SH_PlannedGIDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingAction">
+    <Key>
+      <PropertyRef Name="SHAID" />
+    </Key>
+    <Property Name="SHAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHA_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHA_Active" Type="int" Nullable="false" />
+    <Property Name="SHA_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingComment">
+    <Key>
+      <PropertyRef Name="SHCID" />
+    </Key>
+    <Property Name="SHCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="SHCTID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="SHC_Date" Type="datetime" Nullable="false" />
+    <Property Name="SHC_Comment" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="SHC_Name" Type="varchar" MaxLength="30" />
+    <Property Name="SHPID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblShippingCommentType">
+    <Key>
+      <PropertyRef Name="SHCTID" />
+    </Key>
+    <Property Name="SHCTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHAID" Type="int" Nullable="false" />
+    <Property Name="SHCT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHCT_Active" Type="int" Nullable="false" />
+    <Property Name="SHCT_Color" Type="int" />
+    <Property Name="SHCT_ForeColor" Type="int" />
+    <Property Name="ARID" Type="int" />
+    <Property Name="SHCT_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingDetailStatus">
+    <Key>
+      <PropertyRef Name="SHDSID" />
+    </Key>
+    <Property Name="SHDSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHMSID" Type="int" Nullable="false" />
+    <Property Name="SHDS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHDS_Active" Type="int" Nullable="false" />
+    <Property Name="SHDS_SAP" Type="varchar" MaxLength="50" />
+    <Property Name="SHDS_Sort" Type="int" Nullable="false" />
+    <Property Name="SHDS_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingMasterStatus">
+    <Key>
+      <PropertyRef Name="SHMSID" />
+    </Key>
+    <Property Name="SHMSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHMS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHMS_Active" Type="int" Nullable="false" />
+    <Property Name="SHMS_Ship" Type="int" />
+    <Property Name="SHMS_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingPart">
+    <Key>
+      <PropertyRef Name="SHPID" />
+    </Key>
+    <Property Name="SHPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="SRCID" Type="int" />
+    <Property Name="SHP_Qty" Type="int" />
+    <Property Name="SHP_Deleted" Type="datetime" />
+    <Property Name="SHP_Line" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SHP_Shipped" Type="datetime" />
+    <Property Name="MRPID" Type="int" />
+    <Property Name="SHP_Location" Type="varchar" MaxLength="5" />
+    <Property Name="SHP_SSSent" Type="varchar" MaxLength="35" />
+    <Property Name="SHP_SSPull" Type="varchar" MaxLength="15" />
+    <Property Name="SHP_SSPullOK" Type="varchar" MaxLength="15" />
+    <Property Name="SHP_PlannedGIDate" Type="datetime" />
+    <Property Name="SHP_SVPSkip" Type="int" />
+  </EntityType>
+  <EntityType Name="tblShippingReasonCode">
+    <Key>
+      <PropertyRef Name="SRCID" />
+    </Key>
+    <Property Name="SRCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SRC_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SRC_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShippingStatus">
+    <Key>
+      <PropertyRef Name="SHSID" />
+    </Key>
+    <Property Name="SHSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="SHDSID" Type="int" Nullable="false" />
+    <Property Name="SHS_Date" Type="datetime" Nullable="false" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="SHS_Name" Type="varchar" MaxLength="30" />
+    <Property Name="FLID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSparePartsComments">
+    <Key>
+      <PropertyRef Name="SPDCID" />
+    </Key>
+    <Property Name="SPDCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPDC_Desc" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="SPDC_Active" Type="bit" Nullable="false" />
+    <Property Name="SPDC_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPDC_Deleted" Type="datetime" />
+    <Property Name="SPDID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDelivery">
+    <Key>
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="SPDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPD_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPD_Active" Type="bit" Nullable="false" />
+    <Property Name="SPD_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPD_Deleted" Type="datetime" />
+    <Property Name="PARTID" Type="int" />
+    <Property Name="SPD_Qty" Type="int" />
+    <Property Name="SPD_Picked" Type="datetime" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="SPD_Inspected" Type="datetime" />
+    <Property Name="ASID_I" Type="int" />
+    <Property Name="SPD_Shipped" Type="datetime" />
+    <Property Name="ASID_S" Type="int" />
+    <Property Name="SPDSID" Type="int" />
+    <Property Name="SPD_Changed" Type="bit" />
+    <Property Name="SPD_Issue" Type="bit" />
+    <Property Name="SPD_Override" Type="datetime" />
+    <Property Name="ASID_O" Type="int" />
+    <Property Name="SPD_Claim" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDeliveryRole">
+    <Key>
+      <PropertyRef Name="SPDRID" />
+    </Key>
+    <Property Name="SPDRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPDR_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPDR_Active" Type="bit" Nullable="false" />
+    <Property Name="SPDR_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPDR_Deleted" Type="datetime" />
+    <Property Name="PNum" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="Initials" Type="varchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDeliveryStatus">
+    <Key>
+      <PropertyRef Name="SPDSID" />
+    </Key>
+    <Property Name="SPDSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPDS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPDS_Active" Type="bit" Nullable="false" />
+    <Property Name="SPDS_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPDS_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblSparePartsInspections">
+    <Key>
+      <PropertyRef Name="SPIID" />
+    </Key>
+    <Property Name="SPIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPDID" Type="int" Nullable="false" />
+    <Property Name="SPDQID" Type="int" Nullable="false" />
+    <Property Name="SPI_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPI_Active" Type="bit" Nullable="false" />
+    <Property Name="SPI_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPI_Deleted" Type="datetime" />
+    <Property Name="SPI_Answer" Type="varchar" MaxLength="30" />
+    <Property Name="SPI_ASID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSparePartsInspQuestions">
+    <Key>
+      <PropertyRef Name="SPDQID" />
+    </Key>
+    <Property Name="SPDQID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SPDQ_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPDQ_Active" Type="bit" Nullable="false" />
+    <Property Name="SPDQ_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPDQ_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblTestStandCycleTime">
+    <Key>
+      <PropertyRef Name="TSCYID" />
+    </Key>
+    <Property Name="TSCYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TSCY_Created" Type="datetime" Nullable="false" />
+    <Property Name="TSCY_Deleted" Type="datetime" />
+    <Property Name="TSCY_Part" Type="nvarchar" MaxLength="20" />
+    <Property Name="TSCY_Time" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="TSCY_Family" Type="nvarchar" MaxLength="100" />
+    <Property Name="TSCY_TestStand" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="tblValueMachine">
+    <Key>
+      <PropertyRef Name="VMID" />
+    </Key>
+    <Property Name="VMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VM_Short" Type="varchar" MaxLength="15" />
+    <Property Name="VM_TotalHours" Type="int" />
+    <Property Name="VM_Deleted" Type="datetime" />
+    <Property Name="VM_Color" Type="varchar" MaxLength="15" />
+    <Property Name="VM_Machining" Type="bit" Nullable="false" />
+    <Property Name="BLDID" Type="int" />
+    <Property Name="ASID1" Type="int" />
+    <Property Name="ASID2" Type="int" />
+    <Property Name="ASID3" Type="int" />
+    <Property Name="ASID4" Type="int" />
+    <Property Name="ASID5" Type="int" />
+    <Property Name="VM_ManPower" Type="varchar" MaxLength="50" />
+    <Property Name="VM_Priority" Type="varchar" MaxLength="50" />
+    <Property Name="VM_AvgRunTime" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="VSID_Pre" Type="int" />
+    <Property Name="ASIDVOIS" Type="int" />
+    <Property Name="VM_FLoc" Type="varchar" MaxLength="100" />
+    <Property Name="VSID_Pre2" Type="int" />
+    <Property Name="VSID_Pre3" Type="int" />
+    <Property Name="VM_ProdSupplyArea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCastingPart">
+    <Key>
+      <PropertyRef Name="CASPID" />
+    </Key>
+    <Property Name="CASPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="CASTID" Type="int" Nullable="false" />
+    <Property Name="CASP_SetupTime" Type="decimal" Precision="8" Scale="5" />
+    <Property Name="CASPID_Created" Type="datetime" Nullable="false" />
+    <Property Name="CASPID_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCastings">
+    <Key>
+      <PropertyRef Name="CASTID" />
+    </Key>
+    <Property Name="CASTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VLID" Type="int" />
+    <Property Name="BLDID" Type="int" />
+    <Property Name="CAST_Desc" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="CAST_Deleted" Type="datetime" />
+    <Property Name="CAST_BoxQty" Type="int" />
+    <Property Name="CAST_KanbanID" Type="varchar" MaxLength="100" />
+    <Property Name="CAST_5018Min" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCommentType">
+    <Key>
+      <PropertyRef Name="VMCTID" />
+    </Key>
+    <Property Name="VMCTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VMCT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VMCT_Color" Type="varchar" MaxLength="15" />
+    <Property Name="VMCT_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineDown">
+    <Key>
+      <PropertyRef Name="VMDID" />
+    </Key>
+    <Property Name="VMDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VMCID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VMD_Entered" Type="varchar" MaxLength="50" />
+    <Property Name="VMD_Comment" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="VMD_Active" Type="bit" Nullable="false" />
+    <Property Name="VMD_Created" Type="datetime" Nullable="false" />
+    <Property Name="VMD_Deleted" Type="datetime" />
+    <Property Name="VMD_Resolved" Type="datetime" />
+    <Property Name="VMD_ResolvedASID" Type="int" />
+    <Property Name="VMD_ResolvedAssociate" Type="varchar" MaxLength="50" />
+    <Property Name="VMD_Priority" Type="int" />
+  </EntityType>
+  <EntityType Name="tblValueMachineHealth">
+    <Key>
+      <PropertyRef Name="MHID" />
+    </Key>
+    <Property Name="MHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MH_1" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MH_2" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MH_3" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MH_4" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpArea">
+    <Key>
+      <PropertyRef Name="VAID" />
+    </Key>
+    <Property Name="VAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VA_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VA_Active" Type="bit" Nullable="false" />
+    <Property Name="VA_Created" Type="datetime" Nullable="false" />
+    <Property Name="VA_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpList">
+    <Key>
+      <PropertyRef Name="VNID" />
+    </Key>
+    <Property Name="VNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VAID" Type="int" />
+    <Property Name="VN_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VN_Operation" Type="varchar" MaxLength="15" />
+    <Property Name="VN_Deleted" Type="datetime" />
+    <Property Name="VN_TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpListWC">
+    <Key>
+      <PropertyRef Name="VNDID" />
+    </Key>
+    <Property Name="VNDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VNID" Type="int" Nullable="false" />
+    <Property Name="VWID" Type="int" Nullable="false" />
+    <Property Name="VND_Active" Type="bit" Nullable="false" />
+    <Property Name="VND_Created" Type="datetime" Nullable="false" />
+    <Property Name="VND_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrder">
+    <Key>
+      <PropertyRef Name="VOID" />
+    </Key>
+    <Property Name="VOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VSID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="CASTID" Type="int" />
+    <Property Name="SUPID" Type="int" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VO_Qty" Type="int" />
+    <Property Name="VO_BSCStart" Type="date" />
+    <Property Name="VO_BSCFinish" Type="date" />
+    <Property Name="VO_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="VO_Updated" Type="datetime" Nullable="false" />
+    <Property Name="VO_Sort" Type="int" />
+    <Property Name="VO_SortDate" Type="date" />
+    <Property Name="VO_StartDate" Type="datetime" />
+    <Property Name="VO_FinishDate" Type="datetime" />
+    <Property Name="VO_Created" Type="bit" />
+    <Property Name="VO_DeliveredQty" Type="int" />
+    <Property Name="VO_SAPStatus" Type="varchar" MaxLength="500" />
+    <Property Name="VMID_Machining" Type="int" />
+    <Property Name="VO_RunSetup" Type="int" />
+    <Property Name="VO_RunTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunStart" Type="datetime" />
+    <Property Name="VO_RunFinish" Type="datetime" />
+    <Property Name="VO_RunTime" Type="varchar" MaxLength="50" />
+    <Property Name="VO_RunSort" Type="int" />
+    <Property Name="VO_DeliveredQtyUpdated" Type="datetime" />
+    <Property Name="VO_Short1" Type="varchar" MaxLength="25" />
+    <Property Name="VO_UpdatedVMID" Type="datetime" />
+    <Property Name="VO_Scrap" Type="int" />
+    <Property Name="VSID_Pre" Type="int" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderCastingEmail">
+    <Key>
+      <PropertyRef Name="VQID" />
+    </Key>
+    <Property Name="VQID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VQ_Created" Type="datetime" Nullable="false" />
+    <Property Name="VO_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="VO_RunStart" Type="datetime" />
+    <Property Name="VO_Qty" Type="int" />
+    <Property Name="VO_DeliveredQty" Type="int" />
+    <Property Name="Supplier" Type="varchar" MaxLength="500" />
+    <Property Name="Casting" Type="varchar" MaxLength="50" />
+    <Property Name="BoxQty" Type="float" />
+    <Property Name="OrderQtyTotal" Type="float" />
+    <Property Name="DeliveredQtyTotal" Type="float" />
+    <Property Name="DeltaQtyTotal" Type="float" />
+    <Property Name="OrderBoxes" Type="float" />
+    <Property Name="OrderBoxesRndDown" Type="int" />
+    <Property Name="Building" Type="varchar" MaxLength="500" />
+    <Property Name="5018" Type="float" />
+    <Property Name="5018Min" Type="int" />
+    <Property Name="Boxes" Type="int" />
+    <Property Name="5018RunAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderComment">
+    <Key>
+      <PropertyRef Name="VOCID" />
+    </Key>
+    <Property Name="VOCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VMCTID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VOC_Comment" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="VOC_Deleted" Type="datetime" />
+    <Property Name="VOC_TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOp">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VWID" Type="int" Nullable="false" />
+    <Property Name="VNID" Type="int" Nullable="false" />
+    <Property Name="VP_StartDate" Type="datetime" />
+    <Property Name="VP_FinishDate" Type="datetime" />
+    <Property Name="VP_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="VP_Updated" Type="datetime" Nullable="false" />
+    <Property Name="VP_ProcessingTime" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="VP_ProcessingMin" Type="varchar" MaxLength="15" />
+    <Property Name="VP_OpOrder" Type="varchar" MaxLength="10" />
+    <Property Name="VP_SAPStatus" Type="varchar" MaxLength="500" />
+    <Property Name="VP_Yield" Type="int" />
+    <Property Name="VP_Deleted" Type="datetime" />
+    <Property Name="VP_OpSort" Type="int" />
+    <Property Name="VP_Confirmation" Type="varchar" MaxLength="20" />
+    <Property Name="VP_PrintAttempts" Type="int" />
+    <Property Name="VP_Open" Type="bit" Nullable="false" />
+    <Property Name="VP_Row" Type="int" />
+    <Property Name="VP_Rank" Type="int" />
+    <Property Name="VP_AddedLater" Type="datetime" />
+    <Property Name="VP_RemovedLater" Type="datetime" />
+    <Property Name="VP_Scrap" Type="int" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOpManualConfirm">
+    <Key>
+      <PropertyRef Name="VVID" />
+    </Key>
+    <Property Name="VVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="VQID" Type="int" Nullable="false" />
+    <Property Name="PCID" Type="int" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="PRID" Type="int" />
+    <Property Name="SAID" Type="int" />
+    <Property Name="VYID" Type="int" />
+    <Property Name="VV_Yield" Type="int" Nullable="false" />
+    <Property Name="VV_Scrap" Type="int" Nullable="false" />
+    <Property Name="VV_OP" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="VV_WorkCenter" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VV_PNum" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VV_Created" Type="datetime" Nullable="false" />
+    <Property Name="VV_Comment" Type="varchar" MaxLength="500" />
+    <Property Name="VV_image" Type="image" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOpManualConfirmErr">
+    <Key>
+      <PropertyRef Name="VZID" />
+    </Key>
+    <Property Name="VZID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="VZ_Desc" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="VZ_Host" Type="varchar" MaxLength="250" />
+    <Property Name="VZ_User" Type="varchar" MaxLength="50" />
+    <Property Name="VZ_Caller" Type="varchar" MaxLength="250" />
+    <Property Name="VZ_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderStatus">
+    <Key>
+      <PropertyRef Name="SVID" />
+    </Key>
+    <Property Name="SVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="SMID" Type="int" Nullable="false" />
+    <Property Name="SV_TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePart">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="VP_Primary" Type="int" Nullable="false" />
+    <Property Name="VP_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="VP_RunTime" Type="decimal" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="VWID" Type="int" />
+    <Property Name="VP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePartSetup">
+    <Key>
+      <PropertyRef Name="SUPTID" />
+    </Key>
+    <Property Name="SUPTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUPID" Type="int" />
+    <Property Name="PARTID" Type="int" />
+    <Property Name="SUPT_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="SUPT_Deleted" Type="datetime" />
+    <Property Name="VWID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePC">
+    <Key>
+      <PropertyRef Name="PCID" />
+    </Key>
+    <Property Name="PCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PC_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PC_Active" Type="bit" Nullable="false" />
+    <Property Name="PC_Created" Type="datetime" Nullable="false" />
+    <Property Name="PC_Deleted" Type="datetime" />
+    <Property Name="PC_AutoConfirm" Type="bit" Nullable="false" />
+    <Property Name="PC_AutoFromPC" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePCLink">
+    <Key>
+      <PropertyRef Name="VKID" />
+    </Key>
+    <Property Name="VKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PCID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="VK_Active" Type="bit" Nullable="false" />
+    <Property Name="VK_Created" Type="datetime" Nullable="false" />
+    <Property Name="VK_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePCPrinters">
+    <Key>
+      <PropertyRef Name="VDID" />
+    </Key>
+    <Property Name="VDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRID" Type="int" Nullable="false" />
+    <Property Name="PCID" Type="int" Nullable="false" />
+    <Property Name="VD_Active" Type="bit" Nullable="false" />
+    <Property Name="VD_Created" Type="datetime" Nullable="false" />
+    <Property Name="VD_Deleted" Type="datetime" />
+    <Property Name="VD_LabelSort" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePrinter">
+    <Key>
+      <PropertyRef Name="VUID" />
+    </Key>
+    <Property Name="VUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="VU_Active" Type="bit" Nullable="false" />
+    <Property Name="VU_Created" Type="datetime" Nullable="false" />
+    <Property Name="VU_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineReasonCodes">
+    <Key>
+      <PropertyRef Name="VMCID" />
+    </Key>
+    <Property Name="VMCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VMC_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VMC_Active" Type="bit" Nullable="false" />
+    <Property Name="VMC_Created" Type="datetime" Nullable="false" />
+    <Property Name="VMC_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineScrapCode">
+    <Key>
+      <PropertyRef Name="SAID" />
+    </Key>
+    <Property Name="SAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SA_Short" Type="varchar" MaxLength="4" />
+    <Property Name="SA_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SA_Active" Type="bit" Nullable="false" />
+    <Property Name="SA_Created" Type="datetime" Nullable="false" />
+    <Property Name="SA_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineSetup">
+    <Key>
+      <PropertyRef Name="SUPID" />
+    </Key>
+    <Property Name="SUPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUP_Desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUP_Deleted" Type="datetime" />
+    <Property Name="SUP_TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineStatus">
+    <Key>
+      <PropertyRef Name="SMID" />
+    </Key>
+    <Property Name="SMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SM_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SM_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineSupplier">
+    <Key>
+      <PropertyRef Name="VLID" />
+    </Key>
+    <Property Name="VLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VL_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VL_Active" Type="bit" Nullable="false" />
+    <Property Name="VL_Created" Type="datetime" Nullable="false" />
+    <Property Name="VL_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWC">
+    <Key>
+      <PropertyRef Name="VWID" />
+    </Key>
+    <Property Name="VWID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="VW_Short" Type="varchar" MaxLength="20" />
+    <Property Name="VW_Desc" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="VW_Long" Type="nvarchar" MaxLength="200" />
+    <Property Name="VW_Deleted" Type="datetime" />
+    <Property Name="VW_TimeStamp" Type="datetime" />
+    <Property Name="VAID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWC_VMID">
+    <Key>
+      <PropertyRef Name="WMID" />
+    </Key>
+    <Property Name="WMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="VWID" Type="int" Nullable="false" />
+    <Property Name="WM_Active" Type="bit" Nullable="false" />
+    <Property Name="WM_Created" Type="datetime" Nullable="false" />
+    <Property Name="WM_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWCSetup">
+    <Key>
+      <PropertyRef Name="WSID" />
+    </Key>
+    <Property Name="WSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUPID" Type="int" Nullable="false" />
+    <Property Name="VWID" Type="int" Nullable="false" />
+    <Property Name="WS_Process" Type="decimal" Precision="6" Scale="4" Nullable="false" />
+    <Property Name="WS_Active" Type="bit" Nullable="false" />
+    <Property Name="WS_Created" Type="datetime" Nullable="false" />
+    <Property Name="WS_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblValueStream">
+    <Key>
+      <PropertyRef Name="VSID" />
+    </Key>
+    <Property Name="VSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VSGID" Type="int" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VS_Color" Type="varchar" MaxLength="50" />
+    <Property Name="VS_Active" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="VS_ForeColor" Type="varchar" MaxLength="50" />
+    <Property Name="VS_SAP" Type="varchar" MaxLength="50" />
+    <Property Name="VS_Sort" Type="int" />
+    <Property Name="VS_TAKT" Type="int" />
+    <Property Name="VS_DSB" Type="bit" Nullable="false" />
+    <Property Name="VS_UseDSTID" Type="bit" Nullable="false" />
+    <Property Name="VS_QVS" Type="bit" />
+    <Property Name="VS_MDB" Type="bit" />
+    <Property Name="VS_LogPickScreen" Type="bit" />
+    <Property Name="VS_Andon" Type="bit" />
+    <Property Name="VS_Added" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.tblOptions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblOptions">
+    <Key>
+      <PropertyRef Name="OPID" />
+      <PropertyRef Name="OP_ID" />
+      <PropertyRef Name="OP_Desc" />
+    </Key>
+    <Property Name="OPID" Type="int" Nullable="false" />
+    <Property Name="OP_ID" Type="int" Nullable="false" />
+    <Property Name="OP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="OP_Function" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwKitter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwKitter">
+    <Key>
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="KLID" />
+      <PropertyRef Name="KSID" />
+    </Key>
+    <Property Name="ASID" Type="int" />
+    <Property Name="WorkOrder" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="KitterBadge" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Time" Type="datetime" />
+    <Property Name="KIID" Type="int" />
+    <Property Name="WOID" Type="int" />
+    <Property Name="ValueStream" Type="varchar" MaxLength="100" />
+    <Property Name="KI_Good" Type="bit" />
+    <Property Name="KLID" Type="int" Nullable="false" />
+    <Property Name="KSID" Type="int" Nullable="false" />
+    <Property Name="WkHour" Type="int" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwKitterAudited' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwKitterAudited">
+    <Key>
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="ASID" Type="int" />
+    <Property Name="WorkOrder" Type="varchar" MaxLength="50" />
+    <Property Name="KitterName" Type="varchar" MaxLength="150" />
+    <Property Name="KitterBadge" Type="nvarchar" MaxLength="50" />
+    <Property Name="KitterCount" Type="int" />
+    <Property Name="KittedTime" Type="datetime" />
+    <Property Name="AuditorBadge" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuditorCount" Type="int" />
+    <Property Name="AuditTime" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="KIID" Type="int" />
+    <Property Name="WOID" Type="int" />
+    <Property Name="ValueStream" Type="varchar" MaxLength="100" />
+    <Property Name="KI_Good" Type="bit" />
+    <Property Name="AuditError" Type="varchar" MaxLength="100" />
+    <Property Name="AU_ASID" Type="int" />
+    <Property Name="AU_Comment" Type="nvarchar" MaxLength="300" />
+    <Property Name="AuditorName" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwPartBOM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPartBOM">
+    <Key>
+      <PropertyRef Name="BPID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="BP_Created" />
+      <PropertyRef Name="BP_Updated" />
+    </Key>
+    <Property Name="BPID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BP_Created" Type="datetime" Nullable="false" />
+    <Property Name="BP_Updated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwPartBOM_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPartBOM_Details">
+    <Key>
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="BPPID" />
+      <PropertyRef Name="BPID" />
+    </Key>
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="BPPID" Type="int" Nullable="false" />
+    <Property Name="BPID" Type="int" Nullable="false" />
+    <Property Name="PTS_Lev" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_Item" Type="varchar" MaxLength="10" />
+    <Property Name="PTS_ICt" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_Component" Type="varchar" MaxLength="50" />
+    <Property Name="PTS_Asm" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_PrcoType" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_SPT" Type="varchar" MaxLength="5" />
+    <Property Name="PTS_MatDoc" Type="varchar" MaxLength="20" />
+    <Property Name="PTS_MatDescription" Type="varchar" MaxLength="300" />
+    <Property Name="PTS_ValidFrom" Type="datetime" />
+    <Property Name="PTS_ValidTo" Type="datetime" />
+    <Property Name="PTS_ChangeNo" Type="varchar" MaxLength="20" />
+    <Property Name="PTS_TimeStamp" Type="datetime" />
+    <Property Name="Pre" Type="varchar" MaxLength="10" />
+    <Property Name="Two" Type="varchar" MaxLength="25" />
+    <Property Name="Three" Type="varchar" MaxLength="25" />
+    <Property Name="Fam" Type="varchar" MaxLength="10" />
+    <Property Name="Type" Type="varchar" MaxLength="10" />
+    <Property Name="Size" Type="varchar" MaxLength="10" />
+    <Property Name="Control" Type="varchar" MaxLength="10" />
+    <Property Name="/X" Type="varchar" MaxLength="10" />
+    <Property Name="Rot" Type="varchar" MaxLength="10" />
+    <Property Name="Seal" Type="varchar" MaxLength="10" />
+    <Property Name="Shaft" Type="varchar" MaxLength="10" />
+    <Property Name="Flan" Type="varchar" MaxLength="10" />
+    <Property Name="PB" Type="varchar" MaxLength="10" />
+    <Property Name="Thdr" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwPartBomValueStream' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPartBomValueStream">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VSID" />
+    </Key>
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Rows" Type="int" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="VSID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwPartFolderSHID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPartFolderSHID">
+    <Key>
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PTPTID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PTPT_Name" />
+      <PropertyRef Name="PTFLD_Desc" />
+    </Key>
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="PTPT_PDFImage" Type="image" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="PTPTID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PTPT_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PTFLD_Desc" Type="varchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwPartRineerMatch2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPartRineerMatch2">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="PPZ_Desc" Type="varchar" MaxLength="1000" />
+    <Property Name="PSR_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PPT_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PPK_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PDP_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PSF_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PSB_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PSL_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="PSP_Desc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwSerialPartWO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSerialPartWO">
+    <Key>
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="WO_Desc" />
+      <PropertyRef Name="PartID" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="Serial" />
+    </Key>
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="WO_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VSID" Type="int" />
+    <Property Name="PartID" Type="int" Nullable="false" />
+    <Property Name="WOID" Type="int" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Serial" Type="int" Nullable="false" />
+    <Property Name="WO_Qty" Type="int" />
+    <Property Name="BatchNo" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwShippingComments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwShippingComments">
+    <Key>
+      <PropertyRef Name="SHCT_Desc" />
+      <PropertyRef Name="SHC_Comment" />
+      <PropertyRef Name="SHC_Date" />
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="SHCID" />
+    </Key>
+    <Property Name="SHCT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHC_Comment" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="SHC_Date" Type="datetime" Nullable="false" />
+    <Property Name="Associate" Type="varchar" MaxLength="50" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="SHCID" Type="int" Nullable="false" />
+    <Property Name="SHPID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwShippingStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwShippingStatus">
+    <Key>
+      <PropertyRef Name="SH_Desc" />
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="SHPID" />
+      <PropertyRef Name="SHP_Line" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="COMAT_GoTo" />
+      <PropertyRef Name="MRP_Type" />
+      <PropertyRef Name="MRP_Number" />
+      <PropertyRef Name="SHS_Date" />
+      <PropertyRef Name="SHDSID" />
+      <PropertyRef Name="SHSID" />
+      <PropertyRef Name="SHDS_Desc" />
+      <PropertyRef Name="SHMSID" />
+      <PropertyRef Name="SHMS_Desc" />
+      <PropertyRef Name="Rushed" />
+    </Key>
+    <Property Name="SH_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SH_Sort" Type="int" />
+    <Property Name="SH_Deleted" Type="datetime" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+    <Property Name="FLDID" Type="int" />
+    <Property Name="SH_Location" Type="varchar" MaxLength="8" />
+    <Property Name="SH_ShipDate" Type="datetime" />
+    <Property Name="SH_SSSent" Type="varchar" MaxLength="15" />
+    <Property Name="SH_SSPull" Type="varchar" MaxLength="15" />
+    <Property Name="SH_Date" Type="varchar" MaxLength="10" />
+    <Property Name="SRC_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="SHPID" Type="int" Nullable="false" />
+    <Property Name="SHP_Qty" Type="int" />
+    <Property Name="SHP_Shipped" Type="datetime" />
+    <Property Name="SRCID" Type="int" />
+    <Property Name="SHP_Location" Type="varchar" MaxLength="5" />
+    <Property Name="SHP_Line" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SHP_SSSent" Type="varchar" MaxLength="35" />
+    <Property Name="SHP_SSPull" Type="varchar" MaxLength="15" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="COMAT_GoTo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MPTID" Type="int" />
+    <Property Name="MPT_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="MRP_Type" Type="int" Nullable="false" />
+    <Property Name="MRP_Number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CSN_Desc" Type="varchar" MaxLength="15" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="SHS_Date" Type="datetime" Nullable="false" />
+    <Property Name="SHDSID" Type="int" Nullable="false" />
+    <Property Name="SHSID" Type="int" Nullable="false" />
+    <Property Name="SHDS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHMSID" Type="int" Nullable="false" />
+    <Property Name="SHMS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RushComment" Type="varchar" MaxLength="1000" />
+    <Property Name="Rushed" Type="int" Nullable="false" />
+    <Property Name="CSR" Type="varchar" MaxLength="1000" />
+    <Property Name="LOG2" Type="varchar" MaxLength="1000" />
+    <Property Name="SHCID" Type="int" />
+    <Property Name="SHCTID" Type="int" />
+    <Property Name="SHAID" Type="int" />
+    <Property Name="SHCT_Color" Type="int" />
+    <Property Name="SHCT_ForeColor" Type="int" />
+    <Property Name="SHCT_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="SHC_Date" Type="datetime" />
+    <Property Name="SHC_Comment" Type="varchar" MaxLength="1000" />
+    <Property Name="SHP_SSPullOK" Type="varchar" MaxLength="15" />
+    <Property Name="CSN_Long" Type="varchar" MaxLength="250" />
+    <Property Name="SHP_PlannedGIDate" Type="datetime" />
+    <Property Name="SHP_SVPSkip" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwShippingStatusHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwShippingStatusHistory">
+    <Key>
+      <PropertyRef Name="SHMS_Desc" />
+      <PropertyRef Name="SHDS_Desc" />
+      <PropertyRef Name="SHS_Date" />
+      <PropertyRef Name="SHSID" />
+      <PropertyRef Name="SHID" />
+    </Key>
+    <Property Name="SHMS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHDS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SHS_Date" Type="datetime" Nullable="false" />
+    <Property Name="Associate" Type="varchar" MaxLength="50" />
+    <Property Name="SHSID" Type="int" Nullable="false" />
+    <Property Name="SHID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwSparePartsInspectionsSumUp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSparePartsInspectionsSumUp">
+    <Key>
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="SPDID" Type="int" Nullable="false" />
+    <Property Name="Pre_Packed" Type="int" />
+    <Property Name="No_Rust" Type="int" />
+    <Property Name="No_Damage" Type="int" />
+    <Property Name="Correct_Qty" Type="int" />
+    <Property Name="Correct_PN" Type="int" />
+    <Property Name="Correct_Desc" Type="int" />
+    <Property Name="Complete" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwSparePartsInspectionsTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSparePartsInspectionsTotals">
+    <Key>
+      <PropertyRef Name="SPD_Desc" />
+      <PropertyRef Name="SPD_Created" />
+      <PropertyRef Name="SPDC_Desc" />
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="ASID" Type="int" />
+    <Property Name="SPD_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SPD_Created" Type="datetime" Nullable="false" />
+    <Property Name="SPD_Picked" Type="datetime" />
+    <Property Name="Expr1" Type="int" />
+    <Property Name="SPD_Inspected" Type="datetime" />
+    <Property Name="Pre_Packed" Type="int" />
+    <Property Name="No_Rust" Type="int" />
+    <Property Name="No_Damage" Type="int" />
+    <Property Name="Correct_Qty" Type="int" />
+    <Property Name="Correct_PN" Type="int" />
+    <Property Name="Correct_Desc" Type="int" />
+    <Property Name="Complete" Type="int" />
+    <Property Name="ASID_I" Type="int" />
+    <Property Name="SPD_Override" Type="datetime" />
+    <Property Name="ASID_O" Type="int" />
+    <Property Name="SPDSID" Type="int" />
+    <Property Name="SPDC_Desc" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="SPDID" Type="int" Nullable="false" />
+    <Property Name="SPD_Claim" Type="bit" />
+    <Property Name="SPD_Issue" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineComment_History' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineComment_History">
+    <Key>
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VOC_TimeStamp" />
+      <PropertyRef Name="VMCT_Desc" />
+      <PropertyRef Name="VOC_Comment" />
+    </Key>
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VOC_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="VMCT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="150" />
+    <Property Name="VOC_Comment" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineDown' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineDown">
+    <Key>
+      <PropertyRef Name="VMDID" />
+      <PropertyRef Name="VMCID" />
+      <PropertyRef Name="VMID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="VMD_Comment" />
+      <PropertyRef Name="VMD_Active" />
+      <PropertyRef Name="VMD_Created" />
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VMC_Desc" />
+      <PropertyRef Name="lnkBackUp" />
+    </Key>
+    <Property Name="VMDID" Type="int" Nullable="false" />
+    <Property Name="VMCID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VMD_Comment" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="VMD_Active" Type="bit" Nullable="false" />
+    <Property Name="VMD_Created" Type="datetime" Nullable="false" />
+    <Property Name="VMD_Deleted" Type="datetime" />
+    <Property Name="VMD_Resolved" Type="datetime" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VM_Short" Type="varchar" MaxLength="15" />
+    <Property Name="VMC_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Associate" Type="varchar" MaxLength="102" />
+    <Property Name="Associate2" Type="varchar" MaxLength="102" />
+    <Property Name="lnkBackUp" Type="varchar" MaxLength="22" Nullable="false" />
+    <Property Name="VMD_Priority" Type="int" />
+    <Property Name="BLD_Desc" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrder' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrder">
+    <Key>
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="VSID" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="VO_TimeStamp" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_CreatedPlus" />
+    </Key>
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VO_Qty" Type="int" />
+    <Property Name="VO_BSCStart" Type="date" />
+    <Property Name="VO_BSCFinish" Type="date" />
+    <Property Name="VSID" Type="int" Nullable="false" />
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="VO_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SUP_Desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="CASTID" Type="int" />
+    <Property Name="CAST_Desc" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="SUPID" Type="int" />
+    <Property Name="SM_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VO_SortDate" Type="date" />
+    <Property Name="VO_Sort" Type="int" />
+    <Property Name="SV_TimeStamp" Type="datetime" />
+    <Property Name="SMID" Type="int" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VM_Color" Type="varchar" MaxLength="15" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="CurrentOp" Type="varchar" MaxLength="376" />
+    <Property Name="LastFinishDate" Type="datetime" />
+    <Property Name="VP_ProcessingTime" Type="decimal" Precision="10" Scale="5" Nullable="false" />
+    <Property Name="VNID" Type="int" />
+    <Property Name="VOC_Comment" Type="varchar" MaxLength="1137" />
+    <Property Name="VOCID" Type="int" />
+    <Property Name="VMCT_Desc" Type="varchar" MaxLength="50" />
+    <Property Name="VMCT_Color" Type="varchar" MaxLength="15" />
+    <Property Name="CommentAssociate" Type="varchar" MaxLength="53" />
+    <Property Name="RunTime" Type="decimal" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="VO_StartDate" Type="datetime" />
+    <Property Name="VO_FinishDate" Type="datetime" />
+    <Property Name="VO_Created" Type="bit" />
+    <Property Name="VO_CreatedPlus" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VA_Desc" Type="varchar" MaxLength="100" />
+    <Property Name="VAID" Type="int" />
+    <Property Name="VWID" Type="int" />
+    <Property Name="VW_Short" Type="varchar" MaxLength="20" />
+    <Property Name="VW_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="VW_Long" Type="nvarchar" MaxLength="200" />
+    <Property Name="VSP_Date" Type="datetime" />
+    <Property Name="VP_SAPStatus" Type="varchar" MaxLength="500" />
+    <Property Name="VO_DeliveredQty" Type="int" />
+    <Property Name="BLD_Desc" Type="varchar" MaxLength="10" />
+    <Property Name="BLDID" Type="int" />
+    <Property Name="BLD_Long" Type="varchar" MaxLength="50" />
+    <Property Name="VM_ManPower" Type="varchar" MaxLength="50" />
+    <Property Name="VM_Priority" Type="varchar" MaxLength="50" />
+    <Property Name="CastingBuilding" Type="varchar" MaxLength="10" />
+    <Property Name="BLDIDCast" Type="int" />
+    <Property Name="VMID_Machining" Type="int" />
+    <Property Name="VO_RunSetup" Type="int" />
+    <Property Name="VO_RunTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunStart" Type="datetime" />
+    <Property Name="VO_RunFinish" Type="datetime" />
+    <Property Name="VO_RunTime" Type="varchar" MaxLength="50" />
+    <Property Name="VO_RunSort" Type="int" />
+    <Property Name="VO_Short1" Type="varchar" MaxLength="25" />
+    <Property Name="VMCTID" Type="int" />
+    <Property Name="VM_Machining" Type="bit" />
+    <Property Name="PV_Rev2" Type="varchar" MaxLength="100" />
+    <Property Name="PV_Created" Type="datetime" />
+    <Property Name="VPID" Type="int" />
+    <Property Name="YieldQued" Type="int" />
+    <Property Name="ScrapQued" Type="int" />
+    <Property Name="LastOrdered" Type="datetime" />
+    <Property Name="Samples" Type="int" />
+    <Property Name="LastSampleDate" Type="datetime" />
+    <Property Name="VP_Scrap" Type="int" />
+    <Property Name="PV_Rev" Type="varchar" MaxLength="20" />
+    <Property Name="VS_Desc_Pre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderLostCapacity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderLostCapacity">
+    <Key>
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="RunTime" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VSID" />
+      <PropertyRef Name="PART_Desc" />
+    </Key>
+    <Property Name="LostDate" Type="date" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VO_Qty" Type="int" />
+    <Property Name="VO_DeliveredQty" Type="int" />
+    <Property Name="RunTime" Type="decimal" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="VO_RunStart" Type="datetime" />
+    <Property Name="VO_RunFinish" Type="datetime" />
+    <Property Name="VO_RunSetup" Type="int" />
+    <Property Name="VO_RunTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VM_Short" Type="varchar" MaxLength="15" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VSID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderManualConfirm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderManualConfirm">
+    <Key>
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VVID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VV_Yield" />
+      <PropertyRef Name="VV_Scrap" />
+      <PropertyRef Name="VV_OP" />
+      <PropertyRef Name="VV_WorkCenter" />
+      <PropertyRef Name="VV_PNum" />
+      <PropertyRef Name="VV_Created" />
+      <PropertyRef Name="PC_Desc" />
+      <PropertyRef Name="LY_Created" />
+      <PropertyRef Name="VQ_Desc" />
+      <PropertyRef Name="VQID" />
+    </Key>
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VN_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VW_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="VW_Short" Type="varchar" MaxLength="20" />
+    <Property Name="VP_OpOrder" Type="varchar" MaxLength="10" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VVID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="VV_Yield" Type="int" Nullable="false" />
+    <Property Name="VV_Scrap" Type="int" Nullable="false" />
+    <Property Name="VV_OP" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="VV_WorkCenter" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VV_PNum" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VV_Created" Type="datetime" Nullable="false" />
+    <Property Name="SA_Short" Type="varchar" MaxLength="4" />
+    <Property Name="PC_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PCID" Type="int" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="SAID" Type="int" />
+    <Property Name="VV_Comment" Type="varchar" MaxLength="500" />
+    <Property Name="VV_image" Type="image" />
+    <Property Name="LY_Created" Type="datetime" Nullable="false" />
+    <Property Name="VQ_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VQID" Type="int" Nullable="false" />
+    <Property Name="YieldQued" Type="int" />
+    <Property Name="ScrapQued" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderManualConfirmErr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderManualConfirmErr">
+    <Key>
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VZID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="VZ_Desc" />
+      <PropertyRef Name="VZ_Created" />
+    </Key>
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" />
+    <Property Name="VN_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VW_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="VW_Short" Type="varchar" MaxLength="20" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="VP_OpOrder" Type="varchar" MaxLength="10" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VZID" Type="int" Nullable="false" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="VZ_Desc" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="VZ_Host" Type="varchar" MaxLength="250" />
+    <Property Name="VZ_User" Type="varchar" MaxLength="50" />
+    <Property Name="VZ_Caller" Type="varchar" MaxLength="250" />
+    <Property Name="VZ_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderManualConfirmLog_Last' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderManualConfirmLog_Last">
+    <Key>
+      <PropertyRef Name="LYID" />
+      <PropertyRef Name="VVID" />
+      <PropertyRef Name="VQID" />
+      <PropertyRef Name="LY_Created" />
+      <PropertyRef Name="VQ_Desc" />
+    </Key>
+    <Property Name="LYID" Type="int" Nullable="false" />
+    <Property Name="VVID" Type="int" Nullable="false" />
+    <Property Name="VQID" Type="int" Nullable="false" />
+    <Property Name="LY_Created" Type="datetime" Nullable="false" />
+    <Property Name="row" Type="bigint" />
+    <Property Name="Rank" Type="bigint" />
+    <Property Name="VQ_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderOp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderOp">
+    <Key>
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VP_TimeStamp" />
+      <PropertyRef Name="VP_Updated" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VWID" />
+      <PropertyRef Name="VNID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VO_TimeStamp" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="SUP_Desc" />
+      <PropertyRef Name="CAST_Desc" />
+      <PropertyRef Name="SM_Desc" />
+    </Key>
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" />
+    <Property Name="VN_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VW_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="VW_Short" Type="varchar" MaxLength="20" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="VP_StartDate" Type="datetime" />
+    <Property Name="VP_FinishDate" Type="datetime" />
+    <Property Name="VP_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="VP_Updated" Type="datetime" Nullable="false" />
+    <Property Name="VP_ProcessingTime" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="VP_ProcessingMin" Type="varchar" MaxLength="15" />
+    <Property Name="VP_OpOrder" Type="varchar" MaxLength="10" />
+    <Property Name="VP_SAPStatus" Type="varchar" MaxLength="500" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VWID" Type="int" Nullable="false" />
+    <Property Name="VNID" Type="int" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VO_Qty" Type="int" />
+    <Property Name="VO_BSCStart" Type="date" />
+    <Property Name="VO_BSCFinish" Type="date" />
+    <Property Name="VO_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SUP_Desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CAST_Desc" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="SM_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SV_TimeStamp" Type="datetime" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="VM_Color" Type="varchar" MaxLength="15" />
+    <Property Name="VP_Yield" Type="int" />
+    <Property Name="VP_OpSort" Type="int" />
+    <Property Name="VMID_Machining" Type="int" />
+    <Property Name="VM_DescDSB" Type="varchar" MaxLength="250" />
+    <Property Name="VP_PrintAttempts" Type="int" />
+    <Property Name="VS_Desc_Pre" Type="varchar" MaxLength="100" />
+    <Property Name="VMID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderOpCon_SAP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderOpCon_SAP">
+    <Key>
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_QTY" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="Confimred" Type="int" />
+    <Property Name="Scrapped" Type="int" Nullable="false" />
+    <Property Name="LastConfirm" Type="datetime" />
+    <Property Name="VOID" Type="int" Nullable="false" />
+    <Property Name="VO_QTY" Type="int" Nullable="false" />
+    <Property Name="VMID" Type="int" />
+    <Property Name="VO_Desc" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VP_OpOrder" Type="varchar" MaxLength="10" />
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="YieldQued" Type="int" />
+    <Property Name="ScrapQued" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachineOrderOpManualConfirmQUE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachineOrderOpManualConfirmQUE">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="int" Nullable="false" />
+    <Property Name="YieldQued" Type="int" />
+    <Property Name="ScrapQued" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachinePartCast_Search' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachinePartCast_Search">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+    </Key>
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="PART_Desc" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="CAST_Desc" Type="nvarchar" MaxLength="25" />
+    <Property Name="VM_Desc" Type="varchar" MaxLength="250" />
+    <Property Name="BLDID" Type="int" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachinePartCross' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachinePartCross">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PartNum" />
+      <PropertyRef Name="PART_TX" />
+    </Key>
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="VS_Desc" Type="varchar" MaxLength="100" />
+    <Property Name="VSID" Type="int" />
+    <Property Name="VMID1" Type="int" />
+    <Property Name="VMID2" Type="int" />
+    <Property Name="VMID3" Type="int" />
+    <Property Name="VMID4" Type="int" />
+    <Property Name="VMID5" Type="int" />
+    <Property Name="VMID6" Type="int" />
+    <Property Name="VMID7" Type="int" />
+    <Property Name="VMID8" Type="int" />
+    <Property Name="VMID9" Type="int" />
+    <Property Name="VMID10" Type="int" />
+    <Property Name="RunTime1" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime2" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime3" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime4" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime5" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime6" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime7" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime8" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime9" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime10" Type="decimal" Precision="7" Scale="4" />
+    <Property Name="PartNum" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="CASTID" Type="int" />
+    <Property Name="CAST_Desc" Type="nvarchar" MaxLength="25" />
+    <Property Name="PART_TX" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Visual.dbo.vwValueMachinePartCrossExt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwValueMachinePartCrossExt">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="VM_Color1" />
+      <PropertyRef Name="VM_Color2" />
+      <PropertyRef Name="VM_Color3" />
+      <PropertyRef Name="VM_Color4" />
+      <PropertyRef Name="VM_TotalHours1" />
+      <PropertyRef Name="VM_TotalHours2" />
+      <PropertyRef Name="VM_TotalHours3" />
+      <PropertyRef Name="VM_TotalHours4" />
+    </Key>
+    <Property Name="PARTID" Type="int" Nullable="false" />
+    <Property Name="VMID1" Type="int" />
+    <Property Name="VM_Desc1" Type="varchar" MaxLength="250" />
+    <Property Name="VMID2" Type="int" />
+    <Property Name="VM_Desc2" Type="varchar" MaxLength="250" />
+    <Property Name="VMID3" Type="int" />
+    <Property Name="VM_Desc3" Type="varchar" MaxLength="250" />
+    <Property Name="VMID4" Type="int" />
+    <Property Name="VM_Desc4" Type="varchar" MaxLength="250" />
+    <Property Name="VM_Color1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VM_Color2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VM_Color3" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VM_Color4" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="VM_TotalHours1" Type="int" Nullable="false" />
+    <Property Name="VM_TotalHours2" Type="int" Nullable="false" />
+    <Property Name="VM_TotalHours3" Type="int" Nullable="false" />
+    <Property Name="VM_TotalHours4" Type="int" Nullable="false" />
+    <Property Name="RunTime1" Type="decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime2" Type="decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime3" Type="decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime4" Type="decimal" Precision="6" Scale="4" />
+  </EntityType>
+  <Function Name="p_tblShipping_DSB_v4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OPID" Type="int" Mode="In" />
+    <Parameter Name="SHCTID" Type="int" Mode="In" />
+    <Parameter Name="Cnt" Type="int" Mode="In" />
+    <Parameter Name="SH_Desc" Type="varchar" Mode="In" />
+    <Parameter Name="CSN_Desc" Type="varchar" Mode="In" />
+    <Parameter Name="PART_Desc" Type="varchar" Mode="In" />
+    <Parameter Name="MRP" Type="varchar" Mode="In" />
+    <Parameter Name="Location" Type="varchar" Mode="In" />
+    <Parameter Name="Packed" Type="varchar" Mode="In" />
+    <Parameter Name="Export" Type="int" Mode="In" />
+    <Parameter Name="GoTo" Type="int" Mode="In" />
+    <Parameter Name="Start" Type="varchar" Mode="In" />
+    <Parameter Name="End" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_tblValueMachineOrderOpManualConfirmLog_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VVID" Type="int" Mode="In" />
+    <Parameter Name="VQID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_tblValueMachinePart_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Part" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="VisualModelStoreContainer">
+    <EntitySet Name="aaaPKOldLeakTest" EntityType="Self.aaaPKOldLeakTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBuilding" EntityType="Self.tblBuilding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomerNumber" EntityType="Self.tblCustomerNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDSB_Status" EntityType="Self.tblDSB_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFPYBreaks" EntityType="Self.tblFPYBreaks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFPYResults" EntityType="Self.tblFPYResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFPYResultsTest" EntityType="Self.tblFPYResultsTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFPYTargets" EntityType="Self.tblFPYTargets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFPYTargetsTest" EntityType="Self.tblFPYTargetsTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblIssue" EntityType="Self.tblIssue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitter" EntityType="Self.tblKitter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitterAudit" EntityType="Self.tblKitterAudit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitterAuditError" EntityType="Self.tblKitterAuditError" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitterAuditQuestions" EntityType="Self.tblKitterAuditQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitterLog" EntityType="Self.tblKitterLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKitterStatus" EntityType="Self.tblKitterStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLeakTestCycleTime" EntityType="Self.tblLeakTestCycleTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMRPController" EntityType="Self.tblMRPController" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPart" EntityType="Self.tblPart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartBearing" EntityType="Self.tblPartBearing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartBOM" EntityType="Self.tblPartBOM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartBOMComp" EntityType="Self.tblPartBOMComp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartBOMParent" EntityType="Self.tblPartBOMParent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartDisp" EntityType="Self.tblPartDisp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartFolder" EntityType="Self.tblPartFolder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartFolderPPT" EntityType="Self.tblPartFolderPPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartFolderPPTPics" EntityType="Self.tblPartFolderPPTPics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartModelCodeBreakdown" EntityType="Self.tblPartModelCodeBreakdown" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartPackage" EntityType="Self.tblPartPackage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartPort" EntityType="Self.tblPartPort" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartRineerMotor" EntityType="Self.tblPartRineerMotor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartRineerMotorType" EntityType="Self.tblPartRineerMotorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartRineerPath" EntityType="Self.tblPartRineerPath" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartSeal" EntityType="Self.tblPartSeal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartSeries" EntityType="Self.tblPartSeries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartShaft" EntityType="Self.tblPartShaft" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPartSpecial" EntityType="Self.tblPartSpecial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPath" EntityType="Self.tblPath" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPrinter" EntityType="Self.tblPrinter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShipping" EntityType="Self.tblShipping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingAction" EntityType="Self.tblShippingAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingComment" EntityType="Self.tblShippingComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingCommentType" EntityType="Self.tblShippingCommentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingDetailStatus" EntityType="Self.tblShippingDetailStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingMasterStatus" EntityType="Self.tblShippingMasterStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingPart" EntityType="Self.tblShippingPart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingReasonCode" EntityType="Self.tblShippingReasonCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShippingStatus" EntityType="Self.tblShippingStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsComments" EntityType="Self.tblSparePartsComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsDelivery" EntityType="Self.tblSparePartsDelivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsDeliveryRole" EntityType="Self.tblSparePartsDeliveryRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsDeliveryStatus" EntityType="Self.tblSparePartsDeliveryStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsInspections" EntityType="Self.tblSparePartsInspections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSparePartsInspQuestions" EntityType="Self.tblSparePartsInspQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTestStandCycleTime" EntityType="Self.tblTestStandCycleTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachine" EntityType="Self.tblValueMachine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineCastingPart" EntityType="Self.tblValueMachineCastingPart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineCastings" EntityType="Self.tblValueMachineCastings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineCommentType" EntityType="Self.tblValueMachineCommentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineDown" EntityType="Self.tblValueMachineDown" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineHealth" EntityType="Self.tblValueMachineHealth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOpArea" EntityType="Self.tblValueMachineOpArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOpList" EntityType="Self.tblValueMachineOpList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOpListWC" EntityType="Self.tblValueMachineOpListWC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrder" EntityType="Self.tblValueMachineOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderCastingEmail" EntityType="Self.tblValueMachineOrderCastingEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderComment" EntityType="Self.tblValueMachineOrderComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderOp" EntityType="Self.tblValueMachineOrderOp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderOpManualConfirm" EntityType="Self.tblValueMachineOrderOpManualConfirm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderOpManualConfirmErr" EntityType="Self.tblValueMachineOrderOpManualConfirmErr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineOrderStatus" EntityType="Self.tblValueMachineOrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePart" EntityType="Self.tblValueMachinePart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePartSetup" EntityType="Self.tblValueMachinePartSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePC" EntityType="Self.tblValueMachinePC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePCLink" EntityType="Self.tblValueMachinePCLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePCPrinters" EntityType="Self.tblValueMachinePCPrinters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachinePrinter" EntityType="Self.tblValueMachinePrinter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineReasonCodes" EntityType="Self.tblValueMachineReasonCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineScrapCode" EntityType="Self.tblValueMachineScrapCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineSetup" EntityType="Self.tblValueMachineSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineStatus" EntityType="Self.tblValueMachineStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineSupplier" EntityType="Self.tblValueMachineSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineWC" EntityType="Self.tblValueMachineWC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineWC_VMID" EntityType="Self.tblValueMachineWC_VMID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueMachineWCSetup" EntityType="Self.tblValueMachineWCSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblValueStream" EntityType="Self.tblValueStream" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOptions" EntityType="Self.tblOptions" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [tblOptions].[OPID] AS [OPID],
+              [tblOptions].[OP_ID] AS [OP_ID],
+              [tblOptions].[OP_Desc] AS [OP_Desc],
+              [tblOptions].[OP_Function] AS [OP_Function]
+              FROM [dbo].[tblOptions] AS [tblOptions]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwKitter" EntityType="Self.vwKitter" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwKitter].[ASID] AS [ASID],
+              [vwKitter].[WorkOrder] AS [WorkOrder],
+              [vwKitter].[Name] AS [Name],
+              [vwKitter].[KitterBadge] AS [KitterBadge],
+              [vwKitter].[Status] AS [Status],
+              [vwKitter].[Qty] AS [Qty],
+              [vwKitter].[Time] AS [Time],
+              [vwKitter].[KIID] AS [KIID],
+              [vwKitter].[WOID] AS [WOID],
+              [vwKitter].[ValueStream] AS [ValueStream],
+              [vwKitter].[KI_Good] AS [KI_Good],
+              [vwKitter].[KLID] AS [KLID],
+              [vwKitter].[KSID] AS [KSID],
+              [vwKitter].[WkHour] AS [WkHour],
+              [vwKitter].[AS_Display] AS [AS_Display]
+              FROM [dbo].[vwKitter] AS [vwKitter]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwKitterAudited" EntityType="Self.vwKitterAudited" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwKitterAudited].[ASID] AS [ASID],
+              [vwKitterAudited].[WorkOrder] AS [WorkOrder],
+              [vwKitterAudited].[KitterName] AS [KitterName],
+              [vwKitterAudited].[KitterBadge] AS [KitterBadge],
+              [vwKitterAudited].[KitterCount] AS [KitterCount],
+              [vwKitterAudited].[KittedTime] AS [KittedTime],
+              [vwKitterAudited].[AuditorBadge] AS [AuditorBadge],
+              [vwKitterAudited].[AuditorCount] AS [AuditorCount],
+              [vwKitterAudited].[AuditTime] AS [AuditTime],
+              [vwKitterAudited].[Status] AS [Status],
+              [vwKitterAudited].[KIID] AS [KIID],
+              [vwKitterAudited].[WOID] AS [WOID],
+              [vwKitterAudited].[ValueStream] AS [ValueStream],
+              [vwKitterAudited].[KI_Good] AS [KI_Good],
+              [vwKitterAudited].[AuditError] AS [AuditError],
+              [vwKitterAudited].[AU_ASID] AS [AU_ASID],
+              [vwKitterAudited].[AU_Comment] AS [AU_Comment],
+              [vwKitterAudited].[AuditorName] AS [AuditorName]
+              FROM [dbo].[vwKitterAudited] AS [vwKitterAudited]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPartBOM" EntityType="Self.vwPartBOM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwPartBOM].[BPID] AS [BPID],
+              [vwPartBOM].[PART_Desc] AS [PART_Desc],
+              [vwPartBOM].[BP_Created] AS [BP_Created],
+              [vwPartBOM].[BP_Updated] AS [BP_Updated]
+              FROM [dbo].[vwPartBOM] AS [vwPartBOM]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPartBOM_Details" EntityType="Self.vwPartBOM_Details" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwPartBOM_Details].[PART_Desc] AS [PART_Desc],
+              [vwPartBOM_Details].[PART_TX] AS [PART_TX],
+              [vwPartBOM_Details].[PARTID] AS [PARTID],
+              [vwPartBOM_Details].[BPPID] AS [BPPID],
+              [vwPartBOM_Details].[BPID] AS [BPID],
+              [vwPartBOM_Details].[PTS_Lev] AS [PTS_Lev],
+              [vwPartBOM_Details].[PTS_Item] AS [PTS_Item],
+              [vwPartBOM_Details].[PTS_ICt] AS [PTS_ICt],
+              [vwPartBOM_Details].[PTS_Component] AS [PTS_Component],
+              [vwPartBOM_Details].[PTS_Asm] AS [PTS_Asm],
+              [vwPartBOM_Details].[PTS_PrcoType] AS [PTS_PrcoType],
+              [vwPartBOM_Details].[PTS_SPT] AS [PTS_SPT],
+              [vwPartBOM_Details].[PTS_MatDoc] AS [PTS_MatDoc],
+              [vwPartBOM_Details].[PTS_MatDescription] AS [PTS_MatDescription],
+              [vwPartBOM_Details].[PTS_ValidFrom] AS [PTS_ValidFrom],
+              [vwPartBOM_Details].[PTS_ValidTo] AS [PTS_ValidTo],
+              [vwPartBOM_Details].[PTS_ChangeNo] AS [PTS_ChangeNo],
+              [vwPartBOM_Details].[PTS_TimeStamp] AS [PTS_TimeStamp],
+              [vwPartBOM_Details].[Pre] AS [Pre],
+              [vwPartBOM_Details].[Two] AS [Two],
+              [vwPartBOM_Details].[Three] AS [Three],
+              [vwPartBOM_Details].[Fam] AS [Fam],
+              [vwPartBOM_Details].[Type] AS [Type],
+              [vwPartBOM_Details].[Size] AS [Size],
+              [vwPartBOM_Details].[Control] AS [Control],
+              [vwPartBOM_Details].[/X] AS [/X],
+              [vwPartBOM_Details].[Rot] AS [Rot],
+              [vwPartBOM_Details].[Seal] AS [Seal],
+              [vwPartBOM_Details].[Shaft] AS [Shaft],
+              [vwPartBOM_Details].[Flan] AS [Flan],
+              [vwPartBOM_Details].[PB] AS [PB],
+              [vwPartBOM_Details].[Thdr] AS [Thdr]
+              FROM [dbo].[vwPartBOM_Details] AS [vwPartBOM_Details]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPartBomValueStream" EntityType="Self.vwPartBomValueStream" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwPartBomValueStream].[PARTID] AS [PARTID],
+              [vwPartBomValueStream].[PART_Desc] AS [PART_Desc],
+              [vwPartBomValueStream].[PART_TX] AS [PART_TX],
+              [vwPartBomValueStream].[VS_Desc] AS [VS_Desc],
+              [vwPartBomValueStream].[Rows] AS [Rows],
+              [vwPartBomValueStream].[Updated] AS [Updated],
+              [vwPartBomValueStream].[VSID] AS [VSID]
+              FROM [dbo].[vwPartBomValueStream] AS [vwPartBomValueStream]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPartFolderSHID" EntityType="Self.vwPartFolderSHID" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwPartFolderSHID].[SHID] AS [SHID],
+              [vwPartFolderSHID].[PTPT_PDFImage] AS [PTPT_PDFImage],
+              [vwPartFolderSHID].[Expr1] AS [Expr1],
+              [vwPartFolderSHID].[PARTID] AS [PARTID],
+              [vwPartFolderSHID].[PTPTID] AS [PTPTID],
+              [vwPartFolderSHID].[PART_Desc] AS [PART_Desc],
+              [vwPartFolderSHID].[PTPT_Name] AS [PTPT_Name],
+              [vwPartFolderSHID].[PTFLD_Desc] AS [PTFLD_Desc]
+              FROM [dbo].[vwPartFolderSHID] AS [vwPartFolderSHID]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPartRineerMatch2" EntityType="Self.vwPartRineerMatch2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwPartRineerMatch2].[PARTID] AS [PARTID],
+              [vwPartRineerMatch2].[PPZ_Desc] AS [PPZ_Desc],
+              [vwPartRineerMatch2].[PSR_Desc] AS [PSR_Desc],
+              [vwPartRineerMatch2].[PPT_Desc] AS [PPT_Desc],
+              [vwPartRineerMatch2].[PPK_Desc] AS [PPK_Desc],
+              [vwPartRineerMatch2].[PDP_Desc] AS [PDP_Desc],
+              [vwPartRineerMatch2].[PSF_Desc] AS [PSF_Desc],
+              [vwPartRineerMatch2].[PSB_Desc] AS [PSB_Desc],
+              [vwPartRineerMatch2].[PSL_Desc] AS [PSL_Desc],
+              [vwPartRineerMatch2].[PSP_Desc] AS [PSP_Desc]
+              FROM [dbo].[vwPartRineerMatch2] AS [vwPartRineerMatch2]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSerialPartWO" EntityType="Self.vwSerialPartWO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwSerialPartWO].[PART_Desc] AS [PART_Desc],
+              [vwSerialPartWO].[WO_Desc] AS [WO_Desc],
+              [vwSerialPartWO].[VSID] AS [VSID],
+              [vwSerialPartWO].[PartID] AS [PartID],
+              [vwSerialPartWO].[WOID] AS [WOID],
+              [vwSerialPartWO].[PART_TX] AS [PART_TX],
+              [vwSerialPartWO].[Serial] AS [Serial],
+              [vwSerialPartWO].[WO_Qty] AS [WO_Qty],
+              [vwSerialPartWO].[BatchNo] AS [BatchNo]
+              FROM [dbo].[vwSerialPartWO] AS [vwSerialPartWO]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwShippingComments" EntityType="Self.vwShippingComments" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwShippingComments].[SHCT_Desc] AS [SHCT_Desc],
+              [vwShippingComments].[SHC_Comment] AS [SHC_Comment],
+              [vwShippingComments].[SHC_Date] AS [SHC_Date],
+              [vwShippingComments].[Associate] AS [Associate],
+              [vwShippingComments].[SHID] AS [SHID],
+              [vwShippingComments].[SHCID] AS [SHCID],
+              [vwShippingComments].[SHPID] AS [SHPID]
+              FROM [dbo].[vwShippingComments] AS [vwShippingComments]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwShippingStatus" EntityType="Self.vwShippingStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwShippingStatus].[SH_Desc] AS [SH_Desc],
+              [vwShippingStatus].[SH_Sort] AS [SH_Sort],
+              [vwShippingStatus].[SH_Deleted] AS [SH_Deleted],
+              [vwShippingStatus].[SHID] AS [SHID],
+              [vwShippingStatus].[FLDID] AS [FLDID],
+              [vwShippingStatus].[SH_Location] AS [SH_Location],
+              [vwShippingStatus].[SH_ShipDate] AS [SH_ShipDate],
+              [vwShippingStatus].[SH_SSSent] AS [SH_SSSent],
+              [vwShippingStatus].[SH_SSPull] AS [SH_SSPull],
+              [vwShippingStatus].[SH_Date] AS [SH_Date],
+              [vwShippingStatus].[SRC_Desc] AS [SRC_Desc],
+              [vwShippingStatus].[SHPID] AS [SHPID],
+              [vwShippingStatus].[SHP_Qty] AS [SHP_Qty],
+              [vwShippingStatus].[SHP_Shipped] AS [SHP_Shipped],
+              [vwShippingStatus].[SRCID] AS [SRCID],
+              [vwShippingStatus].[SHP_Location] AS [SHP_Location],
+              [vwShippingStatus].[SHP_Line] AS [SHP_Line],
+              [vwShippingStatus].[SHP_SSSent] AS [SHP_SSSent],
+              [vwShippingStatus].[SHP_SSPull] AS [SHP_SSPull],
+              [vwShippingStatus].[PART_Desc] AS [PART_Desc],
+              [vwShippingStatus].[PART_TX] AS [PART_TX],
+              [vwShippingStatus].[PARTID] AS [PARTID],
+              [vwShippingStatus].[COMAT_GoTo] AS [COMAT_GoTo],
+              [vwShippingStatus].[MPTID] AS [MPTID],
+              [vwShippingStatus].[MPT_Desc] AS [MPT_Desc],
+              [vwShippingStatus].[MRP_Type] AS [MRP_Type],
+              [vwShippingStatus].[MRP_Number] AS [MRP_Number],
+              [vwShippingStatus].[CSN_Desc] AS [CSN_Desc],
+              [vwShippingStatus].[Created] AS [Created],
+              [vwShippingStatus].[SHS_Date] AS [SHS_Date],
+              [vwShippingStatus].[SHDSID] AS [SHDSID],
+              [vwShippingStatus].[SHSID] AS [SHSID],
+              [vwShippingStatus].[SHDS_Desc] AS [SHDS_Desc],
+              [vwShippingStatus].[SHMSID] AS [SHMSID],
+              [vwShippingStatus].[SHMS_Desc] AS [SHMS_Desc],
+              [vwShippingStatus].[RushComment] AS [RushComment],
+              [vwShippingStatus].[Rushed] AS [Rushed],
+              [vwShippingStatus].[CSR] AS [CSR],
+              [vwShippingStatus].[LOG2] AS [LOG2],
+              [vwShippingStatus].[SHCID] AS [SHCID],
+              [vwShippingStatus].[SHCTID] AS [SHCTID],
+              [vwShippingStatus].[SHAID] AS [SHAID],
+              [vwShippingStatus].[SHCT_Color] AS [SHCT_Color],
+              [vwShippingStatus].[SHCT_ForeColor] AS [SHCT_ForeColor],
+              [vwShippingStatus].[SHCT_Desc] AS [SHCT_Desc],
+              [vwShippingStatus].[SHC_Date] AS [SHC_Date],
+              [vwShippingStatus].[SHC_Comment] AS [SHC_Comment],
+              [vwShippingStatus].[SHP_SSPullOK] AS [SHP_SSPullOK],
+              [vwShippingStatus].[CSN_Long] AS [CSN_Long],
+              [vwShippingStatus].[SHP_PlannedGIDate] AS [SHP_PlannedGIDate],
+              [vwShippingStatus].[SHP_SVPSkip] AS [SHP_SVPSkip]
+              FROM [dbo].[vwShippingStatus] AS [vwShippingStatus]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwShippingStatusHistory" EntityType="Self.vwShippingStatusHistory" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwShippingStatusHistory].[SHMS_Desc] AS [SHMS_Desc],
+              [vwShippingStatusHistory].[SHDS_Desc] AS [SHDS_Desc],
+              [vwShippingStatusHistory].[SHS_Date] AS [SHS_Date],
+              [vwShippingStatusHistory].[Associate] AS [Associate],
+              [vwShippingStatusHistory].[SHSID] AS [SHSID],
+              [vwShippingStatusHistory].[SHID] AS [SHID]
+              FROM [dbo].[vwShippingStatusHistory] AS [vwShippingStatusHistory]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSparePartsInspectionsSumUp" EntityType="Self.vwSparePartsInspectionsSumUp" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwSparePartsInspectionsSumUp].[SPDID] AS [SPDID],
+              [vwSparePartsInspectionsSumUp].[Pre_Packed] AS [Pre_Packed],
+              [vwSparePartsInspectionsSumUp].[No_Rust] AS [No_Rust],
+              [vwSparePartsInspectionsSumUp].[No_Damage] AS [No_Damage],
+              [vwSparePartsInspectionsSumUp].[Correct_Qty] AS [Correct_Qty],
+              [vwSparePartsInspectionsSumUp].[Correct_PN] AS [Correct_PN],
+              [vwSparePartsInspectionsSumUp].[Correct_Desc] AS [Correct_Desc],
+              [vwSparePartsInspectionsSumUp].[Complete] AS [Complete]
+              FROM [dbo].[vwSparePartsInspectionsSumUp] AS [vwSparePartsInspectionsSumUp]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSparePartsInspectionsTotals" EntityType="Self.vwSparePartsInspectionsTotals" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwSparePartsInspectionsTotals].[ASID] AS [ASID],
+              [vwSparePartsInspectionsTotals].[SPD_Desc] AS [SPD_Desc],
+              [vwSparePartsInspectionsTotals].[SPD_Created] AS [SPD_Created],
+              [vwSparePartsInspectionsTotals].[SPD_Picked] AS [SPD_Picked],
+              [vwSparePartsInspectionsTotals].[Expr1] AS [Expr1],
+              [vwSparePartsInspectionsTotals].[SPD_Inspected] AS [SPD_Inspected],
+              [vwSparePartsInspectionsTotals].[Pre_Packed] AS [Pre_Packed],
+              [vwSparePartsInspectionsTotals].[No_Rust] AS [No_Rust],
+              [vwSparePartsInspectionsTotals].[No_Damage] AS [No_Damage],
+              [vwSparePartsInspectionsTotals].[Correct_Qty] AS [Correct_Qty],
+              [vwSparePartsInspectionsTotals].[Correct_PN] AS [Correct_PN],
+              [vwSparePartsInspectionsTotals].[Correct_Desc] AS [Correct_Desc],
+              [vwSparePartsInspectionsTotals].[Complete] AS [Complete],
+              [vwSparePartsInspectionsTotals].[ASID_I] AS [ASID_I],
+              [vwSparePartsInspectionsTotals].[SPD_Override] AS [SPD_Override],
+              [vwSparePartsInspectionsTotals].[ASID_O] AS [ASID_O],
+              [vwSparePartsInspectionsTotals].[SPDSID] AS [SPDSID],
+              [vwSparePartsInspectionsTotals].[SPDC_Desc] AS [SPDC_Desc],
+              [vwSparePartsInspectionsTotals].[SPDID] AS [SPDID],
+              [vwSparePartsInspectionsTotals].[SPD_Claim] AS [SPD_Claim],
+              [vwSparePartsInspectionsTotals].[SPD_Issue] AS [SPD_Issue]
+              FROM [dbo].[vwSparePartsInspectionsTotals] AS [vwSparePartsInspectionsTotals]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineComment_History" EntityType="Self.vwValueMachineComment_History" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineComment_History].[VOID] AS [VOID],
+              [vwValueMachineComment_History].[VOC_TimeStamp] AS [VOC_TimeStamp],
+              [vwValueMachineComment_History].[VMCT_Desc] AS [VMCT_Desc],
+              [vwValueMachineComment_History].[AS_Display] AS [AS_Display],
+              [vwValueMachineComment_History].[VOC_Comment] AS [VOC_Comment]
+              FROM [dbo].[vwValueMachineComment_History] AS [vwValueMachineComment_History]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineDown" EntityType="Self.vwValueMachineDown" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineDown].[VMDID] AS [VMDID],
+              [vwValueMachineDown].[VMCID] AS [VMCID],
+              [vwValueMachineDown].[VMID] AS [VMID],
+              [vwValueMachineDown].[ASID] AS [ASID],
+              [vwValueMachineDown].[VMD_Comment] AS [VMD_Comment],
+              [vwValueMachineDown].[VMD_Active] AS [VMD_Active],
+              [vwValueMachineDown].[VMD_Created] AS [VMD_Created],
+              [vwValueMachineDown].[VMD_Deleted] AS [VMD_Deleted],
+              [vwValueMachineDown].[VMD_Resolved] AS [VMD_Resolved],
+              [vwValueMachineDown].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineDown].[VM_Short] AS [VM_Short],
+              [vwValueMachineDown].[VMC_Desc] AS [VMC_Desc],
+              [vwValueMachineDown].[Associate] AS [Associate],
+              [vwValueMachineDown].[Associate2] AS [Associate2],
+              [vwValueMachineDown].[lnkBackUp] AS [lnkBackUp],
+              [vwValueMachineDown].[VMD_Priority] AS [VMD_Priority],
+              [vwValueMachineDown].[BLD_Desc] AS [BLD_Desc]
+              FROM [dbo].[vwValueMachineDown] AS [vwValueMachineDown]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrder" EntityType="Self.vwValueMachineOrder" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrder].[VS_Desc] AS [VS_Desc],
+              [vwValueMachineOrder].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrder].[VO_Qty] AS [VO_Qty],
+              [vwValueMachineOrder].[VO_BSCStart] AS [VO_BSCStart],
+              [vwValueMachineOrder].[VO_BSCFinish] AS [VO_BSCFinish],
+              [vwValueMachineOrder].[VSID] AS [VSID],
+              [vwValueMachineOrder].[PARTID] AS [PARTID],
+              [vwValueMachineOrder].[VO_TimeStamp] AS [VO_TimeStamp],
+              [vwValueMachineOrder].[PART_Desc] AS [PART_Desc],
+              [vwValueMachineOrder].[PART_TX] AS [PART_TX],
+              [vwValueMachineOrder].[SUP_Desc] AS [SUP_Desc],
+              [vwValueMachineOrder].[VOID] AS [VOID],
+              [vwValueMachineOrder].[CASTID] AS [CASTID],
+              [vwValueMachineOrder].[CAST_Desc] AS [CAST_Desc],
+              [vwValueMachineOrder].[SUPID] AS [SUPID],
+              [vwValueMachineOrder].[SM_Desc] AS [SM_Desc],
+              [vwValueMachineOrder].[VO_SortDate] AS [VO_SortDate],
+              [vwValueMachineOrder].[VO_Sort] AS [VO_Sort],
+              [vwValueMachineOrder].[SV_TimeStamp] AS [SV_TimeStamp],
+              [vwValueMachineOrder].[SMID] AS [SMID],
+              [vwValueMachineOrder].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineOrder].[VM_Color] AS [VM_Color],
+              [vwValueMachineOrder].[VMID] AS [VMID],
+              [vwValueMachineOrder].[CurrentOp] AS [CurrentOp],
+              [vwValueMachineOrder].[LastFinishDate] AS [LastFinishDate],
+              [vwValueMachineOrder].[VP_ProcessingTime] AS [VP_ProcessingTime],
+              [vwValueMachineOrder].[VNID] AS [VNID],
+              [vwValueMachineOrder].[VOC_Comment] AS [VOC_Comment],
+              [vwValueMachineOrder].[VOCID] AS [VOCID],
+              [vwValueMachineOrder].[VMCT_Desc] AS [VMCT_Desc],
+              [vwValueMachineOrder].[VMCT_Color] AS [VMCT_Color],
+              [vwValueMachineOrder].[CommentAssociate] AS [CommentAssociate],
+              [vwValueMachineOrder].[RunTime] AS [RunTime],
+              [vwValueMachineOrder].[VO_StartDate] AS [VO_StartDate],
+              [vwValueMachineOrder].[VO_FinishDate] AS [VO_FinishDate],
+              [vwValueMachineOrder].[VO_Created] AS [VO_Created],
+              [vwValueMachineOrder].[VO_CreatedPlus] AS [VO_CreatedPlus],
+              [vwValueMachineOrder].[VA_Desc] AS [VA_Desc],
+              [vwValueMachineOrder].[VAID] AS [VAID],
+              [vwValueMachineOrder].[VWID] AS [VWID],
+              [vwValueMachineOrder].[VW_Short] AS [VW_Short],
+              [vwValueMachineOrder].[VW_Desc] AS [VW_Desc],
+              [vwValueMachineOrder].[VW_Long] AS [VW_Long],
+              [vwValueMachineOrder].[VSP_Date] AS [VSP_Date],
+              [vwValueMachineOrder].[VP_SAPStatus] AS [VP_SAPStatus],
+              [vwValueMachineOrder].[VO_DeliveredQty] AS [VO_DeliveredQty],
+              [vwValueMachineOrder].[BLD_Desc] AS [BLD_Desc],
+              [vwValueMachineOrder].[BLDID] AS [BLDID],
+              [vwValueMachineOrder].[BLD_Long] AS [BLD_Long],
+              [vwValueMachineOrder].[VM_ManPower] AS [VM_ManPower],
+              [vwValueMachineOrder].[VM_Priority] AS [VM_Priority],
+              [vwValueMachineOrder].[CastingBuilding] AS [CastingBuilding],
+              [vwValueMachineOrder].[BLDIDCast] AS [BLDIDCast],
+              [vwValueMachineOrder].[VMID_Machining] AS [VMID_Machining],
+              [vwValueMachineOrder].[VO_RunSetup] AS [VO_RunSetup],
+              [vwValueMachineOrder].[VO_RunTotal] AS [VO_RunTotal],
+              [vwValueMachineOrder].[VO_RunTotalHR] AS [VO_RunTotalHR],
+              [vwValueMachineOrder].[VO_RunStart] AS [VO_RunStart],
+              [vwValueMachineOrder].[VO_RunFinish] AS [VO_RunFinish],
+              [vwValueMachineOrder].[VO_RunTime] AS [VO_RunTime],
+              [vwValueMachineOrder].[VO_RunSort] AS [VO_RunSort],
+              [vwValueMachineOrder].[VO_Short1] AS [VO_Short1],
+              [vwValueMachineOrder].[VMCTID] AS [VMCTID],
+              [vwValueMachineOrder].[VM_Machining] AS [VM_Machining],
+              [vwValueMachineOrder].[PV_Rev2] AS [PV_Rev2],
+              [vwValueMachineOrder].[PV_Created] AS [PV_Created],
+              [vwValueMachineOrder].[VPID] AS [VPID],
+              [vwValueMachineOrder].[YieldQued] AS [YieldQued],
+              [vwValueMachineOrder].[ScrapQued] AS [ScrapQued],
+              [vwValueMachineOrder].[LastOrdered] AS [LastOrdered],
+              [vwValueMachineOrder].[Samples] AS [Samples],
+              [vwValueMachineOrder].[LastSampleDate] AS [LastSampleDate],
+              [vwValueMachineOrder].[VP_Scrap] AS [VP_Scrap],
+              [vwValueMachineOrder].[PV_Rev] AS [PV_Rev],
+              [vwValueMachineOrder].[VS_Desc_Pre] AS [VS_Desc_Pre]
+              FROM [dbo].[vwValueMachineOrder] AS [vwValueMachineOrder]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderLostCapacity" EntityType="Self.vwValueMachineOrderLostCapacity" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderLostCapacity].[LostDate] AS [LostDate],
+              [vwValueMachineOrderLostCapacity].[VOID] AS [VOID],
+              [vwValueMachineOrderLostCapacity].[VMID] AS [VMID],
+              [vwValueMachineOrderLostCapacity].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrderLostCapacity].[VO_Qty] AS [VO_Qty],
+              [vwValueMachineOrderLostCapacity].[VO_DeliveredQty] AS [VO_DeliveredQty],
+              [vwValueMachineOrderLostCapacity].[RunTime] AS [RunTime],
+              [vwValueMachineOrderLostCapacity].[VO_RunStart] AS [VO_RunStart],
+              [vwValueMachineOrderLostCapacity].[VO_RunFinish] AS [VO_RunFinish],
+              [vwValueMachineOrderLostCapacity].[VO_RunSetup] AS [VO_RunSetup],
+              [vwValueMachineOrderLostCapacity].[VO_RunTotal] AS [VO_RunTotal],
+              [vwValueMachineOrderLostCapacity].[VO_RunTotalHR] AS [VO_RunTotalHR],
+              [vwValueMachineOrderLostCapacity].[CreatedDate] AS [CreatedDate],
+              [vwValueMachineOrderLostCapacity].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineOrderLostCapacity].[VM_Short] AS [VM_Short],
+              [vwValueMachineOrderLostCapacity].[VS_Desc] AS [VS_Desc],
+              [vwValueMachineOrderLostCapacity].[VSID] AS [VSID],
+              [vwValueMachineOrderLostCapacity].[PART_Desc] AS [PART_Desc]
+              FROM [dbo].[vwValueMachineOrderLostCapacity] AS [vwValueMachineOrderLostCapacity]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderManualConfirm" EntityType="Self.vwValueMachineOrderManualConfirm" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderManualConfirm].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrderManualConfirm].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineOrderManualConfirm].[VN_Desc] AS [VN_Desc],
+              [vwValueMachineOrderManualConfirm].[VW_Desc] AS [VW_Desc],
+              [vwValueMachineOrderManualConfirm].[VW_Short] AS [VW_Short],
+              [vwValueMachineOrderManualConfirm].[VP_OpOrder] AS [VP_OpOrder],
+              [vwValueMachineOrderManualConfirm].[VOID] AS [VOID],
+              [vwValueMachineOrderManualConfirm].[VS_Desc] AS [VS_Desc],
+              [vwValueMachineOrderManualConfirm].[PART_Desc] AS [PART_Desc],
+              [vwValueMachineOrderManualConfirm].[PART_TX] AS [PART_TX],
+              [vwValueMachineOrderManualConfirm].[VVID] AS [VVID],
+              [vwValueMachineOrderManualConfirm].[ASID] AS [ASID],
+              [vwValueMachineOrderManualConfirm].[VPID] AS [VPID],
+              [vwValueMachineOrderManualConfirm].[VV_Yield] AS [VV_Yield],
+              [vwValueMachineOrderManualConfirm].[VV_Scrap] AS [VV_Scrap],
+              [vwValueMachineOrderManualConfirm].[VV_OP] AS [VV_OP],
+              [vwValueMachineOrderManualConfirm].[VV_WorkCenter] AS [VV_WorkCenter],
+              [vwValueMachineOrderManualConfirm].[VV_PNum] AS [VV_PNum],
+              [vwValueMachineOrderManualConfirm].[VV_Created] AS [VV_Created],
+              [vwValueMachineOrderManualConfirm].[SA_Short] AS [SA_Short],
+              [vwValueMachineOrderManualConfirm].[PC_Desc] AS [PC_Desc],
+              [vwValueMachineOrderManualConfirm].[PCID] AS [PCID],
+              [vwValueMachineOrderManualConfirm].[VMID] AS [VMID],
+              [vwValueMachineOrderManualConfirm].[SAID] AS [SAID],
+              [vwValueMachineOrderManualConfirm].[VV_Comment] AS [VV_Comment],
+              [vwValueMachineOrderManualConfirm].[VV_image] AS [VV_image],
+              [vwValueMachineOrderManualConfirm].[LY_Created] AS [LY_Created],
+              [vwValueMachineOrderManualConfirm].[VQ_Desc] AS [VQ_Desc],
+              [vwValueMachineOrderManualConfirm].[VQID] AS [VQID],
+              [vwValueMachineOrderManualConfirm].[YieldQued] AS [YieldQued],
+              [vwValueMachineOrderManualConfirm].[ScrapQued] AS [ScrapQued]
+              FROM [dbo].[vwValueMachineOrderManualConfirm] AS [vwValueMachineOrderManualConfirm]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderManualConfirmErr" EntityType="Self.vwValueMachineOrderManualConfirmErr" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderManualConfirmErr].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrderManualConfirmErr].[VN_Desc] AS [VN_Desc],
+              [vwValueMachineOrderManualConfirmErr].[VW_Desc] AS [VW_Desc],
+              [vwValueMachineOrderManualConfirmErr].[VW_Short] AS [VW_Short],
+              [vwValueMachineOrderManualConfirmErr].[VPID] AS [VPID],
+              [vwValueMachineOrderManualConfirmErr].[VP_OpOrder] AS [VP_OpOrder],
+              [vwValueMachineOrderManualConfirmErr].[VOID] AS [VOID],
+              [vwValueMachineOrderManualConfirmErr].[VS_Desc] AS [VS_Desc],
+              [vwValueMachineOrderManualConfirmErr].[PART_Desc] AS [PART_Desc],
+              [vwValueMachineOrderManualConfirmErr].[PART_TX] AS [PART_TX],
+              [vwValueMachineOrderManualConfirmErr].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineOrderManualConfirmErr].[VZID] AS [VZID],
+              [vwValueMachineOrderManualConfirmErr].[Expr1] AS [Expr1],
+              [vwValueMachineOrderManualConfirmErr].[VZ_Desc] AS [VZ_Desc],
+              [vwValueMachineOrderManualConfirmErr].[VZ_Host] AS [VZ_Host],
+              [vwValueMachineOrderManualConfirmErr].[VZ_User] AS [VZ_User],
+              [vwValueMachineOrderManualConfirmErr].[VZ_Caller] AS [VZ_Caller],
+              [vwValueMachineOrderManualConfirmErr].[VZ_Created] AS [VZ_Created]
+              FROM [dbo].[vwValueMachineOrderManualConfirmErr] AS [vwValueMachineOrderManualConfirmErr]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderManualConfirmLog_Last" EntityType="Self.vwValueMachineOrderManualConfirmLog_Last" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderManualConfirmLog_Last].[LYID] AS [LYID],
+              [vwValueMachineOrderManualConfirmLog_Last].[VVID] AS [VVID],
+              [vwValueMachineOrderManualConfirmLog_Last].[VQID] AS [VQID],
+              [vwValueMachineOrderManualConfirmLog_Last].[LY_Created] AS [LY_Created],
+              [vwValueMachineOrderManualConfirmLog_Last].[row] AS [row],
+              [vwValueMachineOrderManualConfirmLog_Last].[Rank] AS [Rank],
+              [vwValueMachineOrderManualConfirmLog_Last].[VQ_Desc] AS [VQ_Desc]
+              FROM [dbo].[vwValueMachineOrderManualConfirmLog_Last] AS [vwValueMachineOrderManualConfirmLog_Last]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderOp" EntityType="Self.vwValueMachineOrderOp" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderOp].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrderOp].[VN_Desc] AS [VN_Desc],
+              [vwValueMachineOrderOp].[VW_Desc] AS [VW_Desc],
+              [vwValueMachineOrderOp].[VW_Short] AS [VW_Short],
+              [vwValueMachineOrderOp].[VPID] AS [VPID],
+              [vwValueMachineOrderOp].[VP_StartDate] AS [VP_StartDate],
+              [vwValueMachineOrderOp].[VP_FinishDate] AS [VP_FinishDate],
+              [vwValueMachineOrderOp].[VP_TimeStamp] AS [VP_TimeStamp],
+              [vwValueMachineOrderOp].[VP_Updated] AS [VP_Updated],
+              [vwValueMachineOrderOp].[VP_ProcessingTime] AS [VP_ProcessingTime],
+              [vwValueMachineOrderOp].[VP_ProcessingMin] AS [VP_ProcessingMin],
+              [vwValueMachineOrderOp].[VP_OpOrder] AS [VP_OpOrder],
+              [vwValueMachineOrderOp].[VP_SAPStatus] AS [VP_SAPStatus],
+              [vwValueMachineOrderOp].[VOID] AS [VOID],
+              [vwValueMachineOrderOp].[VWID] AS [VWID],
+              [vwValueMachineOrderOp].[VNID] AS [VNID],
+              [vwValueMachineOrderOp].[VS_Desc] AS [VS_Desc],
+              [vwValueMachineOrderOp].[VO_Qty] AS [VO_Qty],
+              [vwValueMachineOrderOp].[VO_BSCStart] AS [VO_BSCStart],
+              [vwValueMachineOrderOp].[VO_BSCFinish] AS [VO_BSCFinish],
+              [vwValueMachineOrderOp].[VO_TimeStamp] AS [VO_TimeStamp],
+              [vwValueMachineOrderOp].[PART_Desc] AS [PART_Desc],
+              [vwValueMachineOrderOp].[PART_TX] AS [PART_TX],
+              [vwValueMachineOrderOp].[SUP_Desc] AS [SUP_Desc],
+              [vwValueMachineOrderOp].[CAST_Desc] AS [CAST_Desc],
+              [vwValueMachineOrderOp].[SM_Desc] AS [SM_Desc],
+              [vwValueMachineOrderOp].[SV_TimeStamp] AS [SV_TimeStamp],
+              [vwValueMachineOrderOp].[VM_Desc] AS [VM_Desc],
+              [vwValueMachineOrderOp].[VM_Color] AS [VM_Color],
+              [vwValueMachineOrderOp].[VP_Yield] AS [VP_Yield],
+              [vwValueMachineOrderOp].[VP_OpSort] AS [VP_OpSort],
+              [vwValueMachineOrderOp].[VMID_Machining] AS [VMID_Machining],
+              [vwValueMachineOrderOp].[VM_DescDSB] AS [VM_DescDSB],
+              [vwValueMachineOrderOp].[VP_PrintAttempts] AS [VP_PrintAttempts],
+              [vwValueMachineOrderOp].[VS_Desc_Pre] AS [VS_Desc_Pre],
+              [vwValueMachineOrderOp].[VMID] AS [VMID]
+              FROM [dbo].[vwValueMachineOrderOp] AS [vwValueMachineOrderOp]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderOpCon_SAP" EntityType="Self.vwValueMachineOrderOpCon_SAP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderOpCon_SAP].[Confimred] AS [Confimred],
+              [vwValueMachineOrderOpCon_SAP].[Scrapped] AS [Scrapped],
+              [vwValueMachineOrderOpCon_SAP].[LastConfirm] AS [LastConfirm],
+              [vwValueMachineOrderOpCon_SAP].[VOID] AS [VOID],
+              [vwValueMachineOrderOpCon_SAP].[VO_QTY] AS [VO_QTY],
+              [vwValueMachineOrderOpCon_SAP].[VMID] AS [VMID],
+              [vwValueMachineOrderOpCon_SAP].[VO_Desc] AS [VO_Desc],
+              [vwValueMachineOrderOpCon_SAP].[VP_OpOrder] AS [VP_OpOrder],
+              [vwValueMachineOrderOpCon_SAP].[VPID] AS [VPID],
+              [vwValueMachineOrderOpCon_SAP].[YieldQued] AS [YieldQued],
+              [vwValueMachineOrderOpCon_SAP].[ScrapQued] AS [ScrapQued]
+              FROM [dbo].[vwValueMachineOrderOpCon_SAP] AS [vwValueMachineOrderOpCon_SAP]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachineOrderOpManualConfirmQUE" EntityType="Self.vwValueMachineOrderOpManualConfirmQUE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachineOrderOpManualConfirmQUE].[VPID] AS [VPID],
+              [vwValueMachineOrderOpManualConfirmQUE].[YieldQued] AS [YieldQued],
+              [vwValueMachineOrderOpManualConfirmQUE].[ScrapQued] AS [ScrapQued]
+              FROM [dbo].[vwValueMachineOrderOpManualConfirmQUE] AS [vwValueMachineOrderOpManualConfirmQUE]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachinePartCast_Search" EntityType="Self.vwValueMachinePartCast_Search" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachinePartCast_Search].[PARTID] AS [PARTID],
+              [vwValueMachinePartCast_Search].[PART_Desc] AS [PART_Desc],
+              [vwValueMachinePartCast_Search].[CAST_Desc] AS [CAST_Desc],
+              [vwValueMachinePartCast_Search].[VM_Desc] AS [VM_Desc],
+              [vwValueMachinePartCast_Search].[BLDID] AS [BLDID],
+              [vwValueMachinePartCast_Search].[VS_Desc] AS [VS_Desc],
+              [vwValueMachinePartCast_Search].[PART_TX] AS [PART_TX]
+              FROM [dbo].[vwValueMachinePartCast_Search] AS [vwValueMachinePartCast_Search]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachinePartCross" EntityType="Self.vwValueMachinePartCross" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachinePartCross].[PARTID] AS [PARTID],
+              [vwValueMachinePartCross].[VS_Desc] AS [VS_Desc],
+              [vwValueMachinePartCross].[VSID] AS [VSID],
+              [vwValueMachinePartCross].[VMID1] AS [VMID1],
+              [vwValueMachinePartCross].[VMID2] AS [VMID2],
+              [vwValueMachinePartCross].[VMID3] AS [VMID3],
+              [vwValueMachinePartCross].[VMID4] AS [VMID4],
+              [vwValueMachinePartCross].[VMID5] AS [VMID5],
+              [vwValueMachinePartCross].[VMID6] AS [VMID6],
+              [vwValueMachinePartCross].[VMID7] AS [VMID7],
+              [vwValueMachinePartCross].[VMID8] AS [VMID8],
+              [vwValueMachinePartCross].[VMID9] AS [VMID9],
+              [vwValueMachinePartCross].[VMID10] AS [VMID10],
+              [vwValueMachinePartCross].[RunTime1] AS [RunTime1],
+              [vwValueMachinePartCross].[RunTime2] AS [RunTime2],
+              [vwValueMachinePartCross].[RunTime3] AS [RunTime3],
+              [vwValueMachinePartCross].[RunTime4] AS [RunTime4],
+              [vwValueMachinePartCross].[RunTime5] AS [RunTime5],
+              [vwValueMachinePartCross].[RunTime6] AS [RunTime6],
+              [vwValueMachinePartCross].[RunTime7] AS [RunTime7],
+              [vwValueMachinePartCross].[RunTime8] AS [RunTime8],
+              [vwValueMachinePartCross].[RunTime9] AS [RunTime9],
+              [vwValueMachinePartCross].[RunTime10] AS [RunTime10],
+              [vwValueMachinePartCross].[PartNum] AS [PartNum],
+              [vwValueMachinePartCross].[CASTID] AS [CASTID],
+              [vwValueMachinePartCross].[CAST_Desc] AS [CAST_Desc],
+              [vwValueMachinePartCross].[PART_TX] AS [PART_TX]
+              FROM [dbo].[vwValueMachinePartCross] AS [vwValueMachinePartCross]
+            </DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwValueMachinePartCrossExt" EntityType="Self.vwValueMachinePartCrossExt" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [vwValueMachinePartCrossExt].[PARTID] AS [PARTID],
+              [vwValueMachinePartCrossExt].[VMID1] AS [VMID1],
+              [vwValueMachinePartCrossExt].[VM_Desc1] AS [VM_Desc1],
+              [vwValueMachinePartCrossExt].[VMID2] AS [VMID2],
+              [vwValueMachinePartCrossExt].[VM_Desc2] AS [VM_Desc2],
+              [vwValueMachinePartCrossExt].[VMID3] AS [VMID3],
+              [vwValueMachinePartCrossExt].[VM_Desc3] AS [VM_Desc3],
+              [vwValueMachinePartCrossExt].[VMID4] AS [VMID4],
+              [vwValueMachinePartCrossExt].[VM_Desc4] AS [VM_Desc4],
+              [vwValueMachinePartCrossExt].[VM_Color1] AS [VM_Color1],
+              [vwValueMachinePartCrossExt].[VM_Color2] AS [VM_Color2],
+              [vwValueMachinePartCrossExt].[VM_Color3] AS [VM_Color3],
+              [vwValueMachinePartCrossExt].[VM_Color4] AS [VM_Color4],
+              [vwValueMachinePartCrossExt].[VM_TotalHours1] AS [VM_TotalHours1],
+              [vwValueMachinePartCrossExt].[VM_TotalHours2] AS [VM_TotalHours2],
+              [vwValueMachinePartCrossExt].[VM_TotalHours3] AS [VM_TotalHours3],
+              [vwValueMachinePartCrossExt].[VM_TotalHours4] AS [VM_TotalHours4],
+              [vwValueMachinePartCrossExt].[RunTime1] AS [RunTime1],
+              [vwValueMachinePartCrossExt].[RunTime2] AS [RunTime2],
+              [vwValueMachinePartCrossExt].[RunTime3] AS [RunTime3],
+              [vwValueMachinePartCrossExt].[RunTime4] AS [RunTime4]
+              FROM [dbo].[vwValueMachinePartCrossExt] AS [vwValueMachinePartCrossExt]
+            </DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

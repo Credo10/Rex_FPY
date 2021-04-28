@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bb1247238464867b512f89e0f8beb40" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="ECRModel.tblDoc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocAppDetail" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocApproval" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocAppStatus" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocLine" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocLineAsc" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.tblDocType" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.vwDocApproval" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.vwDocApproved" Width="2.125" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.vwDocApprovers" Width="2.375" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ECRModel.vwDocCrossTab" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="ECRModel.FK_tblDoc_tblDocType" ManuallyRouted="false" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDoc" ManuallyRouted="false" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocApproval" ManuallyRouted="false" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocAppStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocLine" ManuallyRouted="false" />
+        <AssociationConnector Association="ECRModel.FK_tblDocLineAsc_tblDocLine" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ECRModel.tblAssociate" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="ECRModel.tblDocApprovalType" Width="1.5" PointX="10.375" PointY="0.875" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppDetail_tblDocApproval" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppDetail_tblDocApprovalType" />
+        <EntityTypeShape EntityType="ECRModel.tblFile" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ECRModel.vwDocAssociates" Width="1.5" PointX="4.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ECRModel.tblAssociateDocShow" Width="1.5" PointX="6.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcessionGroup" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcessionRole" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcessionRoleAssign" Width="1.5" PointX="13.375" PointY="6.75" />
+<<<<<<< .mine
+        <EntityTypeShape EntityType="ECRModel.tblConcessionDeviation" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcession" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcessionApproval" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ECRModel.vwConcession" Width="1.5" PointX="6.375" PointY="14.75" />
+||||||| .r17
+=======
+        
+        
+        
+        <EntityTypeShape EntityType="ECRModel.vwConcession" Width="1.5" PointX="6.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ECRModel.tblConcessionMaterial" Width="1.5" PointX="8.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ECRModel.vwConcessionDiviationRiskPerson" Width="1.5" PointX="10.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ECRModel.tblDocAppStatusHistory" Width="1.5" PointX="11.7661769538029" PointY="17.580467798551762" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocApproval" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocAppStatus" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocAppStatusHistory" />
+        <AssociationConnector Association="ECRModel.FK_tblDoc_tblDocType" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDoc" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppDetail_tblDocApproval" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppDetail_tblDocApprovalType" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocApproval" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocAppStatus" />
+        <AssociationConnector Association="ECRModel.FK_tblDocApproval_tblDocLine" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocApproval" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocAppStatus" />
+        <AssociationConnector Association="ECRModel.FK_tblDocAppStatusHistory_tblDocAppStatusHistory" />
+        <AssociationConnector Association="ECRModel.FK_tblDocLineAsc_tblDocLine" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

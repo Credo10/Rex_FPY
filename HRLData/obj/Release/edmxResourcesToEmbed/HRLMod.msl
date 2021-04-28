@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HRLModelStoreContainer" CdmEntityContainer="HRLEntities">
+    <EntitySetMapping Name="tblApp">
+      <EntityTypeMapping TypeName="HRLModel.tblApp">
+        <MappingFragment StoreEntitySet="tblApp">
+          <ScalarProperty Name="APP_Color" ColumnName="APP_Color" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APP_Desc" ColumnName="APP_Desc" />
+          <ScalarProperty Name="APP_Version" ColumnName="APP_Version" />
+          <ScalarProperty Name="APP_BetaFor" ColumnName="APP_BetaFor" />
+          <ScalarProperty Name="APP_ReleaseFolder" ColumnName="APP_ReleaseFolder" />
+          <ScalarProperty Name="APP_DesignFolder" ColumnName="APP_DesignFolder" />
+          <ScalarProperty Name="APP_EXE" ColumnName="APP_EXE" />
+          <ScalarProperty Name="APP_DesignEXE" ColumnName="APP_DesignEXE" />
+          <ScalarProperty Name="APP_SolutionFolder" ColumnName="APP_SolutionFolder" />
+          <ScalarProperty Name="APP_HelpdeskOrg" ColumnName="APP_HelpdeskOrg" />
+          <ScalarProperty Name="APP_Deleted" ColumnName="APP_Deleted" />
+          <ScalarProperty Name="APP_Image" ColumnName="APP_Image" />
+          <ScalarProperty Name="APP_Domain" ColumnName="APP_Domain" />
+          <ScalarProperty Name="APP_VersionFolder" ColumnName="APP_VersionFolder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppButton">
+      <EntityTypeMapping TypeName="HRLModel.tblAppButton">
+        <MappingFragment StoreEntitySet="tblAppButton">
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="BT_Desc" ColumnName="BT_Desc" />
+          <ScalarProperty Name="BT_Deleted" ColumnName="BT_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppColumnOption">
+      <EntityTypeMapping TypeName="HRLModel.tblAppColumnOption">
+        <MappingFragment StoreEntitySet="tblAppColumnOption">
+          <ScalarProperty Name="APCOID" ColumnName="APCOID" />
+          <ScalarProperty Name="APCO_Desc" ColumnName="APCO_Desc" />
+          <ScalarProperty Name="APCO_Deleted" ColumnName="APCO_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppColumns">
+      <EntityTypeMapping TypeName="HRLModel.tblAppColumns">
+        <MappingFragment StoreEntitySet="tblAppColumns">
+          <ScalarProperty Name="APCID" ColumnName="APCID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="APCOID" ColumnName="APCOID" />
+          <ScalarProperty Name="APC_Desc" ColumnName="APC_Desc" />
+          <ScalarProperty Name="APC_Name" ColumnName="APC_Name" />
+          <ScalarProperty Name="APC_Width" ColumnName="APC_Width" />
+          <ScalarProperty Name="APC_Order" ColumnName="APC_Order" />
+          <ScalarProperty Name="APC_Grid" ColumnName="APC_Grid" />
+          <ScalarProperty Name="APC_ReadOnly" ColumnName="APC_ReadOnly" />
+          <ScalarProperty Name="APC_Deleted" ColumnName="APC_Deleted" />
+          <ScalarProperty Name="APC_Default" ColumnName="APC_Default" />
+          <ScalarProperty Name="APC_QueryField" ColumnName="APC_QueryField" />
+          <ScalarProperty Name="APC_ClearValue" ColumnName="APC_ClearValue" />
+          <ScalarProperty Name="APC_FilterOrder" ColumnName="APC_FilterOrder" />
+          <ScalarProperty Name="APC_ARIDs" ColumnName="APC_ARIDs" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppErrorLog">
+      <EntityTypeMapping TypeName="HRLModel.tblAppErrorLog">
+        <MappingFragment StoreEntitySet="tblAppErrorLog">
+          <ScalarProperty Name="ERID" ColumnName="ERID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="ER_Date" ColumnName="ER_Date" />
+          <ScalarProperty Name="ER_Number" ColumnName="ER_Number" />
+          <ScalarProperty Name="ER_Message" ColumnName="ER_Message" />
+          <ScalarProperty Name="ER_Severity" ColumnName="ER_Severity" />
+          <ScalarProperty Name="ER_State" ColumnName="ER_State" />
+          <ScalarProperty Name="ER_Procedure" ColumnName="ER_Procedure" />
+          <ScalarProperty Name="ER_UserName" ColumnName="ER_UserName" />
+          <ScalarProperty Name="ER_HostName" ColumnName="ER_HostName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppFilter">
+      <EntityTypeMapping TypeName="HRLModel.tblAppFilter">
+        <MappingFragment StoreEntitySet="tblAppFilter">
+          <ScalarProperty Name="AFLTID" ColumnName="AFLTID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="AFLT_Token" ColumnName="AFLT_Token" />
+          <ScalarProperty Name="AFLT_TimeStamp" ColumnName="AFLT_TimeStamp" />
+          <ScalarProperty Name="AFLT_GV" ColumnName="AFLT_GV" />
+          <ScalarProperty Name="F1" ColumnName="F1" />
+          <ScalarProperty Name="F2" ColumnName="F2" />
+          <ScalarProperty Name="F3" ColumnName="F3" />
+          <ScalarProperty Name="F4" ColumnName="F4" />
+          <ScalarProperty Name="F5" ColumnName="F5" />
+          <ScalarProperty Name="F6" ColumnName="F6" />
+          <ScalarProperty Name="F7" ColumnName="F7" />
+          <ScalarProperty Name="F8" ColumnName="F8" />
+          <ScalarProperty Name="F9" ColumnName="F9" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="F15" ColumnName="F15" />
+          <ScalarProperty Name="F16" ColumnName="F16" />
+          <ScalarProperty Name="F17" ColumnName="F17" />
+          <ScalarProperty Name="F18" ColumnName="F18" />
+          <ScalarProperty Name="F19" ColumnName="F19" />
+          <ScalarProperty Name="F20" ColumnName="F20" />
+          <ScalarProperty Name="F21" ColumnName="F21" />
+          <ScalarProperty Name="F22" ColumnName="F22" />
+          <ScalarProperty Name="F23" ColumnName="F23" />
+          <ScalarProperty Name="F24" ColumnName="F24" />
+          <ScalarProperty Name="F25" ColumnName="F25" />
+          <ScalarProperty Name="F26" ColumnName="F26" />
+          <ScalarProperty Name="F27" ColumnName="F27" />
+          <ScalarProperty Name="F28" ColumnName="F28" />
+          <ScalarProperty Name="F29" ColumnName="F29" />
+          <ScalarProperty Name="F30" ColumnName="F30" />
+          <ScalarProperty Name="F31" ColumnName="F31" />
+          <ScalarProperty Name="F32" ColumnName="F32" />
+          <ScalarProperty Name="F33" ColumnName="F33" />
+          <ScalarProperty Name="F34" ColumnName="F34" />
+          <ScalarProperty Name="F35" ColumnName="F35" />
+          <ScalarProperty Name="F36" ColumnName="F36" />
+          <ScalarProperty Name="F37" ColumnName="F37" />
+          <ScalarProperty Name="F38" ColumnName="F38" />
+          <ScalarProperty Name="F39" ColumnName="F39" />
+          <ScalarProperty Name="F40" ColumnName="F40" />
+          <ScalarProperty Name="F41" ColumnName="F41" />
+          <ScalarProperty Name="F42" ColumnName="F42" />
+          <ScalarProperty Name="F43" ColumnName="F43" />
+          <ScalarProperty Name="F44" ColumnName="F44" />
+          <ScalarProperty Name="F45" ColumnName="F45" />
+          <ScalarProperty Name="F46" ColumnName="F46" />
+          <ScalarProperty Name="F47" ColumnName="F47" />
+          <ScalarProperty Name="F48" ColumnName="F48" />
+          <ScalarProperty Name="F49" ColumnName="F49" />
+          <ScalarProperty Name="F50" ColumnName="F50" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppNavigation">
+      <EntityTypeMapping TypeName="HRLModel.tblAppNavigation">
+        <MappingFragment StoreEntitySet="tblAppNavigation">
+          <ScalarProperty Name="NAV_Height" ColumnName="NAV_Height" />
+          <ScalarProperty Name="NAV_Width" ColumnName="NAV_Width" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="NAV_Desc" ColumnName="NAV_Desc" />
+          <ScalarProperty Name="NAV_Item" ColumnName="NAV_Item" />
+          <ScalarProperty Name="NAV_Option" ColumnName="NAV_Option" />
+          <ScalarProperty Name="NAV_Filter" ColumnName="NAV_Filter" />
+          <ScalarProperty Name="NAV_Order" ColumnName="NAV_Order" />
+          <ScalarProperty Name="NAV_Image" ColumnName="NAV_Image" />
+          <ScalarProperty Name="NAV_Table" ColumnName="NAV_Table" />
+          <ScalarProperty Name="NAV_Server" ColumnName="NAV_Server" />
+          <ScalarProperty Name="NAV_Deleted" ColumnName="NAV_Deleted" />
+          <ScalarProperty Name="NAV_Active" ColumnName="NAV_Active" />
+          <ScalarProperty Name="NAV_GV2" ColumnName="NAV_GV2" />
+          <ScalarProperty Name="NAV_GV3" ColumnName="NAV_GV3" />
+          <ScalarProperty Name="NAV_GV4" ColumnName="NAV_GV4" />
+          <ScalarProperty Name="NAV_GV5" ColumnName="NAV_GV5" />
+          <ScalarProperty Name="NAV_GV6" ColumnName="NAV_GV6" />
+          <ScalarProperty Name="NAV_Color" ColumnName="NAV_Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppNavigationUser">
+      <EntityTypeMapping TypeName="HRLModel.tblAppNavigationUser">
+        <MappingFragment StoreEntitySet="tblAppNavigationUser">
+          <ScalarProperty Name="AGID" ColumnName="AGID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AG_FormItem" ColumnName="AG_FormItem" />
+          <ScalarProperty Name="AG_Height" ColumnName="AG_Height" />
+          <ScalarProperty Name="AG_Width" ColumnName="AG_Width" />
+          <ScalarProperty Name="AG_Created" ColumnName="AG_Created" />
+          <ScalarProperty Name="AG_Deleted" ColumnName="AG_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppNavigationUserGrid">
+      <EntityTypeMapping TypeName="HRLModel.tblAppNavigationUserGrid">
+        <MappingFragment StoreEntitySet="tblAppNavigationUserGrid">
+          <ScalarProperty Name="ADID" ColumnName="ADID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="APCID" ColumnName="APCID" />
+          <ScalarProperty Name="AD_Sort" ColumnName="AD_Sort" />
+          <ScalarProperty Name="AD_Width" ColumnName="AD_Width" />
+          <ScalarProperty Name="AD_Created" ColumnName="AD_Created" />
+          <ScalarProperty Name="AD_Deleted" ColumnName="AD_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppNavMoreButton">
+      <EntityTypeMapping TypeName="HRLModel.tblAppNavMoreButton">
+        <MappingFragment StoreEntitySet="tblAppNavMoreButton">
+          <ScalarProperty Name="NBID" ColumnName="NBID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="NB_Active" ColumnName="NB_Active" />
+          <ScalarProperty Name="NB_Created" ColumnName="NB_Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppOptions">
+      <EntityTypeMapping TypeName="HRLModel.tblAppOptions">
+        <MappingFragment StoreEntitySet="tblAppOptions">
+          <ScalarProperty Name="APOPID" ColumnName="APOPID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APOP_Desc" ColumnName="APOP_Desc" />
+          <ScalarProperty Name="APOP_Value" ColumnName="APOP_Value" />
+          <ScalarProperty Name="APOP_Deleted" ColumnName="APOP_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppPath">
+      <EntityTypeMapping TypeName="HRLModel.tblAppPath">
+        <MappingFragment StoreEntitySet="tblAppPath">
+          <ScalarProperty Name="APTHID" ColumnName="APTHID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APTH_Desc" ColumnName="APTH_Desc" />
+          <ScalarProperty Name="APTH_Path" ColumnName="APTH_Path" />
+          <ScalarProperty Name="APTH_Deleted" ColumnName="APTH_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppReport">
+      <EntityTypeMapping TypeName="HRLModel.tblAppReport">
+        <MappingFragment StoreEntitySet="tblAppReport">
+          <ScalarProperty Name="RPID" ColumnName="RPID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="RP_Desc" ColumnName="RP_Desc" />
+          <ScalarProperty Name="RP_RDL" ColumnName="RP_RDL" />
+          <ScalarProperty Name="RP_Deleted" ColumnName="RP_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppReportOption">
+      <EntityTypeMapping TypeName="HRLModel.tblAppReportOption">
+        <MappingFragment StoreEntitySet="tblAppReportOption">
+          <ScalarProperty Name="RPOID" ColumnName="RPOID" />
+          <ScalarProperty Name="RPID" ColumnName="RPID" />
+          <ScalarProperty Name="RPO_Desc" ColumnName="RPO_Desc" />
+          <ScalarProperty Name="RPO_Deleted" ColumnName="RPO_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppRole">
+      <EntityTypeMapping TypeName="HRLModel.tblAppRole">
+        <MappingFragment StoreEntitySet="tblAppRole">
+          <ScalarProperty Name="RLID" ColumnName="RLID" />
+          <ScalarProperty Name="RL_Desc" ColumnName="RL_Desc" />
+          <ScalarProperty Name="RL_Deleted" ColumnName="RL_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppRoleButtons">
+      <EntityTypeMapping TypeName="HRLModel.tblAppRoleButtons">
+        <MappingFragment StoreEntitySet="tblAppRoleButtons">
+          <ScalarProperty Name="ABID" ColumnName="ABID" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="AB_Order" ColumnName="AB_Order" />
+          <ScalarProperty Name="AB_Deleted" ColumnName="AB_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppRoles">
+      <EntityTypeMapping TypeName="HRLModel.tblAppRoles">
+        <MappingFragment StoreEntitySet="tblAppRoles">
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="RLID" ColumnName="RLID" />
+          <ScalarProperty Name="AB_Level" ColumnName="AB_Level" />
+          <ScalarProperty Name="AR_Deleted" ColumnName="AR_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppTraining">
+      <EntityTypeMapping TypeName="HRLModel.tblAppTraining">
+        <MappingFragment StoreEntitySet="tblAppTraining">
+          <ScalarProperty Name="TRAID" ColumnName="TRAID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="TR_Desc" ColumnName="TR_Desc" />
+          <ScalarProperty Name="TR_File" ColumnName="TR_File" />
+          <ScalarProperty Name="TR_Deleted" ColumnName="TR_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppUser">
+      <EntityTypeMapping TypeName="HRLModel.tblAppUser">
+        <MappingFragment StoreEntitySet="tblAppUser">
+          <ScalarProperty Name="AUID" ColumnName="AUID" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AU_Deleted" ColumnName="AU_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmailDistribution">
+      <EntityTypeMapping TypeName="HRLModel.tblEmailDistribution">
+        <MappingFragment StoreEntitySet="tblEmailDistribution">
+          <ScalarProperty Name="ED_Created" ColumnName="ED_Created" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="EDID" ColumnName="EDID" />
+          <ScalarProperty Name="ED_Desc" ColumnName="ED_Desc" />
+          <ScalarProperty Name="ED_SendAs" ColumnName="ED_SendAs" />
+          <ScalarProperty Name="ED_Active" ColumnName="ED_Active" />
+          <ScalarProperty Name="ED_Deleted" ColumnName="ED_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmailDistributionDetail">
+      <EntityTypeMapping TypeName="HRLModel.tblEmailDistributionDetail">
+        <MappingFragment StoreEntitySet="tblEmailDistributionDetail">
+          <ScalarProperty Name="EDD_Created" ColumnName="EDD_Created" />
+          <ScalarProperty Name="EDDID" ColumnName="EDDID" />
+          <ScalarProperty Name="EDID" ColumnName="EDID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="EDD_NonBoschEmail" ColumnName="EDD_NonBoschEmail" />
+          <ScalarProperty Name="EDD_Active" ColumnName="EDD_Active" />
+          <ScalarProperty Name="EDD_Deleted" ColumnName="EDD_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFilePath">
+      <EntityTypeMapping TypeName="HRLModel.tblFilePath">
+        <MappingFragment StoreEntitySet="tblFilePath">
+          <ScalarProperty Name="FPID" ColumnName="FPID" />
+          <ScalarProperty Name="FTID" ColumnName="FTID" />
+          <ScalarProperty Name="LNID" ColumnName="LNID" />
+          <ScalarProperty Name="FP_Desc" ColumnName="FP_Desc" />
+          <ScalarProperty Name="FP_Archive" ColumnName="FP_Archive" />
+          <ScalarProperty Name="FP_Deleted" ColumnName="FP_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFileType">
+      <EntityTypeMapping TypeName="HRLModel.tblFileType">
+        <MappingFragment StoreEntitySet="tblFileType">
+          <ScalarProperty Name="FTID" ColumnName="FTID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="FT_Desc" ColumnName="FT_Desc" />
+          <ScalarProperty Name="FT_Folder" ColumnName="FT_Folder" />
+          <ScalarProperty Name="FT_Deleted" ColumnName="FT_Deleted" />
+          <ScalarProperty Name="FT_Suffix" ColumnName="FT_Suffix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOptions">
+      <EntityTypeMapping TypeName="HRLModel.tblOptions">
+        <MappingFragment StoreEntitySet="tblOptions">
+          <ScalarProperty Name="OPID" ColumnName="OPID" />
+          <ScalarProperty Name="OP_ID" ColumnName="OP_ID" />
+          <ScalarProperty Name="OP_Desc" ColumnName="OP_Desc" />
+          <ScalarProperty Name="OP_Function" ColumnName="OP_Function" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShift">
+      <EntityTypeMapping TypeName="HRLModel.tblShift">
+        <MappingFragment StoreEntitySet="tblShift">
+          <ScalarProperty Name="SFID" ColumnName="SFID" />
+          <ScalarProperty Name="SF_Desc" ColumnName="SF_Desc" />
+          <ScalarProperty Name="SF_Active" ColumnName="SF_Active" />
+          <ScalarProperty Name="SF_Created" ColumnName="SF_Created" />
+          <ScalarProperty Name="SF_Deleted" ColumnName="SF_Deleted" />
+          <ScalarProperty Name="SF_Num" ColumnName="SF_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAssociate">
+      <EntityTypeMapping TypeName="HRLModel.tblAssociate">
+        <MappingFragment StoreEntitySet="tblAssociate">
+          <ScalarProperty Name="AS_HireDate" ColumnName="AS_HireDate" />
+          <ScalarProperty Name="AS_HTI_PNum" ColumnName="AS_HTI_PNum" />
+          <ScalarProperty Name="AS_HTI_Manager" ColumnName="AS_HTI_Manager" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="DPID" ColumnName="DPID" />
+          <ScalarProperty Name="OFID" ColumnName="OFID" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="AS_Phone" ColumnName="AS_Phone" />
+          <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="AS_OutID" ColumnName="AS_OutID" />
+          <ScalarProperty Name="AS_Sync" ColumnName="AS_Sync" />
+          <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+          <ScalarProperty Name="AS_Reso" ColumnName="AS_Reso" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="AS_Domain" ColumnName="AS_Domain" />
+          <ScalarProperty Name="AS_Group" ColumnName="AS_Group" />
+          <ScalarProperty Name="AS_DC" ColumnName="AS_DC" />
+          <ScalarProperty Name="AS_UserID" ColumnName="AS_UserID" />
+          <ScalarProperty Name="PERNR" ColumnName="PERNR" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="BIDID" ColumnName="BIDID" />
+          <ScalarProperty Name="AS_Badge" ColumnName="AS_Badge" />
+          <ScalarProperty Name="AS_CellForSMS" ColumnName="AS_CellForSMS" />
+          <ScalarProperty Name="AS_BI_Lock" ColumnName="AS_BI_Lock" />
+          <ScalarProperty Name="AS_CareerBand" ColumnName="AS_CareerBand" />
+          <ScalarProperty Name="AS_CostCenter" ColumnName="AS_CostCenter" />
+          <ScalarProperty Name="AS_OrgUnitAbbr" ColumnName="AS_OrgUnitAbbr" />
+          <ScalarProperty Name="AS_BInonFNI" ColumnName="AS_BInonFNI" />
+          <ScalarProperty Name="AS_CBandLock" ColumnName="AS_CBandLock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppButton">
+      <EntityTypeMapping TypeName="HRLModel.vwAppButton">
+        <MappingFragment StoreEntitySet="vwAppButton">
+          <ScalarProperty Name="BT_Desc" ColumnName="BT_Desc" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="AB_Order" ColumnName="AB_Order" />
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppColumnFilter">
+      <EntityTypeMapping TypeName="HRLModel.vwAppColumnFilter">
+        <MappingFragment StoreEntitySet="vwAppColumnFilter">
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="APC_Grid" ColumnName="APC_Grid" />
+          <ScalarProperty Name="F1" ColumnName="F1" />
+          <ScalarProperty Name="F2" ColumnName="F2" />
+          <ScalarProperty Name="F3" ColumnName="F3" />
+          <ScalarProperty Name="F4" ColumnName="F4" />
+          <ScalarProperty Name="F5" ColumnName="F5" />
+          <ScalarProperty Name="F6" ColumnName="F6" />
+          <ScalarProperty Name="F7" ColumnName="F7" />
+          <ScalarProperty Name="F8" ColumnName="F8" />
+          <ScalarProperty Name="F9" ColumnName="F9" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="F15" ColumnName="F15" />
+          <ScalarProperty Name="F16" ColumnName="F16" />
+          <ScalarProperty Name="F17" ColumnName="F17" />
+          <ScalarProperty Name="F18" ColumnName="F18" />
+          <ScalarProperty Name="F19" ColumnName="F19" />
+          <ScalarProperty Name="F20" ColumnName="F20" />
+          <ScalarProperty Name="F21" ColumnName="F21" />
+          <ScalarProperty Name="F22" ColumnName="F22" />
+          <ScalarProperty Name="F23" ColumnName="F23" />
+          <ScalarProperty Name="F24" ColumnName="F24" />
+          <ScalarProperty Name="F25" ColumnName="F25" />
+          <ScalarProperty Name="F26" ColumnName="F26" />
+          <ScalarProperty Name="F27" ColumnName="F27" />
+          <ScalarProperty Name="F28" ColumnName="F28" />
+          <ScalarProperty Name="F29" ColumnName="F29" />
+          <ScalarProperty Name="F30" ColumnName="F30" />
+          <ScalarProperty Name="F31" ColumnName="F31" />
+          <ScalarProperty Name="F32" ColumnName="F32" />
+          <ScalarProperty Name="F33" ColumnName="F33" />
+          <ScalarProperty Name="F34" ColumnName="F34" />
+          <ScalarProperty Name="F35" ColumnName="F35" />
+          <ScalarProperty Name="F36" ColumnName="F36" />
+          <ScalarProperty Name="F37" ColumnName="F37" />
+          <ScalarProperty Name="F38" ColumnName="F38" />
+          <ScalarProperty Name="F39" ColumnName="F39" />
+          <ScalarProperty Name="F40" ColumnName="F40" />
+          <ScalarProperty Name="F41" ColumnName="F41" />
+          <ScalarProperty Name="F42" ColumnName="F42" />
+          <ScalarProperty Name="F43" ColumnName="F43" />
+          <ScalarProperty Name="F44" ColumnName="F44" />
+          <ScalarProperty Name="F45" ColumnName="F45" />
+          <ScalarProperty Name="F46" ColumnName="F46" />
+          <ScalarProperty Name="F47" ColumnName="F47" />
+          <ScalarProperty Name="F48" ColumnName="F48" />
+          <ScalarProperty Name="F49" ColumnName="F49" />
+          <ScalarProperty Name="F50" ColumnName="F50" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppColumnFilterClear">
+      <EntityTypeMapping TypeName="HRLModel.vwAppColumnFilterClear">
+        <MappingFragment StoreEntitySet="vwAppColumnFilterClear">
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="APC_Grid" ColumnName="APC_Grid" />
+          <ScalarProperty Name="F1" ColumnName="F1" />
+          <ScalarProperty Name="F2" ColumnName="F2" />
+          <ScalarProperty Name="F3" ColumnName="F3" />
+          <ScalarProperty Name="F4" ColumnName="F4" />
+          <ScalarProperty Name="F5" ColumnName="F5" />
+          <ScalarProperty Name="F6" ColumnName="F6" />
+          <ScalarProperty Name="F7" ColumnName="F7" />
+          <ScalarProperty Name="F8" ColumnName="F8" />
+          <ScalarProperty Name="F9" ColumnName="F9" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="F15" ColumnName="F15" />
+          <ScalarProperty Name="F16" ColumnName="F16" />
+          <ScalarProperty Name="F17" ColumnName="F17" />
+          <ScalarProperty Name="F18" ColumnName="F18" />
+          <ScalarProperty Name="F19" ColumnName="F19" />
+          <ScalarProperty Name="F20" ColumnName="F20" />
+          <ScalarProperty Name="F21" ColumnName="F21" />
+          <ScalarProperty Name="F22" ColumnName="F22" />
+          <ScalarProperty Name="F23" ColumnName="F23" />
+          <ScalarProperty Name="F24" ColumnName="F24" />
+          <ScalarProperty Name="F25" ColumnName="F25" />
+          <ScalarProperty Name="F26" ColumnName="F26" />
+          <ScalarProperty Name="F27" ColumnName="F27" />
+          <ScalarProperty Name="F28" ColumnName="F28" />
+          <ScalarProperty Name="F29" ColumnName="F29" />
+          <ScalarProperty Name="F30" ColumnName="F30" />
+          <ScalarProperty Name="F31" ColumnName="F31" />
+          <ScalarProperty Name="F32" ColumnName="F32" />
+          <ScalarProperty Name="F33" ColumnName="F33" />
+          <ScalarProperty Name="F34" ColumnName="F34" />
+          <ScalarProperty Name="F35" ColumnName="F35" />
+          <ScalarProperty Name="F36" ColumnName="F36" />
+          <ScalarProperty Name="F37" ColumnName="F37" />
+          <ScalarProperty Name="F38" ColumnName="F38" />
+          <ScalarProperty Name="F39" ColumnName="F39" />
+          <ScalarProperty Name="F40" ColumnName="F40" />
+          <ScalarProperty Name="F41" ColumnName="F41" />
+          <ScalarProperty Name="F42" ColumnName="F42" />
+          <ScalarProperty Name="F43" ColumnName="F43" />
+          <ScalarProperty Name="F44" ColumnName="F44" />
+          <ScalarProperty Name="F45" ColumnName="F45" />
+          <ScalarProperty Name="F46" ColumnName="F46" />
+          <ScalarProperty Name="F47" ColumnName="F47" />
+          <ScalarProperty Name="F48" ColumnName="F48" />
+          <ScalarProperty Name="F49" ColumnName="F49" />
+          <ScalarProperty Name="F50" ColumnName="F50" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppColumnFilterFields">
+      <EntityTypeMapping TypeName="HRLModel.vwAppColumnFilterFields">
+        <MappingFragment StoreEntitySet="vwAppColumnFilterFields">
+          <ScalarProperty Name="APCID" ColumnName="APCID" />
+          <ScalarProperty Name="APCOID" ColumnName="APCOID" />
+          <ScalarProperty Name="APC_Desc" ColumnName="APC_Desc" />
+          <ScalarProperty Name="APC_Name" ColumnName="APC_Name" />
+          <ScalarProperty Name="APC_QueryField" ColumnName="APC_QueryField" />
+          <ScalarProperty Name="APC_Default" ColumnName="APC_Default" />
+          <ScalarProperty Name="APC_Order" ColumnName="APC_Order" />
+          <ScalarProperty Name="APC_Grid" ColumnName="APC_Grid" />
+          <ScalarProperty Name="APC_ReadOnly" ColumnName="APC_ReadOnly" />
+          <ScalarProperty Name="APC_Deleted" ColumnName="APC_Deleted" />
+          <ScalarProperty Name="APC_Width" ColumnName="APC_Width" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="NAVID2" ColumnName="NAVID2" />
+          <ScalarProperty Name="APC_FilterOrder" ColumnName="APC_FilterOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppFilterHelper">
+      <EntityTypeMapping TypeName="HRLModel.vwAppFilterHelper">
+        <MappingFragment StoreEntitySet="vwAppFilterHelper">
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="Fld" ColumnName="Fld" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppNav">
+      <EntityTypeMapping TypeName="HRLModel.vwAppNav">
+        <MappingFragment StoreEntitySet="vwAppNav">
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="BT_Desc" ColumnName="BT_Desc" />
+          <ScalarProperty Name="NAV_Desc" ColumnName="NAV_Desc" />
+          <ScalarProperty Name="NAV_Item" ColumnName="NAV_Item" />
+          <ScalarProperty Name="NAV_Table" ColumnName="NAV_Table" />
+          <ScalarProperty Name="NAV_Option" ColumnName="NAV_Option" />
+          <ScalarProperty Name="NAV_Filter" ColumnName="NAV_Filter" />
+          <ScalarProperty Name="NAV_Order" ColumnName="NAV_Order" />
+          <ScalarProperty Name="NAV_Server" ColumnName="NAV_Server" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APP_Desc" ColumnName="APP_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppNavigation">
+      <EntityTypeMapping TypeName="HRLModel.vwAppNavigation">
+        <MappingFragment StoreEntitySet="vwAppNavigation">
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="NAV_Desc" ColumnName="NAV_Desc" />
+          <ScalarProperty Name="NAV_Item" ColumnName="NAV_Item" />
+          <ScalarProperty Name="NAV_Option" ColumnName="NAV_Option" />
+          <ScalarProperty Name="NAV_Filter" ColumnName="NAV_Filter" />
+          <ScalarProperty Name="NAV_Order" ColumnName="NAV_Order" />
+          <ScalarProperty Name="NAV_Image" ColumnName="NAV_Image" />
+          <ScalarProperty Name="NAV_Table" ColumnName="NAV_Table" />
+          <ScalarProperty Name="NAV_Server" ColumnName="NAV_Server" />
+          <ScalarProperty Name="NAV_Deleted" ColumnName="NAV_Deleted" />
+          <ScalarProperty Name="NAV_Active" ColumnName="NAV_Active" />
+          <ScalarProperty Name="NAV_GV2" ColumnName="NAV_GV2" />
+          <ScalarProperty Name="NAV_GV3" ColumnName="NAV_GV3" />
+          <ScalarProperty Name="NAV_GV4" ColumnName="NAV_GV4" />
+          <ScalarProperty Name="NAV_GV5" ColumnName="NAV_GV5" />
+          <ScalarProperty Name="NAV_GV6" ColumnName="NAV_GV6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppView">
+      <EntityTypeMapping TypeName="HRLModel.vwAppView">
+        <MappingFragment StoreEntitySet="vwAppView">
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APP_Desc" ColumnName="APP_Desc" />
+          <ScalarProperty Name="APP_Version" ColumnName="APP_Version" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RL_Desc" ColumnName="RL_Desc" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AB_Level" ColumnName="AB_Level" />
+          <ScalarProperty Name="APP_HelpdeskOrg" ColumnName="APP_HelpdeskOrg" />
+          <ScalarProperty Name="AUID" ColumnName="AUID" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="AU_Deleted" ColumnName="AU_Deleted" />
+          <ScalarProperty Name="AR_Deleted" ColumnName="AR_Deleted" />
+          <ScalarProperty Name="RL_Deleted" ColumnName="RL_Deleted" />
+          <ScalarProperty Name="RLID" ColumnName="RLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAppView2">
+      <EntityTypeMapping TypeName="HRLModel.vwAppView2">
+        <MappingFragment StoreEntitySet="vwAppView2">
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APP_Desc" ColumnName="APP_Desc" />
+          <ScalarProperty Name="APP_Version" ColumnName="APP_Version" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="RL_Desc" ColumnName="RL_Desc" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AB_Level" ColumnName="AB_Level" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAssociate">
+      <EntityTypeMapping TypeName="HRLModel.vwAssociate">
+        <MappingFragment StoreEntitySet="vwAssociate">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="AB_Level" ColumnName="AB_Level" />
+          <ScalarProperty Name="RL_Desc" ColumnName="RL_Desc" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AUID" ColumnName="AUID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="PERNR" ColumnName="PERNR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwEmailDistribution">
+      <EntityTypeMapping TypeName="HRLModel.vwEmailDistribution">
+        <MappingFragment StoreEntitySet="vwEmailDistribution">
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="AS_CellForSMS" ColumnName="AS_CellForSMS" />
+          <ScalarProperty Name="EDID" ColumnName="EDID" />
+          <ScalarProperty Name="ED_Desc" ColumnName="ED_Desc" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="EDDID" ColumnName="EDDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_AddColumns" FunctionName="HRLModel.Store.p_AddColumns">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_AddColumns_Result">
+          <ScalarProperty Name="APCID" ColumnName="APCID" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="APCOID" ColumnName="APCOID" />
+          <ScalarProperty Name="APC_Desc" ColumnName="APC_Desc" />
+          <ScalarProperty Name="APC_Name" ColumnName="APC_Name" />
+          <ScalarProperty Name="APC_Width" ColumnName="APC_Width" />
+          <ScalarProperty Name="APC_Order" ColumnName="APC_Order" />
+          <ScalarProperty Name="APC_Grid" ColumnName="APC_Grid" />
+          <ScalarProperty Name="APC_ReadOnly" ColumnName="APC_ReadOnly" />
+          <ScalarProperty Name="APC_Deleted" ColumnName="APC_Deleted" />
+          <ScalarProperty Name="APC_Default" ColumnName="APC_Default" />
+          <ScalarProperty Name="APC_QueryField" ColumnName="APC_QueryField" />
+          <ScalarProperty Name="APC_ClearValue" ColumnName="APC_ClearValue" />
+          <ScalarProperty Name="APC_FilterOrder" ColumnName="APC_FilterOrder" />
+          <ScalarProperty Name="APC_ARIDs" ColumnName="APC_ARIDs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_AddDataRow" FunctionName="HRLModel.Store.p_AddDataRow" />
+    <FunctionImportMapping FunctionImportName="p_AddFilterColumns" FunctionName="HRLModel.Store.p_AddFilterColumns" />
+    <FunctionImportMapping FunctionImportName="p_AppMenuNew" FunctionName="HRLModel.Store.p_AppMenuNew" />
+    <FunctionImportMapping FunctionImportName="p_AppUser" FunctionName="HRLModel.Store.p_AppUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_AppUser_Result">
+          <ScalarProperty Name="AUID" ColumnName="AUID" />
+          <ScalarProperty Name="APP_Desc" ColumnName="APP_Desc" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_CredoMinSelect" FunctionName="HRLModel.Store.p_CredoMinSelect">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_CredoMinSelect_Result">
+          <ScalarProperty Name="BTID" ColumnName="BTID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="BT_Desc" ColumnName="BT_Desc" />
+          <ScalarProperty Name="BT_Deleted" ColumnName="BT_Deleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_DropDown" FunctionName="HRLModel.Store.p_DropDown">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_DropDown_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_DropDownFilter" FunctionName="HRLModel.Store.p_DropDownFilter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_DropDownFilter_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_DropDownFilter2" FunctionName="HRLModel.Store.p_DropDownFilter2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_DropDownFilter2_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_DropDownList" FunctionName="HRLModel.Store.p_DropDownList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HRLModel.p_DropDownList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_tblAppErrorLog_Add" FunctionName="HRLModel.Store.p_tblAppErrorLog_Add" />
+    <FunctionImportMapping FunctionImportName="p_tblAppFilter" FunctionName="HRLModel.Store.p_tblAppFilter" />
+    <FunctionImportMapping FunctionImportName="p_tblAppFilterWhereClause" FunctionName="HRLModel.Store.p_tblAppFilterWhereClause" />
+    <FunctionImportMapping FunctionImportName="p_tblAppNavigationUser_Add" FunctionName="HRLModel.Store.p_tblAppNavigationUser_Add" />
+    <FunctionImportMapping FunctionImportName="p_tblAppNavigationUserGrid_Add" FunctionName="HRLModel.Store.p_tblAppNavigationUserGrid_Add" />
+    <FunctionImportMapping FunctionImportName="p_tblAppNavigationUserGrid_Load" FunctionName="HRLModel.Store.p_tblAppNavigationUserGrid_Load" />
+    <FunctionImportMapping FunctionImportName="p_tblFile_Add" FunctionName="HRLModel.Store.p_tblFile_Add" />
+    <EntitySetMapping Name="Nums">
+      <EntityTypeMapping TypeName="HRLModel.Nums">
+        <MappingFragment StoreEntitySet="Nums">
+          <ScalarProperty Name="n" ColumnName="n" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAppDropDown">
+      <EntityTypeMapping TypeName="HRLModel.tblAppDropDown">
+        <MappingFragment StoreEntitySet="tblAppDropDown">
+          <ScalarProperty Name="DD_APCID" ColumnName="DD_APCID" />
+          <ScalarProperty Name="DD_NAVID" ColumnName="DD_NAVID" />
+          <ScalarProperty Name="DD_APPID" ColumnName="DD_APPID" />
+          <ScalarProperty Name="DD_Deleted" ColumnName="DD_Deleted" />
+          <ScalarProperty Name="DD_Created" ColumnName="DD_Created" />
+          <ScalarProperty Name="DD_SQL" ColumnName="DD_SQL" />
+          <ScalarProperty Name="DD_Desc" ColumnName="DD_Desc" />
+          <ScalarProperty Name="NAVID" ColumnName="NAVID" />
+          <ScalarProperty Name="APPID" ColumnName="APPID" />
+          <ScalarProperty Name="APCID" ColumnName="APCID" />
+          <ScalarProperty Name="DDID" ColumnName="DDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPBProxy">
+      <EntityTypeMapping TypeName="HRLModel.tblPBProxy">
+        <MappingFragment StoreEntitySet="tblPBProxy">
+          <ScalarProperty Name="XY_Deleted" ColumnName="XY_Deleted" />
+          <ScalarProperty Name="XY_Created" ColumnName="XY_Created" />
+          <ScalarProperty Name="ASID2" ColumnName="ASID2" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="XYID" ColumnName="XYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPBTracking">
+      <EntityTypeMapping TypeName="HRLModel.vwPBTracking">
+        <MappingFragment StoreEntitySet="vwPBTracking">
+          <ScalarProperty Name="PBIDRed" ColumnName="PBIDRed" />
+          <ScalarProperty Name="PBSIDLast" ColumnName="PBSIDLast" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="ThreeDay" ColumnName="ThreeDay" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="PBRL_Sort" ColumnName="PBRL_Sort" />
+          <ScalarProperty Name="Complexity" ColumnName="Complexity" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Lead_Plant" ColumnName="Lead_Plant" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="PRA_Procurement" ColumnName="PRA_Procurement" />
+          <ScalarProperty Name="PRA_Special_Procurement" ColumnName="PRA_Special_Procurement" />
+          <ScalarProperty Name="PR1_Procurement" ColumnName="PR1_Procurement" />
+          <ScalarProperty Name="PR1_Special_Procurement" ColumnName="PR1_Special_Procurement" />
+          <ScalarProperty Name="PB_EstCompletion" ColumnName="PB_EstCompletion" />
+          <ScalarProperty Name="PB_Delivery" ColumnName="PB_Delivery" />
+          <ScalarProperty Name="PBPRID" ColumnName="PBPRID" />
+          <ScalarProperty Name="PBXID" ColumnName="PBXID" />
+          <ScalarProperty Name="PB_Batch" ColumnName="PB_Batch" />
+          <ScalarProperty Name="PrototypeRequestNumber" ColumnName="PrototypeRequestNumber" />
+          <ScalarProperty Name="PBD_Desc" ColumnName="PBD_Desc" />
+          <ScalarProperty Name="PBDVID" ColumnName="PBDVID" />
+          <ScalarProperty Name="FinishedUnit" ColumnName="FinishedUnit" />
+          <ScalarProperty Name="ServiceRequestNumber" ColumnName="ServiceRequestNumber" />
+          <ScalarProperty Name="PastDue" ColumnName="PastDue" />
+          <ScalarProperty Name="PBRL_Assigned" ColumnName="PBRL_Assigned" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="NextTaskOwner" ColumnName="NextTaskOwner" />
+          <ScalarProperty Name="NextTask" ColumnName="NextTask" />
+          <ScalarProperty Name="PB_TimeStamp" ColumnName="PB_TimeStamp" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="PB_Deleted" ColumnName="PB_Deleted" />
+          <ScalarProperty Name="PCTNumber" ColumnName="PCTNumber" />
+          <ScalarProperty Name="ConversionNumber" ColumnName="ConversionNumber" />
+          <ScalarProperty Name="ZMNRNumber" ColumnName="ZMNRNumber" />
+          <ScalarProperty Name="PB_LeadPlant" ColumnName="PB_LeadPlant" />
+          <ScalarProperty Name="PBRTID" ColumnName="PBRTID" />
+          <ScalarProperty Name="PBSFID" ColumnName="PBSFID" />
+          <ScalarProperty Name="PBOID" ColumnName="PBOID" />
+          <ScalarProperty Name="PBSTID" ColumnName="PBSTID" />
+          <ScalarProperty Name="PBFTID" ColumnName="PBFTID" />
+          <ScalarProperty Name="PBPTID" ColumnName="PBPTID" />
+          <ScalarProperty Name="PBSID" ColumnName="PBSID" />
+          <ScalarProperty Name="PBDID" ColumnName="PBDID" />
+          <ScalarProperty Name="PBID" ColumnName="PBID" />
+          <ScalarProperty Name="ECNNumber" ColumnName="ECNNumber" />
+          <ScalarProperty Name="CommentLast" ColumnName="CommentLast" />
+          <ScalarProperty Name="IssueLast" ColumnName="IssueLast" />
+          <ScalarProperty Name="PB_Reason" ColumnName="PB_Reason" />
+          <ScalarProperty Name="PB_TrackingDate" ColumnName="PB_TrackingDate" />
+          <ScalarProperty Name="PB_MaterialDescription" ColumnName="PB_MaterialDescription" />
+          <ScalarProperty Name="PB_Material" ColumnName="PB_Material" />
+          <ScalarProperty Name="PB2ID" ColumnName="PB2ID" />
+          <ScalarProperty Name="PBST_Date" ColumnName="PBST_Date" />
+          <ScalarProperty Name="PBS_Desc" ColumnName="PBS_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDriverCompany">
+      <EntityTypeMapping TypeName="HRLModel.tblDriverCompany">
+        <MappingFragment StoreEntitySet="tblDriverCompany">
+          <ScalarProperty Name="DLC_Deleted" ColumnName="DLC_Deleted" />
+          <ScalarProperty Name="DLC_Created" ColumnName="DLC_Created" />
+          <ScalarProperty Name="DLC_Active" ColumnName="DLC_Active" />
+          <ScalarProperty Name="DLC_Desc" ColumnName="DLC_Desc" />
+          <ScalarProperty Name="DLCID" ColumnName="DLCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDriverName">
+      <EntityTypeMapping TypeName="HRLModel.tblDriverName">
+        <MappingFragment StoreEntitySet="tblDriverName">
+          <ScalarProperty Name="DLN_Last" ColumnName="DLN_Last" />
+          <ScalarProperty Name="DLN_First" ColumnName="DLN_First" />
+          <ScalarProperty Name="DLCID" ColumnName="DLCID" />
+          <ScalarProperty Name="DLN_Deleted" ColumnName="DLN_Deleted" />
+          <ScalarProperty Name="DLN_Created" ColumnName="DLN_Created" />
+          <ScalarProperty Name="DLN_Active" ColumnName="DLN_Active" />
+          <ScalarProperty Name="DLN_Desc" ColumnName="DLN_Desc" />
+          <ScalarProperty Name="DLNID" ColumnName="DLNID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDriverLog">
+      <EntityTypeMapping TypeName="HRLModel.tblDriverLog">
+        <MappingFragment StoreEntitySet="tblDriverLog">
+          <ScalarProperty Name="ASID_Out" ColumnName="ASID_Out" />
+          <ScalarProperty Name="ASID_In" ColumnName="ASID_In" />
+          <ScalarProperty Name="DLL_TruckNo" ColumnName="DLL_TruckNo" />
+          <ScalarProperty Name="DLL_Building" ColumnName="DLL_Building" />
+          <ScalarProperty Name="DLNID" ColumnName="DLNID" />
+          <ScalarProperty Name="DLCID" ColumnName="DLCID" />
+          <ScalarProperty Name="DL_Out" ColumnName="DL_Out" />
+          <ScalarProperty Name="DL_In" ColumnName="DL_In" />
+          <ScalarProperty Name="DLL_Deleted" ColumnName="DLL_Deleted" />
+          <ScalarProperty Name="DLL_Created" ColumnName="DLL_Created" />
+          <ScalarProperty Name="DLL_Active" ColumnName="DLL_Active" />
+          <ScalarProperty Name="DLL_Desc" ColumnName="DLL_Desc" />
+          <ScalarProperty Name="DLLID" ColumnName="DLLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDriverLog">
+      <EntityTypeMapping TypeName="HRLModel.vwDriverLog">
+        <MappingFragment StoreEntitySet="vwDriverLog">
+          <ScalarProperty Name="ASID_Out" ColumnName="ASID_Out" />
+          <ScalarProperty Name="ASID_In" ColumnName="ASID_In" />
+          <ScalarProperty Name="TruckNumber" ColumnName="TruckNumber" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="LogTimeStamp" ColumnName="LogTimeStamp" />
+          <ScalarProperty Name="DLLID" ColumnName="DLLID" />
+          <ScalarProperty Name="DLNID" ColumnName="DLNID" />
+          <ScalarProperty Name="DLCID" ColumnName="DLCID" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="CarrierName" ColumnName="CarrierName" />
+          <ScalarProperty Name="TimeOut" ColumnName="TimeOut" />
+          <ScalarProperty Name="TimeIn" ColumnName="TimeIn" />
+          <ScalarProperty Name="LogEntry" ColumnName="LogEntry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

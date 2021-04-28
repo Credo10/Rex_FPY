@@ -1,0 +1,10 @@
+Z:\RexNewMaterialRequest\ECRData\bin\Release\ECRData.dll.config
+Z:\RexNewMaterialRequest\ECRData\bin\Release\ECRData.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Release\ECRData.pdb
+Z:\RexNewMaterialRequest\ECRData\bin\Release\EntityFramework.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Release\EntityFramework.SqlServer.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Release\EntityFramework.xml
+Z:\RexNewMaterialRequest\ECRData\bin\Release\EntityFramework.SqlServer.xml
+Z:\RexNewMaterialRequest\ECRData\obj\Release\ECRData.csprojResolveAssemblyReference.cache
+Z:\RexNewMaterialRequest\ECRData\obj\Release\ECRData.dll
+Z:\RexNewMaterialRequest\ECRData\obj\Release\ECRData.pdb

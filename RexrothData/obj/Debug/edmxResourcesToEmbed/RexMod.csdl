@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RexrothModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAssociate">
+    <Key>
+      <PropertyRef Name="ASID" />
+    </Key>
+    <Property Name="ASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PERNR" Type="Int32" />
+    <Property Name="DPID" Type="Int32" />
+    <Property Name="OFID" Type="Int32" />
+    <Property Name="BIDID" Type="Int32" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_First" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Last" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="AS_OutID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Sync" Type="DateTime" Precision="3" />
+    <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Reso" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Bosch" Type="Int32" />
+    <Property Name="AS_Domain" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_DC" Type="Boolean" />
+    <Property Name="AS_SuperUser" Type="Boolean" />
+    <Property Name="AS_Unique" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="AS_Unique_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="AS_Unique_UseID" Type="String" MaxLength="55" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="VSID" Type="Int32" />
+    <Property Name="AS_Inactivated" Type="DateTime" Precision="3" />
+    <Property Name="MergeKeep" Type="Int32" />
+    <Property Name="AS_Read" Type="Int32" />
+    <Property Name="AS_Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Kronos" Type="Int32" />
+    <Property Name="AS_Created" Type="DateTime" Precision="3" />
+    <Property Name="AS_Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_WorkScheduleRule" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AS_SupervisorEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AS_CostCenter" Type="Int32" />
+    <Property Name="AS_Badge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_CellForSMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_CareerBand" Type="Int32" />
+    <Property Name="AS_OrgUnitAbbr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_BInonFNI" Type="Boolean" Nullable="false" />
+    <Property Name="AS_MachText" Type="Boolean" Nullable="false" />
+    <Property Name="AS_BI_Lock" Type="Boolean" Nullable="false" />
+    <Property Name="AS_CBandLock" Type="Boolean" Nullable="false" />
+    <Property Name="AS_HTI_Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="RexrothEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" />
+    <FunctionImport Name="p_SaveChangesEF">
+      <Parameter Name="FirstN" Mode="In" Type="String" />
+      <Parameter Name="LastN" Mode="In" Type="String" />
+      <Parameter Name="UserN" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Display" Mode="In" Type="String" />
+      <Parameter Name="PK" Mode="InOut" Type="Int32" />
+      <Parameter Name="EMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,10 @@
+Z:\DriverLog\HRLData\bin\Release\HRLData.dll.config
+Z:\DriverLog\HRLData\bin\Release\HRLData.dll
+Z:\DriverLog\HRLData\bin\Release\HRLData.pdb
+Z:\DriverLog\HRLData\bin\Release\EntityFramework.dll
+Z:\DriverLog\HRLData\bin\Release\EntityFramework.SqlServer.dll
+Z:\DriverLog\HRLData\bin\Release\EntityFramework.xml
+Z:\DriverLog\HRLData\bin\Release\EntityFramework.SqlServer.xml
+Z:\DriverLog\HRLData\obj\Release\HRLData.dll
+Z:\DriverLog\HRLData\obj\Release\HRLData.pdb
+Z:\DriverLog\HRLData\obj\Release\HRLData.csprojResolveAssemblyReference.cache

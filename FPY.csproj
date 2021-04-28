@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2CE93B2-69E7-49B5-9522-29E9CBC4D817}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FPY</RootNamespace>
+    <AssemblyName>FPY</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>FPY.clsStart</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>NeededFiles\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Bandwidth.Net, Version=3.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>NeededFiles\Bandwidth.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Encryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>NeededFiles\Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HRLData, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>HRLData\bin\Debug\HRLData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>NeededFiles\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="RexrothData, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RexrothData\bin\Debug\RexrothData.dll</HintPath>
+    </Reference>
+    <Reference Include="SpannedDataGridViewNet2">
+      <HintPath>C:\Users\mip1ad\Source\Repos\Chartin\SpannedDataGridViewNet2\bin\Debug\SpannedDataGridViewNet2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Visual">
+      <HintPath>Visual\bin\Debug\Visual.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\clsCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\clsDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\clsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\clsTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\clsTypeAhead.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataGridViewRichTextBoxColumn.cs" />
+    <Compile Include="Controls\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RichTextBoxPrinter.cs" />
+    <Compile Include="Forms\frm24HourStackedNoon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24HourStackedNoon.Designer.cs">
+      <DependentUpon>frm24HourStackedNoon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm24HourStacked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24HourStacked.Designer.cs">
+      <DependentUpon>frm24HourStacked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm24HourStackedFill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24HourStackedFill.Designer.cs">
+      <DependentUpon>frm24HourStackedFill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFPYResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFPYResults.Designer.cs">
+      <DependentUpon>frmFPYResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHourTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHourTest.Designer.cs">
+      <DependentUpon>frmFPYThreeHourTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHourB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHourB.Designer.cs">
+      <DependentUpon>frmFPYThreeHourB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFPY24Hour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFPY24Hour.Designer.cs">
+      <DependentUpon>frmFPY24Hour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFPYThreeHour.Designer.cs">
+      <DependentUpon>frmFPYThreeHour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\clsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCredoMin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCredoMin.Designer.cs">
+      <DependentUpon>frmCredoMin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCredoMult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCredoMult.Designer.cs">
+      <DependentUpon>frmCredoMult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHold.Designer.cs">
+      <DependentUpon>frmHold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmNavigate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNavigate.Designer.cs">
+      <DependentUpon>frmNavigate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSQLText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSQLText.Designer.cs">
+      <DependentUpon>frmSQLText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmWait.Designer.cs">
+      <DependentUpon>frmWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\clsAD.cs" />
+    <Compile Include="Utilities\clsDAL.cs" />
+    <Compile Include="Utilities\clsDropDownUtil.cs" />
+    <Compile Include="Utilities\clsExport.cs" />
+    <Compile Include="Utilities\clsFormUtil.cs" />
+    <Compile Include="Utilities\clsGridUtil.cs" />
+    <Compile Include="Utilities\clsHSLColor.cs" />
+    <Compile Include="Utilities\clsMail.cs" />
+    <Compile Include="Utilities\clsPDF.cs" />
+    <Compile Include="Utilities\clsScreenCapture.cs" />
+    <Compile Include="Utilities\clsStart.cs" />
+    <Compile Include="Utilities\clsUtility.cs" />
+    <Compile Include="Utilities\PropertyComparer.cs" />
+    <Compile Include="Utilities\SortableBindingList.cs" />
+    <EmbeddedResource Include="Controls\clsGridView.resx">
+      <DependentUpon>clsGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\clsTextBox.resx">
+      <DependentUpon>clsTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24HourStackedNoon.resx">
+      <DependentUpon>frm24HourStackedNoon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24HourStacked.resx">
+      <DependentUpon>frm24HourStacked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24HourStackedFill.resx">
+      <DependentUpon>frm24HourStackedFill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFPYResults.resx">
+      <DependentUpon>frmFPYResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFPYThreeHourTest.resx">
+      <DependentUpon>frmFPYThreeHourTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFPYThreeHourB.resx">
+      <DependentUpon>frmFPYThreeHourB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFPY24Hour.resx">
+      <DependentUpon>frmFPY24Hour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFPYThreeHour.resx">
+      <DependentUpon>frmFPYThreeHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\clsForm.resx">
+      <DependentUpon>clsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCredoMin.resx">
+      <DependentUpon>frmCredoMin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCredoMult.resx">
+      <DependentUpon>frmCredoMult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHold.resx">
+      <DependentUpon>frmHold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNavigate.resx">
+      <DependentUpon>frmNavigate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSQLText.resx">
+      <DependentUpon>frmSQLText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmWait.resx">
+      <DependentUpon>frmWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reports\Report.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NeededFiles\AxInterop.AcroPDFLib.dll" />
+    <Content Include="NeededFiles\Bandwidth.Net.dll" />
+    <Content Include="NeededFiles\Encryption.dll" />
+    <Content Include="NeededFiles\ExtendedRichTextBox.dll" />
+    <Content Include="NeededFiles\Interop.AcroPDFLib.dll" />
+    <Content Include="NeededFiles\Microsoft.Office.Interop.Excel.dll" />
+    <None Include="Resources\gradientSteelBlue.png" />
+    <EmbeddedResource Include="Resources\370-pattern %282%29.jpg" />
+    <EmbeddedResource Include="Resources\370-pattern.jpg" />
+    <EmbeddedResource Include="Resources\370-pattern2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\370-pattern2.jpg" />
+    <EmbeddedResource Include="Resources\abstract %282%29.jpg" />
+    <EmbeddedResource Include="Resources\abstract.jpg" />
+    <EmbeddedResource Include="Resources\cubes %282%29.jpg" />
+    <EmbeddedResource Include="Resources\cubes.jpg" />
+    <EmbeddedResource Include="Resources\cubes2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\cubes2.jpg" />
+    <EmbeddedResource Include="Resources\diamonds %282%29.jpg" />
+    <EmbeddedResource Include="Resources\diamonds.jpg" />
+    <EmbeddedResource Include="Resources\dots %282%29.jpg" />
+    <EmbeddedResource Include="Resources\dots.jpg" />
+    <EmbeddedResource Include="Resources\dotz %282%29.jpg" />
+    <EmbeddedResource Include="Resources\dotz.jpg" />
+    <EmbeddedResource Include="Resources\flowers %282%29.jpg" />
+    <EmbeddedResource Include="Resources\flowers.jpg" />
+    <EmbeddedResource Include="Resources\flowers2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\flowers2.jpg" />
+    <EmbeddedResource Include="Resources\grunge %282%29.jpg" />
+    <EmbeddedResource Include="Resources\grunge-big %282%29.jpg" />
+    <EmbeddedResource Include="Resources\grunge-big.jpg" />
+    <EmbeddedResource Include="Resources\grunge-wall %282%29.jpg" />
+    <EmbeddedResource Include="Resources\grunge-wall.jpg" />
+    <EmbeddedResource Include="Resources\grunge-wall2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\grunge-wall2.jpg" />
+    <EmbeddedResource Include="Resources\grunge.jpg" />
+    <EmbeddedResource Include="Resources\leather %282%29.jpg" />
+    <EmbeddedResource Include="Resources\leather.jpg" />
+    <EmbeddedResource Include="Resources\lil-tree %282%29.jpg" />
+    <EmbeddedResource Include="Resources\lil-tree.jpg" />
+    <EmbeddedResource Include="Resources\mosaic-squares %282%29.jpg" />
+    <EmbeddedResource Include="Resources\mosaic-squares.jpg" />
+    <EmbeddedResource Include="Resources\mute-stripes %282%29.jpg" />
+    <EmbeddedResource Include="Resources\mute-stripes.jpg" />
+    <EmbeddedResource Include="Resources\paper %282%29.jpg" />
+    <EmbeddedResource Include="Resources\paper.jpg" />
+    <EmbeddedResource Include="Resources\paper2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\paper2.jpg" />
+    <EmbeddedResource Include="Resources\paper3 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\paper3.jpg" />
+    <EmbeddedResource Include="Resources\paper4 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\paper4.jpg" />
+    <EmbeddedResource Include="Resources\polkadots %282%29.jpg" />
+    <EmbeddedResource Include="Resources\polkadots.jpg" />
+    <EmbeddedResource Include="Resources\retro %282%29.jpg" />
+    <EmbeddedResource Include="Resources\retro.jpg" />
+    <EmbeddedResource Include="Resources\stripes %282%29.jpg" />
+    <EmbeddedResource Include="Resources\stripes.jpg" />
+    <EmbeddedResource Include="Resources\stripes2 %282%29.jpg" />
+    <EmbeddedResource Include="Resources\stripes2.jpg" />
+    <EmbeddedResource Include="Resources\tissue %282%29.jpg" />
+    <EmbeddedResource Include="Resources\tissue.jpg" />
+    <EmbeddedResource Include="Resources\tree %282%29.jpg" />
+    <EmbeddedResource Include="Resources\tree.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

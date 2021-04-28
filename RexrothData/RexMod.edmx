@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RexrothModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAssociate">
+          <Key>
+            <PropertyRef Name="ASID" />
+          </Key>
+          <Property Name="ASID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERNR" Type="int" />
+          <Property Name="DPID" Type="int" />
+          <Property Name="OFID" Type="int" />
+          <Property Name="BIDID" Type="int" />
+          <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AS_First" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AS_Phone" Type="varchar" MaxLength="25" />
+          <Property Name="AS_Last" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AS_User" Type="varchar" MaxLength="55" />
+          <Property Name="AS_OutID" Type="varchar" MaxLength="255" />
+          <Property Name="AS_Sync" Type="datetime" />
+          <Property Name="AS_Active" Type="bit" Nullable="false" />
+          <Property Name="AS_Reso" Type="bit" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+          <Property Name="AS_Bosch" Type="int" />
+          <Property Name="AS_Domain" Type="varchar" MaxLength="10" />
+          <Property Name="AS_Group" Type="varchar" MaxLength="50" />
+          <Property Name="AS_DC" Type="bit" />
+          <Property Name="AS_SuperUser" Type="bit" />
+          <Property Name="AS_Unique" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="AS_Unique_Email" Type="varchar" MaxLength="100" StoreGeneratedPattern="Computed" />
+          <Property Name="AS_Unique_UseID" Type="varchar" MaxLength="55" StoreGeneratedPattern="Computed" />
+          <Property Name="VSID" Type="int" />
+          <Property Name="AS_Inactivated" Type="datetime" />
+          <Property Name="MergeKeep" Type="int" />
+          <Property Name="AS_Read" Type="int" />
+          <Property Name="AS_Path" Type="varchar" MaxLength="500" />
+          <Property Name="AS_Kronos" Type="int" />
+          <Property Name="AS_Created" Type="datetime" />
+          <Property Name="AS_Shift" Type="varchar" MaxLength="50" />
+          <Property Name="AS_Text" Type="varchar" MaxLength="100" />
+          <Property Name="AS_WorkScheduleRule" Type="varchar" MaxLength="25" />
+          <Property Name="AS_SupervisorEmail" Type="varchar" MaxLength="255" />
+          <Property Name="AS_CostCenter" Type="int" />
+          <Property Name="AS_Badge" Type="varchar" MaxLength="50" />
+          <Property Name="AS_CellForSMS" Type="varchar" MaxLength="50" />
+          <Property Name="AS_CareerBand" Type="int" />
+          <Property Name="AS_OrgUnitAbbr" Type="varchar" MaxLength="100" />
+          <Property Name="AS_BInonFNI" Type="bit" Nullable="false" />
+          <Property Name="AS_MachText" Type="bit" Nullable="false" />
+          <Property Name="AS_BI_Lock" Type="bit" Nullable="false" />
+          <Property Name="AS_CBandLock" Type="bit" Nullable="false" />
+          <Property Name="AS_HTI_Manager" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Function Name="p_SaveChangesEF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstN" Type="varchar" Mode="In" />
+          <Parameter Name="LastN" Type="varchar" Mode="In" />
+          <Parameter Name="UserN" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Display" Type="varchar" Mode="In" />
+          <Parameter Name="PK" Type="int" Mode="InOut" />
+          <Parameter Name="EMessage" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="RexrothModelStoreContainer">
+          <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RexrothModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAssociate">
+          <Key>
+            <PropertyRef Name="ASID" />
+          </Key>
+          <Property Name="ASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERNR" Type="Int32" />
+          <Property Name="DPID" Type="Int32" />
+          <Property Name="OFID" Type="Int32" />
+          <Property Name="BIDID" Type="Int32" />
+          <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AS_First" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AS_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Last" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="AS_OutID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Sync" Type="DateTime" Precision="3" />
+          <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+          <Property Name="AS_Reso" Type="Boolean" Nullable="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Bosch" Type="Int32" />
+          <Property Name="AS_Domain" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_DC" Type="Boolean" />
+          <Property Name="AS_SuperUser" Type="Boolean" />
+          <Property Name="AS_Unique" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="AS_Unique_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="AS_Unique_UseID" Type="String" MaxLength="55" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="VSID" Type="Int32" />
+          <Property Name="AS_Inactivated" Type="DateTime" Precision="3" />
+          <Property Name="MergeKeep" Type="Int32" />
+          <Property Name="AS_Read" Type="Int32" />
+          <Property Name="AS_Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Kronos" Type="Int32" />
+          <Property Name="AS_Created" Type="DateTime" Precision="3" />
+          <Property Name="AS_Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AS_WorkScheduleRule" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AS_SupervisorEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AS_CostCenter" Type="Int32" />
+          <Property Name="AS_Badge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_CellForSMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_CareerBand" Type="Int32" />
+          <Property Name="AS_OrgUnitAbbr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AS_BInonFNI" Type="Boolean" Nullable="false" />
+          <Property Name="AS_MachText" Type="Boolean" Nullable="false" />
+          <Property Name="AS_BI_Lock" Type="Boolean" Nullable="false" />
+          <Property Name="AS_CBandLock" Type="Boolean" Nullable="false" />
+          <Property Name="AS_HTI_Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="RexrothEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" />
+          <FunctionImport Name="p_SaveChangesEF">
+            <Parameter Name="FirstN" Mode="In" Type="String" />
+            <Parameter Name="LastN" Mode="In" Type="String" />
+            <Parameter Name="UserN" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Display" Mode="In" Type="String" />
+            <Parameter Name="PK" Mode="InOut" Type="Int32" />
+            <Parameter Name="EMessage" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RexrothModelStoreContainer" CdmEntityContainer="RexrothEntities">
+          <EntitySetMapping Name="tblAssociate">
+            <EntityTypeMapping TypeName="RexrothModel.tblAssociate">
+              <MappingFragment StoreEntitySet="tblAssociate">
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="PERNR" ColumnName="PERNR" />
+                <ScalarProperty Name="DPID" ColumnName="DPID" />
+                <ScalarProperty Name="OFID" ColumnName="OFID" />
+                <ScalarProperty Name="BIDID" ColumnName="BIDID" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+                <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+                <ScalarProperty Name="AS_Phone" ColumnName="AS_Phone" />
+                <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+                <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+                <ScalarProperty Name="AS_OutID" ColumnName="AS_OutID" />
+                <ScalarProperty Name="AS_Sync" ColumnName="AS_Sync" />
+                <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+                <ScalarProperty Name="AS_Reso" ColumnName="AS_Reso" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="AS_Bosch" ColumnName="AS_Bosch" />
+                <ScalarProperty Name="AS_Domain" ColumnName="AS_Domain" />
+                <ScalarProperty Name="AS_Group" ColumnName="AS_Group" />
+                <ScalarProperty Name="AS_DC" ColumnName="AS_DC" />
+                <ScalarProperty Name="AS_SuperUser" ColumnName="AS_SuperUser" />
+                <ScalarProperty Name="AS_Unique" ColumnName="AS_Unique" />
+                <ScalarProperty Name="AS_Unique_Email" ColumnName="AS_Unique_Email" />
+                <ScalarProperty Name="AS_Unique_UseID" ColumnName="AS_Unique_UseID" />
+                <ScalarProperty Name="VSID" ColumnName="VSID" />
+                <ScalarProperty Name="AS_Inactivated" ColumnName="AS_Inactivated" />
+                <ScalarProperty Name="MergeKeep" ColumnName="MergeKeep" />
+                <ScalarProperty Name="AS_Read" ColumnName="AS_Read" />
+                <ScalarProperty Name="AS_Path" ColumnName="AS_Path" />
+                <ScalarProperty Name="AS_Kronos" ColumnName="AS_Kronos" />
+                <ScalarProperty Name="AS_Created" ColumnName="AS_Created" />
+                <ScalarProperty Name="AS_Shift" ColumnName="AS_Shift" />
+                <ScalarProperty Name="AS_Text" ColumnName="AS_Text" />
+                <ScalarProperty Name="AS_WorkScheduleRule" ColumnName="AS_WorkScheduleRule" />
+                <ScalarProperty Name="AS_SupervisorEmail" ColumnName="AS_SupervisorEmail" />
+                <ScalarProperty Name="AS_CostCenter" ColumnName="AS_CostCenter" />
+                <ScalarProperty Name="AS_Badge" ColumnName="AS_Badge" />
+                <ScalarProperty Name="AS_CellForSMS" ColumnName="AS_CellForSMS" />
+                <ScalarProperty Name="AS_CareerBand" ColumnName="AS_CareerBand" />
+                <ScalarProperty Name="AS_OrgUnitAbbr" ColumnName="AS_OrgUnitAbbr" />
+                <ScalarProperty Name="AS_BInonFNI" ColumnName="AS_BInonFNI" />
+                <ScalarProperty Name="AS_MachText" ColumnName="AS_MachText" />
+                <ScalarProperty Name="AS_BI_Lock" ColumnName="AS_BI_Lock" />
+                <ScalarProperty Name="AS_CBandLock" ColumnName="AS_CBandLock" />
+                <ScalarProperty Name="AS_HTI_Manager" ColumnName="AS_HTI_Manager" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_SaveChangesEF" FunctionName="RexrothModel.Store.p_SaveChangesEF" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

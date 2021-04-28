@@ -1,0 +1,1917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VisualModelStoreContainer" CdmEntityContainer="VisualEntities">
+    <EntitySetMapping Name="tblMRPController">
+      <EntityTypeMapping TypeName="VisualModel.tblMRPController">
+        <MappingFragment StoreEntitySet="tblMRPController">
+          <ScalarProperty Name="MPTID" ColumnName="MPTID" />
+          <ScalarProperty Name="MRPID" ColumnName="MRPID" />
+          <ScalarProperty Name="MRP_Number" ColumnName="MRP_Number" />
+          <ScalarProperty Name="MRP_Desc" ColumnName="MRP_Desc" />
+          <ScalarProperty Name="MRP_Type" ColumnName="MRP_Type" />
+          <ScalarProperty Name="MRP_Active" ColumnName="MRP_Active" />
+          <ScalarProperty Name="MRP_Deleted" ColumnName="MRP_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShipping">
+      <EntityTypeMapping TypeName="VisualModel.tblShipping">
+        <MappingFragment StoreEntitySet="tblShipping">
+          <ScalarProperty Name="SH_PlannedGIDate" ColumnName="SH_PlannedGIDate" />
+          <ScalarProperty Name="SH_FromPack" ColumnName="SH_FromPack" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SRCID" ColumnName="SRCID" />
+          <ScalarProperty Name="CSNID" ColumnName="CSNID" />
+          <ScalarProperty Name="MRPID" ColumnName="MRPID" />
+          <ScalarProperty Name="FLDID" ColumnName="FLDID" />
+          <ScalarProperty Name="SH_Desc" ColumnName="SH_Desc" />
+          <ScalarProperty Name="SH_Date" ColumnName="SH_Date" />
+          <ScalarProperty Name="SH_Sort" ColumnName="SH_Sort" />
+          <ScalarProperty Name="SH_Deleted" ColumnName="SH_Deleted" />
+          <ScalarProperty Name="SH_Created" ColumnName="SH_Created" />
+          <ScalarProperty Name="SH_Location" ColumnName="SH_Location" />
+          <ScalarProperty Name="SH_ShipDate" ColumnName="SH_ShipDate" />
+          <ScalarProperty Name="SH_SSSent" ColumnName="SH_SSSent" />
+          <ScalarProperty Name="SH_SSPull" ColumnName="SH_SSPull" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingAction">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingAction">
+        <MappingFragment StoreEntitySet="tblShippingAction">
+          <ScalarProperty Name="SHAID" ColumnName="SHAID" />
+          <ScalarProperty Name="SHA_Desc" ColumnName="SHA_Desc" />
+          <ScalarProperty Name="SHA_Active" ColumnName="SHA_Active" />
+          <ScalarProperty Name="SHA_Deleted" ColumnName="SHA_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingComment">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingComment">
+        <MappingFragment StoreEntitySet="tblShippingComment">
+          <ScalarProperty Name="SHCID" ColumnName="SHCID" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SHCTID" ColumnName="SHCTID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="SHC_Date" ColumnName="SHC_Date" />
+          <ScalarProperty Name="SHC_Comment" ColumnName="SHC_Comment" />
+          <ScalarProperty Name="SHC_Name" ColumnName="SHC_Name" />
+          <ScalarProperty Name="SHPID" ColumnName="SHPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingCommentType">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingCommentType">
+        <MappingFragment StoreEntitySet="tblShippingCommentType">
+          <ScalarProperty Name="SHCTID" ColumnName="SHCTID" />
+          <ScalarProperty Name="SHAID" ColumnName="SHAID" />
+          <ScalarProperty Name="SHCT_Desc" ColumnName="SHCT_Desc" />
+          <ScalarProperty Name="SHCT_Active" ColumnName="SHCT_Active" />
+          <ScalarProperty Name="SHCT_Color" ColumnName="SHCT_Color" />
+          <ScalarProperty Name="SHCT_ForeColor" ColumnName="SHCT_ForeColor" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="SHCT_Deleted" ColumnName="SHCT_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingDetailStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingDetailStatus">
+        <MappingFragment StoreEntitySet="tblShippingDetailStatus">
+          <ScalarProperty Name="SHDSID" ColumnName="SHDSID" />
+          <ScalarProperty Name="SHMSID" ColumnName="SHMSID" />
+          <ScalarProperty Name="SHDS_Desc" ColumnName="SHDS_Desc" />
+          <ScalarProperty Name="SHDS_Active" ColumnName="SHDS_Active" />
+          <ScalarProperty Name="SHDS_SAP" ColumnName="SHDS_SAP" />
+          <ScalarProperty Name="SHDS_Sort" ColumnName="SHDS_Sort" />
+          <ScalarProperty Name="SHDS_Deleted" ColumnName="SHDS_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingMasterStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingMasterStatus">
+        <MappingFragment StoreEntitySet="tblShippingMasterStatus">
+          <ScalarProperty Name="SHMSID" ColumnName="SHMSID" />
+          <ScalarProperty Name="SHMS_Desc" ColumnName="SHMS_Desc" />
+          <ScalarProperty Name="SHMS_Active" ColumnName="SHMS_Active" />
+          <ScalarProperty Name="SHMS_Ship" ColumnName="SHMS_Ship" />
+          <ScalarProperty Name="SHMS_Deleted" ColumnName="SHMS_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingPart">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingPart">
+        <MappingFragment StoreEntitySet="tblShippingPart">
+          <ScalarProperty Name="SHP_SVPSkip" ColumnName="SHP_SVPSkip" />
+          <ScalarProperty Name="SHP_PlannedGIDate" ColumnName="SHP_PlannedGIDate" />
+          <ScalarProperty Name="SHP_SSPullOK" ColumnName="SHP_SSPullOK" />
+          <ScalarProperty Name="SHPID" ColumnName="SHPID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SRCID" ColumnName="SRCID" />
+          <ScalarProperty Name="SHP_Qty" ColumnName="SHP_Qty" />
+          <ScalarProperty Name="SHP_Deleted" ColumnName="SHP_Deleted" />
+          <ScalarProperty Name="SHP_Line" ColumnName="SHP_Line" />
+          <ScalarProperty Name="SHP_Shipped" ColumnName="SHP_Shipped" />
+          <ScalarProperty Name="MRPID" ColumnName="MRPID" />
+          <ScalarProperty Name="SHP_Location" ColumnName="SHP_Location" />
+          <ScalarProperty Name="SHP_SSSent" ColumnName="SHP_SSSent" />
+          <ScalarProperty Name="SHP_SSPull" ColumnName="SHP_SSPull" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingReasonCode">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingReasonCode">
+        <MappingFragment StoreEntitySet="tblShippingReasonCode">
+          <ScalarProperty Name="SRCID" ColumnName="SRCID" />
+          <ScalarProperty Name="SRC_Desc" ColumnName="SRC_Desc" />
+          <ScalarProperty Name="SRC_Deleted" ColumnName="SRC_Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblShippingStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblShippingStatus">
+        <MappingFragment StoreEntitySet="tblShippingStatus">
+          <ScalarProperty Name="SHSID" ColumnName="SHSID" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SHDSID" ColumnName="SHDSID" />
+          <ScalarProperty Name="SHS_Date" ColumnName="SHS_Date" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="SHS_Name" ColumnName="SHS_Name" />
+          <ScalarProperty Name="FLID" ColumnName="FLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwShippingStatus">
+      <EntityTypeMapping TypeName="VisualModel.vwShippingStatus">
+        <MappingFragment StoreEntitySet="vwShippingStatus">
+          <ScalarProperty Name="SHP_SVPSkip" ColumnName="SHP_SVPSkip" />
+          <ScalarProperty Name="SHP_PlannedGIDate" ColumnName="SHP_PlannedGIDate" />
+          <ScalarProperty Name="CSN_Long" ColumnName="CSN_Long" />
+          <ScalarProperty Name="SHP_SSPullOK" ColumnName="SHP_SSPullOK" />
+          <ScalarProperty Name="SHC_Comment" ColumnName="SHC_Comment" />
+          <ScalarProperty Name="SHC_Date" ColumnName="SHC_Date" />
+          <ScalarProperty Name="SHCT_Desc" ColumnName="SHCT_Desc" />
+          <ScalarProperty Name="SHCT_ForeColor" ColumnName="SHCT_ForeColor" />
+          <ScalarProperty Name="SHCT_Color" ColumnName="SHCT_Color" />
+          <ScalarProperty Name="SHAID" ColumnName="SHAID" />
+          <ScalarProperty Name="SHCTID" ColumnName="SHCTID" />
+          <ScalarProperty Name="SHCID" ColumnName="SHCID" />
+          <ScalarProperty Name="LOG2" ColumnName="LOG2" />
+          <ScalarProperty Name="CSR" ColumnName="CSR" />
+          <ScalarProperty Name="Rushed" ColumnName="Rushed" />
+          <ScalarProperty Name="RushComment" ColumnName="RushComment" />
+          <ScalarProperty Name="SHMS_Desc" ColumnName="SHMS_Desc" />
+          <ScalarProperty Name="SHMSID" ColumnName="SHMSID" />
+          <ScalarProperty Name="SHDS_Desc" ColumnName="SHDS_Desc" />
+          <ScalarProperty Name="SHSID" ColumnName="SHSID" />
+          <ScalarProperty Name="SHDSID" ColumnName="SHDSID" />
+          <ScalarProperty Name="SHS_Date" ColumnName="SHS_Date" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CSN_Desc" ColumnName="CSN_Desc" />
+          <ScalarProperty Name="MRP_Number" ColumnName="MRP_Number" />
+          <ScalarProperty Name="MRP_Type" ColumnName="MRP_Type" />
+          <ScalarProperty Name="MPT_Desc" ColumnName="MPT_Desc" />
+          <ScalarProperty Name="MPTID" ColumnName="MPTID" />
+          <ScalarProperty Name="COMAT_GoTo" ColumnName="COMAT_GoTo" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="SHP_SSPull" ColumnName="SHP_SSPull" />
+          <ScalarProperty Name="SHP_SSSent" ColumnName="SHP_SSSent" />
+          <ScalarProperty Name="SHP_Line" ColumnName="SHP_Line" />
+          <ScalarProperty Name="SHP_Location" ColumnName="SHP_Location" />
+          <ScalarProperty Name="SRCID" ColumnName="SRCID" />
+          <ScalarProperty Name="SHP_Shipped" ColumnName="SHP_Shipped" />
+          <ScalarProperty Name="SHP_Qty" ColumnName="SHP_Qty" />
+          <ScalarProperty Name="SHPID" ColumnName="SHPID" />
+          <ScalarProperty Name="SRC_Desc" ColumnName="SRC_Desc" />
+          <ScalarProperty Name="SH_Date" ColumnName="SH_Date" />
+          <ScalarProperty Name="SH_SSPull" ColumnName="SH_SSPull" />
+          <ScalarProperty Name="SH_SSSent" ColumnName="SH_SSSent" />
+          <ScalarProperty Name="SH_ShipDate" ColumnName="SH_ShipDate" />
+          <ScalarProperty Name="SH_Location" ColumnName="SH_Location" />
+          <ScalarProperty Name="FLDID" ColumnName="FLDID" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SH_Deleted" ColumnName="SH_Deleted" />
+          <ScalarProperty Name="SH_Sort" ColumnName="SH_Sort" />
+          <ScalarProperty Name="SH_Desc" ColumnName="SH_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwShippingComments">
+      <EntityTypeMapping TypeName="VisualModel.vwShippingComments">
+        <MappingFragment StoreEntitySet="vwShippingComments">
+          <ScalarProperty Name="SHPID" ColumnName="SHPID" />
+          <ScalarProperty Name="SHCID" ColumnName="SHCID" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="Associate" ColumnName="Associate" />
+          <ScalarProperty Name="SHC_Date" ColumnName="SHC_Date" />
+          <ScalarProperty Name="SHC_Comment" ColumnName="SHC_Comment" />
+          <ScalarProperty Name="SHCT_Desc" ColumnName="SHCT_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwShippingStatusHistory">
+      <EntityTypeMapping TypeName="VisualModel.vwShippingStatusHistory">
+        <MappingFragment StoreEntitySet="vwShippingStatusHistory">
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+          <ScalarProperty Name="SHSID" ColumnName="SHSID" />
+          <ScalarProperty Name="Associate" ColumnName="Associate" />
+          <ScalarProperty Name="SHS_Date" ColumnName="SHS_Date" />
+          <ScalarProperty Name="SHDS_Desc" ColumnName="SHDS_Desc" />
+          <ScalarProperty Name="SHMS_Desc" ColumnName="SHMS_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOptions">
+      <EntityTypeMapping TypeName="VisualModel.tblOptions">
+        <MappingFragment StoreEntitySet="tblOptions">
+          <ScalarProperty Name="OP_Function" ColumnName="OP_Function" />
+          <ScalarProperty Name="OP_Desc" ColumnName="OP_Desc" />
+          <ScalarProperty Name="OP_ID" ColumnName="OP_ID" />
+          <ScalarProperty Name="OPID" ColumnName="OPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_tblShipping_DSB_v4" FunctionName="VisualModel.Store.p_tblShipping_DSB_v4" />
+    <EntitySetMapping Name="tblPart">
+      <EntityTypeMapping TypeName="VisualModel.tblPart">
+        <MappingFragment StoreEntitySet="tblPart">
+          <ScalarProperty Name="Part_RevUpdated" ColumnName="Part_RevUpdated" />
+          <ScalarProperty Name="US55_Part" ColumnName="US55_Part" />
+          <ScalarProperty Name="PART_EBZnum" ColumnName="PART_EBZnum" />
+          <ScalarProperty Name="PCLID" ColumnName="PCLID" />
+          <ScalarProperty Name="PART_CusNumber" ColumnName="PART_CusNumber" />
+          <ScalarProperty Name="PKList_Comment" ColumnName="PKList_Comment" />
+          <ScalarProperty Name="PART_MM" ColumnName="PART_MM" />
+          <ScalarProperty Name="PART_Rev" ColumnName="PART_Rev" />
+          <ScalarProperty Name="PART_Group" ColumnName="PART_Group" />
+          <ScalarProperty Name="PSPID" ColumnName="PSPID" />
+          <ScalarProperty Name="PSLID" ColumnName="PSLID" />
+          <ScalarProperty Name="PSBID" ColumnName="PSBID" />
+          <ScalarProperty Name="PSFID" ColumnName="PSFID" />
+          <ScalarProperty Name="PDPID" ColumnName="PDPID" />
+          <ScalarProperty Name="PPKID" ColumnName="PPKID" />
+          <ScalarProperty Name="PPTID" ColumnName="PPTID" />
+          <ScalarProperty Name="PSRID" ColumnName="PSRID" />
+          <ScalarProperty Name="PART_Deleted" ColumnName="PART_Deleted" />
+          <ScalarProperty Name="DateImported" ColumnName="DateImported" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="PART_Active" ColumnName="PART_Active" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartBearing">
+      <EntityTypeMapping TypeName="VisualModel.tblPartBearing">
+        <MappingFragment StoreEntitySet="tblPartBearing">
+          <ScalarProperty Name="PSB_Deleted" ColumnName="PSB_Deleted" />
+          <ScalarProperty Name="PSB_Desc" ColumnName="PSB_Desc" />
+          <ScalarProperty Name="PSBID" ColumnName="PSBID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartDisp">
+      <EntityTypeMapping TypeName="VisualModel.tblPartDisp">
+        <MappingFragment StoreEntitySet="tblPartDisp">
+          <ScalarProperty Name="PDP_Deleted" ColumnName="PDP_Deleted" />
+          <ScalarProperty Name="PDP_Desc" ColumnName="PDP_Desc" />
+          <ScalarProperty Name="PDPID" ColumnName="PDPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartPackage">
+      <EntityTypeMapping TypeName="VisualModel.tblPartPackage">
+        <MappingFragment StoreEntitySet="tblPartPackage">
+          <ScalarProperty Name="PPK_Deleted" ColumnName="PPK_Deleted" />
+          <ScalarProperty Name="PPK_Desc" ColumnName="PPK_Desc" />
+          <ScalarProperty Name="PPKID" ColumnName="PPKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartPort">
+      <EntityTypeMapping TypeName="VisualModel.tblPartPort">
+        <MappingFragment StoreEntitySet="tblPartPort">
+          <ScalarProperty Name="PPT_Deleted" ColumnName="PPT_Deleted" />
+          <ScalarProperty Name="PPT_Desc" ColumnName="PPT_Desc" />
+          <ScalarProperty Name="PPTID" ColumnName="PPTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartSeal">
+      <EntityTypeMapping TypeName="VisualModel.tblPartSeal">
+        <MappingFragment StoreEntitySet="tblPartSeal">
+          <ScalarProperty Name="PSL_Deleted" ColumnName="PSL_Deleted" />
+          <ScalarProperty Name="PSL_Desc" ColumnName="PSL_Desc" />
+          <ScalarProperty Name="PSLID" ColumnName="PSLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartSeries">
+      <EntityTypeMapping TypeName="VisualModel.tblPartSeries">
+        <MappingFragment StoreEntitySet="tblPartSeries">
+          <ScalarProperty Name="PSR_Deleted" ColumnName="PSR_Deleted" />
+          <ScalarProperty Name="PSR_Desc" ColumnName="PSR_Desc" />
+          <ScalarProperty Name="PSRID" ColumnName="PSRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartShaft">
+      <EntityTypeMapping TypeName="VisualModel.tblPartShaft">
+        <MappingFragment StoreEntitySet="tblPartShaft">
+          <ScalarProperty Name="PSF_Deleted" ColumnName="PSF_Deleted" />
+          <ScalarProperty Name="PSF_Desc" ColumnName="PSF_Desc" />
+          <ScalarProperty Name="PSFID" ColumnName="PSFID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartSpecial">
+      <EntityTypeMapping TypeName="VisualModel.tblPartSpecial">
+        <MappingFragment StoreEntitySet="tblPartSpecial">
+          <ScalarProperty Name="PSP_Deleted" ColumnName="PSP_Deleted" />
+          <ScalarProperty Name="PSP_Desc" ColumnName="PSP_Desc" />
+          <ScalarProperty Name="PSPID" ColumnName="PSPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPath">
+      <EntityTypeMapping TypeName="VisualModel.tblPath">
+        <MappingFragment StoreEntitySet="tblPath">
+          <ScalarProperty Name="PT_ArchiveFolder" ColumnName="PT_ArchiveFolder" />
+          <ScalarProperty Name="FTID" ColumnName="FTID" />
+          <ScalarProperty Name="OPID" ColumnName="OPID" />
+          <ScalarProperty Name="PT_Desc" ColumnName="PT_Desc" />
+          <ScalarProperty Name="LNID" ColumnName="LNID" />
+          <ScalarProperty Name="PTID" ColumnName="PTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartRineerMotor">
+      <EntityTypeMapping TypeName="VisualModel.tblPartRineerMotor">
+        <MappingFragment StoreEntitySet="tblPartRineerMotor">
+          <ScalarProperty Name="RMTID" ColumnName="RMTID" />
+          <ScalarProperty Name="PARTR_Deleted" ColumnName="PARTR_Deleted" />
+          <ScalarProperty Name="Motor" ColumnName="Motor" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="PARTRID" ColumnName="PARTRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartRineerMotorType">
+      <EntityTypeMapping TypeName="VisualModel.tblPartRineerMotorType">
+        <MappingFragment StoreEntitySet="tblPartRineerMotorType">
+          <ScalarProperty Name="RMT_Path" ColumnName="RMT_Path" />
+          <ScalarProperty Name="RMT_Deleted" ColumnName="RMT_Deleted" />
+          <ScalarProperty Name="RMT_Desc" ColumnName="RMT_Desc" />
+          <ScalarProperty Name="RMTID" ColumnName="RMTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartRineerPath">
+      <EntityTypeMapping TypeName="VisualModel.tblPartRineerPath">
+        <MappingFragment StoreEntitySet="tblPartRineerPath">
+          <ScalarProperty Name="PPZ_Deleted" ColumnName="PPZ_Deleted" />
+          <ScalarProperty Name="PPZ_Desc" ColumnName="PPZ_Desc" />
+          <ScalarProperty Name="PSPID" ColumnName="PSPID" />
+          <ScalarProperty Name="PSLID" ColumnName="PSLID" />
+          <ScalarProperty Name="PSBID" ColumnName="PSBID" />
+          <ScalarProperty Name="PSFID" ColumnName="PSFID" />
+          <ScalarProperty Name="PDPID" ColumnName="PDPID" />
+          <ScalarProperty Name="PPKID" ColumnName="PPKID" />
+          <ScalarProperty Name="PPTID" ColumnName="PPTID" />
+          <ScalarProperty Name="PSRID" ColumnName="PSRID" />
+          <ScalarProperty Name="PPZID" ColumnName="PPZID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPartRineerMatch2">
+      <EntityTypeMapping TypeName="VisualModel.vwPartRineerMatch2">
+        <MappingFragment StoreEntitySet="vwPartRineerMatch2">
+          <ScalarProperty Name="PSP_Desc" ColumnName="PSP_Desc" />
+          <ScalarProperty Name="PSL_Desc" ColumnName="PSL_Desc" />
+          <ScalarProperty Name="PSB_Desc" ColumnName="PSB_Desc" />
+          <ScalarProperty Name="PSF_Desc" ColumnName="PSF_Desc" />
+          <ScalarProperty Name="PDP_Desc" ColumnName="PDP_Desc" />
+          <ScalarProperty Name="PPK_Desc" ColumnName="PPK_Desc" />
+          <ScalarProperty Name="PPT_Desc" ColumnName="PPT_Desc" />
+          <ScalarProperty Name="PSR_Desc" ColumnName="PSR_Desc" />
+          <ScalarProperty Name="PPZ_Desc" ColumnName="PPZ_Desc" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPartBomValueStream">
+      <EntityTypeMapping TypeName="VisualModel.vwPartBomValueStream">
+        <MappingFragment StoreEntitySet="vwPartBomValueStream">
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Rows" ColumnName="Rows" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartFolder">
+      <EntityTypeMapping TypeName="VisualModel.tblPartFolder">
+        <MappingFragment StoreEntitySet="tblPartFolder">
+          <ScalarProperty Name="PTFLD_Deleted" ColumnName="PTFLD_Deleted" />
+          <ScalarProperty Name="PTFLD_Created" ColumnName="PTFLD_Created" />
+          <ScalarProperty Name="PTFLD_Desc" ColumnName="PTFLD_Desc" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="PTFLDID" ColumnName="PTFLDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartFolderPPT">
+      <EntityTypeMapping TypeName="VisualModel.tblPartFolderPPT">
+        <MappingFragment StoreEntitySet="tblPartFolderPPT">
+          <ScalarProperty Name="PTPT_PDFImage" ColumnName="PTPT_PDFImage" />
+          <ScalarProperty Name="PTPT_TimeStamp" ColumnName="PTPT_TimeStamp" />
+          <ScalarProperty Name="PTPT_LastUpdated" ColumnName="PTPT_LastUpdated" />
+          <ScalarProperty Name="PTPT_Name" ColumnName="PTPT_Name" />
+          <ScalarProperty Name="PTFLDID" ColumnName="PTFLDID" />
+          <ScalarProperty Name="PTPTID" ColumnName="PTPTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartFolderPPTPics">
+      <EntityTypeMapping TypeName="VisualModel.tblPartFolderPPTPics">
+        <MappingFragment StoreEntitySet="tblPartFolderPPTPics">
+          <ScalarProperty Name="PTPPT_TimeStamp" ColumnName="PTPPT_TimeStamp" />
+          <ScalarProperty Name="PTPPT_Path" ColumnName="PTPPT_Path" />
+          <ScalarProperty Name="PTPPT_AltText" ColumnName="PTPPT_AltText" />
+          <ScalarProperty Name="PTPPT_Width" ColumnName="PTPPT_Width" />
+          <ScalarProperty Name="PTPPT_Height" ColumnName="PTPPT_Height" />
+          <ScalarProperty Name="PTPPT_Left" ColumnName="PTPPT_Left" />
+          <ScalarProperty Name="PTPPT_Top" ColumnName="PTPPT_Top" />
+          <ScalarProperty Name="PTPPT_PicName" ColumnName="PTPPT_PicName" />
+          <ScalarProperty Name="PTPPT_Slide" ColumnName="PTPPT_Slide" />
+          <ScalarProperty Name="PTPTID" ColumnName="PTPTID" />
+          <ScalarProperty Name="PTPPTID" ColumnName="PTPPTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDSB_Status">
+      <EntityTypeMapping TypeName="VisualModel.tblDSB_Status">
+        <MappingFragment StoreEntitySet="tblDSB_Status">
+          <ScalarProperty Name="DST_QVS" ColumnName="DST_QVS" />
+          <ScalarProperty Name="DST_RptSort" ColumnName="DST_RptSort" />
+          <ScalarProperty Name="DST_SAP4" ColumnName="DST_SAP4" />
+          <ScalarProperty Name="DST_Visual" ColumnName="DST_Visual" />
+          <ScalarProperty Name="DST_Short" ColumnName="DST_Short" />
+          <ScalarProperty Name="ARID" ColumnName="ARID" />
+          <ScalarProperty Name="DST_Sort" ColumnName="DST_Sort" />
+          <ScalarProperty Name="DST_SAP" ColumnName="DST_SAP" />
+          <ScalarProperty Name="DST_Active" ColumnName="DST_Active" />
+          <ScalarProperty Name="DST_Desc" ColumnName="DST_Desc" />
+          <ScalarProperty Name="MASTID" ColumnName="MASTID" />
+          <ScalarProperty Name="DSTID" ColumnName="DSTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueStream">
+      <EntityTypeMapping TypeName="VisualModel.tblValueStream">
+        <MappingFragment StoreEntitySet="tblValueStream">
+          <ScalarProperty Name="VS_Added" ColumnName="VS_Added" />
+          <ScalarProperty Name="VS_Andon" ColumnName="VS_Andon" />
+          <ScalarProperty Name="VS_LogPickScreen" ColumnName="VS_LogPickScreen" />
+          <ScalarProperty Name="VS_MDB" ColumnName="VS_MDB" />
+          <ScalarProperty Name="VS_QVS" ColumnName="VS_QVS" />
+          <ScalarProperty Name="VS_UseDSTID" ColumnName="VS_UseDSTID" />
+          <ScalarProperty Name="VS_DSB" ColumnName="VS_DSB" />
+          <ScalarProperty Name="VS_TAKT" ColumnName="VS_TAKT" />
+          <ScalarProperty Name="VS_Sort" ColumnName="VS_Sort" />
+          <ScalarProperty Name="VS_SAP" ColumnName="VS_SAP" />
+          <ScalarProperty Name="VS_ForeColor" ColumnName="VS_ForeColor" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VS_Active" ColumnName="VS_Active" />
+          <ScalarProperty Name="VS_Color" ColumnName="VS_Color" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="VSGID" ColumnName="VSGID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachine">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachine">
+        <MappingFragment StoreEntitySet="tblValueMachine">
+          <ScalarProperty Name="VM_ProdSupplyArea" ColumnName="VM_ProdSupplyArea" />
+          <ScalarProperty Name="VSID_Pre3" ColumnName="VSID_Pre3" />
+          <ScalarProperty Name="VSID_Pre2" ColumnName="VSID_Pre2" />
+          <ScalarProperty Name="VM_FLoc" ColumnName="VM_FLoc" />
+          <ScalarProperty Name="ASIDVOIS" ColumnName="ASIDVOIS" />
+          <ScalarProperty Name="VSID_Pre" ColumnName="VSID_Pre" />
+          <ScalarProperty Name="VM_AvgRunTime" ColumnName="VM_AvgRunTime" />
+          <ScalarProperty Name="VM_Machining" ColumnName="VM_Machining" />
+          <ScalarProperty Name="VM_Priority" ColumnName="VM_Priority" />
+          <ScalarProperty Name="VM_ManPower" ColumnName="VM_ManPower" />
+          <ScalarProperty Name="BLDID" ColumnName="BLDID" />
+          <ScalarProperty Name="ASID5" ColumnName="ASID5" />
+          <ScalarProperty Name="ASID4" ColumnName="ASID4" />
+          <ScalarProperty Name="ASID3" ColumnName="ASID3" />
+          <ScalarProperty Name="ASID2" ColumnName="ASID2" />
+          <ScalarProperty Name="ASID1" ColumnName="ASID1" />
+          <ScalarProperty Name="VM_Color" ColumnName="VM_Color" />
+          <ScalarProperty Name="VM_Deleted" ColumnName="VM_Deleted" />
+          <ScalarProperty Name="VM_TotalHours" ColumnName="VM_TotalHours" />
+          <ScalarProperty Name="VM_Short" ColumnName="VM_Short" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineWC">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineWC">
+        <MappingFragment StoreEntitySet="tblValueMachineWC">
+          <ScalarProperty Name="VW_Short" ColumnName="VW_Short" />
+          <ScalarProperty Name="VAID" ColumnName="VAID" />
+          <ScalarProperty Name="VW_TimeStamp" ColumnName="VW_TimeStamp" />
+          <ScalarProperty Name="VW_Deleted" ColumnName="VW_Deleted" />
+          <ScalarProperty Name="VW_Long" ColumnName="VW_Long" />
+          <ScalarProperty Name="VW_Desc" ColumnName="VW_Desc" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineSetup">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineSetup">
+        <MappingFragment StoreEntitySet="tblValueMachineSetup">
+          <ScalarProperty Name="SUP_TimeStamp" ColumnName="SUP_TimeStamp" />
+          <ScalarProperty Name="SUP_Deleted" ColumnName="SUP_Deleted" />
+          <ScalarProperty Name="SUP_Desc" ColumnName="SUP_Desc" />
+          <ScalarProperty Name="SUPID" ColumnName="SUPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineCastings">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineCastings">
+        <MappingFragment StoreEntitySet="tblValueMachineCastings">
+          <ScalarProperty Name="CAST_5018Min" ColumnName="CAST_5018Min" />
+          <ScalarProperty Name="CAST_KanbanID" ColumnName="CAST_KanbanID" />
+          <ScalarProperty Name="CAST_BoxQty" ColumnName="CAST_BoxQty" />
+          <ScalarProperty Name="BLDID" ColumnName="BLDID" />
+          <ScalarProperty Name="VLID" ColumnName="VLID" />
+          <ScalarProperty Name="CAST_Deleted" ColumnName="CAST_Deleted" />
+          <ScalarProperty Name="CAST_Desc" ColumnName="CAST_Desc" />
+          <ScalarProperty Name="CASTID" ColumnName="CASTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePartSetup">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePartSetup">
+        <MappingFragment StoreEntitySet="tblValueMachinePartSetup">
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="SUPT_Deleted" ColumnName="SUPT_Deleted" />
+          <ScalarProperty Name="SUPT_TimeStamp" ColumnName="SUPT_TimeStamp" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="SUPID" ColumnName="SUPID" />
+          <ScalarProperty Name="SUPTID" ColumnName="SUPTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOpList">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOpList">
+        <MappingFragment StoreEntitySet="tblValueMachineOpList">
+          <ScalarProperty Name="VN_Operation" ColumnName="VN_Operation" />
+          <ScalarProperty Name="VAID" ColumnName="VAID" />
+          <ScalarProperty Name="VN_TimeStamp" ColumnName="VN_TimeStamp" />
+          <ScalarProperty Name="VN_Deleted" ColumnName="VN_Deleted" />
+          <ScalarProperty Name="VN_Desc" ColumnName="VN_Desc" />
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrder">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrder">
+        <MappingFragment StoreEntitySet="tblValueMachineOrder">
+          <ScalarProperty Name="VSID_Pre" ColumnName="VSID_Pre" />
+          <ScalarProperty Name="VO_Scrap" ColumnName="VO_Scrap" />
+          <ScalarProperty Name="VO_UpdatedVMID" ColumnName="VO_UpdatedVMID" />
+          <ScalarProperty Name="VO_Short1" ColumnName="VO_Short1" />
+          <ScalarProperty Name="VO_DeliveredQtyUpdated" ColumnName="VO_DeliveredQtyUpdated" />
+          <ScalarProperty Name="VO_RunSort" ColumnName="VO_RunSort" />
+          <ScalarProperty Name="VO_RunTime" ColumnName="VO_RunTime" />
+          <ScalarProperty Name="VO_RunFinish" ColumnName="VO_RunFinish" />
+          <ScalarProperty Name="VO_RunStart" ColumnName="VO_RunStart" />
+          <ScalarProperty Name="VO_RunTotalHR" ColumnName="VO_RunTotalHR" />
+          <ScalarProperty Name="VO_RunTotal" ColumnName="VO_RunTotal" />
+          <ScalarProperty Name="VO_RunSetup" ColumnName="VO_RunSetup" />
+          <ScalarProperty Name="VMID_Machining" ColumnName="VMID_Machining" />
+          <ScalarProperty Name="VO_SAPStatus" ColumnName="VO_SAPStatus" />
+          <ScalarProperty Name="VO_DeliveredQty" ColumnName="VO_DeliveredQty" />
+          <ScalarProperty Name="VO_Created" ColumnName="VO_Created" />
+          <ScalarProperty Name="VO_FinishDate" ColumnName="VO_FinishDate" />
+          <ScalarProperty Name="VO_StartDate" ColumnName="VO_StartDate" />
+          <ScalarProperty Name="SUPID" ColumnName="SUPID" />
+          <ScalarProperty Name="CASTID" ColumnName="CASTID" />
+          <ScalarProperty Name="VO_SortDate" ColumnName="VO_SortDate" />
+          <ScalarProperty Name="VO_Sort" ColumnName="VO_Sort" />
+          <ScalarProperty Name="VO_Updated" ColumnName="VO_Updated" />
+          <ScalarProperty Name="VO_TimeStamp" ColumnName="VO_TimeStamp" />
+          <ScalarProperty Name="VO_BSCFinish" ColumnName="VO_BSCFinish" />
+          <ScalarProperty Name="VO_BSCStart" ColumnName="VO_BSCStart" />
+          <ScalarProperty Name="VO_Qty" ColumnName="VO_Qty" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderOp">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderOp">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderOp">
+          <ScalarProperty Name="VP_Scrap" ColumnName="VP_Scrap" />
+          <ScalarProperty Name="VP_RemovedLater" ColumnName="VP_RemovedLater" />
+          <ScalarProperty Name="VP_AddedLater" ColumnName="VP_AddedLater" />
+          <ScalarProperty Name="VP_Rank" ColumnName="VP_Rank" />
+          <ScalarProperty Name="VP_Row" ColumnName="VP_Row" />
+          <ScalarProperty Name="VP_Open" ColumnName="VP_Open" />
+          <ScalarProperty Name="VP_PrintAttempts" ColumnName="VP_PrintAttempts" />
+          <ScalarProperty Name="VP_Confirmation" ColumnName="VP_Confirmation" />
+          <ScalarProperty Name="VP_OpSort" ColumnName="VP_OpSort" />
+          <ScalarProperty Name="VP_Deleted" ColumnName="VP_Deleted" />
+          <ScalarProperty Name="VP_Yield" ColumnName="VP_Yield" />
+          <ScalarProperty Name="VP_SAPStatus" ColumnName="VP_SAPStatus" />
+          <ScalarProperty Name="VP_OpOrder" ColumnName="VP_OpOrder" />
+          <ScalarProperty Name="VP_ProcessingMin" ColumnName="VP_ProcessingMin" />
+          <ScalarProperty Name="VP_ProcessingTime" ColumnName="VP_ProcessingTime" />
+          <ScalarProperty Name="VP_Updated" ColumnName="VP_Updated" />
+          <ScalarProperty Name="VP_TimeStamp" ColumnName="VP_TimeStamp" />
+          <ScalarProperty Name="VP_FinishDate" ColumnName="VP_FinishDate" />
+          <ScalarProperty Name="VP_StartDate" ColumnName="VP_StartDate" />
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderStatus">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderStatus">
+          <ScalarProperty Name="SV_TimeStamp" ColumnName="SV_TimeStamp" />
+          <ScalarProperty Name="SMID" ColumnName="SMID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="SVID" ColumnName="SVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePart">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePart">
+        <MappingFragment StoreEntitySet="tblValueMachinePart">
+          <ScalarProperty Name="VP_Deleted" ColumnName="VP_Deleted" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="VP_RunTime" ColumnName="VP_RunTime" />
+          <ScalarProperty Name="VP_TimeStamp" ColumnName="VP_TimeStamp" />
+          <ScalarProperty Name="VP_Primary" ColumnName="VP_Primary" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineStatus">
+        <MappingFragment StoreEntitySet="tblValueMachineStatus">
+          <ScalarProperty Name="SM_Deleted" ColumnName="SM_Deleted" />
+          <ScalarProperty Name="SM_Desc" ColumnName="SM_Desc" />
+          <ScalarProperty Name="SMID" ColumnName="SMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrder">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrder">
+        <MappingFragment StoreEntitySet="vwValueMachineOrder">
+          <ScalarProperty Name="VS_Desc_Pre" ColumnName="VS_Desc_Pre" />
+          <ScalarProperty Name="VP_Scrap" ColumnName="VP_Scrap" />
+          <ScalarProperty Name="LastSampleDate" ColumnName="LastSampleDate" />
+          <ScalarProperty Name="Samples" ColumnName="Samples" />
+          <ScalarProperty Name="LastOrdered" ColumnName="LastOrdered" />
+          <ScalarProperty Name="PV_Rev2" ColumnName="PV_Rev2" />
+          <ScalarProperty Name="ScrapQued" ColumnName="ScrapQued" />
+          <ScalarProperty Name="YieldQued" ColumnName="YieldQued" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="PV_Created" ColumnName="PV_Created" />
+          <ScalarProperty Name="PV_Rev" ColumnName="PV_Rev" />
+          <ScalarProperty Name="VM_Machining" ColumnName="VM_Machining" />
+          <ScalarProperty Name="VMCTID" ColumnName="VMCTID" />
+          <ScalarProperty Name="VO_Short1" ColumnName="VO_Short1" />
+          <ScalarProperty Name="VO_RunSort" ColumnName="VO_RunSort" />
+          <ScalarProperty Name="VO_RunTime" ColumnName="VO_RunTime" />
+          <ScalarProperty Name="VO_RunFinish" ColumnName="VO_RunFinish" />
+          <ScalarProperty Name="VO_RunStart" ColumnName="VO_RunStart" />
+          <ScalarProperty Name="VO_RunTotalHR" ColumnName="VO_RunTotalHR" />
+          <ScalarProperty Name="VO_RunTotal" ColumnName="VO_RunTotal" />
+          <ScalarProperty Name="VO_RunSetup" ColumnName="VO_RunSetup" />
+          <ScalarProperty Name="VMID_Machining" ColumnName="VMID_Machining" />
+          <ScalarProperty Name="BLDIDCast" ColumnName="BLDIDCast" />
+          <ScalarProperty Name="CastingBuilding" ColumnName="CastingBuilding" />
+          <ScalarProperty Name="VM_Priority" ColumnName="VM_Priority" />
+          <ScalarProperty Name="VM_ManPower" ColumnName="VM_ManPower" />
+          <ScalarProperty Name="BLD_Long" ColumnName="BLD_Long" />
+          <ScalarProperty Name="BLDID" ColumnName="BLDID" />
+          <ScalarProperty Name="BLD_Desc" ColumnName="BLD_Desc" />
+          <ScalarProperty Name="VO_DeliveredQty" ColumnName="VO_DeliveredQty" />
+          <ScalarProperty Name="VP_SAPStatus" ColumnName="VP_SAPStatus" />
+          <ScalarProperty Name="VSP_Date" ColumnName="VSP_Date" />
+          <ScalarProperty Name="VO_CreatedPlus" ColumnName="VO_CreatedPlus" />
+          <ScalarProperty Name="VW_Long" ColumnName="VW_Long" />
+          <ScalarProperty Name="VW_Desc" ColumnName="VW_Desc" />
+          <ScalarProperty Name="VW_Short" ColumnName="VW_Short" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="VA_Desc" ColumnName="VA_Desc" />
+          <ScalarProperty Name="VAID" ColumnName="VAID" />
+          <ScalarProperty Name="VO_Created" ColumnName="VO_Created" />
+          <ScalarProperty Name="VO_FinishDate" ColumnName="VO_FinishDate" />
+          <ScalarProperty Name="VO_StartDate" ColumnName="VO_StartDate" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="CommentAssociate" ColumnName="CommentAssociate" />
+          <ScalarProperty Name="VMCT_Color" ColumnName="VMCT_Color" />
+          <ScalarProperty Name="VMCT_Desc" ColumnName="VMCT_Desc" />
+          <ScalarProperty Name="VOCID" ColumnName="VOCID" />
+          <ScalarProperty Name="VOC_Comment" ColumnName="VOC_Comment" />
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+          <ScalarProperty Name="VP_ProcessingTime" ColumnName="VP_ProcessingTime" />
+          <ScalarProperty Name="LastFinishDate" ColumnName="LastFinishDate" />
+          <ScalarProperty Name="CurrentOp" ColumnName="CurrentOp" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VM_Color" ColumnName="VM_Color" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="SMID" ColumnName="SMID" />
+          <ScalarProperty Name="SV_TimeStamp" ColumnName="SV_TimeStamp" />
+          <ScalarProperty Name="VO_Sort" ColumnName="VO_Sort" />
+          <ScalarProperty Name="VO_SortDate" ColumnName="VO_SortDate" />
+          <ScalarProperty Name="SM_Desc" ColumnName="SM_Desc" />
+          <ScalarProperty Name="SUPID" ColumnName="SUPID" />
+          <ScalarProperty Name="CASTID" ColumnName="CASTID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="SUP_Desc" ColumnName="SUP_Desc" />
+          <ScalarProperty Name="CAST_Desc" ColumnName="CAST_Desc" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="VO_TimeStamp" ColumnName="VO_TimeStamp" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="VO_BSCFinish" ColumnName="VO_BSCFinish" />
+          <ScalarProperty Name="VO_BSCStart" ColumnName="VO_BSCStart" />
+          <ScalarProperty Name="VO_Qty" ColumnName="VO_Qty" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSerialPartWO">
+      <EntityTypeMapping TypeName="VisualModel.vwSerialPartWO">
+        <MappingFragment StoreEntitySet="vwSerialPartWO">
+          <ScalarProperty Name="BatchNo" ColumnName="BatchNo" />
+          <ScalarProperty Name="WO_Qty" ColumnName="WO_Qty" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="WOID" ColumnName="WOID" />
+          <ScalarProperty Name="PartID" ColumnName="PartID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="WO_Desc" ColumnName="WO_Desc" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineCastingPart">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineCastingPart">
+        <MappingFragment StoreEntitySet="tblValueMachineCastingPart">
+          <ScalarProperty Name="CASPID_Deleted" ColumnName="CASPID_Deleted" />
+          <ScalarProperty Name="CASPID_Created" ColumnName="CASPID_Created" />
+          <ScalarProperty Name="CASP_SetupTime" ColumnName="CASP_SetupTime" />
+          <ScalarProperty Name="CASTID" ColumnName="CASTID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="CASPID" ColumnName="CASPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineCommentType">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineCommentType">
+        <MappingFragment StoreEntitySet="tblValueMachineCommentType">
+          <ScalarProperty Name="VMCT_Deleted" ColumnName="VMCT_Deleted" />
+          <ScalarProperty Name="VMCT_Color" ColumnName="VMCT_Color" />
+          <ScalarProperty Name="VMCT_Desc" ColumnName="VMCT_Desc" />
+          <ScalarProperty Name="VMCTID" ColumnName="VMCTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderComment">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderComment">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderComment">
+          <ScalarProperty Name="VOC_TimeStamp" ColumnName="VOC_TimeStamp" />
+          <ScalarProperty Name="VOC_Deleted" ColumnName="VOC_Deleted" />
+          <ScalarProperty Name="VOC_Comment" ColumnName="VOC_Comment" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VMCTID" ColumnName="VMCTID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="VOCID" ColumnName="VOCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineWCSetup">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineWCSetup">
+        <MappingFragment StoreEntitySet="tblValueMachineWCSetup">
+          <ScalarProperty Name="SUPID" ColumnName="SUPID" />
+          <ScalarProperty Name="WS_Deleted" ColumnName="WS_Deleted" />
+          <ScalarProperty Name="WS_Created" ColumnName="WS_Created" />
+          <ScalarProperty Name="WS_Active" ColumnName="WS_Active" />
+          <ScalarProperty Name="WS_Process" ColumnName="WS_Process" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="WSID" ColumnName="WSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachinePartCross">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachinePartCross">
+        <MappingFragment StoreEntitySet="vwValueMachinePartCross">
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="RunTime10" ColumnName="RunTime10" />
+          <ScalarProperty Name="RunTime9" ColumnName="RunTime9" />
+          <ScalarProperty Name="RunTime8" ColumnName="RunTime8" />
+          <ScalarProperty Name="RunTime7" ColumnName="RunTime7" />
+          <ScalarProperty Name="RunTime6" ColumnName="RunTime6" />
+          <ScalarProperty Name="RunTime5" ColumnName="RunTime5" />
+          <ScalarProperty Name="VMID10" ColumnName="VMID10" />
+          <ScalarProperty Name="VMID9" ColumnName="VMID9" />
+          <ScalarProperty Name="VMID8" ColumnName="VMID8" />
+          <ScalarProperty Name="VMID7" ColumnName="VMID7" />
+          <ScalarProperty Name="VMID6" ColumnName="VMID6" />
+          <ScalarProperty Name="VMID5" ColumnName="VMID5" />
+          <ScalarProperty Name="CAST_Desc" ColumnName="CAST_Desc" />
+          <ScalarProperty Name="CASTID" ColumnName="CASTID" />
+          <ScalarProperty Name="PartNum" ColumnName="PartNum" />
+          <ScalarProperty Name="RunTime4" ColumnName="RunTime4" />
+          <ScalarProperty Name="RunTime3" ColumnName="RunTime3" />
+          <ScalarProperty Name="RunTime2" ColumnName="RunTime2" />
+          <ScalarProperty Name="RunTime1" ColumnName="RunTime1" />
+          <ScalarProperty Name="VMID4" ColumnName="VMID4" />
+          <ScalarProperty Name="VMID3" ColumnName="VMID3" />
+          <ScalarProperty Name="VMID2" ColumnName="VMID2" />
+          <ScalarProperty Name="VMID1" ColumnName="VMID1" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachinePartCrossExt">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachinePartCrossExt">
+        <MappingFragment StoreEntitySet="vwValueMachinePartCrossExt">
+          <ScalarProperty Name="RunTime4" ColumnName="RunTime4" />
+          <ScalarProperty Name="RunTime3" ColumnName="RunTime3" />
+          <ScalarProperty Name="RunTime2" ColumnName="RunTime2" />
+          <ScalarProperty Name="RunTime1" ColumnName="RunTime1" />
+          <ScalarProperty Name="VM_TotalHours4" ColumnName="VM_TotalHours4" />
+          <ScalarProperty Name="VM_TotalHours3" ColumnName="VM_TotalHours3" />
+          <ScalarProperty Name="VM_TotalHours2" ColumnName="VM_TotalHours2" />
+          <ScalarProperty Name="VM_TotalHours1" ColumnName="VM_TotalHours1" />
+          <ScalarProperty Name="VM_Color4" ColumnName="VM_Color4" />
+          <ScalarProperty Name="VM_Color3" ColumnName="VM_Color3" />
+          <ScalarProperty Name="VM_Color2" ColumnName="VM_Color2" />
+          <ScalarProperty Name="VM_Color1" ColumnName="VM_Color1" />
+          <ScalarProperty Name="VM_Desc4" ColumnName="VM_Desc4" />
+          <ScalarProperty Name="VMID4" ColumnName="VMID4" />
+          <ScalarProperty Name="VM_Desc3" ColumnName="VM_Desc3" />
+          <ScalarProperty Name="VMID3" ColumnName="VMID3" />
+          <ScalarProperty Name="VM_Desc2" ColumnName="VM_Desc2" />
+          <ScalarProperty Name="VMID2" ColumnName="VMID2" />
+          <ScalarProperty Name="VM_Desc1" ColumnName="VM_Desc1" />
+          <ScalarProperty Name="VMID1" ColumnName="VMID1" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOpArea">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOpArea">
+        <MappingFragment StoreEntitySet="tblValueMachineOpArea">
+          <ScalarProperty Name="VA_Deleted" ColumnName="VA_Deleted" />
+          <ScalarProperty Name="VA_Created" ColumnName="VA_Created" />
+          <ScalarProperty Name="VA_Active" ColumnName="VA_Active" />
+          <ScalarProperty Name="VA_Desc" ColumnName="VA_Desc" />
+          <ScalarProperty Name="VAID" ColumnName="VAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOpListWC">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOpListWC">
+        <MappingFragment StoreEntitySet="tblValueMachineOpListWC">
+          <ScalarProperty Name="VND_Deleted" ColumnName="VND_Deleted" />
+          <ScalarProperty Name="VND_Created" ColumnName="VND_Created" />
+          <ScalarProperty Name="VND_Active" ColumnName="VND_Active" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+          <ScalarProperty Name="VNDID" ColumnName="VNDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomerNumber">
+      <EntityTypeMapping TypeName="VisualModel.tblCustomerNumber">
+        <MappingFragment StoreEntitySet="tblCustomerNumber">
+          <ScalarProperty Name="CSN_Long" ColumnName="CSN_Long" />
+          <ScalarProperty Name="CSN_Date" ColumnName="CSN_Date" />
+          <ScalarProperty Name="CSN_Desc" ColumnName="CSN_Desc" />
+          <ScalarProperty Name="CUSID" ColumnName="CUSID" />
+          <ScalarProperty Name="CSNID" ColumnName="CSNID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachinePartCast_Search">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachinePartCast_Search">
+        <MappingFragment StoreEntitySet="vwValueMachinePartCast_Search">
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="BLDID" ColumnName="BLDID" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="CAST_Desc" ColumnName="CAST_Desc" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPartBOM">
+      <EntityTypeMapping TypeName="VisualModel.vwPartBOM">
+        <MappingFragment StoreEntitySet="vwPartBOM">
+          <ScalarProperty Name="BP_Updated" ColumnName="BP_Updated" />
+          <ScalarProperty Name="BP_Created" ColumnName="BP_Created" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="BPID" ColumnName="BPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_tblValueMachinePart_Add" FunctionName="VisualModel.Store.p_tblValueMachinePart_Add" />
+    <EntitySetMapping Name="tblIssue">
+      <EntityTypeMapping TypeName="VisualModel.tblIssue">
+        <MappingFragment StoreEntitySet="tblIssue">
+          <ScalarProperty Name="BldgOneCleared" ColumnName="BldgOneCleared" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="IU_BinLocation" ColumnName="IU_BinLocation" />
+          <ScalarProperty Name="ITID" ColumnName="ITID" />
+          <ScalarProperty Name="IU_SAP" ColumnName="IU_SAP" />
+          <ScalarProperty Name="IU_TOCreated" ColumnName="IU_TOCreated" />
+          <ScalarProperty Name="IPID" ColumnName="IPID" />
+          <ScalarProperty Name="WOID" ColumnName="WOID" />
+          <ScalarProperty Name="IU_Badge" ColumnName="IU_Badge" />
+          <ScalarProperty Name="IU_UserID" ColumnName="IU_UserID" />
+          <ScalarProperty Name="IX_BoxQty" ColumnName="IX_BoxQty" />
+          <ScalarProperty Name="IU_Qty" ColumnName="IU_Qty" />
+          <ScalarProperty Name="IU_Part" ColumnName="IU_Part" />
+          <ScalarProperty Name="IU_Deleted" ColumnName="IU_Deleted" />
+          <ScalarProperty Name="IU_Order" ColumnName="IU_Order" />
+          <ScalarProperty Name="DSTID" ColumnName="DSTID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="ICID" ColumnName="ICID" />
+          <ScalarProperty Name="IVID" ColumnName="IVID" />
+          <ScalarProperty Name="IDID" ColumnName="IDID" />
+          <ScalarProperty Name="IUID" ColumnName="IUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPrinter">
+      <EntityTypeMapping TypeName="VisualModel.tblPrinter">
+        <MappingFragment StoreEntitySet="tblPrinter">
+          <ScalarProperty Name="PR_Deleted" ColumnName="PR_Deleted" />
+          <ScalarProperty Name="PR_Created" ColumnName="PR_Created" />
+          <ScalarProperty Name="PR_Active" ColumnName="PR_Active" />
+          <ScalarProperty Name="PR_Long" ColumnName="PR_Long" />
+          <ScalarProperty Name="PR_Desc" ColumnName="PR_Desc" />
+          <ScalarProperty Name="PRID" ColumnName="PRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitter">
+      <EntityTypeMapping TypeName="VisualModel.tblKitter">
+        <MappingFragment StoreEntitySet="tblKitter">
+          <ScalarProperty Name="AU_Count" ColumnName="AU_Count" />
+          <ScalarProperty Name="AU_Comment" ColumnName="AU_Comment" />
+          <ScalarProperty Name="AEID" ColumnName="AEID" />
+          <ScalarProperty Name="KI_Good" ColumnName="KI_Good" />
+          <ScalarProperty Name="AU_Timestamp" ColumnName="AU_Timestamp" />
+          <ScalarProperty Name="AU_ASID" ColumnName="AU_ASID" />
+          <ScalarProperty Name="AU_Badge" ColumnName="AU_Badge" />
+          <ScalarProperty Name="KI_Timestamp" ColumnName="KI_Timestamp" />
+          <ScalarProperty Name="WOID" ColumnName="WOID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="KI_Badge" ColumnName="KI_Badge" />
+          <ScalarProperty Name="KIID" ColumnName="KIID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitterLog">
+      <EntityTypeMapping TypeName="VisualModel.tblKitterLog">
+        <MappingFragment StoreEntitySet="tblKitterLog">
+          <ScalarProperty Name="KL_Timestamp" ColumnName="KL_Timestamp" />
+          <ScalarProperty Name="KSID" ColumnName="KSID" />
+          <ScalarProperty Name="KIID" ColumnName="KIID" />
+          <ScalarProperty Name="KLID" ColumnName="KLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitterStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblKitterStatus">
+        <MappingFragment StoreEntitySet="tblKitterStatus">
+          <ScalarProperty Name="KS_Deleted" ColumnName="KS_Deleted" />
+          <ScalarProperty Name="KS_Created" ColumnName="KS_Created" />
+          <ScalarProperty Name="KS_Active" ColumnName="KS_Active" />
+          <ScalarProperty Name="KS_Desc" ColumnName="KS_Desc" />
+          <ScalarProperty Name="KSID" ColumnName="KSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitterAuditError">
+      <EntityTypeMapping TypeName="VisualModel.tblKitterAuditError">
+        <MappingFragment StoreEntitySet="tblKitterAuditError">
+          <ScalarProperty Name="AE_Deleted" ColumnName="AE_Deleted" />
+          <ScalarProperty Name="AE_Created" ColumnName="AE_Created" />
+          <ScalarProperty Name="AE_Active" ColumnName="AE_Active" />
+          <ScalarProperty Name="AE_Desc" ColumnName="AE_Desc" />
+          <ScalarProperty Name="AEID" ColumnName="AEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwKitter">
+      <EntityTypeMapping TypeName="VisualModel.vwKitter">
+        <MappingFragment StoreEntitySet="vwKitter">
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="WkHour" ColumnName="WkHour" />
+          <ScalarProperty Name="KSID" ColumnName="KSID" />
+          <ScalarProperty Name="KLID" ColumnName="KLID" />
+          <ScalarProperty Name="KI_Good" ColumnName="KI_Good" />
+          <ScalarProperty Name="ValueStream" ColumnName="ValueStream" />
+          <ScalarProperty Name="WOID" ColumnName="WOID" />
+          <ScalarProperty Name="KIID" ColumnName="KIID" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="KitterBadge" ColumnName="KitterBadge" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwKitterAudited">
+      <EntityTypeMapping TypeName="VisualModel.vwKitterAudited">
+        <MappingFragment StoreEntitySet="vwKitterAudited">
+          <ScalarProperty Name="AuditorName" ColumnName="AuditorName" />
+          <ScalarProperty Name="AU_Comment" ColumnName="AU_Comment" />
+          <ScalarProperty Name="AU_ASID" ColumnName="AU_ASID" />
+          <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+          <ScalarProperty Name="AuditorCount" ColumnName="AuditorCount" />
+          <ScalarProperty Name="KittedTime" ColumnName="KittedTime" />
+          <ScalarProperty Name="KitterCount" ColumnName="KitterCount" />
+          <ScalarProperty Name="KitterName" ColumnName="KitterName" />
+          <ScalarProperty Name="AuditError" ColumnName="AuditError" />
+          <ScalarProperty Name="AuditorBadge" ColumnName="AuditorBadge" />
+          <ScalarProperty Name="KI_Good" ColumnName="KI_Good" />
+          <ScalarProperty Name="ValueStream" ColumnName="ValueStream" />
+          <ScalarProperty Name="WOID" ColumnName="WOID" />
+          <ScalarProperty Name="KIID" ColumnName="KIID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="KitterBadge" ColumnName="KitterBadge" />
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartBOMComp">
+      <EntityTypeMapping TypeName="VisualModel.tblPartBOMComp">
+        <MappingFragment StoreEntitySet="tblPartBOMComp">
+          <ScalarProperty Name="BC_Prefix1" ColumnName="BC_Prefix1" />
+          <ScalarProperty Name="BC_Prefix" ColumnName="BC_Prefix" />
+          <ScalarProperty Name="BC_Thdr1" ColumnName="BC_Thdr1" />
+          <ScalarProperty Name="BC_PB1" ColumnName="BC_PB1" />
+          <ScalarProperty Name="BC_Flan1" ColumnName="BC_Flan1" />
+          <ScalarProperty Name="BC_Shaft1" ColumnName="BC_Shaft1" />
+          <ScalarProperty Name="BC_Seal1" ColumnName="BC_Seal1" />
+          <ScalarProperty Name="BC_Rot1" ColumnName="BC_Rot1" />
+          <ScalarProperty Name="BC_X1" ColumnName="BC_X1" />
+          <ScalarProperty Name="BC_Control1" ColumnName="BC_Control1" />
+          <ScalarProperty Name="BC_Size1" ColumnName="BC_Size1" />
+          <ScalarProperty Name="BC_Type1" ColumnName="BC_Type1" />
+          <ScalarProperty Name="BC_Fam1" ColumnName="BC_Fam1" />
+          <ScalarProperty Name="BC_Thdr" ColumnName="BC_Thdr" />
+          <ScalarProperty Name="BC_PB" ColumnName="BC_PB" />
+          <ScalarProperty Name="BC_Flan" ColumnName="BC_Flan" />
+          <ScalarProperty Name="BC_Shaft" ColumnName="BC_Shaft" />
+          <ScalarProperty Name="BC_Seal" ColumnName="BC_Seal" />
+          <ScalarProperty Name="BC_Rot" ColumnName="BC_Rot" />
+          <ScalarProperty Name="BC_X" ColumnName="BC_X" />
+          <ScalarProperty Name="BC_Control" ColumnName="BC_Control" />
+          <ScalarProperty Name="BC_Size" ColumnName="BC_Size" />
+          <ScalarProperty Name="BC_Type" ColumnName="BC_Type" />
+          <ScalarProperty Name="BC_Fam" ColumnName="BC_Fam" />
+          <ScalarProperty Name="BC_Created" ColumnName="BC_Created" />
+          <ScalarProperty Name="BC_CompDesc" ColumnName="BC_CompDesc" />
+          <ScalarProperty Name="BC_Component" ColumnName="BC_Component" />
+          <ScalarProperty Name="BC_ItemNo" ColumnName="BC_ItemNo" />
+          <ScalarProperty Name="BCID" ColumnName="BCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartBOMParent">
+      <EntityTypeMapping TypeName="VisualModel.tblPartBOMParent">
+        <MappingFragment StoreEntitySet="tblPartBOMParent">
+          <ScalarProperty Name="BP_MaxValidFrom" ColumnName="BP_MaxValidFrom" />
+          <ScalarProperty Name="BP_MaxValidFromPre" ColumnName="BP_MaxValidFromPre" />
+          <ScalarProperty Name="BP_Updated" ColumnName="BP_Updated" />
+          <ScalarProperty Name="BP_Created" ColumnName="BP_Created" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="BPID" ColumnName="BPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitterAuditQuestions">
+      <EntityTypeMapping TypeName="VisualModel.tblKitterAuditQuestions">
+        <MappingFragment StoreEntitySet="tblKitterAuditQuestions">
+          <ScalarProperty Name="AQ_Deleted" ColumnName="AQ_Deleted" />
+          <ScalarProperty Name="AQ_Created" ColumnName="AQ_Created" />
+          <ScalarProperty Name="AQ_Active" ColumnName="AQ_Active" />
+          <ScalarProperty Name="AQ_Desc" ColumnName="AQ_Desc" />
+          <ScalarProperty Name="AQID" ColumnName="AQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBuilding">
+      <EntityTypeMapping TypeName="VisualModel.tblBuilding">
+        <MappingFragment StoreEntitySet="tblBuilding">
+          <ScalarProperty Name="PRID" ColumnName="PRID" />
+          <ScalarProperty Name="BLD_Created" ColumnName="BLD_Created" />
+          <ScalarProperty Name="BLD_Deleted" ColumnName="BLD_Deleted" />
+          <ScalarProperty Name="BLD_Long" ColumnName="BLD_Long" />
+          <ScalarProperty Name="BLD_Desc" ColumnName="BLD_Desc" />
+          <ScalarProperty Name="BLDID" ColumnName="BLDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineHealth">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineHealth">
+        <MappingFragment StoreEntitySet="tblValueMachineHealth">
+          <ScalarProperty Name="MH_4" ColumnName="MH_4" />
+          <ScalarProperty Name="MH_3" ColumnName="MH_3" />
+          <ScalarProperty Name="MH_2" ColumnName="MH_2" />
+          <ScalarProperty Name="MH_1" ColumnName="MH_1" />
+          <ScalarProperty Name="MHID" ColumnName="MHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblKitterAudit">
+      <EntityTypeMapping TypeName="VisualModel.tblKitterAudit">
+        <MappingFragment StoreEntitySet="tblKitterAudit">
+          <ScalarProperty Name="KQ_Comment" ColumnName="KQ_Comment" />
+          <ScalarProperty Name="KQ_CorrectedDate" ColumnName="KQ_CorrectedDate" />
+          <ScalarProperty Name="KQ_Corrected" ColumnName="KQ_Corrected" />
+          <ScalarProperty Name="KQ_Answer" ColumnName="KQ_Answer" />
+          <ScalarProperty Name="KIID" ColumnName="KIID" />
+          <ScalarProperty Name="AQID" ColumnName="AQID" />
+          <ScalarProperty Name="KQ_Deleted" ColumnName="KQ_Deleted" />
+          <ScalarProperty Name="KQ_Created" ColumnName="KQ_Created" />
+          <ScalarProperty Name="KQ_Active" ColumnName="KQ_Active" />
+          <ScalarProperty Name="KQ_Desc" ColumnName="KQ_Desc" />
+          <ScalarProperty Name="KQID" ColumnName="KQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineDown">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineDown">
+        <MappingFragment StoreEntitySet="tblValueMachineDown">
+          <ScalarProperty Name="VMD_Priority" ColumnName="VMD_Priority" />
+          <ScalarProperty Name="VMD_ResolvedAssociate" ColumnName="VMD_ResolvedAssociate" />
+          <ScalarProperty Name="VMD_ResolvedASID" ColumnName="VMD_ResolvedASID" />
+          <ScalarProperty Name="VMD_Resolved" ColumnName="VMD_Resolved" />
+          <ScalarProperty Name="VMD_Entered" ColumnName="VMD_Entered" />
+          <ScalarProperty Name="VMD_Deleted" ColumnName="VMD_Deleted" />
+          <ScalarProperty Name="VMD_Created" ColumnName="VMD_Created" />
+          <ScalarProperty Name="VMD_Active" ColumnName="VMD_Active" />
+          <ScalarProperty Name="VMD_Comment" ColumnName="VMD_Comment" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VMCID" ColumnName="VMCID" />
+          <ScalarProperty Name="VMDID" ColumnName="VMDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineReasonCodes">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineReasonCodes">
+        <MappingFragment StoreEntitySet="tblValueMachineReasonCodes">
+          <ScalarProperty Name="VMC_Deleted" ColumnName="VMC_Deleted" />
+          <ScalarProperty Name="VMC_Created" ColumnName="VMC_Created" />
+          <ScalarProperty Name="VMC_Active" ColumnName="VMC_Active" />
+          <ScalarProperty Name="VMC_Desc" ColumnName="VMC_Desc" />
+          <ScalarProperty Name="VMCID" ColumnName="VMCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineComment_History">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineComment_History">
+        <MappingFragment StoreEntitySet="vwValueMachineComment_History">
+          <ScalarProperty Name="VOC_Comment" ColumnName="VOC_Comment" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="VMCT_Desc" ColumnName="VMCT_Desc" />
+          <ScalarProperty Name="VOC_TimeStamp" ColumnName="VOC_TimeStamp" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineDown">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineDown">
+        <MappingFragment StoreEntitySet="vwValueMachineDown">
+          <ScalarProperty Name="BLD_Desc" ColumnName="BLD_Desc" />
+          <ScalarProperty Name="VMD_Priority" ColumnName="VMD_Priority" />
+          <ScalarProperty Name="lnkBackUp" ColumnName="lnkBackUp" />
+          <ScalarProperty Name="Associate2" ColumnName="Associate2" />
+          <ScalarProperty Name="Associate" ColumnName="Associate" />
+          <ScalarProperty Name="VMC_Desc" ColumnName="VMC_Desc" />
+          <ScalarProperty Name="VM_Short" ColumnName="VM_Short" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="VMD_Resolved" ColumnName="VMD_Resolved" />
+          <ScalarProperty Name="VMD_Deleted" ColumnName="VMD_Deleted" />
+          <ScalarProperty Name="VMD_Created" ColumnName="VMD_Created" />
+          <ScalarProperty Name="VMD_Active" ColumnName="VMD_Active" />
+          <ScalarProperty Name="VMD_Comment" ColumnName="VMD_Comment" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VMCID" ColumnName="VMCID" />
+          <ScalarProperty Name="VMDID" ColumnName="VMDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPartFolderSHID">
+      <EntityTypeMapping TypeName="VisualModel.vwPartFolderSHID">
+        <MappingFragment StoreEntitySet="vwPartFolderSHID">
+          <ScalarProperty Name="PTFLD_Desc" ColumnName="PTFLD_Desc" />
+          <ScalarProperty Name="PTPT_Name" ColumnName="PTPT_Name" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="PTPTID" ColumnName="PTPTID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="PTPT_PDFImage" ColumnName="PTPT_PDFImage" />
+          <ScalarProperty Name="SHID" ColumnName="SHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPartBOM_Details">
+      <EntityTypeMapping TypeName="VisualModel.vwPartBOM_Details">
+        <MappingFragment StoreEntitySet="vwPartBOM_Details">
+          <ScalarProperty Name="Three" ColumnName="Three" />
+          <ScalarProperty Name="Two" ColumnName="Two" />
+          <ScalarProperty Name="Pre" ColumnName="Pre" />
+          <ScalarProperty Name="Thdr" ColumnName="Thdr" />
+          <ScalarProperty Name="PB" ColumnName="PB" />
+          <ScalarProperty Name="Flan" ColumnName="Flan" />
+          <ScalarProperty Name="Shaft" ColumnName="Shaft" />
+          <ScalarProperty Name="Seal" ColumnName="Seal" />
+          <ScalarProperty Name="Rot" ColumnName="Rot" />
+          <ScalarProperty Name="C_X" ColumnName="/X" />
+          <ScalarProperty Name="Control" ColumnName="Control" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Fam" ColumnName="Fam" />
+          <ScalarProperty Name="PTS_TimeStamp" ColumnName="PTS_TimeStamp" />
+          <ScalarProperty Name="PTS_ChangeNo" ColumnName="PTS_ChangeNo" />
+          <ScalarProperty Name="PTS_ValidTo" ColumnName="PTS_ValidTo" />
+          <ScalarProperty Name="PTS_ValidFrom" ColumnName="PTS_ValidFrom" />
+          <ScalarProperty Name="PTS_MatDescription" ColumnName="PTS_MatDescription" />
+          <ScalarProperty Name="PTS_MatDoc" ColumnName="PTS_MatDoc" />
+          <ScalarProperty Name="PTS_SPT" ColumnName="PTS_SPT" />
+          <ScalarProperty Name="PTS_PrcoType" ColumnName="PTS_PrcoType" />
+          <ScalarProperty Name="PTS_Asm" ColumnName="PTS_Asm" />
+          <ScalarProperty Name="PTS_Component" ColumnName="PTS_Component" />
+          <ScalarProperty Name="PTS_ICt" ColumnName="PTS_ICt" />
+          <ScalarProperty Name="PTS_Item" ColumnName="PTS_Item" />
+          <ScalarProperty Name="PTS_Lev" ColumnName="PTS_Lev" />
+          <ScalarProperty Name="BPID" ColumnName="BPID" />
+          <ScalarProperty Name="BPPID" ColumnName="BPPID" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPartModelCodeBreakdown">
+      <EntityTypeMapping TypeName="VisualModel.tblPartModelCodeBreakdown">
+        <MappingFragment StoreEntitySet="tblPartModelCodeBreakdown">
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="MX_Operation" ColumnName="MX_Operation" />
+          <ScalarProperty Name="MX_Product" ColumnName="MX_Product" />
+          <ScalarProperty Name="MX_Plant" ColumnName="MX_Plant" />
+          <ScalarProperty Name="MX_DiscountCombo" ColumnName="MX_DiscountCombo" />
+          <ScalarProperty Name="MX_SpecialOption" ColumnName="MX_SpecialOption" />
+          <ScalarProperty Name="MX_Sensor" ColumnName="MX_Sensor" />
+          <ScalarProperty Name="MX_Version" ColumnName="MX_Version" />
+          <ScalarProperty Name="MX_Connector" ColumnName="MX_Connector" />
+          <ScalarProperty Name="MX_Filter" ColumnName="MX_Filter" />
+          <ScalarProperty Name="MX_PortsValve" ColumnName="MX_PortsValve" />
+          <ScalarProperty Name="MX_Valve" ColumnName="MX_Valve" />
+          <ScalarProperty Name="MX_End" ColumnName="MX_End" />
+          <ScalarProperty Name="MX_ThroughDrive" ColumnName="MX_ThroughDrive" />
+          <ScalarProperty Name="MX_BoostPump" ColumnName="MX_BoostPump" />
+          <ScalarProperty Name="MX_PortBlock" ColumnName="MX_PortBlock" />
+          <ScalarProperty Name="MX_Flange" ColumnName="MX_Flange" />
+          <ScalarProperty Name="MX_Shaft" ColumnName="MX_Shaft" />
+          <ScalarProperty Name="MX_Bearing" ColumnName="MX_Bearing" />
+          <ScalarProperty Name="MX_Seals" ColumnName="MX_Seals" />
+          <ScalarProperty Name="MX_Dash" ColumnName="MX_Dash" />
+          <ScalarProperty Name="MX_MinDisp" ColumnName="MX_MinDisp" />
+          <ScalarProperty Name="MX_Rotation" ColumnName="MX_Rotation" />
+          <ScalarProperty Name="MX_Threads" ColumnName="MX_Threads" />
+          <ScalarProperty Name="MX_Series" ColumnName="MX_Series" />
+          <ScalarProperty Name="MX_DispScrew" ColumnName="MX_DispScrew" />
+          <ScalarProperty Name="MX_Damping" ColumnName="MX_Damping" />
+          <ScalarProperty Name="MX_DAValve" ColumnName="MX_DAValve" />
+          <ScalarProperty Name="MX_X3X4Ports" ColumnName="MX_X3X4Ports" />
+          <ScalarProperty Name="MX_StrokeLimiter" ColumnName="MX_StrokeLimiter" />
+          <ScalarProperty Name="MX_AngleSensor" ColumnName="MX_AngleSensor" />
+          <ScalarProperty Name="MX_NeutralPosSwitch" ColumnName="MX_NeutralPosSwitch" />
+          <ScalarProperty Name="MX_POR" ColumnName="MX_POR" />
+          <ScalarProperty Name="MX_CtrlOptions" ColumnName="MX_CtrlOptions" />
+          <ScalarProperty Name="MX_AuxOptions" ColumnName="MX_AuxOptions" />
+          <ScalarProperty Name="MX_Control" ColumnName="MX_Control" />
+          <ScalarProperty Name="MX_Size" ColumnName="MX_Size" />
+          <ScalarProperty Name="MX_Type" ColumnName="MX_Type" />
+          <ScalarProperty Name="MX_Family" ColumnName="MX_Family" />
+          <ScalarProperty Name="MX_Prefix" ColumnName="MX_Prefix" />
+          <ScalarProperty Name="MX_Part3" ColumnName="MX_Part3" />
+          <ScalarProperty Name="MX_Part2" ColumnName="MX_Part2" />
+          <ScalarProperty Name="MX_CorrectedModelCode" ColumnName="MX_CorrectedModelCode" />
+          <ScalarProperty Name="MX_ModelCode" ColumnName="MX_ModelCode" />
+          <ScalarProperty Name="MXID" ColumnName="MXID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsDelivery">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsDelivery">
+        <MappingFragment StoreEntitySet="tblSparePartsDelivery">
+          <ScalarProperty Name="SPD_Claim" ColumnName="SPD_Claim" />
+          <ScalarProperty Name="ASID_O" ColumnName="ASID_O" />
+          <ScalarProperty Name="SPD_Override" ColumnName="SPD_Override" />
+          <ScalarProperty Name="SPD_Issue" ColumnName="SPD_Issue" />
+          <ScalarProperty Name="SPD_Changed" ColumnName="SPD_Changed" />
+          <ScalarProperty Name="SPD_Inspected" ColumnName="SPD_Inspected" />
+          <ScalarProperty Name="SPDSID" ColumnName="SPDSID" />
+          <ScalarProperty Name="ASID_S" ColumnName="ASID_S" />
+          <ScalarProperty Name="ASID_I" ColumnName="ASID_I" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="SPD_Picked" ColumnName="SPD_Picked" />
+          <ScalarProperty Name="SPD_Shipped" ColumnName="SPD_Shipped" />
+          <ScalarProperty Name="SPD_Qty" ColumnName="SPD_Qty" />
+          <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+          <ScalarProperty Name="SPD_Deleted" ColumnName="SPD_Deleted" />
+          <ScalarProperty Name="SPD_Created" ColumnName="SPD_Created" />
+          <ScalarProperty Name="SPD_Active" ColumnName="SPD_Active" />
+          <ScalarProperty Name="SPD_Desc" ColumnName="SPD_Desc" />
+          <ScalarProperty Name="SPDID" ColumnName="SPDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsDeliveryStatus">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsDeliveryStatus">
+        <MappingFragment StoreEntitySet="tblSparePartsDeliveryStatus">
+          <ScalarProperty Name="SPDS_Deleted" ColumnName="SPDS_Deleted" />
+          <ScalarProperty Name="SPDS_Created" ColumnName="SPDS_Created" />
+          <ScalarProperty Name="SPDS_Active" ColumnName="SPDS_Active" />
+          <ScalarProperty Name="SPDS_Desc" ColumnName="SPDS_Desc" />
+          <ScalarProperty Name="SPDSID" ColumnName="SPDSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsDeliveryRole">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsDeliveryRole">
+        <MappingFragment StoreEntitySet="tblSparePartsDeliveryRole">
+          <ScalarProperty Name="Initials" ColumnName="Initials" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="PNum" ColumnName="PNum" />
+          <ScalarProperty Name="SPDR_Deleted" ColumnName="SPDR_Deleted" />
+          <ScalarProperty Name="SPDR_Created" ColumnName="SPDR_Created" />
+          <ScalarProperty Name="SPDR_Active" ColumnName="SPDR_Active" />
+          <ScalarProperty Name="SPDR_Desc" ColumnName="SPDR_Desc" />
+          <ScalarProperty Name="SPDRID" ColumnName="SPDRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsInspections">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsInspections">
+        <MappingFragment StoreEntitySet="tblSparePartsInspections">
+          <ScalarProperty Name="SPI_ASID" ColumnName="SPI_ASID" />
+          <ScalarProperty Name="SPI_Answer" ColumnName="SPI_Answer" />
+          <ScalarProperty Name="SPI_Deleted" ColumnName="SPI_Deleted" />
+          <ScalarProperty Name="SPI_Created" ColumnName="SPI_Created" />
+          <ScalarProperty Name="SPI_Active" ColumnName="SPI_Active" />
+          <ScalarProperty Name="SPI_Desc" ColumnName="SPI_Desc" />
+          <ScalarProperty Name="SPDQID" ColumnName="SPDQID" />
+          <ScalarProperty Name="SPDID" ColumnName="SPDID" />
+          <ScalarProperty Name="SPIID" ColumnName="SPIID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsInspQuestions">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsInspQuestions">
+        <MappingFragment StoreEntitySet="tblSparePartsInspQuestions">
+          <ScalarProperty Name="SPDQ_Deleted" ColumnName="SPDQ_Deleted" />
+          <ScalarProperty Name="SPDQ_Created" ColumnName="SPDQ_Created" />
+          <ScalarProperty Name="SPDQ_Active" ColumnName="SPDQ_Active" />
+          <ScalarProperty Name="SPDQ_Desc" ColumnName="SPDQ_Desc" />
+          <ScalarProperty Name="SPDQID" ColumnName="SPDQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSparePartsComments">
+      <EntityTypeMapping TypeName="VisualModel.tblSparePartsComments">
+        <MappingFragment StoreEntitySet="tblSparePartsComments">
+          <ScalarProperty Name="SPDID" ColumnName="SPDID" />
+          <ScalarProperty Name="SPDC_Deleted" ColumnName="SPDC_Deleted" />
+          <ScalarProperty Name="SPDC_Created" ColumnName="SPDC_Created" />
+          <ScalarProperty Name="SPDC_Active" ColumnName="SPDC_Active" />
+          <ScalarProperty Name="SPDC_Desc" ColumnName="SPDC_Desc" />
+          <ScalarProperty Name="SPDCID" ColumnName="SPDCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineSupplier">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineSupplier">
+        <MappingFragment StoreEntitySet="tblValueMachineSupplier">
+          <ScalarProperty Name="VL_Deleted" ColumnName="VL_Deleted" />
+          <ScalarProperty Name="VL_Created" ColumnName="VL_Created" />
+          <ScalarProperty Name="VL_Active" ColumnName="VL_Active" />
+          <ScalarProperty Name="VL_Desc" ColumnName="VL_Desc" />
+          <ScalarProperty Name="VLID" ColumnName="VLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderOpManualConfirm">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderOpManualConfirm">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderOpManualConfirm">
+          <ScalarProperty Name="VV_image" ColumnName="VV_image" />
+          <ScalarProperty Name="VV_Comment" ColumnName="VV_Comment" />
+          <ScalarProperty Name="VYID" ColumnName="VYID" />
+          <ScalarProperty Name="SAID" ColumnName="SAID" />
+          <ScalarProperty Name="PRID" ColumnName="PRID" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+          <ScalarProperty Name="VV_Created" ColumnName="VV_Created" />
+          <ScalarProperty Name="VV_PNum" ColumnName="VV_PNum" />
+          <ScalarProperty Name="VV_WorkCenter" ColumnName="VV_WorkCenter" />
+          <ScalarProperty Name="VV_OP" ColumnName="VV_OP" />
+          <ScalarProperty Name="VV_Scrap" ColumnName="VV_Scrap" />
+          <ScalarProperty Name="VV_Yield" ColumnName="VV_Yield" />
+          <ScalarProperty Name="VQID" ColumnName="VQID" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VVID" ColumnName="VVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderOpManualConfirmErr">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderOpManualConfirmErr">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderOpManualConfirmErr">
+          <ScalarProperty Name="VZ_Created" ColumnName="VZ_Created" />
+          <ScalarProperty Name="VZ_Caller" ColumnName="VZ_Caller" />
+          <ScalarProperty Name="VZ_User" ColumnName="VZ_User" />
+          <ScalarProperty Name="VZ_Host" ColumnName="VZ_Host" />
+          <ScalarProperty Name="VZ_Desc" ColumnName="VZ_Desc" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="VZID" ColumnName="VZID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderManualConfirmErr">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderManualConfirmErr">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderManualConfirmErr">
+          <ScalarProperty Name="VZ_Created" ColumnName="VZ_Created" />
+          <ScalarProperty Name="VZ_Caller" ColumnName="VZ_Caller" />
+          <ScalarProperty Name="VZ_User" ColumnName="VZ_User" />
+          <ScalarProperty Name="VZ_Host" ColumnName="VZ_Host" />
+          <ScalarProperty Name="VZ_Desc" ColumnName="VZ_Desc" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="VZID" ColumnName="VZID" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="VP_OpOrder" ColumnName="VP_OpOrder" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="VW_Short" ColumnName="VW_Short" />
+          <ScalarProperty Name="VW_Desc" ColumnName="VW_Desc" />
+          <ScalarProperty Name="VN_Desc" ColumnName="VN_Desc" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderLostCapacity">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderLostCapacity">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderLostCapacity">
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="VM_Short" ColumnName="VM_Short" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="VO_RunTotalHR" ColumnName="VO_RunTotalHR" />
+          <ScalarProperty Name="VO_RunTotal" ColumnName="VO_RunTotal" />
+          <ScalarProperty Name="VO_RunSetup" ColumnName="VO_RunSetup" />
+          <ScalarProperty Name="VO_RunFinish" ColumnName="VO_RunFinish" />
+          <ScalarProperty Name="VO_RunStart" ColumnName="VO_RunStart" />
+          <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+          <ScalarProperty Name="VO_DeliveredQty" ColumnName="VO_DeliveredQty" />
+          <ScalarProperty Name="VO_Qty" ColumnName="VO_Qty" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="LostDate" ColumnName="LostDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderOp">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderOp">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderOp">
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VS_Desc_Pre" ColumnName="VS_Desc_Pre" />
+          <ScalarProperty Name="VP_PrintAttempts" ColumnName="VP_PrintAttempts" />
+          <ScalarProperty Name="VM_DescDSB" ColumnName="VM_DescDSB" />
+          <ScalarProperty Name="VMID_Machining" ColumnName="VMID_Machining" />
+          <ScalarProperty Name="VP_OpSort" ColumnName="VP_OpSort" />
+          <ScalarProperty Name="VP_Yield" ColumnName="VP_Yield" />
+          <ScalarProperty Name="VM_Color" ColumnName="VM_Color" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="SV_TimeStamp" ColumnName="SV_TimeStamp" />
+          <ScalarProperty Name="SM_Desc" ColumnName="SM_Desc" />
+          <ScalarProperty Name="CAST_Desc" ColumnName="CAST_Desc" />
+          <ScalarProperty Name="SUP_Desc" ColumnName="SUP_Desc" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="VO_TimeStamp" ColumnName="VO_TimeStamp" />
+          <ScalarProperty Name="VO_BSCFinish" ColumnName="VO_BSCFinish" />
+          <ScalarProperty Name="VO_BSCStart" ColumnName="VO_BSCStart" />
+          <ScalarProperty Name="VO_Qty" ColumnName="VO_Qty" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="VNID" ColumnName="VNID" />
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="VP_SAPStatus" ColumnName="VP_SAPStatus" />
+          <ScalarProperty Name="VP_OpOrder" ColumnName="VP_OpOrder" />
+          <ScalarProperty Name="VP_ProcessingMin" ColumnName="VP_ProcessingMin" />
+          <ScalarProperty Name="VP_ProcessingTime" ColumnName="VP_ProcessingTime" />
+          <ScalarProperty Name="VP_Updated" ColumnName="VP_Updated" />
+          <ScalarProperty Name="VP_TimeStamp" ColumnName="VP_TimeStamp" />
+          <ScalarProperty Name="VP_FinishDate" ColumnName="VP_FinishDate" />
+          <ScalarProperty Name="VP_StartDate" ColumnName="VP_StartDate" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="VW_Short" ColumnName="VW_Short" />
+          <ScalarProperty Name="VW_Desc" ColumnName="VW_Desc" />
+          <ScalarProperty Name="VN_Desc" ColumnName="VN_Desc" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineOrderCastingEmail">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineOrderCastingEmail">
+        <MappingFragment StoreEntitySet="tblValueMachineOrderCastingEmail">
+          <ScalarProperty Name="C5018RunAt" ColumnName="5018RunAt" />
+          <ScalarProperty Name="Boxes" ColumnName="Boxes" />
+          <ScalarProperty Name="C5018Min" ColumnName="5018Min" />
+          <ScalarProperty Name="C5018" ColumnName="5018" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="OrderBoxesRndDown" ColumnName="OrderBoxesRndDown" />
+          <ScalarProperty Name="OrderBoxes" ColumnName="OrderBoxes" />
+          <ScalarProperty Name="DeltaQtyTotal" ColumnName="DeltaQtyTotal" />
+          <ScalarProperty Name="DeliveredQtyTotal" ColumnName="DeliveredQtyTotal" />
+          <ScalarProperty Name="OrderQtyTotal" ColumnName="OrderQtyTotal" />
+          <ScalarProperty Name="BoxQty" ColumnName="BoxQty" />
+          <ScalarProperty Name="Casting" ColumnName="Casting" />
+          <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+          <ScalarProperty Name="VO_DeliveredQty" ColumnName="VO_DeliveredQty" />
+          <ScalarProperty Name="VO_Qty" ColumnName="VO_Qty" />
+          <ScalarProperty Name="VO_RunStart" ColumnName="VO_RunStart" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+          <ScalarProperty Name="VQ_Created" ColumnName="VQ_Created" />
+          <ScalarProperty Name="VQID" ColumnName="VQID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineScrapCode">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineScrapCode">
+        <MappingFragment StoreEntitySet="tblValueMachineScrapCode">
+          <ScalarProperty Name="SA_Deleted" ColumnName="SA_Deleted" />
+          <ScalarProperty Name="SA_Created" ColumnName="SA_Created" />
+          <ScalarProperty Name="SA_Active" ColumnName="SA_Active" />
+          <ScalarProperty Name="SA_Desc" ColumnName="SA_Desc" />
+          <ScalarProperty Name="SA_Short" ColumnName="SA_Short" />
+          <ScalarProperty Name="SAID" ColumnName="SAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePC">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePC">
+        <MappingFragment StoreEntitySet="tblValueMachinePC">
+          <ScalarProperty Name="PC_AutoFromPC" ColumnName="PC_AutoFromPC" />
+          <ScalarProperty Name="PC_AutoConfirm" ColumnName="PC_AutoConfirm" />
+          <ScalarProperty Name="PC_Deleted" ColumnName="PC_Deleted" />
+          <ScalarProperty Name="PC_Created" ColumnName="PC_Created" />
+          <ScalarProperty Name="PC_Active" ColumnName="PC_Active" />
+          <ScalarProperty Name="PC_Desc" ColumnName="PC_Desc" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePCLink">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePCLink">
+        <MappingFragment StoreEntitySet="tblValueMachinePCLink">
+          <ScalarProperty Name="VK_Deleted" ColumnName="VK_Deleted" />
+          <ScalarProperty Name="VK_Created" ColumnName="VK_Created" />
+          <ScalarProperty Name="VK_Active" ColumnName="VK_Active" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+          <ScalarProperty Name="VKID" ColumnName="VKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePrinter">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePrinter">
+        <MappingFragment StoreEntitySet="tblValueMachinePrinter">
+          <ScalarProperty Name="VU_Deleted" ColumnName="VU_Deleted" />
+          <ScalarProperty Name="VU_Created" ColumnName="VU_Created" />
+          <ScalarProperty Name="VU_Active" ColumnName="VU_Active" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="PRID" ColumnName="PRID" />
+          <ScalarProperty Name="VUID" ColumnName="VUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachineWC_VMID">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachineWC_VMID">
+        <MappingFragment StoreEntitySet="tblValueMachineWC_VMID">
+          <ScalarProperty Name="VWID" ColumnName="VWID" />
+          <ScalarProperty Name="WM_Deleted" ColumnName="WM_Deleted" />
+          <ScalarProperty Name="WM_Created" ColumnName="WM_Created" />
+          <ScalarProperty Name="WM_Active" ColumnName="WM_Active" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="WMID" ColumnName="WMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblValueMachinePCPrinters">
+      <EntityTypeMapping TypeName="VisualModel.tblValueMachinePCPrinters">
+        <MappingFragment StoreEntitySet="tblValueMachinePCPrinters">
+          <ScalarProperty Name="VD_LabelSort" ColumnName="VD_LabelSort" />
+          <ScalarProperty Name="VD_Deleted" ColumnName="VD_Deleted" />
+          <ScalarProperty Name="VD_Created" ColumnName="VD_Created" />
+          <ScalarProperty Name="VD_Active" ColumnName="VD_Active" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+          <ScalarProperty Name="PRID" ColumnName="PRID" />
+          <ScalarProperty Name="VDID" ColumnName="VDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderOpCon_SAP">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderOpCon_SAP">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderOpCon_SAP">
+          <ScalarProperty Name="ScrapQued" ColumnName="ScrapQued" />
+          <ScalarProperty Name="YieldQued" ColumnName="YieldQued" />
+          <ScalarProperty Name="VO_QTY" ColumnName="VO_QTY" />
+          <ScalarProperty Name="VP_OpOrder" ColumnName="VP_OpOrder" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="LastConfirm" ColumnName="LastConfirm" />
+          <ScalarProperty Name="Scrapped" ColumnName="Scrapped" />
+          <ScalarProperty Name="Confimred" ColumnName="Confimred" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_tblValueMachineOrderOpManualConfirmLog_Add" FunctionName="VisualModel.Store.p_tblValueMachineOrderOpManualConfirmLog_Add" />
+    <EntitySetMapping Name="vwValueMachineOrderManualConfirm">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderManualConfirm">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderManualConfirm">
+          <ScalarProperty Name="ScrapQued" ColumnName="ScrapQued" />
+          <ScalarProperty Name="YieldQued" ColumnName="YieldQued" />
+          <ScalarProperty Name="VQ_Desc" ColumnName="VQ_Desc" />
+          <ScalarProperty Name="LY_Created" ColumnName="LY_Created" />
+          <ScalarProperty Name="VV_image" ColumnName="VV_image" />
+          <ScalarProperty Name="VV_Comment" ColumnName="VV_Comment" />
+          <ScalarProperty Name="SAID" ColumnName="SAID" />
+          <ScalarProperty Name="VMID" ColumnName="VMID" />
+          <ScalarProperty Name="PCID" ColumnName="PCID" />
+          <ScalarProperty Name="PC_Desc" ColumnName="PC_Desc" />
+          <ScalarProperty Name="SA_Short" ColumnName="SA_Short" />
+          <ScalarProperty Name="VQID" ColumnName="VQID" />
+          <ScalarProperty Name="VV_Created" ColumnName="VV_Created" />
+          <ScalarProperty Name="VV_PNum" ColumnName="VV_PNum" />
+          <ScalarProperty Name="VV_WorkCenter" ColumnName="VV_WorkCenter" />
+          <ScalarProperty Name="VV_OP" ColumnName="VV_OP" />
+          <ScalarProperty Name="VV_Scrap" ColumnName="VV_Scrap" />
+          <ScalarProperty Name="VV_Yield" ColumnName="VV_Yield" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="VVID" ColumnName="VVID" />
+          <ScalarProperty Name="PART_TX" ColumnName="PART_TX" />
+          <ScalarProperty Name="PART_Desc" ColumnName="PART_Desc" />
+          <ScalarProperty Name="VS_Desc" ColumnName="VS_Desc" />
+          <ScalarProperty Name="VOID" ColumnName="VOID" />
+          <ScalarProperty Name="VP_OpOrder" ColumnName="VP_OpOrder" />
+          <ScalarProperty Name="VW_Short" ColumnName="VW_Short" />
+          <ScalarProperty Name="VW_Desc" ColumnName="VW_Desc" />
+          <ScalarProperty Name="VN_Desc" ColumnName="VN_Desc" />
+          <ScalarProperty Name="VM_Desc" ColumnName="VM_Desc" />
+          <ScalarProperty Name="VO_Desc" ColumnName="VO_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderManualConfirmLog_Last">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderManualConfirmLog_Last">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderManualConfirmLog_Last">
+          <ScalarProperty Name="VQ_Desc" ColumnName="VQ_Desc" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="row" ColumnName="row" />
+          <ScalarProperty Name="LY_Created" ColumnName="LY_Created" />
+          <ScalarProperty Name="VQID" ColumnName="VQID" />
+          <ScalarProperty Name="VVID" ColumnName="VVID" />
+          <ScalarProperty Name="LYID" ColumnName="LYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwValueMachineOrderOpManualConfirmQUE">
+      <EntityTypeMapping TypeName="VisualModel.vwValueMachineOrderOpManualConfirmQUE">
+        <MappingFragment StoreEntitySet="vwValueMachineOrderOpManualConfirmQUE">
+          <ScalarProperty Name="ScrapQued" ColumnName="ScrapQued" />
+          <ScalarProperty Name="YieldQued" ColumnName="YieldQued" />
+          <ScalarProperty Name="VPID" ColumnName="VPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSparePartsInspectionsSumUp">
+      <EntityTypeMapping TypeName="VisualModel.vwSparePartsInspectionsSumUp">
+        <MappingFragment StoreEntitySet="vwSparePartsInspectionsSumUp">
+          <ScalarProperty Name="Complete" ColumnName="Complete" />
+          <ScalarProperty Name="Correct_Desc" ColumnName="Correct_Desc" />
+          <ScalarProperty Name="Correct_PN" ColumnName="Correct_PN" />
+          <ScalarProperty Name="Correct_Qty" ColumnName="Correct_Qty" />
+          <ScalarProperty Name="No_Damage" ColumnName="No_Damage" />
+          <ScalarProperty Name="No_Rust" ColumnName="No_Rust" />
+          <ScalarProperty Name="Pre_Packed" ColumnName="Pre_Packed" />
+          <ScalarProperty Name="SPDID" ColumnName="SPDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSparePartsInspectionsTotals">
+      <EntityTypeMapping TypeName="VisualModel.vwSparePartsInspectionsTotals">
+        <MappingFragment StoreEntitySet="vwSparePartsInspectionsTotals">
+          <ScalarProperty Name="SPD_Issue" ColumnName="SPD_Issue" />
+          <ScalarProperty Name="SPD_Claim" ColumnName="SPD_Claim" />
+          <ScalarProperty Name="SPDID" ColumnName="SPDID" />
+          <ScalarProperty Name="SPDC_Desc" ColumnName="SPDC_Desc" />
+          <ScalarProperty Name="SPDSID" ColumnName="SPDSID" />
+          <ScalarProperty Name="ASID_O" ColumnName="ASID_O" />
+          <ScalarProperty Name="SPD_Override" ColumnName="SPD_Override" />
+          <ScalarProperty Name="ASID_I" ColumnName="ASID_I" />
+          <ScalarProperty Name="Complete" ColumnName="Complete" />
+          <ScalarProperty Name="Correct_Desc" ColumnName="Correct_Desc" />
+          <ScalarProperty Name="Correct_PN" ColumnName="Correct_PN" />
+          <ScalarProperty Name="Correct_Qty" ColumnName="Correct_Qty" />
+          <ScalarProperty Name="No_Damage" ColumnName="No_Damage" />
+          <ScalarProperty Name="No_Rust" ColumnName="No_Rust" />
+          <ScalarProperty Name="Pre_Packed" ColumnName="Pre_Packed" />
+          <ScalarProperty Name="SPD_Inspected" ColumnName="SPD_Inspected" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="SPD_Picked" ColumnName="SPD_Picked" />
+          <ScalarProperty Name="SPD_Created" ColumnName="SPD_Created" />
+          <ScalarProperty Name="SPD_Desc" ColumnName="SPD_Desc" />
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aaaPKOldLeakTest">
+      <EntityTypeMapping TypeName="VisualModel.aaaPKOldLeakTest">
+        <MappingFragment StoreEntitySet="aaaPKOldLeakTest">
+          <ScalarProperty Name="Bucket2" ColumnName="Bucket2" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Bucket" ColumnName="Bucket" />
+          <ScalarProperty Name="GridCol" ColumnName="GridCol" />
+          <ScalarProperty Name="WorkOrder" ColumnName="WorkOrder" />
+          <ScalarProperty Name="cntFail" ColumnName="cntFail" />
+          <ScalarProperty Name="cntPass" ColumnName="cntPass" />
+          <ScalarProperty Name="PKLine" ColumnName="PKLine" />
+          <ScalarProperty Name="serialnumber" ColumnName="serialnumber" />
+          <ScalarProperty Name="minit" ColumnName="minit" />
+          <ScalarProperty Name="hour" ColumnName="hour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFPYBreaks">
+      <EntityTypeMapping TypeName="VisualModel.tblFPYBreaks">
+        <MappingFragment StoreEntitySet="tblFPYBreaks">
+          <ScalarProperty Name="FPY_TotalMinutes" ColumnName="FPY_TotalMinutes" />
+          <ScalarProperty Name="FPY_StartMinute" ColumnName="FPY_StartMinute" />
+          <ScalarProperty Name="FPY_Shift" ColumnName="FPY_Shift" />
+          <ScalarProperty Name="FPY_Desc" ColumnName="FPY_Desc" />
+          <ScalarProperty Name="FPY_Hour" ColumnName="FPY_Hour" />
+          <ScalarProperty Name="FPY_Deleted" ColumnName="FPY_Deleted" />
+          <ScalarProperty Name="FPY_Created" ColumnName="FPY_Created" />
+          <ScalarProperty Name="FPYID" ColumnName="FPYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFPYResults">
+      <EntityTypeMapping TypeName="VisualModel.tblFPYResults">
+        <MappingFragment StoreEntitySet="tblFPYResults">
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ResultsDate" ColumnName="ResultsDate" />
+          <ScalarProperty Name="Nu" ColumnName="Nu" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="FPY" ColumnName="FPY" />
+          <ScalarProperty Name="Fails" ColumnName="Fails" />
+          <ScalarProperty Name="FirstPass" ColumnName="FirstPass" />
+          <ScalarProperty Name="TotalTests" ColumnName="TotalTests" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FPYRID" ColumnName="FPYRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFPYTargets">
+      <EntityTypeMapping TypeName="VisualModel.tblFPYTargets">
+        <MappingFragment StoreEntitySet="tblFPYTargets">
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="Nu_TwentyFourTarget" ColumnName="Nu_TwentyFourTarget" />
+          <ScalarProperty Name="Nu_ShiftTarget" ColumnName="Nu_ShiftTarget" />
+          <ScalarProperty Name="FPY_TwentyFourTarget" ColumnName="FPY_TwentyFourTarget" />
+          <ScalarProperty Name="FPY_ShiftTarget" ColumnName="FPY_ShiftTarget" />
+          <ScalarProperty Name="FPYT_Deleted" ColumnName="FPYT_Deleted" />
+          <ScalarProperty Name="FPYT_Created" ColumnName="FPYT_Created" />
+          <ScalarProperty Name="FPYTID" ColumnName="FPYTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLeakTestCycleTime">
+      <EntityTypeMapping TypeName="VisualModel.tblLeakTestCycleTime">
+        <MappingFragment StoreEntitySet="tblLeakTestCycleTime">
+          <ScalarProperty Name="LTCY_BoltUpTime" ColumnName="LTCY_BoltUpTime" />
+          <ScalarProperty Name="LTCY_FlangeTime" ColumnName="LTCY_FlangeTime" />
+          <ScalarProperty Name="LTCY_HousingTime" ColumnName="LTCY_HousingTime" />
+          <ScalarProperty Name="LTCY_Line" ColumnName="LTCY_Line" />
+          <ScalarProperty Name="LTCY_Family" ColumnName="LTCY_Family" />
+          <ScalarProperty Name="LTCY_Time" ColumnName="LTCY_Time" />
+          <ScalarProperty Name="LTCY_Part" ColumnName="LTCY_Part" />
+          <ScalarProperty Name="LTCY_Deleted" ColumnName="LTCY_Deleted" />
+          <ScalarProperty Name="LTCY_Created" ColumnName="LTCY_Created" />
+          <ScalarProperty Name="LTCYID" ColumnName="LTCYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFPYResultsTest">
+      <EntityTypeMapping TypeName="VisualModel.tblFPYResultsTest">
+        <MappingFragment StoreEntitySet="tblFPYResultsTest">
+          <ScalarProperty Name="TestStand" ColumnName="TestStand" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ResultsDate" ColumnName="ResultsDate" />
+          <ScalarProperty Name="Nu" ColumnName="Nu" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="FPY" ColumnName="FPY" />
+          <ScalarProperty Name="Fails" ColumnName="Fails" />
+          <ScalarProperty Name="FirstPass" ColumnName="FirstPass" />
+          <ScalarProperty Name="TotalTests" ColumnName="TotalTests" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FPYRID" ColumnName="FPYRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFPYTargetsTest">
+      <EntityTypeMapping TypeName="VisualModel.tblFPYTargetsTest">
+        <MappingFragment StoreEntitySet="tblFPYTargetsTest">
+          <ScalarProperty Name="TestStand" ColumnName="TestStand" />
+          <ScalarProperty Name="Nu_TwentyFourTarget" ColumnName="Nu_TwentyFourTarget" />
+          <ScalarProperty Name="Nu_ShiftTarget" ColumnName="Nu_ShiftTarget" />
+          <ScalarProperty Name="FPYTS_TwentyFourTarget" ColumnName="FPYTS_TwentyFourTarget" />
+          <ScalarProperty Name="FPYTS_ShiftTarget" ColumnName="FPYTS_ShiftTarget" />
+          <ScalarProperty Name="FPYTS_Deleted" ColumnName="FPYTS_Deleted" />
+          <ScalarProperty Name="FPYTS_Created" ColumnName="FPYTS_Created" />
+          <ScalarProperty Name="FPYTSID" ColumnName="FPYTSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestStandCycleTime">
+      <EntityTypeMapping TypeName="VisualModel.tblTestStandCycleTime">
+        <MappingFragment StoreEntitySet="tblTestStandCycleTime">
+          <ScalarProperty Name="TSCY_TestStand" ColumnName="TSCY_TestStand" />
+          <ScalarProperty Name="TSCY_Family" ColumnName="TSCY_Family" />
+          <ScalarProperty Name="TSCY_Time" ColumnName="TSCY_Time" />
+          <ScalarProperty Name="TSCY_Part" ColumnName="TSCY_Part" />
+          <ScalarProperty Name="TSCY_Deleted" ColumnName="TSCY_Deleted" />
+          <ScalarProperty Name="TSCY_Created" ColumnName="TSCY_Created" />
+          <ScalarProperty Name="TSCYID" ColumnName="TSCYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

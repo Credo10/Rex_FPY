@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RexrothModelStoreContainer" CdmEntityContainer="RexrothEntities">
+    <EntitySetMapping Name="tblAssociate">
+      <EntityTypeMapping TypeName="RexrothModel.tblAssociate">
+        <MappingFragment StoreEntitySet="tblAssociate">
+          <ScalarProperty Name="ASID" ColumnName="ASID" />
+          <ScalarProperty Name="PERNR" ColumnName="PERNR" />
+          <ScalarProperty Name="DPID" ColumnName="DPID" />
+          <ScalarProperty Name="OFID" ColumnName="OFID" />
+          <ScalarProperty Name="BIDID" ColumnName="BIDID" />
+          <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+          <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+          <ScalarProperty Name="AS_Phone" ColumnName="AS_Phone" />
+          <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+          <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+          <ScalarProperty Name="AS_OutID" ColumnName="AS_OutID" />
+          <ScalarProperty Name="AS_Sync" ColumnName="AS_Sync" />
+          <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+          <ScalarProperty Name="AS_Reso" ColumnName="AS_Reso" />
+          <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+          <ScalarProperty Name="AS_Bosch" ColumnName="AS_Bosch" />
+          <ScalarProperty Name="AS_Domain" ColumnName="AS_Domain" />
+          <ScalarProperty Name="AS_Group" ColumnName="AS_Group" />
+          <ScalarProperty Name="AS_DC" ColumnName="AS_DC" />
+          <ScalarProperty Name="AS_SuperUser" ColumnName="AS_SuperUser" />
+          <ScalarProperty Name="AS_Unique" ColumnName="AS_Unique" />
+          <ScalarProperty Name="AS_Unique_Email" ColumnName="AS_Unique_Email" />
+          <ScalarProperty Name="AS_Unique_UseID" ColumnName="AS_Unique_UseID" />
+          <ScalarProperty Name="VSID" ColumnName="VSID" />
+          <ScalarProperty Name="AS_Inactivated" ColumnName="AS_Inactivated" />
+          <ScalarProperty Name="MergeKeep" ColumnName="MergeKeep" />
+          <ScalarProperty Name="AS_Read" ColumnName="AS_Read" />
+          <ScalarProperty Name="AS_Path" ColumnName="AS_Path" />
+          <ScalarProperty Name="AS_Kronos" ColumnName="AS_Kronos" />
+          <ScalarProperty Name="AS_Created" ColumnName="AS_Created" />
+          <ScalarProperty Name="AS_Shift" ColumnName="AS_Shift" />
+          <ScalarProperty Name="AS_Text" ColumnName="AS_Text" />
+          <ScalarProperty Name="AS_WorkScheduleRule" ColumnName="AS_WorkScheduleRule" />
+          <ScalarProperty Name="AS_SupervisorEmail" ColumnName="AS_SupervisorEmail" />
+          <ScalarProperty Name="AS_CostCenter" ColumnName="AS_CostCenter" />
+          <ScalarProperty Name="AS_Badge" ColumnName="AS_Badge" />
+          <ScalarProperty Name="AS_CellForSMS" ColumnName="AS_CellForSMS" />
+          <ScalarProperty Name="AS_CareerBand" ColumnName="AS_CareerBand" />
+          <ScalarProperty Name="AS_OrgUnitAbbr" ColumnName="AS_OrgUnitAbbr" />
+          <ScalarProperty Name="AS_BInonFNI" ColumnName="AS_BInonFNI" />
+          <ScalarProperty Name="AS_MachText" ColumnName="AS_MachText" />
+          <ScalarProperty Name="AS_BI_Lock" ColumnName="AS_BI_Lock" />
+          <ScalarProperty Name="AS_CBandLock" ColumnName="AS_CBandLock" />
+          <ScalarProperty Name="AS_HTI_Manager" ColumnName="AS_HTI_Manager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_SaveChangesEF" FunctionName="RexrothModel.Store.p_SaveChangesEF" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85A400C3-6E2E-47D0-A521-90E7C2F26778}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HRLData</RootNamespace>
+    <AssemblyName>HRLData</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="HRLMod.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HRLMod.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HRLMod.edmx.diagram">
+      <DependentUpon>HRLMod.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HRLMod.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRLMod.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HRLMod.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HRLMod.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRLMod.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Nums.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_AddColumns_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_AppUser_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CredoMinSelect_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_DropDownFilter2_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_DropDownFilter_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_DropDownList_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_DropDown_Result.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblApp.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppButton.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppColumnOption.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppColumns.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppDropDown.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppErrorLog.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppFilter.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppNavigation.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppNavigationUser.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppNavigationUserGrid.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppNavMoreButton.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppOptions.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppPath.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppReport.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppReportOption.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppRole.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppRoleButtons.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppRoles.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppTraining.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAppUser.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAssociate.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDriverCompany.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDriverLog.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDriverName.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmailDistribution.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmailDistributionDetail.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFilePath.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFileType.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOptions.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPBProxy.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShift.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppButton.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppColumnFilter.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppColumnFilterClear.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppColumnFilterFields.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppFilterHelper.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppNav.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppNavigation.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppView.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAppView2.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssociate.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDriverLog.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwEmailDistribution.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPBTracking.cs">
+      <DependentUpon>HRLMod.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HRLMod.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HRLMod.edmx</DependentUpon>
+      <LastGenOutput>HRLMod.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HRLMod.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HRLMod.edmx</DependentUpon>
+      <LastGenOutput>HRLMod.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

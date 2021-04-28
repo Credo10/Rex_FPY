@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6393AB11-ACE1-497C-871B-960DDC981363}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visual</RootNamespace>
+    <AssemblyName>Visual</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="Visual.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Visual.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Visual.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Visual.edmx</DependentUpon>
+      <LastGenOutput>Visual.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Visual.edmx.diagram">
+      <DependentUpon>Visual.edmx</DependentUpon>
+    </None>
+    <None Include="Visual.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Visual.edmx</DependentUpon>
+      <LastGenOutput>Visual.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aaaPKOldLeakTest.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBuilding.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCustomerNumber.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDSB_Status.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFPYBreaks.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFPYResults.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFPYResultsTest.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFPYTargets.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFPYTargetsTest.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIssue.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitter.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitterAudit.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitterAuditError.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitterAuditQuestions.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitterLog.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblKitterStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLeakTestCycleTime.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMRPController.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOptions.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPart.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartBearing.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartBOMComp.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartBOMParent.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartDisp.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartFolder.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartFolderPPT.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartFolderPPTPics.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartModelCodeBreakdown.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartPackage.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartPort.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartRineerMotor.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartRineerMotorType.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartRineerPath.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartSeal.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartSeries.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartShaft.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPartSpecial.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPath.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPrinter.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShipping.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingAction.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingComment.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingCommentType.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingDetailStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingMasterStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingPart.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingReasonCode.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblShippingStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsComments.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsDelivery.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsDeliveryRole.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsDeliveryStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsInspections.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSparePartsInspQuestions.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTestStandCycleTime.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachine.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineCastingPart.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineCastings.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineCommentType.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineDown.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineHealth.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOpArea.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOpList.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOpListWC.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrder.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderCastingEmail.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderComment.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderOp.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderOpManualConfirm.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderOpManualConfirmErr.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineOrderStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePart.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePartSetup.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePC.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePCLink.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePCPrinters.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachinePrinter.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineReasonCodes.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineScrapCode.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineSetup.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineSupplier.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineWC.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineWCSetup.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueMachineWC_VMID.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueStream.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visual.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Visual.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visual.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visual.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Visual.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="vwKitter.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwKitterAudited.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPartBOM.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPartBomValueStream.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPartBOM_Details.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPartFolderSHID.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPartRineerMatch2.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSerialPartWO.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwShippingComments.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwShippingStatus.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwShippingStatusHistory.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSparePartsInspectionsSumUp.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSparePartsInspectionsTotals.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineComment_History.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineDown.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrder.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderLostCapacity.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderManualConfirm.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderManualConfirmErr.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderManualConfirmLog_Last.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderOp.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderOpCon_SAP.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachineOrderOpManualConfirmQUE.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachinePartCast_Search.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachinePartCross.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwValueMachinePartCrossExt.cs">
+      <DependentUpon>Visual.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

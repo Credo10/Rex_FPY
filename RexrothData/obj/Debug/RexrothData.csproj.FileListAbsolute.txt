@@ -1,0 +1,9 @@
+Z:\DriverLog\RexrothData\bin\Debug\RexrothData.dll.config
+Z:\DriverLog\RexrothData\bin\Debug\RexrothData.dll
+Z:\DriverLog\RexrothData\bin\Debug\RexrothData.pdb
+Z:\DriverLog\RexrothData\bin\Debug\EntityFramework.dll
+Z:\DriverLog\RexrothData\bin\Debug\EntityFramework.SqlServer.dll
+Z:\DriverLog\RexrothData\bin\Debug\EntityFramework.xml
+Z:\DriverLog\RexrothData\bin\Debug\EntityFramework.SqlServer.xml
+Z:\DriverLog\RexrothData\obj\Debug\RexrothData.dll
+Z:\DriverLog\RexrothData\obj\Debug\RexrothData.pdb

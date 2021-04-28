@@ -1,0 +1,1435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblApp">
+    <Key>
+      <PropertyRef Name="APPID" />
+    </Key>
+    <Property Name="APPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APP_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APP_BetaFor" Type="Int32" />
+    <Property Name="APP_ReleaseFolder" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="APP_DesignFolder" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="APP_EXE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APP_DesignEXE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APP_SolutionFolder" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="APP_HelpdeskOrg" Type="Int32" />
+    <Property Name="APP_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="APP_Image" Type="Int32" />
+    <Property Name="APP_Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APP_VersionFolder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblAppButton" Relationship="HRLModel.FK_tblAppButton_tblApp" FromRole="tblApp" ToRole="tblAppButton" />
+    <NavigationProperty Name="tblAppOptions" Relationship="HRLModel.FK_tblAppOptions_tblApp" FromRole="tblApp" ToRole="tblAppOptions" />
+    <NavigationProperty Name="tblAppPath" Relationship="HRLModel.FK_tblAppPath_tblApplication" FromRole="tblApp" ToRole="tblAppPath" />
+    <NavigationProperty Name="tblAppReport" Relationship="HRLModel.FK_tblAppReport_tblApp" FromRole="tblApp" ToRole="tblAppReport" />
+    <NavigationProperty Name="tblAppRoles" Relationship="HRLModel.FK_tblAppRole_tblApplication" FromRole="tblApp" ToRole="tblAppRoles" />
+    <NavigationProperty Name="tblAppTraining" Relationship="HRLModel.FK_tblAppTraining_tblApplication" FromRole="tblApp" ToRole="tblAppTraining" />
+    <Property Name="APP_Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblAppButton">
+    <Key>
+      <PropertyRef Name="BTID" />
+    </Key>
+    <Property Name="BTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="BT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BT_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppButton_tblApp" FromRole="tblAppButton" ToRole="tblApp" />
+    <NavigationProperty Name="tblAppNavMoreButton" Relationship="HRLModel.FK_tblAppNavAdditionalButtons_tblAppButton" FromRole="tblAppButton" ToRole="tblAppNavMoreButton" />
+    <NavigationProperty Name="tblAppNavigation" Relationship="HRLModel.FK_tblAppNavigation_tblAppButton" FromRole="tblAppButton" ToRole="tblAppNavigation" />
+    <NavigationProperty Name="tblAppRoleButtons" Relationship="HRLModel.FK_tblAppRoleButtons_tblAppButton" FromRole="tblAppButton" ToRole="tblAppRoleButtons" />
+  </EntityType>
+  <EntityType Name="tblAppColumnOption">
+    <Key>
+      <PropertyRef Name="APCOID" />
+    </Key>
+    <Property Name="APCOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APCO_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APCO_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppColumns" Relationship="HRLModel.FK_tblAppColumns_tblAppColumnOption" FromRole="tblAppColumnOption" ToRole="tblAppColumns" />
+  </EntityType>
+  <EntityType Name="tblAppColumns">
+    <Key>
+      <PropertyRef Name="APCID" />
+    </Key>
+    <Property Name="APCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="APCOID" Type="Int32" Nullable="false" />
+    <Property Name="APC_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APC_Width" Type="Int32" Nullable="false" />
+    <Property Name="APC_Order" Type="Int32" />
+    <Property Name="APC_Grid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_ReadOnly" Type="Boolean" />
+    <Property Name="APC_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="APC_Default" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_QueryField" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_ClearValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_FilterOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_ARIDs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblAppColumnOption" Relationship="HRLModel.FK_tblAppColumns_tblAppColumnOption" FromRole="tblAppColumns" ToRole="tblAppColumnOption" />
+    <NavigationProperty Name="tblAppNavigation" Relationship="HRLModel.FK_tblAppColumns_tblAppNavigation" FromRole="tblAppColumns" ToRole="tblAppNavigation" />
+  </EntityType>
+  <EntityType Name="tblAppErrorLog">
+    <Key>
+      <PropertyRef Name="ERID" />
+    </Key>
+    <Property Name="ERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" />
+    <Property Name="ER_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ER_Number" Type="Int32" Nullable="false" />
+    <Property Name="ER_Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="ER_Severity" Type="Int16" Nullable="false" />
+    <Property Name="ER_State" Type="Int16" Nullable="false" />
+    <Property Name="ER_Procedure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ER_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ER_HostName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblAppErrorLog1" Relationship="HRLModel.FK_tblAppErrorLog_tblAppErrorLog" FromRole="tblAppErrorLog" ToRole="tblAppErrorLog1" />
+    <NavigationProperty Name="tblAppErrorLog2" Relationship="HRLModel.FK_tblAppErrorLog_tblAppErrorLog" FromRole="tblAppErrorLog1" ToRole="tblAppErrorLog" />
+  </EntityType>
+  <EntityType Name="tblAppFilter">
+    <Key>
+      <PropertyRef Name="AFLTID" />
+    </Key>
+    <Property Name="AFLTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="AFLT_Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AFLT_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AFLT_GV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="F1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F9" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F26" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F27" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F28" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F29" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F30" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F31" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F32" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F33" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F34" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F35" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F36" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F37" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F38" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F39" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F40" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F41" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F42" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F43" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F44" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F45" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F46" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F47" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F48" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F49" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F50" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblAppNavigation">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BTID" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Item" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Option" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Filter" Type="Boolean" Nullable="false" />
+    <Property Name="NAV_Order" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Image" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Table" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAV_Server" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAV_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="NAV_Active" Type="Boolean" Nullable="false" />
+    <Property Name="NAV_GV2" Type="Int32" />
+    <Property Name="NAV_GV3" Type="Int32" />
+    <Property Name="NAV_GV4" Type="Int32" />
+    <Property Name="NAV_GV5" Type="Int32" />
+    <Property Name="NAV_GV6" Type="Int32" />
+    <Property Name="NAV_Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblAppButton" Relationship="HRLModel.FK_tblAppNavigation_tblAppButton" FromRole="tblAppNavigation" ToRole="tblAppButton" />
+    <NavigationProperty Name="tblAppColumns" Relationship="HRLModel.FK_tblAppColumns_tblAppNavigation" FromRole="tblAppNavigation" ToRole="tblAppColumns" />
+    <NavigationProperty Name="tblAppNavMoreButton" Relationship="HRLModel.FK_tblAppNavAdditionalButtons_tblAppNavigation" FromRole="tblAppNavigation" ToRole="tblAppNavMoreButton" />
+    <NavigationProperty Name="tblAppNavigationUser" Relationship="HRLModel.FK_tblAppNavigationUser_tblAppNavigation" FromRole="tblAppNavigation" ToRole="tblAppNavigationUser" />
+    <Property Name="NAV_Width" Type="Int32" />
+    <Property Name="NAV_Height" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblAppNavigationUser">
+    <Key>
+      <PropertyRef Name="AGID" />
+    </Key>
+    <Property Name="AGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AG_FormItem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AG_Height" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AG_Width" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AG_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AG_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppNavigation" Relationship="HRLModel.FK_tblAppNavigationUser_tblAppNavigation" FromRole="tblAppNavigationUser" ToRole="tblAppNavigation" />
+  </EntityType>
+  <EntityType Name="tblAppNavigationUserGrid">
+    <Key>
+      <PropertyRef Name="ADID" />
+    </Key>
+    <Property Name="ADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="APCID" Type="Int32" Nullable="false" />
+    <Property Name="AD_Sort" Type="Int32" Nullable="false" />
+    <Property Name="AD_Width" Type="Int32" Nullable="false" />
+    <Property Name="AD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AD_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblAppNavMoreButton">
+    <Key>
+      <PropertyRef Name="NBID" />
+    </Key>
+    <Property Name="NBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="BTID" Type="Int32" Nullable="false" />
+    <Property Name="NB_Active" Type="Boolean" Nullable="false" />
+    <Property Name="NB_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tblAppButton" Relationship="HRLModel.FK_tblAppNavAdditionalButtons_tblAppButton" FromRole="tblAppNavMoreButton" ToRole="tblAppButton" />
+    <NavigationProperty Name="tblAppNavigation" Relationship="HRLModel.FK_tblAppNavAdditionalButtons_tblAppNavigation" FromRole="tblAppNavMoreButton" ToRole="tblAppNavigation" />
+  </EntityType>
+  <EntityType Name="tblAppOptions">
+    <Key>
+      <PropertyRef Name="APOPID" />
+    </Key>
+    <Property Name="APOPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="APOP_Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APOP_Value" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="APOP_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppOptions_tblApp" FromRole="tblAppOptions" ToRole="tblApp" />
+  </EntityType>
+  <EntityType Name="tblAppPath">
+    <Key>
+      <PropertyRef Name="APTHID" />
+    </Key>
+    <Property Name="APTHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="APTH_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APTH_Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APTH_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppPath_tblApplication" FromRole="tblAppPath" ToRole="tblApp" />
+  </EntityType>
+  <EntityType Name="tblAppReport">
+    <Key>
+      <PropertyRef Name="RPID" />
+    </Key>
+    <Property Name="RPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" />
+    <Property Name="RP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RP_RDL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RP_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppReport_tblApp" FromRole="tblAppReport" ToRole="tblApp" />
+    <NavigationProperty Name="tblAppReportOption" Relationship="HRLModel.FK_tblReportOption_tblReport" FromRole="tblAppReport" ToRole="tblAppReportOption" />
+  </EntityType>
+  <EntityType Name="tblAppReportOption">
+    <Key>
+      <PropertyRef Name="RPOID" />
+    </Key>
+    <Property Name="RPOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RPID" Type="Int32" Nullable="false" />
+    <Property Name="RPO_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPO_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppReport" Relationship="HRLModel.FK_tblReportOption_tblReport" FromRole="tblAppReportOption" ToRole="tblAppReport" />
+  </EntityType>
+  <EntityType Name="tblAppRole">
+    <Key>
+      <PropertyRef Name="RLID" />
+    </Key>
+    <Property Name="RLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RL_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppRoles" Relationship="HRLModel.FK_tblAppRole_tblRole" FromRole="tblAppRole" ToRole="tblAppRoles" />
+  </EntityType>
+  <EntityType Name="tblAppRoleButtons">
+    <Key>
+      <PropertyRef Name="ABID" />
+    </Key>
+    <Property Name="ABID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="BTID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Order" Type="Int32" />
+    <Property Name="AB_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppButton" Relationship="HRLModel.FK_tblAppRoleButtons_tblAppButton" FromRole="tblAppRoleButtons" ToRole="tblAppButton" />
+    <NavigationProperty Name="tblAppRoles" Relationship="HRLModel.FK_tblAppRoleButtons_tblAppRoles" FromRole="tblAppRoleButtons" ToRole="tblAppRoles" />
+  </EntityType>
+  <EntityType Name="tblAppRoles">
+    <Key>
+      <PropertyRef Name="ARID" />
+    </Key>
+    <Property Name="ARID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="RLID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Level" Type="Int32" Nullable="false" />
+    <Property Name="AR_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppRole_tblApplication" FromRole="tblAppRoles" ToRole="tblApp" />
+    <NavigationProperty Name="tblAppRole" Relationship="HRLModel.FK_tblAppRole_tblRole" FromRole="tblAppRoles" ToRole="tblAppRole" />
+    <NavigationProperty Name="tblAppRoleButtons" Relationship="HRLModel.FK_tblAppRoleButtons_tblAppRoles" FromRole="tblAppRoles" ToRole="tblAppRoleButtons" />
+    <NavigationProperty Name="tblAppUser" Relationship="HRLModel.FK_tblAppUser_tblAppRole" FromRole="tblAppRoles" ToRole="tblAppUser" />
+  </EntityType>
+  <EntityType Name="tblAppTraining">
+    <Key>
+      <PropertyRef Name="TRAID" />
+    </Key>
+    <Property Name="TRAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="TR_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TR_File" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TR_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblApp" Relationship="HRLModel.FK_tblAppTraining_tblApplication" FromRole="tblAppTraining" ToRole="tblApp" />
+  </EntityType>
+  <EntityType Name="tblAppUser">
+    <Key>
+      <PropertyRef Name="AUID" />
+    </Key>
+    <Property Name="AUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AU_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblAppRoles" Relationship="HRLModel.FK_tblAppUser_tblAppRole" FromRole="tblAppUser" ToRole="tblAppRoles" />
+  </EntityType>
+  <EntityType Name="tblEmailDistribution">
+    <Key>
+      <PropertyRef Name="EDID" />
+    </Key>
+    <Property Name="EDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ED_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ED_SendAs" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ED_Active" Type="Boolean" Nullable="false" />
+    <Property Name="ED_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblEmailDistributionDetail" Relationship="HRLModel.FK_tblEmailDistributionDetail_tblEmailDistribution" FromRole="tblEmailDistribution" ToRole="tblEmailDistributionDetail" />
+    <Property Name="APPID" Type="Int32" />
+    <Property Name="ED_Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblEmailDistributionDetail">
+    <Key>
+      <PropertyRef Name="EDDID" />
+    </Key>
+    <Property Name="EDDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EDID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="EDD_NonBoschEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EDD_Active" Type="Boolean" Nullable="false" />
+    <Property Name="EDD_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblEmailDistribution" Relationship="HRLModel.FK_tblEmailDistributionDetail_tblEmailDistribution" FromRole="tblEmailDistributionDetail" ToRole="tblEmailDistribution" />
+    <Property Name="EDD_Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblFilePath">
+    <Key>
+      <PropertyRef Name="FPID" />
+    </Key>
+    <Property Name="FPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FTID" Type="Int32" Nullable="false" />
+    <Property Name="LNID" Type="Int32" />
+    <Property Name="FP_Desc" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FP_Archive" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="FP_Deleted" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblFileType" Relationship="HRLModel.FK_tblFilePath_tblFileType" FromRole="tblFilePath" ToRole="tblFileType" />
+  </EntityType>
+  <EntityType Name="tblFileType">
+    <Key>
+      <PropertyRef Name="FTID" />
+    </Key>
+    <Property Name="FTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="FT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FT_Folder" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="FT_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="FT_Suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblFilePath" Relationship="HRLModel.FK_tblFilePath_tblFileType" FromRole="tblFileType" ToRole="tblFilePath" />
+  </EntityType>
+  <EntityType Name="tblOptions">
+    <Key>
+      <PropertyRef Name="OPID" />
+    </Key>
+    <Property Name="OPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OP_ID" Type="Int32" Nullable="false" />
+    <Property Name="OP_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OP_Function" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblShift">
+    <Key>
+      <PropertyRef Name="SFID" />
+    </Key>
+    <Property Name="SFID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SF_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SF_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SF_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SF_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SF_Num" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblAssociate">
+    <Key>
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="AS_Active" />
+      <PropertyRef Name="AS_Reso" />
+      <PropertyRef Name="AS_BI_Lock" />
+      <PropertyRef Name="AS_BInonFNI" />
+      <PropertyRef Name="AS_CBandLock" />
+    </Key>
+    <Property Name="ASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DPID" Type="Int32" />
+    <Property Name="OFID" Type="Int32" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_First" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Last" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="AS_OutID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Sync" Type="DateTime" Precision="3" />
+    <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Reso" Type="Boolean" Nullable="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Domain" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_DC" Type="Boolean" />
+    <Property Name="AS_UserID" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="PERNR" Type="Int32" />
+    <Property Name="Short" Type="String" MaxLength="53" FixedLength="false" Unicode="false" />
+    <Property Name="BIDID" Type="Int32" />
+    <Property Name="AS_Badge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_CellForSMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_BI_Lock" Type="Boolean" Nullable="false" />
+    <Property Name="AS_CareerBand" Type="Int32" />
+    <Property Name="AS_CostCenter" Type="Int32" />
+    <Property Name="AS_OrgUnitAbbr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_BInonFNI" Type="Boolean" Nullable="false" />
+    <Property Name="AS_CBandLock" Type="Boolean" Nullable="false" />
+    <Property Name="AS_HTI_Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AS_HTI_PNum" Type="Int32" />
+    <Property Name="AS_HireDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="vwAppButton">
+    <Key>
+      <PropertyRef Name="BT_Desc" />
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="BTID" />
+    </Key>
+    <Property Name="BT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Order" Type="Int32" />
+    <Property Name="BTID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwAppColumnFilter">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="APC_Grid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F9" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F26" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F27" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F28" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F29" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F30" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F31" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F32" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F33" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F34" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F35" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F36" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F37" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F38" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F39" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F40" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F41" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F42" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F43" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F44" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F45" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F46" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F47" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F48" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F49" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F50" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwAppColumnFilterClear">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="APC_Grid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F9" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F26" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F27" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F28" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F29" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F30" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F31" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F32" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F33" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F34" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F35" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F36" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F37" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F38" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F39" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F40" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F41" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F42" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F43" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F44" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F45" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F46" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F47" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F48" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F49" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="F50" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwAppColumnFilterFields">
+    <Key>
+      <PropertyRef Name="APCID" />
+      <PropertyRef Name="APCOID" />
+      <PropertyRef Name="APC_Desc" />
+      <PropertyRef Name="APC_Name" />
+      <PropertyRef Name="APC_Width" />
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="NAVID2" />
+    </Key>
+    <Property Name="APCID" Type="Int32" Nullable="false" />
+    <Property Name="APCOID" Type="Int32" Nullable="false" />
+    <Property Name="APC_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APC_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APC_QueryField" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_Default" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_Order" Type="Int32" />
+    <Property Name="APC_Grid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APC_ReadOnly" Type="Boolean" />
+    <Property Name="APC_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="APC_Width" Type="Int32" Nullable="false" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="NAVID2" Type="Int32" Nullable="false" />
+    <Property Name="APC_FilterOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwAppFilterHelper">
+    <Key>
+      <PropertyRef Name="Fld" />
+      <PropertyRef Name="Token" />
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="Val" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fld" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwAppNav">
+    <Key>
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="BT_Desc" />
+      <PropertyRef Name="NAV_Desc" />
+      <PropertyRef Name="NAV_Item" />
+      <PropertyRef Name="NAV_Option" />
+      <PropertyRef Name="NAV_Filter" />
+      <PropertyRef Name="NAV_Order" />
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+    </Key>
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="BT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Item" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Table" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAV_Option" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Filter" Type="Boolean" Nullable="false" />
+    <Property Name="NAV_Order" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Server" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="APP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwAppNavigation">
+    <Key>
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="BTID" />
+      <PropertyRef Name="NAV_Desc" />
+      <PropertyRef Name="NAV_Item" />
+      <PropertyRef Name="NAV_Option" />
+      <PropertyRef Name="NAV_Filter" />
+      <PropertyRef Name="NAV_Order" />
+      <PropertyRef Name="NAV_Image" />
+      <PropertyRef Name="NAV_Active" />
+    </Key>
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="BTID" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Item" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAV_Option" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Filter" Type="Boolean" Nullable="false" />
+    <Property Name="NAV_Order" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Image" Type="Int32" Nullable="false" />
+    <Property Name="NAV_Table" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAV_Server" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NAV_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="NAV_Active" Type="Boolean" Nullable="false" />
+    <Property Name="NAV_GV2" Type="Int32" />
+    <Property Name="NAV_GV3" Type="Int32" />
+    <Property Name="NAV_GV4" Type="Int32" />
+    <Property Name="NAV_GV5" Type="Int32" />
+    <Property Name="NAV_GV6" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwAppView">
+    <Key>
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AB_Level" />
+      <PropertyRef Name="AUID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="RLID" />
+    </Key>
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="APP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APP_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="102" FixedLength="false" Unicode="false" />
+    <Property Name="RL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Level" Type="Int32" Nullable="false" />
+    <Property Name="APP_HelpdeskOrg" Type="Int32" />
+    <Property Name="AUID" Type="Int32" Nullable="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="AU_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="AR_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="RL_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="RLID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwAppView2">
+    <Key>
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="AS_Active" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AB_Level" />
+    </Key>
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="APP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APP_Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="RL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Level" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwAssociate">
+    <Key>
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="AB_Level" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AUID" />
+      <PropertyRef Name="APPID" />
+    </Key>
+    <Property Name="FullName" Type="String" MaxLength="102" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_First" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Last" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="AB_Level" Type="Int32" Nullable="false" />
+    <Property Name="RL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AUID" Type="Int32" Nullable="false" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="PERNR" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwEmailDistribution">
+    <Key>
+      <PropertyRef Name="EDID" />
+      <PropertyRef Name="ED_Desc" />
+      <PropertyRef Name="EDDID" />
+    </Key>
+    <Property Name="EDID" Type="Int32" Nullable="false" />
+    <Property Name="ED_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="EDDID" Type="Int32" Nullable="false" />
+    <Property Name="AS_CellForSMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="HRLEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblApp" EntityType="Self.tblApp" />
+    <EntitySet Name="tblAppButton" EntityType="Self.tblAppButton" />
+    <EntitySet Name="tblAppColumnOption" EntityType="Self.tblAppColumnOption" />
+    <EntitySet Name="tblAppColumns" EntityType="Self.tblAppColumns" />
+    <EntitySet Name="tblAppErrorLog" EntityType="Self.tblAppErrorLog" />
+    <EntitySet Name="tblAppFilter" EntityType="Self.tblAppFilter" />
+    <EntitySet Name="tblAppNavigation" EntityType="Self.tblAppNavigation" />
+    <EntitySet Name="tblAppNavigationUser" EntityType="Self.tblAppNavigationUser" />
+    <EntitySet Name="tblAppNavigationUserGrid" EntityType="Self.tblAppNavigationUserGrid" />
+    <EntitySet Name="tblAppNavMoreButton" EntityType="Self.tblAppNavMoreButton" />
+    <EntitySet Name="tblAppOptions" EntityType="Self.tblAppOptions" />
+    <EntitySet Name="tblAppPath" EntityType="Self.tblAppPath" />
+    <EntitySet Name="tblAppReport" EntityType="Self.tblAppReport" />
+    <EntitySet Name="tblAppReportOption" EntityType="Self.tblAppReportOption" />
+    <EntitySet Name="tblAppRole" EntityType="Self.tblAppRole" />
+    <EntitySet Name="tblAppRoleButtons" EntityType="Self.tblAppRoleButtons" />
+    <EntitySet Name="tblAppRoles" EntityType="Self.tblAppRoles" />
+    <EntitySet Name="tblAppTraining" EntityType="Self.tblAppTraining" />
+    <EntitySet Name="tblAppUser" EntityType="Self.tblAppUser" />
+    <EntitySet Name="tblEmailDistribution" EntityType="Self.tblEmailDistribution" />
+    <EntitySet Name="tblEmailDistributionDetail" EntityType="Self.tblEmailDistributionDetail" />
+    <EntitySet Name="tblFilePath" EntityType="Self.tblFilePath" />
+    <EntitySet Name="tblFileType" EntityType="Self.tblFileType" />
+    <EntitySet Name="tblOptions" EntityType="Self.tblOptions" />
+    <EntitySet Name="tblShift" EntityType="Self.tblShift" />
+    <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" />
+    <EntitySet Name="vwAppButton" EntityType="Self.vwAppButton" />
+    <EntitySet Name="vwAppColumnFilter" EntityType="Self.vwAppColumnFilter" />
+    <EntitySet Name="vwAppColumnFilterClear" EntityType="Self.vwAppColumnFilterClear" />
+    <EntitySet Name="vwAppColumnFilterFields" EntityType="Self.vwAppColumnFilterFields" />
+    <EntitySet Name="vwAppFilterHelper" EntityType="Self.vwAppFilterHelper" />
+    <EntitySet Name="vwAppNav" EntityType="Self.vwAppNav" />
+    <EntitySet Name="vwAppNavigation" EntityType="Self.vwAppNavigation" />
+    <EntitySet Name="vwAppView" EntityType="Self.vwAppView" />
+    <EntitySet Name="vwAppView2" EntityType="Self.vwAppView2" />
+    <EntitySet Name="vwAssociate" EntityType="Self.vwAssociate" />
+    <EntitySet Name="vwEmailDistribution" EntityType="Self.vwEmailDistribution" />
+    <FunctionImport Name="p_AddColumns" ReturnType="Collection(HRLModel.p_AddColumns_Result)">
+      <Parameter Name="NAVID" Mode="In" Type="String" />
+      <Parameter Name="GRID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_AddDataRow">
+      <Parameter Name="APPID" Mode="In" Type="Int32" />
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="MiscID" Mode="In" Type="Int32" />
+      <Parameter Name="Err" Mode="InOut" Type="String" />
+      <Parameter Name="PK1" Mode="InOut" Type="Int32" />
+      <Parameter Name="PK2" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_AddFilterColumns">
+      <Parameter Name="NAVID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_AppMenuNew">
+      <Parameter Name="APPID" Mode="In" Type="Int32" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_AppUser" ReturnType="Collection(HRLModel.p_AppUser_Result)">
+      <Parameter Name="APPID" Mode="In" Type="Int32" />
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="AppText" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_CredoMinSelect" ReturnType="Collection(HRLModel.p_CredoMinSelect_Result)">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="PK" Mode="In" Type="Int32" />
+      <Parameter Name="DataGrid" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_DropDown" ReturnType="Collection(HRLModel.p_DropDown_Result)">
+      <Parameter Name="APPID" Mode="In" Type="Int32" />
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="DDL" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_DropDownFilter" ReturnType="Collection(HRLModel.p_DropDownFilter_Result)">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="DDL" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="Fld" Mode="In" Type="String" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_DropDownFilter2" ReturnType="Collection(HRLModel.p_DropDownFilter2_Result)">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="DDL" Mode="In" Type="String" />
+      <Parameter Name="User" Mode="In" Type="String" />
+      <Parameter Name="Fld" Mode="In" Type="String" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_DropDownList" ReturnType="Collection(HRLModel.p_DropDownList_Result)">
+      <Parameter Name="Fld" Mode="In" Type="String" />
+      <Parameter Name="App" Mode="In" Type="String" />
+      <Parameter Name="Opt2" Mode="In" Type="String" />
+      <Parameter Name="Opt3" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppErrorLog_Add">
+      <Parameter Name="Error" Mode="In" Type="String" />
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="Num" Mode="In" Type="Int32" />
+      <Parameter Name="MachineName" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Proc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppFilter">
+      <Parameter Name="Token" Mode="In" Type="String" />
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="Grid" Mode="In" Type="String" />
+      <Parameter Name="Opt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppFilterWhereClause">
+      <Parameter Name="Token" Mode="In" Type="String" />
+      <Parameter Name="strWhere" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppNavigationUser_Add">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+      <Parameter Name="AG_FormItem" Mode="In" Type="String" />
+      <Parameter Name="AG_Height" Mode="In" Type="Int32" />
+      <Parameter Name="AG_Width" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppNavigationUserGrid_Add">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+      <Parameter Name="APCID" Mode="In" Type="Int32" />
+      <Parameter Name="AD_Width" Mode="In" Type="Int32" />
+      <Parameter Name="AD_Sort" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblAppNavigationUserGrid_Load">
+      <Parameter Name="NAVID" Mode="In" Type="Int32" />
+      <Parameter Name="ASID" Mode="In" Type="Int32" />
+      <Parameter Name="GRID" Mode="In" Type="String" />
+      <Parameter Name="FilterField" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="p_tblFile_Add" ReturnType="Collection(Decimal)">
+      <Parameter Name="File" Mode="In" Type="String" />
+      <Parameter Name="FL_DateCreated" Mode="In" Type="DateTime" />
+      <Parameter Name="FTID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Nums" EntityType="HRLModel.Nums" />
+    <AssociationSet Name="FK_tblAppButton_tblApp" Association="HRLModel.FK_tblAppButton_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppOptions_tblApp" Association="HRLModel.FK_tblAppOptions_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppOptions" EntitySet="tblAppOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppPath_tblApplication" Association="HRLModel.FK_tblAppPath_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppPath" EntitySet="tblAppPath" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppReport_tblApp" Association="HRLModel.FK_tblAppReport_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppReport" EntitySet="tblAppReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRole_tblApplication" Association="HRLModel.FK_tblAppRole_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppTraining_tblApplication" Association="HRLModel.FK_tblAppTraining_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppTraining" EntitySet="tblAppTraining" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavAdditionalButtons_tblAppButton" Association="HRLModel.FK_tblAppNavAdditionalButtons_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppNavMoreButton" EntitySet="tblAppNavMoreButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavigation_tblAppButton" Association="HRLModel.FK_tblAppNavigation_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRoleButtons_tblAppButton" Association="HRLModel.FK_tblAppRoleButtons_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppRoleButtons" EntitySet="tblAppRoleButtons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppColumns_tblAppColumnOption" Association="HRLModel.FK_tblAppColumns_tblAppColumnOption">
+      <End Role="tblAppColumnOption" EntitySet="tblAppColumnOption" />
+      <End Role="tblAppColumns" EntitySet="tblAppColumns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppColumns_tblAppNavigation" Association="HRLModel.FK_tblAppColumns_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppColumns" EntitySet="tblAppColumns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppErrorLog_tblAppErrorLog" Association="HRLModel.FK_tblAppErrorLog_tblAppErrorLog">
+      <End Role="tblAppErrorLog" EntitySet="tblAppErrorLog" />
+      <End Role="tblAppErrorLog1" EntitySet="tblAppErrorLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavAdditionalButtons_tblAppNavigation" Association="HRLModel.FK_tblAppNavAdditionalButtons_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppNavMoreButton" EntitySet="tblAppNavMoreButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavigationUser_tblAppNavigation" Association="HRLModel.FK_tblAppNavigationUser_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppNavigationUser" EntitySet="tblAppNavigationUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblReportOption_tblReport" Association="HRLModel.FK_tblReportOption_tblReport">
+      <End Role="tblAppReport" EntitySet="tblAppReport" />
+      <End Role="tblAppReportOption" EntitySet="tblAppReportOption" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRole_tblRole" Association="HRLModel.FK_tblAppRole_tblRole">
+      <End Role="tblAppRole" EntitySet="tblAppRole" />
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRoleButtons_tblAppRoles" Association="HRLModel.FK_tblAppRoleButtons_tblAppRoles">
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+      <End Role="tblAppRoleButtons" EntitySet="tblAppRoleButtons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppUser_tblAppRole" Association="HRLModel.FK_tblAppUser_tblAppRole">
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+      <End Role="tblAppUser" EntitySet="tblAppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmailDistributionDetail_tblEmailDistribution" Association="HRLModel.FK_tblEmailDistributionDetail_tblEmailDistribution">
+      <End Role="tblEmailDistribution" EntitySet="tblEmailDistribution" />
+      <End Role="tblEmailDistributionDetail" EntitySet="tblEmailDistributionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFilePath_tblFileType" Association="HRLModel.FK_tblFilePath_tblFileType">
+      <End Role="tblFileType" EntitySet="tblFileType" />
+      <End Role="tblFilePath" EntitySet="tblFilePath" />
+    </AssociationSet>
+    <EntitySet Name="tblAppDropDown" EntityType="HRLModel.tblAppDropDown" />
+    <EntitySet Name="tblPBProxy" EntityType="HRLModel.tblPBProxy" />
+    <EntitySet Name="vwPBTracking" EntityType="HRLModel.vwPBTracking" />
+    <EntitySet Name="tblDriverCompany" EntityType="HRLModel.tblDriverCompany" />
+    <EntitySet Name="tblDriverName" EntityType="HRLModel.tblDriverName" />
+    <EntitySet Name="tblDriverLog" EntityType="HRLModel.tblDriverLog" />
+    <EntitySet Name="vwDriverLog" EntityType="HRLModel.vwDriverLog" />
+  </EntityContainer>
+  <ComplexType Name="p_AddColumns_Result">
+    <Property Type="Int32" Name="APCID" Nullable="false" />
+    <Property Type="Int32" Name="NAVID" Nullable="false" />
+    <Property Type="Int32" Name="APCOID" Nullable="false" />
+    <Property Type="String" Name="APC_Desc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="APC_Name" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="APC_Width" Nullable="false" />
+    <Property Type="Int32" Name="APC_Order" Nullable="true" />
+    <Property Type="String" Name="APC_Grid" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="APC_ReadOnly" Nullable="true" />
+    <Property Type="DateTime" Name="APC_Deleted" Nullable="true" Precision="23" />
+    <Property Type="String" Name="APC_Default" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="APC_QueryField" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="APC_ClearValue" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="APC_FilterOrder" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="APC_ARIDs" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="p_AppUser_Result">
+    <Property Type="Int32" Name="AUID" Nullable="false" />
+    <Property Type="String" Name="APP_Desc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="102" />
+    <Property Type="String" Name="Role" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="p_CredoMinSelect_Result">
+    <Property Type="Int32" Name="BTID" Nullable="false" />
+    <Property Type="Int32" Name="APPID" Nullable="false" />
+    <Property Type="String" Name="BT_Desc" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="BT_Deleted" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="p_DropDown_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Display" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="p_DropDownFilter_Result">
+    <Property Type="String" Name="ID" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Display" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="p_DropDownFilter2_Result">
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="Display" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="p_DropDownList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Display" Nullable="false" MaxLength="105" />
+  </ComplexType>
+  <EntityType Name="Nums">
+    <Key>
+      <PropertyRef Name="n" />
+    </Key>
+    <Property Name="n" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblAppButton_tblApp">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="1" />
+    <End Type="HRLModel.tblAppButton" Role="tblAppButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppButton">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppOptions_tblApp">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="1" />
+    <End Type="HRLModel.tblAppOptions" Role="tblAppOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppOptions">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppPath_tblApplication">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="1" />
+    <End Type="HRLModel.tblAppPath" Role="tblAppPath" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppPath">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppReport_tblApp">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="0..1" />
+    <End Type="HRLModel.tblAppReport" Role="tblAppReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppReport">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRole_tblApplication">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="1" />
+    <End Type="HRLModel.tblAppRoles" Role="tblAppRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppRoles">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppTraining_tblApplication">
+    <End Type="HRLModel.tblApp" Role="tblApp" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HRLModel.tblAppTraining" Role="tblAppTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppTraining">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavAdditionalButtons_tblAppButton">
+    <End Type="HRLModel.tblAppButton" Role="tblAppButton" Multiplicity="1" />
+    <End Type="HRLModel.tblAppNavMoreButton" Role="tblAppNavMoreButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppNavMoreButton">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavigation_tblAppButton">
+    <End Type="HRLModel.tblAppButton" Role="tblAppButton" Multiplicity="1" />
+    <End Type="HRLModel.tblAppNavigation" Role="tblAppNavigation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppNavigation">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRoleButtons_tblAppButton">
+    <End Type="HRLModel.tblAppButton" Role="tblAppButton" Multiplicity="1" />
+    <End Type="HRLModel.tblAppRoleButtons" Role="tblAppRoleButtons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppRoleButtons">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppColumns_tblAppColumnOption">
+    <End Type="HRLModel.tblAppColumnOption" Role="tblAppColumnOption" Multiplicity="1" />
+    <End Type="HRLModel.tblAppColumns" Role="tblAppColumns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppColumnOption">
+        <PropertyRef Name="APCOID" />
+      </Principal>
+      <Dependent Role="tblAppColumns">
+        <PropertyRef Name="APCOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppColumns_tblAppNavigation">
+    <End Type="HRLModel.tblAppNavigation" Role="tblAppNavigation" Multiplicity="1" />
+    <End Type="HRLModel.tblAppColumns" Role="tblAppColumns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppColumns">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppErrorLog_tblAppErrorLog">
+    <End Type="HRLModel.tblAppErrorLog" Role="tblAppErrorLog" Multiplicity="1" />
+    <End Type="HRLModel.tblAppErrorLog" Role="tblAppErrorLog1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppErrorLog">
+        <PropertyRef Name="ERID" />
+      </Principal>
+      <Dependent Role="tblAppErrorLog1">
+        <PropertyRef Name="ERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavAdditionalButtons_tblAppNavigation">
+    <End Type="HRLModel.tblAppNavigation" Role="tblAppNavigation" Multiplicity="1" />
+    <End Type="HRLModel.tblAppNavMoreButton" Role="tblAppNavMoreButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppNavMoreButton">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavigationUser_tblAppNavigation">
+    <End Type="HRLModel.tblAppNavigation" Role="tblAppNavigation" Multiplicity="1" />
+    <End Type="HRLModel.tblAppNavigationUser" Role="tblAppNavigationUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppNavigationUser">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblReportOption_tblReport">
+    <End Type="HRLModel.tblAppReport" Role="tblAppReport" Multiplicity="1" />
+    <End Type="HRLModel.tblAppReportOption" Role="tblAppReportOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppReport">
+        <PropertyRef Name="RPID" />
+      </Principal>
+      <Dependent Role="tblAppReportOption">
+        <PropertyRef Name="RPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRole_tblRole">
+    <End Type="HRLModel.tblAppRole" Role="tblAppRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HRLModel.tblAppRoles" Role="tblAppRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRole">
+        <PropertyRef Name="RLID" />
+      </Principal>
+      <Dependent Role="tblAppRoles">
+        <PropertyRef Name="RLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRoleButtons_tblAppRoles">
+    <End Type="HRLModel.tblAppRoles" Role="tblAppRoles" Multiplicity="1" />
+    <End Type="HRLModel.tblAppRoleButtons" Role="tblAppRoleButtons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRoles">
+        <PropertyRef Name="ARID" />
+      </Principal>
+      <Dependent Role="tblAppRoleButtons">
+        <PropertyRef Name="ARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppUser_tblAppRole">
+    <End Type="HRLModel.tblAppRoles" Role="tblAppRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HRLModel.tblAppUser" Role="tblAppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRoles">
+        <PropertyRef Name="ARID" />
+      </Principal>
+      <Dependent Role="tblAppUser">
+        <PropertyRef Name="ARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmailDistributionDetail_tblEmailDistribution">
+    <End Type="HRLModel.tblEmailDistribution" Role="tblEmailDistribution" Multiplicity="1" />
+    <End Type="HRLModel.tblEmailDistributionDetail" Role="tblEmailDistributionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmailDistribution">
+        <PropertyRef Name="EDID" />
+      </Principal>
+      <Dependent Role="tblEmailDistributionDetail">
+        <PropertyRef Name="EDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFilePath_tblFileType">
+    <End Type="HRLModel.tblFileType" Role="tblFileType" Multiplicity="1" />
+    <End Type="HRLModel.tblFilePath" Role="tblFilePath" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFileType">
+        <PropertyRef Name="FTID" />
+      </Principal>
+      <Dependent Role="tblFilePath">
+        <PropertyRef Name="FTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblAppDropDown">
+    <Key>
+      <PropertyRef Name="DDID" />
+    </Key>
+    <Property Name="DDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APCID" Type="Int32" Nullable="false" />
+    <Property Name="APPID" Type="Int32" Nullable="false" />
+    <Property Name="NAVID" Type="Int32" Nullable="false" />
+    <Property Name="DD_Desc" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DD_SQL" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="DD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="DD_APPID" Type="Boolean" Nullable="false" />
+    <Property Name="DD_NAVID" Type="Boolean" Nullable="false" />
+    <Property Name="DD_APCID" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPBProxy">
+    <Key>
+      <PropertyRef Name="XYID" />
+    </Key>
+    <Property Name="XYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="ASID2" Type="Int32" Nullable="false" />
+    <Property Name="XY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="XY_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwPBTracking">
+    <Key>
+      <PropertyRef Name="PBS_Desc" />
+      <PropertyRef Name="PBST_Date" />
+      <PropertyRef Name="PB_TrackingDate" />
+      <PropertyRef Name="PB_Reason" />
+      <PropertyRef Name="PBID" />
+      <PropertyRef Name="PBDID" />
+      <PropertyRef Name="PBSID" />
+      <PropertyRef Name="PBPTID" />
+      <PropertyRef Name="PBFTID" />
+      <PropertyRef Name="PBSTID" />
+      <PropertyRef Name="PBOID" />
+      <PropertyRef Name="PBSFID" />
+      <PropertyRef Name="PBRTID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="PB_TimeStamp" />
+      <PropertyRef Name="PastDue" />
+      <PropertyRef Name="PBDVID" />
+      <PropertyRef Name="PBD_Desc" />
+      <PropertyRef Name="PBXID" />
+      <PropertyRef Name="PBPRID" />
+      <PropertyRef Name="Division" />
+      <PropertyRef Name="PBSIDLast" />
+    </Key>
+    <Property Name="PBS_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PBST_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PB2ID" Type="Int32" />
+    <Property Name="PB_Material" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PB_MaterialDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PB_TrackingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PB_Reason" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IssueLast" Type="String" MaxLength="1121" FixedLength="false" Unicode="false" />
+    <Property Name="CommentLast" Type="String" MaxLength="1121" FixedLength="false" Unicode="false" />
+    <Property Name="ECNNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PBID" Type="Int32" Nullable="false" />
+    <Property Name="PBDID" Type="Int32" Nullable="false" />
+    <Property Name="PBSID" Type="Int32" Nullable="false" />
+    <Property Name="PBPTID" Type="Int32" Nullable="false" />
+    <Property Name="PBFTID" Type="Int32" Nullable="false" />
+    <Property Name="PBSTID" Type="Int32" Nullable="false" />
+    <Property Name="PBOID" Type="Int32" Nullable="false" />
+    <Property Name="PBSFID" Type="Int32" Nullable="false" />
+    <Property Name="PBRTID" Type="Int32" Nullable="false" />
+    <Property Name="PB_LeadPlant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZMNRNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConversionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PCTNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PB_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="AS_Display" Type="String" MaxLength="53" FixedLength="false" Unicode="false" />
+    <Property Name="PB_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NextTask" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NextTaskOwner" Type="String" MaxLength="102" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PBRL_Assigned" Type="DateTime" Precision="3" />
+    <Property Name="PastDue" Type="Int32" Nullable="false" />
+    <Property Name="ServiceRequestNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FinishedUnit" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PBDVID" Type="Int32" Nullable="false" />
+    <Property Name="PBD_Desc" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="PrototypeRequestNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PB_Batch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PBXID" Type="Int32" Nullable="false" />
+    <Property Name="PBPRID" Type="Int32" Nullable="false" />
+    <Property Name="PB_Delivery" Type="DateTime" Precision="3" />
+    <Property Name="PB_EstCompletion" Type="DateTime" Precision="3" />
+    <Property Name="PR1_Special_Procurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PR1_Procurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRA_Special_Procurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRA_Procurement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Product_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lead_Plant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Complexity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PBRL_Sort" Type="Int32" />
+    <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ThreeDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PBSIDLast" Type="Int32" Nullable="false" />
+    <Property Name="PBIDRed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblDriverCompany">
+    <Key>
+      <PropertyRef Name="DLCID" />
+    </Key>
+    <Property Name="DLCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DLC_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DLC_Active" Type="Boolean" Nullable="false" />
+    <Property Name="DLC_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DLC_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblDriverName">
+    <Key>
+      <PropertyRef Name="DLNID" />
+    </Key>
+    <Property Name="DLNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DLN_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DLN_Active" Type="Boolean" Nullable="false" />
+    <Property Name="DLN_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DLN_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="DLCID" Type="Int32" Nullable="false" />
+    <Property Name="DLN_First" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DLN_Last" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblDriverLog">
+    <Key>
+      <PropertyRef Name="DLLID" />
+    </Key>
+    <Property Name="DLLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DLL_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DLL_Active" Type="Boolean" Nullable="false" />
+    <Property Name="DLL_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DLL_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="DL_In" Type="DateTime" Precision="3" />
+    <Property Name="DL_Out" Type="DateTime" Precision="3" />
+    <Property Name="DLCID" Type="Int32" />
+    <Property Name="DLNID" Type="Int32" />
+    <Property Name="DLL_Building" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DLL_TruckNo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ASID_In" Type="Int32" />
+    <Property Name="ASID_Out" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwDriverLog">
+    <Key>
+      <PropertyRef Name="LogEntry" />
+      <PropertyRef Name="DLLID" />
+      <PropertyRef Name="LogTimeStamp" />
+    </Key>
+    <Property Name="LogEntry" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TimeIn" Type="DateTime" Precision="3" />
+    <Property Name="TimeOut" Type="DateTime" Precision="3" />
+    <Property Name="CarrierName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DriverName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DLCID" Type="Int32" />
+    <Property Name="DLNID" Type="Int32" />
+    <Property Name="DLLID" Type="Int32" Nullable="false" />
+    <Property Name="LogTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Building" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TruckNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ASID_In" Type="Int32" />
+    <Property Name="ASID_Out" Type="Int32" />
+  </EntityType>
+</Schema>

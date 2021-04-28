@@ -1,0 +1,1727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.Nums' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Nums">
+    <Key>
+      <PropertyRef Name="n" />
+    </Key>
+    <Property Name="n" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblApp">
+    <Key>
+      <PropertyRef Name="APPID" />
+    </Key>
+    <Property Name="APPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APP_Version" Type="varchar" MaxLength="50" />
+    <Property Name="APP_BetaFor" Type="int" />
+    <Property Name="APP_ReleaseFolder" Type="varchar" MaxLength="1000" />
+    <Property Name="APP_DesignFolder" Type="varchar" MaxLength="1000" />
+    <Property Name="APP_EXE" Type="varchar" MaxLength="50" />
+    <Property Name="APP_DesignEXE" Type="varchar" MaxLength="50" />
+    <Property Name="APP_SolutionFolder" Type="varchar" MaxLength="150" />
+    <Property Name="APP_HelpdeskOrg" Type="int" />
+    <Property Name="APP_Deleted" Type="datetime" />
+    <Property Name="APP_Image" Type="int" />
+    <Property Name="APP_Domain" Type="varchar" MaxLength="50" />
+    <Property Name="APP_VersionFolder" Type="varchar" MaxLength="10" />
+    <Property Name="APP_Color" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tblAppButton">
+    <Key>
+      <PropertyRef Name="BTID" />
+    </Key>
+    <Property Name="BTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="BT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BT_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppColumnOption">
+    <Key>
+      <PropertyRef Name="APCOID" />
+    </Key>
+    <Property Name="APCOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APCO_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APCO_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppColumns">
+    <Key>
+      <PropertyRef Name="APCID" />
+    </Key>
+    <Property Name="APCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="APCOID" Type="int" Nullable="false" />
+    <Property Name="APC_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APC_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APC_Width" Type="int" Nullable="false" />
+    <Property Name="APC_Order" Type="int" />
+    <Property Name="APC_Grid" Type="varchar" MaxLength="50" />
+    <Property Name="APC_ReadOnly" Type="bit" />
+    <Property Name="APC_Deleted" Type="datetime" />
+    <Property Name="APC_Default" Type="varchar" MaxLength="50" />
+    <Property Name="APC_QueryField" Type="varchar" MaxLength="50" />
+    <Property Name="APC_ClearValue" Type="varchar" MaxLength="50" />
+    <Property Name="APC_FilterOrder" Type="varchar" MaxLength="50" />
+    <Property Name="APC_ARIDs" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblAppDropDown">
+    <Key>
+      <PropertyRef Name="DDID" />
+    </Key>
+    <Property Name="DDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APCID" Type="int" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="DD_Desc" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DD_SQL" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="DD_Created" Type="datetime" Nullable="false" />
+    <Property Name="DD_Deleted" Type="datetime" />
+    <Property Name="DD_APPID" Type="bit" Nullable="false" />
+    <Property Name="DD_NAVID" Type="bit" Nullable="false" />
+    <Property Name="DD_APCID" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblAppErrorLog">
+    <Key>
+      <PropertyRef Name="ERID" />
+    </Key>
+    <Property Name="ERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" />
+    <Property Name="ER_Date" Type="datetime" Nullable="false" />
+    <Property Name="ER_Number" Type="int" Nullable="false" />
+    <Property Name="ER_Message" Type="varchar" MaxLength="4000" />
+    <Property Name="ER_Severity" Type="smallint" Nullable="false" />
+    <Property Name="ER_State" Type="smallint" Nullable="false" />
+    <Property Name="ER_Procedure" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ER_UserName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="ER_HostName" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblAppFilter">
+    <Key>
+      <PropertyRef Name="AFLTID" />
+    </Key>
+    <Property Name="AFLTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="AFLT_Token" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AFLT_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="AFLT_GV" Type="varchar" MaxLength="20" />
+    <Property Name="F1" Type="varchar" MaxLength="50" />
+    <Property Name="F2" Type="varchar" MaxLength="50" />
+    <Property Name="F3" Type="varchar" MaxLength="50" />
+    <Property Name="F4" Type="varchar" MaxLength="50" />
+    <Property Name="F5" Type="varchar" MaxLength="50" />
+    <Property Name="F6" Type="varchar" MaxLength="50" />
+    <Property Name="F7" Type="varchar" MaxLength="50" />
+    <Property Name="F8" Type="varchar" MaxLength="50" />
+    <Property Name="F9" Type="varchar" MaxLength="50" />
+    <Property Name="F10" Type="varchar" MaxLength="50" />
+    <Property Name="F11" Type="varchar" MaxLength="50" />
+    <Property Name="F12" Type="varchar" MaxLength="50" />
+    <Property Name="F13" Type="varchar" MaxLength="50" />
+    <Property Name="F14" Type="varchar" MaxLength="50" />
+    <Property Name="F15" Type="varchar" MaxLength="50" />
+    <Property Name="F16" Type="varchar" MaxLength="50" />
+    <Property Name="F17" Type="varchar" MaxLength="50" />
+    <Property Name="F18" Type="varchar" MaxLength="50" />
+    <Property Name="F19" Type="varchar" MaxLength="50" />
+    <Property Name="F20" Type="varchar" MaxLength="50" />
+    <Property Name="F21" Type="varchar" MaxLength="50" />
+    <Property Name="F22" Type="varchar" MaxLength="50" />
+    <Property Name="F23" Type="varchar" MaxLength="50" />
+    <Property Name="F24" Type="varchar" MaxLength="50" />
+    <Property Name="F25" Type="varchar" MaxLength="50" />
+    <Property Name="F26" Type="varchar" MaxLength="50" />
+    <Property Name="F27" Type="varchar" MaxLength="50" />
+    <Property Name="F28" Type="varchar" MaxLength="50" />
+    <Property Name="F29" Type="varchar" MaxLength="50" />
+    <Property Name="F30" Type="varchar" MaxLength="50" />
+    <Property Name="F31" Type="varchar" MaxLength="50" />
+    <Property Name="F32" Type="varchar" MaxLength="50" />
+    <Property Name="F33" Type="varchar" MaxLength="50" />
+    <Property Name="F34" Type="varchar" MaxLength="50" />
+    <Property Name="F35" Type="varchar" MaxLength="50" />
+    <Property Name="F36" Type="varchar" MaxLength="50" />
+    <Property Name="F37" Type="varchar" MaxLength="50" />
+    <Property Name="F38" Type="varchar" MaxLength="50" />
+    <Property Name="F39" Type="varchar" MaxLength="50" />
+    <Property Name="F40" Type="varchar" MaxLength="50" />
+    <Property Name="F41" Type="varchar" MaxLength="50" />
+    <Property Name="F42" Type="varchar" MaxLength="50" />
+    <Property Name="F43" Type="varchar" MaxLength="50" />
+    <Property Name="F44" Type="varchar" MaxLength="50" />
+    <Property Name="F45" Type="varchar" MaxLength="50" />
+    <Property Name="F46" Type="varchar" MaxLength="50" />
+    <Property Name="F47" Type="varchar" MaxLength="50" />
+    <Property Name="F48" Type="varchar" MaxLength="50" />
+    <Property Name="F49" Type="varchar" MaxLength="50" />
+    <Property Name="F50" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblAppNavigation">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BTID" Type="int" Nullable="false" />
+    <Property Name="NAV_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAV_Item" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NAV_Option" Type="int" Nullable="false" />
+    <Property Name="NAV_Filter" Type="bit" Nullable="false" />
+    <Property Name="NAV_Order" Type="int" Nullable="false" />
+    <Property Name="NAV_Image" Type="int" Nullable="false" />
+    <Property Name="NAV_Table" Type="varchar" MaxLength="50" />
+    <Property Name="NAV_Server" Type="varchar" MaxLength="50" />
+    <Property Name="NAV_Deleted" Type="datetime" />
+    <Property Name="NAV_Active" Type="bit" Nullable="false" />
+    <Property Name="NAV_GV2" Type="int" />
+    <Property Name="NAV_GV3" Type="int" />
+    <Property Name="NAV_GV4" Type="int" />
+    <Property Name="NAV_GV5" Type="int" />
+    <Property Name="NAV_GV6" Type="int" />
+    <Property Name="NAV_Color" Type="varchar" MaxLength="20" />
+    <Property Name="NAV_Width" Type="int" />
+    <Property Name="NAV_Height" Type="int" />
+  </EntityType>
+  <EntityType Name="tblAppNavigationUser">
+    <Key>
+      <PropertyRef Name="AGID" />
+    </Key>
+    <Property Name="AGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AG_FormItem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AG_Height" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AG_Width" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AG_Created" Type="datetime" Nullable="false" />
+    <Property Name="AG_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppNavigationUserGrid">
+    <Key>
+      <PropertyRef Name="ADID" />
+    </Key>
+    <Property Name="ADID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="APCID" Type="int" Nullable="false" />
+    <Property Name="AD_Sort" Type="int" Nullable="false" />
+    <Property Name="AD_Width" Type="int" Nullable="false" />
+    <Property Name="AD_Created" Type="datetime" Nullable="false" />
+    <Property Name="AD_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppNavMoreButton">
+    <Key>
+      <PropertyRef Name="NBID" />
+    </Key>
+    <Property Name="NBID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="BTID" Type="int" Nullable="false" />
+    <Property Name="NB_Active" Type="bit" Nullable="false" />
+    <Property Name="NB_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblAppOptions">
+    <Key>
+      <PropertyRef Name="APOPID" />
+    </Key>
+    <Property Name="APOPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="APOP_Desc" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="APOP_Value" Type="varchar" MaxLength="150" />
+    <Property Name="APOP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppPath">
+    <Key>
+      <PropertyRef Name="APTHID" />
+    </Key>
+    <Property Name="APTHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="APTH_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APTH_Path" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="APTH_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppReport">
+    <Key>
+      <PropertyRef Name="RPID" />
+    </Key>
+    <Property Name="RPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" />
+    <Property Name="RP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RP_RDL" Type="varchar" MaxLength="50" />
+    <Property Name="RP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppReportOption">
+    <Key>
+      <PropertyRef Name="RPOID" />
+    </Key>
+    <Property Name="RPOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RPID" Type="int" Nullable="false" />
+    <Property Name="RPO_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RPO_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppRole">
+    <Key>
+      <PropertyRef Name="RLID" />
+    </Key>
+    <Property Name="RLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RL_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppRoleButtons">
+    <Key>
+      <PropertyRef Name="ABID" />
+    </Key>
+    <Property Name="ABID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="BTID" Type="int" Nullable="false" />
+    <Property Name="AB_Order" Type="int" />
+    <Property Name="AB_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppRoles">
+    <Key>
+      <PropertyRef Name="ARID" />
+    </Key>
+    <Property Name="ARID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="RLID" Type="int" Nullable="false" />
+    <Property Name="AB_Level" Type="int" Nullable="false" />
+    <Property Name="AR_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppTraining">
+    <Key>
+      <PropertyRef Name="TRAID" />
+    </Key>
+    <Property Name="TRAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="TR_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TR_File" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TR_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblAppUser">
+    <Key>
+      <PropertyRef Name="AUID" />
+    </Key>
+    <Property Name="AUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AU_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblDriverCompany">
+    <Key>
+      <PropertyRef Name="DLCID" />
+    </Key>
+    <Property Name="DLCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DLC_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DLC_Active" Type="bit" Nullable="false" />
+    <Property Name="DLC_Created" Type="datetime" Nullable="false" />
+    <Property Name="DLC_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblDriverLog">
+    <Key>
+      <PropertyRef Name="DLLID" />
+    </Key>
+    <Property Name="DLLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DLL_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DLL_Active" Type="bit" Nullable="false" />
+    <Property Name="DLL_Created" Type="datetime" Nullable="false" />
+    <Property Name="DLL_Deleted" Type="datetime" />
+    <Property Name="DL_In" Type="datetime" />
+    <Property Name="DL_Out" Type="datetime" />
+    <Property Name="DLCID" Type="int" />
+    <Property Name="DLNID" Type="int" />
+    <Property Name="DLL_Building" Type="varchar" MaxLength="10" />
+    <Property Name="DLL_TruckNo" Type="nvarchar" MaxLength="25" />
+    <Property Name="ASID_In" Type="int" />
+    <Property Name="ASID_Out" Type="int" />
+  </EntityType>
+  <EntityType Name="tblDriverName">
+    <Key>
+      <PropertyRef Name="DLNID" />
+    </Key>
+    <Property Name="DLNID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DLN_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DLN_Active" Type="bit" Nullable="false" />
+    <Property Name="DLN_Created" Type="datetime" Nullable="false" />
+    <Property Name="DLN_Deleted" Type="datetime" />
+    <Property Name="DLCID" Type="int" Nullable="false" />
+    <Property Name="DLN_First" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DLN_Last" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEmailDistribution">
+    <Key>
+      <PropertyRef Name="EDID" />
+    </Key>
+    <Property Name="EDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" />
+    <Property Name="ED_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ED_SendAs" Type="varchar" MaxLength="250" />
+    <Property Name="ED_Active" Type="bit" Nullable="false" />
+    <Property Name="ED_Deleted" Type="datetime" />
+    <Property Name="ED_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEmailDistributionDetail">
+    <Key>
+      <PropertyRef Name="EDDID" />
+    </Key>
+    <Property Name="EDDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EDID" Type="int" Nullable="false" />
+    <Property Name="ASID" Type="int" />
+    <Property Name="EDD_NonBoschEmail" Type="varchar" MaxLength="250" />
+    <Property Name="EDD_Active" Type="bit" Nullable="false" />
+    <Property Name="EDD_Deleted" Type="datetime" />
+    <Property Name="EDD_Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFilePath">
+    <Key>
+      <PropertyRef Name="FPID" />
+    </Key>
+    <Property Name="FPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FTID" Type="int" Nullable="false" />
+    <Property Name="LNID" Type="int" />
+    <Property Name="FP_Desc" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="FP_Archive" Type="varchar" MaxLength="2000" />
+    <Property Name="FP_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblFileType">
+    <Key>
+      <PropertyRef Name="FTID" />
+    </Key>
+    <Property Name="FTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="FT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FT_Folder" Type="varchar" MaxLength="1000" />
+    <Property Name="FT_Deleted" Type="datetime" />
+    <Property Name="FT_Suffix" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblOptions">
+    <Key>
+      <PropertyRef Name="OPID" />
+    </Key>
+    <Property Name="OPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OP_ID" Type="int" Nullable="false" />
+    <Property Name="OP_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OP_Function" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPBProxy">
+    <Key>
+      <PropertyRef Name="XYID" />
+    </Key>
+    <Property Name="XYID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="ASID2" Type="int" Nullable="false" />
+    <Property Name="XY_Created" Type="datetime" Nullable="false" />
+    <Property Name="XY_Deleted" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblShift">
+    <Key>
+      <PropertyRef Name="SFID" />
+    </Key>
+    <Property Name="SFID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SF_Desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SF_Active" Type="bit" Nullable="false" />
+    <Property Name="SF_Created" Type="datetime" Nullable="false" />
+    <Property Name="SF_Deleted" Type="datetime" />
+    <Property Name="SF_Num" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.tblAssociate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblAssociate">
+    <Key>
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AS_Display" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="AS_Active" />
+      <PropertyRef Name="AS_Reso" />
+      <PropertyRef Name="AS_BI_Lock" />
+      <PropertyRef Name="AS_BInonFNI" />
+      <PropertyRef Name="AS_CBandLock" />
+    </Key>
+    <Property Name="ASID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DPID" Type="int" />
+    <Property Name="OFID" Type="int" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="AS_First" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_Phone" Type="varchar" MaxLength="25" />
+    <Property Name="AS_Last" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_User" Type="varchar" MaxLength="55" />
+    <Property Name="AS_OutID" Type="varchar" MaxLength="255" />
+    <Property Name="AS_Sync" Type="datetime" />
+    <Property Name="AS_Active" Type="bit" Nullable="false" />
+    <Property Name="AS_Reso" Type="bit" Nullable="false" />
+    <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+    <Property Name="AS_Domain" Type="varchar" MaxLength="10" />
+    <Property Name="AS_Group" Type="varchar" MaxLength="50" />
+    <Property Name="AS_DC" Type="bit" />
+    <Property Name="AS_UserID" Type="varchar" MaxLength="55" />
+    <Property Name="PERNR" Type="int" />
+    <Property Name="Short" Type="varchar" MaxLength="53" />
+    <Property Name="BIDID" Type="int" />
+    <Property Name="AS_Badge" Type="varchar" MaxLength="50" />
+    <Property Name="AS_CellForSMS" Type="varchar" MaxLength="50" />
+    <Property Name="AS_BI_Lock" Type="bit" Nullable="false" />
+    <Property Name="AS_CareerBand" Type="int" />
+    <Property Name="AS_CostCenter" Type="int" />
+    <Property Name="AS_OrgUnitAbbr" Type="varchar" MaxLength="100" />
+    <Property Name="AS_BInonFNI" Type="bit" Nullable="false" />
+    <Property Name="AS_CBandLock" Type="bit" Nullable="false" />
+    <Property Name="AS_HTI_Manager" Type="varchar" MaxLength="100" />
+    <Property Name="AS_HTI_PNum" Type="int" />
+    <Property Name="AS_HireDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppButton' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppButton">
+    <Key>
+      <PropertyRef Name="BT_Desc" />
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="BTID" />
+    </Key>
+    <Property Name="BT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="AB_Order" Type="int" />
+    <Property Name="BTID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppColumnFilter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppColumnFilter">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="APC_Grid" Type="varchar" MaxLength="50" />
+    <Property Name="F1" Type="varchar" MaxLength="50" />
+    <Property Name="F2" Type="varchar" MaxLength="50" />
+    <Property Name="F3" Type="varchar" MaxLength="50" />
+    <Property Name="F4" Type="varchar" MaxLength="50" />
+    <Property Name="F5" Type="varchar" MaxLength="50" />
+    <Property Name="F6" Type="varchar" MaxLength="50" />
+    <Property Name="F7" Type="varchar" MaxLength="50" />
+    <Property Name="F8" Type="varchar" MaxLength="50" />
+    <Property Name="F9" Type="varchar" MaxLength="50" />
+    <Property Name="F10" Type="varchar" MaxLength="50" />
+    <Property Name="F11" Type="varchar" MaxLength="50" />
+    <Property Name="F12" Type="varchar" MaxLength="50" />
+    <Property Name="F13" Type="varchar" MaxLength="50" />
+    <Property Name="F14" Type="varchar" MaxLength="50" />
+    <Property Name="F15" Type="varchar" MaxLength="50" />
+    <Property Name="F16" Type="varchar" MaxLength="50" />
+    <Property Name="F17" Type="varchar" MaxLength="50" />
+    <Property Name="F18" Type="varchar" MaxLength="50" />
+    <Property Name="F19" Type="varchar" MaxLength="50" />
+    <Property Name="F20" Type="varchar" MaxLength="50" />
+    <Property Name="F21" Type="varchar" MaxLength="50" />
+    <Property Name="F22" Type="varchar" MaxLength="50" />
+    <Property Name="F23" Type="varchar" MaxLength="50" />
+    <Property Name="F24" Type="varchar" MaxLength="50" />
+    <Property Name="F25" Type="varchar" MaxLength="50" />
+    <Property Name="F26" Type="varchar" MaxLength="50" />
+    <Property Name="F27" Type="varchar" MaxLength="50" />
+    <Property Name="F28" Type="varchar" MaxLength="50" />
+    <Property Name="F29" Type="varchar" MaxLength="50" />
+    <Property Name="F30" Type="varchar" MaxLength="50" />
+    <Property Name="F31" Type="varchar" MaxLength="50" />
+    <Property Name="F32" Type="varchar" MaxLength="50" />
+    <Property Name="F33" Type="varchar" MaxLength="50" />
+    <Property Name="F34" Type="varchar" MaxLength="50" />
+    <Property Name="F35" Type="varchar" MaxLength="50" />
+    <Property Name="F36" Type="varchar" MaxLength="50" />
+    <Property Name="F37" Type="varchar" MaxLength="50" />
+    <Property Name="F38" Type="varchar" MaxLength="50" />
+    <Property Name="F39" Type="varchar" MaxLength="50" />
+    <Property Name="F40" Type="varchar" MaxLength="50" />
+    <Property Name="F41" Type="varchar" MaxLength="50" />
+    <Property Name="F42" Type="varchar" MaxLength="50" />
+    <Property Name="F43" Type="varchar" MaxLength="50" />
+    <Property Name="F44" Type="varchar" MaxLength="50" />
+    <Property Name="F45" Type="varchar" MaxLength="50" />
+    <Property Name="F46" Type="varchar" MaxLength="50" />
+    <Property Name="F47" Type="varchar" MaxLength="50" />
+    <Property Name="F48" Type="varchar" MaxLength="50" />
+    <Property Name="F49" Type="varchar" MaxLength="50" />
+    <Property Name="F50" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppColumnFilterClear' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppColumnFilterClear">
+    <Key>
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="APC_Grid" Type="varchar" MaxLength="50" />
+    <Property Name="F1" Type="varchar" MaxLength="50" />
+    <Property Name="F2" Type="varchar" MaxLength="50" />
+    <Property Name="F3" Type="varchar" MaxLength="50" />
+    <Property Name="F4" Type="varchar" MaxLength="50" />
+    <Property Name="F5" Type="varchar" MaxLength="50" />
+    <Property Name="F6" Type="varchar" MaxLength="50" />
+    <Property Name="F7" Type="varchar" MaxLength="50" />
+    <Property Name="F8" Type="varchar" MaxLength="50" />
+    <Property Name="F9" Type="varchar" MaxLength="50" />
+    <Property Name="F10" Type="varchar" MaxLength="50" />
+    <Property Name="F11" Type="varchar" MaxLength="50" />
+    <Property Name="F12" Type="varchar" MaxLength="50" />
+    <Property Name="F13" Type="varchar" MaxLength="50" />
+    <Property Name="F14" Type="varchar" MaxLength="50" />
+    <Property Name="F15" Type="varchar" MaxLength="50" />
+    <Property Name="F16" Type="varchar" MaxLength="50" />
+    <Property Name="F17" Type="varchar" MaxLength="50" />
+    <Property Name="F18" Type="varchar" MaxLength="50" />
+    <Property Name="F19" Type="varchar" MaxLength="50" />
+    <Property Name="F20" Type="varchar" MaxLength="50" />
+    <Property Name="F21" Type="varchar" MaxLength="50" />
+    <Property Name="F22" Type="varchar" MaxLength="50" />
+    <Property Name="F23" Type="varchar" MaxLength="50" />
+    <Property Name="F24" Type="varchar" MaxLength="50" />
+    <Property Name="F25" Type="varchar" MaxLength="50" />
+    <Property Name="F26" Type="varchar" MaxLength="50" />
+    <Property Name="F27" Type="varchar" MaxLength="50" />
+    <Property Name="F28" Type="varchar" MaxLength="50" />
+    <Property Name="F29" Type="varchar" MaxLength="50" />
+    <Property Name="F30" Type="varchar" MaxLength="50" />
+    <Property Name="F31" Type="varchar" MaxLength="50" />
+    <Property Name="F32" Type="varchar" MaxLength="50" />
+    <Property Name="F33" Type="varchar" MaxLength="50" />
+    <Property Name="F34" Type="varchar" MaxLength="50" />
+    <Property Name="F35" Type="varchar" MaxLength="50" />
+    <Property Name="F36" Type="varchar" MaxLength="50" />
+    <Property Name="F37" Type="varchar" MaxLength="50" />
+    <Property Name="F38" Type="varchar" MaxLength="50" />
+    <Property Name="F39" Type="varchar" MaxLength="50" />
+    <Property Name="F40" Type="varchar" MaxLength="50" />
+    <Property Name="F41" Type="varchar" MaxLength="50" />
+    <Property Name="F42" Type="varchar" MaxLength="50" />
+    <Property Name="F43" Type="varchar" MaxLength="50" />
+    <Property Name="F44" Type="varchar" MaxLength="50" />
+    <Property Name="F45" Type="varchar" MaxLength="50" />
+    <Property Name="F46" Type="varchar" MaxLength="50" />
+    <Property Name="F47" Type="varchar" MaxLength="50" />
+    <Property Name="F48" Type="varchar" MaxLength="50" />
+    <Property Name="F49" Type="varchar" MaxLength="50" />
+    <Property Name="F50" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppColumnFilterFields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppColumnFilterFields">
+    <Key>
+      <PropertyRef Name="APCID" />
+      <PropertyRef Name="APCOID" />
+      <PropertyRef Name="APC_Desc" />
+      <PropertyRef Name="APC_Name" />
+      <PropertyRef Name="APC_Width" />
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="NAVID2" />
+    </Key>
+    <Property Name="APCID" Type="int" Nullable="false" />
+    <Property Name="APCOID" Type="int" Nullable="false" />
+    <Property Name="APC_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APC_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APC_QueryField" Type="varchar" MaxLength="50" />
+    <Property Name="APC_Default" Type="varchar" MaxLength="50" />
+    <Property Name="APC_Order" Type="int" />
+    <Property Name="APC_Grid" Type="varchar" MaxLength="50" />
+    <Property Name="APC_ReadOnly" Type="bit" />
+    <Property Name="APC_Deleted" Type="datetime" />
+    <Property Name="APC_Width" Type="int" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="NAVID2" Type="int" Nullable="false" />
+    <Property Name="APC_FilterOrder" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppFilterHelper' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppFilterHelper">
+    <Key>
+      <PropertyRef Name="Fld" />
+      <PropertyRef Name="Token" />
+      <PropertyRef Name="NAVID" />
+    </Key>
+    <Property Name="Val" Type="varchar" MaxLength="50" />
+    <Property Name="Fld" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAVID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppNav' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppNav">
+    <Key>
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="BT_Desc" />
+      <PropertyRef Name="NAV_Desc" />
+      <PropertyRef Name="NAV_Item" />
+      <PropertyRef Name="NAV_Option" />
+      <PropertyRef Name="NAV_Filter" />
+      <PropertyRef Name="NAV_Order" />
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+    </Key>
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="BT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAV_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAV_Item" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NAV_Table" Type="varchar" MaxLength="50" />
+    <Property Name="NAV_Option" Type="int" Nullable="false" />
+    <Property Name="NAV_Filter" Type="bit" Nullable="false" />
+    <Property Name="NAV_Order" Type="int" Nullable="false" />
+    <Property Name="NAV_Server" Type="varchar" MaxLength="50" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="APP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppNavigation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppNavigation">
+    <Key>
+      <PropertyRef Name="NAVID" />
+      <PropertyRef Name="BTID" />
+      <PropertyRef Name="NAV_Desc" />
+      <PropertyRef Name="NAV_Item" />
+      <PropertyRef Name="NAV_Option" />
+      <PropertyRef Name="NAV_Filter" />
+      <PropertyRef Name="NAV_Order" />
+      <PropertyRef Name="NAV_Image" />
+      <PropertyRef Name="NAV_Active" />
+    </Key>
+    <Property Name="NAVID" Type="int" Nullable="false" />
+    <Property Name="BTID" Type="int" Nullable="false" />
+    <Property Name="NAV_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAV_Item" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NAV_Option" Type="int" Nullable="false" />
+    <Property Name="NAV_Filter" Type="bit" Nullable="false" />
+    <Property Name="NAV_Order" Type="int" Nullable="false" />
+    <Property Name="NAV_Image" Type="int" Nullable="false" />
+    <Property Name="NAV_Table" Type="varchar" MaxLength="50" />
+    <Property Name="NAV_Server" Type="varchar" MaxLength="50" />
+    <Property Name="NAV_Deleted" Type="datetime" />
+    <Property Name="NAV_Active" Type="bit" Nullable="false" />
+    <Property Name="NAV_GV2" Type="int" />
+    <Property Name="NAV_GV3" Type="int" />
+    <Property Name="NAV_GV4" Type="int" />
+    <Property Name="NAV_GV5" Type="int" />
+    <Property Name="NAV_GV6" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppView">
+    <Key>
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AB_Level" />
+      <PropertyRef Name="AUID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="RLID" />
+    </Key>
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="APP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APP_Version" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="102" />
+    <Property Name="RL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="AS_User" Type="varchar" MaxLength="55" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AB_Level" Type="int" Nullable="false" />
+    <Property Name="APP_HelpdeskOrg" Type="int" />
+    <Property Name="AUID" Type="int" Nullable="false" />
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="AU_Deleted" Type="datetime" />
+    <Property Name="AR_Deleted" Type="datetime" />
+    <Property Name="RL_Deleted" Type="datetime" />
+    <Property Name="RLID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAppView2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAppView2">
+    <Key>
+      <PropertyRef Name="APPID" />
+      <PropertyRef Name="APP_Desc" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="AS_Active" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AB_Level" />
+    </Key>
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="APP_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="APP_Version" Type="varchar" MaxLength="50" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="150" />
+    <Property Name="RL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="AS_Active" Type="bit" Nullable="false" />
+    <Property Name="AS_User" Type="varchar" MaxLength="55" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AB_Level" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwAssociate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwAssociate">
+    <Key>
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="AS_First" />
+      <PropertyRef Name="AS_Last" />
+      <PropertyRef Name="ARID" />
+      <PropertyRef Name="AB_Level" />
+      <PropertyRef Name="RL_Desc" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="AUID" />
+      <PropertyRef Name="APPID" />
+    </Key>
+    <Property Name="FullName" Type="varchar" MaxLength="102" Nullable="false" />
+    <Property Name="AS_First" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_Last" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_User" Type="varchar" MaxLength="55" />
+    <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+    <Property Name="ARID" Type="int" Nullable="false" />
+    <Property Name="AB_Level" Type="int" Nullable="false" />
+    <Property Name="RL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AUID" Type="int" Nullable="false" />
+    <Property Name="APPID" Type="int" Nullable="false" />
+    <Property Name="PERNR" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwDriverLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDriverLog">
+    <Key>
+      <PropertyRef Name="LogEntry" />
+      <PropertyRef Name="DLLID" />
+      <PropertyRef Name="LogTimeStamp" />
+    </Key>
+    <Property Name="LogEntry" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TimeIn" Type="datetime" />
+    <Property Name="TimeOut" Type="datetime" />
+    <Property Name="CarrierName" Type="varchar" MaxLength="100" />
+    <Property Name="DriverName" Type="varchar" MaxLength="100" />
+    <Property Name="DLCID" Type="int" />
+    <Property Name="DLNID" Type="int" />
+    <Property Name="DLLID" Type="int" Nullable="false" />
+    <Property Name="LogTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Building" Type="varchar" MaxLength="10" />
+    <Property Name="TruckNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="ASID_In" Type="int" />
+    <Property Name="ASID_Out" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwEmailDistribution' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwEmailDistribution">
+    <Key>
+      <PropertyRef Name="EDID" />
+      <PropertyRef Name="ED_Desc" />
+      <PropertyRef Name="EDDID" />
+    </Key>
+    <Property Name="EDID" Type="int" Nullable="false" />
+    <Property Name="ED_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="150" />
+    <Property Name="AS_Email" Type="varchar" MaxLength="250" />
+    <Property Name="EDDID" Type="int" Nullable="false" />
+    <Property Name="AS_CellForSMS" Type="varchar" MaxLength="50" />
+    <Property Name="ASID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HRL.dbo.vwPBTracking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPBTracking">
+    <Key>
+      <PropertyRef Name="PBS_Desc" />
+      <PropertyRef Name="PBST_Date" />
+      <PropertyRef Name="PB_TrackingDate" />
+      <PropertyRef Name="PB_Reason" />
+      <PropertyRef Name="PBID" />
+      <PropertyRef Name="PBDID" />
+      <PropertyRef Name="PBSID" />
+      <PropertyRef Name="PBPTID" />
+      <PropertyRef Name="PBFTID" />
+      <PropertyRef Name="PBSTID" />
+      <PropertyRef Name="PBOID" />
+      <PropertyRef Name="PBSFID" />
+      <PropertyRef Name="PBRTID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="PB_TimeStamp" />
+      <PropertyRef Name="PastDue" />
+      <PropertyRef Name="PBDVID" />
+      <PropertyRef Name="PBD_Desc" />
+      <PropertyRef Name="PBXID" />
+      <PropertyRef Name="PBPRID" />
+      <PropertyRef Name="Division" />
+      <PropertyRef Name="PBSIDLast" />
+    </Key>
+    <Property Name="PBS_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PBST_Date" Type="date" Nullable="false" />
+    <Property Name="PB2ID" Type="int" />
+    <Property Name="PB_Material" Type="varchar" MaxLength="50" />
+    <Property Name="PB_MaterialDescription" Type="varchar" MaxLength="50" />
+    <Property Name="PB_TrackingDate" Type="date" Nullable="false" />
+    <Property Name="PB_Reason" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IssueLast" Type="varchar" MaxLength="1121" />
+    <Property Name="CommentLast" Type="varchar" MaxLength="1121" />
+    <Property Name="ECNNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PBID" Type="int" Nullable="false" />
+    <Property Name="PBDID" Type="int" Nullable="false" />
+    <Property Name="PBSID" Type="int" Nullable="false" />
+    <Property Name="PBPTID" Type="int" Nullable="false" />
+    <Property Name="PBFTID" Type="int" Nullable="false" />
+    <Property Name="PBSTID" Type="int" Nullable="false" />
+    <Property Name="PBOID" Type="int" Nullable="false" />
+    <Property Name="PBSFID" Type="int" Nullable="false" />
+    <Property Name="PBRTID" Type="int" Nullable="false" />
+    <Property Name="PB_LeadPlant" Type="varchar" MaxLength="50" />
+    <Property Name="ZMNRNumber" Type="varchar" MaxLength="50" />
+    <Property Name="ConversionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PCTNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PB_Deleted" Type="datetime" />
+    <Property Name="ASID" Type="int" Nullable="false" />
+    <Property Name="AS_Display" Type="varchar" MaxLength="53" />
+    <Property Name="PB_TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="NextTask" Type="varchar" MaxLength="50" />
+    <Property Name="NextTaskOwner" Type="varchar" MaxLength="102" />
+    <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+    <Property Name="PBRL_Assigned" Type="datetime" />
+    <Property Name="PastDue" Type="int" Nullable="false" />
+    <Property Name="ServiceRequestNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FinishedUnit" Type="varchar" MaxLength="5" />
+    <Property Name="PBDVID" Type="int" Nullable="false" />
+    <Property Name="PBD_Desc" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PrototypeRequestNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PB_Batch" Type="varchar(max)" />
+    <Property Name="PBXID" Type="int" Nullable="false" />
+    <Property Name="PBPRID" Type="int" Nullable="false" />
+    <Property Name="PB_Delivery" Type="datetime" />
+    <Property Name="PB_EstCompletion" Type="datetime" />
+    <Property Name="PR1_Special_Procurement" Type="varchar" MaxLength="50" />
+    <Property Name="PR1_Procurement" Type="varchar" MaxLength="50" />
+    <Property Name="PRA_Special_Procurement" Type="varchar" MaxLength="50" />
+    <Property Name="PRA_Procurement" Type="varchar" MaxLength="50" />
+    <Property Name="Organization" Type="varchar" MaxLength="50" />
+    <Property Name="Product_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Lead_Plant" Type="varchar" MaxLength="50" />
+    <Property Name="Priority" Type="varchar" MaxLength="50" />
+    <Property Name="Complexity" Type="varchar" MaxLength="50" />
+    <Property Name="PBRL_Sort" Type="int" />
+    <Property Name="Customer" Type="varchar" MaxLength="50" />
+    <Property Name="ThreeDay" Type="varchar" MaxLength="50" />
+    <Property Name="Division" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PBSIDLast" Type="int" Nullable="false" />
+    <Property Name="PBIDRed" Type="int" />
+  </EntityType>
+  <Association Name="FK_tblAppButton_tblApp">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="1" />
+    <End Role="tblAppButton" Type="Self.tblAppButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppButton">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppColumns_tblAppColumnOption">
+    <End Role="tblAppColumnOption" Type="Self.tblAppColumnOption" Multiplicity="1" />
+    <End Role="tblAppColumns" Type="Self.tblAppColumns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppColumnOption">
+        <PropertyRef Name="APCOID" />
+      </Principal>
+      <Dependent Role="tblAppColumns">
+        <PropertyRef Name="APCOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppColumns_tblAppNavigation">
+    <End Role="tblAppNavigation" Type="Self.tblAppNavigation" Multiplicity="1" />
+    <End Role="tblAppColumns" Type="Self.tblAppColumns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppColumns">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppErrorLog_tblAppErrorLog">
+    <End Role="tblAppErrorLog" Type="Self.tblAppErrorLog" Multiplicity="1" />
+    <End Role="tblAppErrorLog1" Type="Self.tblAppErrorLog" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppErrorLog">
+        <PropertyRef Name="ERID" />
+      </Principal>
+      <Dependent Role="tblAppErrorLog1">
+        <PropertyRef Name="ERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavAdditionalButtons_tblAppButton">
+    <End Role="tblAppButton" Type="Self.tblAppButton" Multiplicity="1" />
+    <End Role="tblAppNavMoreButton" Type="Self.tblAppNavMoreButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppNavMoreButton">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavAdditionalButtons_tblAppNavigation">
+    <End Role="tblAppNavigation" Type="Self.tblAppNavigation" Multiplicity="1" />
+    <End Role="tblAppNavMoreButton" Type="Self.tblAppNavMoreButton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppNavMoreButton">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavigation_tblAppButton">
+    <End Role="tblAppButton" Type="Self.tblAppButton" Multiplicity="1" />
+    <End Role="tblAppNavigation" Type="Self.tblAppNavigation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppNavigation">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppNavigationUser_tblAppNavigation">
+    <End Role="tblAppNavigation" Type="Self.tblAppNavigation" Multiplicity="1" />
+    <End Role="tblAppNavigationUser" Type="Self.tblAppNavigationUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppNavigation">
+        <PropertyRef Name="NAVID" />
+      </Principal>
+      <Dependent Role="tblAppNavigationUser">
+        <PropertyRef Name="NAVID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppOptions_tblApp">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="1" />
+    <End Role="tblAppOptions" Type="Self.tblAppOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppOptions">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppPath_tblApplication">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="1" />
+    <End Role="tblAppPath" Type="Self.tblAppPath" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppPath">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppReport_tblApp">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="0..1" />
+    <End Role="tblAppReport" Type="Self.tblAppReport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppReport">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRole_tblApplication">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="1" />
+    <End Role="tblAppRoles" Type="Self.tblAppRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppRoles">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRole_tblRole">
+    <End Role="tblAppRole" Type="Self.tblAppRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblAppRoles" Type="Self.tblAppRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRole">
+        <PropertyRef Name="RLID" />
+      </Principal>
+      <Dependent Role="tblAppRoles">
+        <PropertyRef Name="RLID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRoleButtons_tblAppButton">
+    <End Role="tblAppButton" Type="Self.tblAppButton" Multiplicity="1" />
+    <End Role="tblAppRoleButtons" Type="Self.tblAppRoleButtons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppButton">
+        <PropertyRef Name="BTID" />
+      </Principal>
+      <Dependent Role="tblAppRoleButtons">
+        <PropertyRef Name="BTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppRoleButtons_tblAppRoles">
+    <End Role="tblAppRoles" Type="Self.tblAppRoles" Multiplicity="1" />
+    <End Role="tblAppRoleButtons" Type="Self.tblAppRoleButtons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRoles">
+        <PropertyRef Name="ARID" />
+      </Principal>
+      <Dependent Role="tblAppRoleButtons">
+        <PropertyRef Name="ARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppTraining_tblApplication">
+    <End Role="tblApp" Type="Self.tblApp" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblAppTraining" Type="Self.tblAppTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblApp">
+        <PropertyRef Name="APPID" />
+      </Principal>
+      <Dependent Role="tblAppTraining">
+        <PropertyRef Name="APPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAppUser_tblAppRole">
+    <End Role="tblAppRoles" Type="Self.tblAppRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblAppUser" Type="Self.tblAppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppRoles">
+        <PropertyRef Name="ARID" />
+      </Principal>
+      <Dependent Role="tblAppUser">
+        <PropertyRef Name="ARID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEmailDistributionDetail_tblEmailDistribution">
+    <End Role="tblEmailDistribution" Type="Self.tblEmailDistribution" Multiplicity="1" />
+    <End Role="tblEmailDistributionDetail" Type="Self.tblEmailDistributionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmailDistribution">
+        <PropertyRef Name="EDID" />
+      </Principal>
+      <Dependent Role="tblEmailDistributionDetail">
+        <PropertyRef Name="EDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFilePath_tblFileType">
+    <End Role="tblFileType" Type="Self.tblFileType" Multiplicity="1" />
+    <End Role="tblFilePath" Type="Self.tblFilePath" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFileType">
+        <PropertyRef Name="FTID" />
+      </Principal>
+      <Dependent Role="tblFilePath">
+        <PropertyRef Name="FTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblReportOption_tblReport">
+    <End Role="tblAppReport" Type="Self.tblAppReport" Multiplicity="1" />
+    <End Role="tblAppReportOption" Type="Self.tblAppReportOption" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAppReport">
+        <PropertyRef Name="RPID" />
+      </Principal>
+      <Dependent Role="tblAppReportOption">
+        <PropertyRef Name="RPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="p_AddColumns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="varchar" Mode="In" />
+    <Parameter Name="GRID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_AddDataRow" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="APPID" Type="int" Mode="In" />
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="MiscID" Type="int" Mode="In" />
+    <Parameter Name="Err" Type="varchar" Mode="InOut" />
+    <Parameter Name="PK1" Type="int" Mode="InOut" />
+    <Parameter Name="PK2" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="p_AddFilterColumns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_AppMenuNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="APPID" Type="int" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_AppUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="APPID" Type="int" Mode="In" />
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="AppText" Type="varchar" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_CredoMinSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="PK" Type="int" Mode="In" />
+    <Parameter Name="DataGrid" Type="varchar" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_DropDown" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="APPID" Type="int" Mode="In" />
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="DDL" Type="varchar" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_DropDownFilter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="DDL" Type="varchar" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="Fld" Type="varchar" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_DropDownFilter2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="DDL" Type="varchar" Mode="In" />
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="Fld" Type="varchar" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_DropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fld" Type="varchar" Mode="In" />
+    <Parameter Name="App" Type="varchar" Mode="In" />
+    <Parameter Name="Opt2" Type="varchar" Mode="In" />
+    <Parameter Name="Opt3" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_tblAppErrorLog_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Error" Type="varchar" Mode="In" />
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="Num" Type="int" Mode="In" />
+    <Parameter Name="MachineName" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Proc" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_tblAppFilter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Token" Type="varchar" Mode="In" />
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="Grid" Type="varchar" Mode="In" />
+    <Parameter Name="Opt" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_tblAppFilterWhereClause" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Token" Type="varchar" Mode="In" />
+    <Parameter Name="strWhere" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="p_tblAppNavigationUser_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+    <Parameter Name="AG_FormItem" Type="varchar" Mode="In" />
+    <Parameter Name="AG_Height" Type="int" Mode="In" />
+    <Parameter Name="AG_Width" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_tblAppNavigationUserGrid_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+    <Parameter Name="APCID" Type="int" Mode="In" />
+    <Parameter Name="AD_Width" Type="int" Mode="In" />
+    <Parameter Name="AD_Sort" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_tblAppNavigationUserGrid_Load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NAVID" Type="int" Mode="In" />
+    <Parameter Name="ASID" Type="int" Mode="In" />
+    <Parameter Name="GRID" Type="varchar" Mode="In" />
+    <Parameter Name="FilterField" Type="int" Mode="In" />
+  </Function>
+  <Function Name="p_tblFile_Add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="File" Type="varchar" Mode="In" />
+    <Parameter Name="FL_DateCreated" Type="datetime" Mode="In" />
+    <Parameter Name="FTID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="HRLModelStoreContainer">
+    <EntitySet Name="tblApp" EntityType="Self.tblApp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppButton" EntityType="Self.tblAppButton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppColumnOption" EntityType="Self.tblAppColumnOption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppColumns" EntityType="Self.tblAppColumns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppDropDown" EntityType="Self.tblAppDropDown" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppErrorLog" EntityType="Self.tblAppErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppFilter" EntityType="Self.tblAppFilter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppNavigation" EntityType="Self.tblAppNavigation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppNavigationUser" EntityType="Self.tblAppNavigationUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppNavigationUserGrid" EntityType="Self.tblAppNavigationUserGrid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppNavMoreButton" EntityType="Self.tblAppNavMoreButton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppOptions" EntityType="Self.tblAppOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppPath" EntityType="Self.tblAppPath" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppReport" EntityType="Self.tblAppReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppReportOption" EntityType="Self.tblAppReportOption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppRole" EntityType="Self.tblAppRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppRoleButtons" EntityType="Self.tblAppRoleButtons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppRoles" EntityType="Self.tblAppRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppTraining" EntityType="Self.tblAppTraining" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAppUser" EntityType="Self.tblAppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDriverCompany" EntityType="Self.tblDriverCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDriverLog" EntityType="Self.tblDriverLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDriverName" EntityType="Self.tblDriverName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmailDistribution" EntityType="Self.tblEmailDistribution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmailDistributionDetail" EntityType="Self.tblEmailDistributionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFilePath" EntityType="Self.tblFilePath" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFileType" EntityType="Self.tblFileType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOptions" EntityType="Self.tblOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPBProxy" EntityType="Self.tblPBProxy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblShift" EntityType="Self.tblShift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nums" EntityType="Self.Nums" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Nums].[n] AS [n]
+    FROM [dbo].[Nums] AS [Nums]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblAssociate].[ASID] AS [ASID], 
+    [tblAssociate].[DPID] AS [DPID], 
+    [tblAssociate].[OFID] AS [OFID], 
+    [tblAssociate].[AS_Display] AS [AS_Display], 
+    [tblAssociate].[AS_First] AS [AS_First], 
+    [tblAssociate].[AS_Phone] AS [AS_Phone], 
+    [tblAssociate].[AS_Last] AS [AS_Last], 
+    [tblAssociate].[AS_User] AS [AS_User], 
+    [tblAssociate].[AS_OutID] AS [AS_OutID], 
+    [tblAssociate].[AS_Sync] AS [AS_Sync], 
+    [tblAssociate].[AS_Active] AS [AS_Active], 
+    [tblAssociate].[AS_Reso] AS [AS_Reso], 
+    [tblAssociate].[AS_Email] AS [AS_Email], 
+    [tblAssociate].[AS_Domain] AS [AS_Domain], 
+    [tblAssociate].[AS_Group] AS [AS_Group], 
+    [tblAssociate].[AS_DC] AS [AS_DC], 
+    [tblAssociate].[AS_UserID] AS [AS_UserID], 
+    [tblAssociate].[PERNR] AS [PERNR], 
+    [tblAssociate].[Short] AS [Short], 
+    [tblAssociate].[BIDID] AS [BIDID], 
+    [tblAssociate].[AS_Badge] AS [AS_Badge], 
+    [tblAssociate].[AS_CellForSMS] AS [AS_CellForSMS], 
+    [tblAssociate].[AS_BI_Lock] AS [AS_BI_Lock], 
+    [tblAssociate].[AS_CareerBand] AS [AS_CareerBand], 
+    [tblAssociate].[AS_CostCenter] AS [AS_CostCenter], 
+    [tblAssociate].[AS_OrgUnitAbbr] AS [AS_OrgUnitAbbr], 
+    [tblAssociate].[AS_BInonFNI] AS [AS_BInonFNI], 
+    [tblAssociate].[AS_CBandLock] AS [AS_CBandLock], 
+    [tblAssociate].[AS_HTI_Manager] AS [AS_HTI_Manager], 
+    [tblAssociate].[AS_HTI_PNum] AS [AS_HTI_PNum], 
+    [tblAssociate].[AS_HireDate] AS [AS_HireDate]
+    FROM [dbo].[tblAssociate] AS [tblAssociate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppButton" EntityType="Self.vwAppButton" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppButton].[BT_Desc] AS [BT_Desc], 
+    [vwAppButton].[APPID] AS [APPID], 
+    [vwAppButton].[ARID] AS [ARID], 
+    [vwAppButton].[AB_Order] AS [AB_Order], 
+    [vwAppButton].[BTID] AS [BTID]
+    FROM [dbo].[vwAppButton] AS [vwAppButton]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppColumnFilter" EntityType="Self.vwAppColumnFilter" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppColumnFilter].[NAVID] AS [NAVID], 
+    [vwAppColumnFilter].[APC_Grid] AS [APC_Grid], 
+    [vwAppColumnFilter].[F1] AS [F1], 
+    [vwAppColumnFilter].[F2] AS [F2], 
+    [vwAppColumnFilter].[F3] AS [F3], 
+    [vwAppColumnFilter].[F4] AS [F4], 
+    [vwAppColumnFilter].[F5] AS [F5], 
+    [vwAppColumnFilter].[F6] AS [F6], 
+    [vwAppColumnFilter].[F7] AS [F7], 
+    [vwAppColumnFilter].[F8] AS [F8], 
+    [vwAppColumnFilter].[F9] AS [F9], 
+    [vwAppColumnFilter].[F10] AS [F10], 
+    [vwAppColumnFilter].[F11] AS [F11], 
+    [vwAppColumnFilter].[F12] AS [F12], 
+    [vwAppColumnFilter].[F13] AS [F13], 
+    [vwAppColumnFilter].[F14] AS [F14], 
+    [vwAppColumnFilter].[F15] AS [F15], 
+    [vwAppColumnFilter].[F16] AS [F16], 
+    [vwAppColumnFilter].[F17] AS [F17], 
+    [vwAppColumnFilter].[F18] AS [F18], 
+    [vwAppColumnFilter].[F19] AS [F19], 
+    [vwAppColumnFilter].[F20] AS [F20], 
+    [vwAppColumnFilter].[F21] AS [F21], 
+    [vwAppColumnFilter].[F22] AS [F22], 
+    [vwAppColumnFilter].[F23] AS [F23], 
+    [vwAppColumnFilter].[F24] AS [F24], 
+    [vwAppColumnFilter].[F25] AS [F25], 
+    [vwAppColumnFilter].[F26] AS [F26], 
+    [vwAppColumnFilter].[F27] AS [F27], 
+    [vwAppColumnFilter].[F28] AS [F28], 
+    [vwAppColumnFilter].[F29] AS [F29], 
+    [vwAppColumnFilter].[F30] AS [F30], 
+    [vwAppColumnFilter].[F31] AS [F31], 
+    [vwAppColumnFilter].[F32] AS [F32], 
+    [vwAppColumnFilter].[F33] AS [F33], 
+    [vwAppColumnFilter].[F34] AS [F34], 
+    [vwAppColumnFilter].[F35] AS [F35], 
+    [vwAppColumnFilter].[F36] AS [F36], 
+    [vwAppColumnFilter].[F37] AS [F37], 
+    [vwAppColumnFilter].[F38] AS [F38], 
+    [vwAppColumnFilter].[F39] AS [F39], 
+    [vwAppColumnFilter].[F40] AS [F40], 
+    [vwAppColumnFilter].[F41] AS [F41], 
+    [vwAppColumnFilter].[F42] AS [F42], 
+    [vwAppColumnFilter].[F43] AS [F43], 
+    [vwAppColumnFilter].[F44] AS [F44], 
+    [vwAppColumnFilter].[F45] AS [F45], 
+    [vwAppColumnFilter].[F46] AS [F46], 
+    [vwAppColumnFilter].[F47] AS [F47], 
+    [vwAppColumnFilter].[F48] AS [F48], 
+    [vwAppColumnFilter].[F49] AS [F49], 
+    [vwAppColumnFilter].[F50] AS [F50]
+    FROM [dbo].[vwAppColumnFilter] AS [vwAppColumnFilter]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppColumnFilterClear" EntityType="Self.vwAppColumnFilterClear" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppColumnFilterClear].[NAVID] AS [NAVID], 
+    [vwAppColumnFilterClear].[APC_Grid] AS [APC_Grid], 
+    [vwAppColumnFilterClear].[F1] AS [F1], 
+    [vwAppColumnFilterClear].[F2] AS [F2], 
+    [vwAppColumnFilterClear].[F3] AS [F3], 
+    [vwAppColumnFilterClear].[F4] AS [F4], 
+    [vwAppColumnFilterClear].[F5] AS [F5], 
+    [vwAppColumnFilterClear].[F6] AS [F6], 
+    [vwAppColumnFilterClear].[F7] AS [F7], 
+    [vwAppColumnFilterClear].[F8] AS [F8], 
+    [vwAppColumnFilterClear].[F9] AS [F9], 
+    [vwAppColumnFilterClear].[F10] AS [F10], 
+    [vwAppColumnFilterClear].[F11] AS [F11], 
+    [vwAppColumnFilterClear].[F12] AS [F12], 
+    [vwAppColumnFilterClear].[F13] AS [F13], 
+    [vwAppColumnFilterClear].[F14] AS [F14], 
+    [vwAppColumnFilterClear].[F15] AS [F15], 
+    [vwAppColumnFilterClear].[F16] AS [F16], 
+    [vwAppColumnFilterClear].[F17] AS [F17], 
+    [vwAppColumnFilterClear].[F18] AS [F18], 
+    [vwAppColumnFilterClear].[F19] AS [F19], 
+    [vwAppColumnFilterClear].[F20] AS [F20], 
+    [vwAppColumnFilterClear].[F21] AS [F21], 
+    [vwAppColumnFilterClear].[F22] AS [F22], 
+    [vwAppColumnFilterClear].[F23] AS [F23], 
+    [vwAppColumnFilterClear].[F24] AS [F24], 
+    [vwAppColumnFilterClear].[F25] AS [F25], 
+    [vwAppColumnFilterClear].[F26] AS [F26], 
+    [vwAppColumnFilterClear].[F27] AS [F27], 
+    [vwAppColumnFilterClear].[F28] AS [F28], 
+    [vwAppColumnFilterClear].[F29] AS [F29], 
+    [vwAppColumnFilterClear].[F30] AS [F30], 
+    [vwAppColumnFilterClear].[F31] AS [F31], 
+    [vwAppColumnFilterClear].[F32] AS [F32], 
+    [vwAppColumnFilterClear].[F33] AS [F33], 
+    [vwAppColumnFilterClear].[F34] AS [F34], 
+    [vwAppColumnFilterClear].[F35] AS [F35], 
+    [vwAppColumnFilterClear].[F36] AS [F36], 
+    [vwAppColumnFilterClear].[F37] AS [F37], 
+    [vwAppColumnFilterClear].[F38] AS [F38], 
+    [vwAppColumnFilterClear].[F39] AS [F39], 
+    [vwAppColumnFilterClear].[F40] AS [F40], 
+    [vwAppColumnFilterClear].[F41] AS [F41], 
+    [vwAppColumnFilterClear].[F42] AS [F42], 
+    [vwAppColumnFilterClear].[F43] AS [F43], 
+    [vwAppColumnFilterClear].[F44] AS [F44], 
+    [vwAppColumnFilterClear].[F45] AS [F45], 
+    [vwAppColumnFilterClear].[F46] AS [F46], 
+    [vwAppColumnFilterClear].[F47] AS [F47], 
+    [vwAppColumnFilterClear].[F48] AS [F48], 
+    [vwAppColumnFilterClear].[F49] AS [F49], 
+    [vwAppColumnFilterClear].[F50] AS [F50]
+    FROM [dbo].[vwAppColumnFilterClear] AS [vwAppColumnFilterClear]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppColumnFilterFields" EntityType="Self.vwAppColumnFilterFields" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppColumnFilterFields].[APCID] AS [APCID], 
+    [vwAppColumnFilterFields].[APCOID] AS [APCOID], 
+    [vwAppColumnFilterFields].[APC_Desc] AS [APC_Desc], 
+    [vwAppColumnFilterFields].[APC_Name] AS [APC_Name], 
+    [vwAppColumnFilterFields].[APC_QueryField] AS [APC_QueryField], 
+    [vwAppColumnFilterFields].[APC_Default] AS [APC_Default], 
+    [vwAppColumnFilterFields].[APC_Order] AS [APC_Order], 
+    [vwAppColumnFilterFields].[APC_Grid] AS [APC_Grid], 
+    [vwAppColumnFilterFields].[APC_ReadOnly] AS [APC_ReadOnly], 
+    [vwAppColumnFilterFields].[APC_Deleted] AS [APC_Deleted], 
+    [vwAppColumnFilterFields].[APC_Width] AS [APC_Width], 
+    [vwAppColumnFilterFields].[NAVID] AS [NAVID], 
+    [vwAppColumnFilterFields].[NAVID2] AS [NAVID2], 
+    [vwAppColumnFilterFields].[APC_FilterOrder] AS [APC_FilterOrder]
+    FROM [dbo].[vwAppColumnFilterFields] AS [vwAppColumnFilterFields]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppFilterHelper" EntityType="Self.vwAppFilterHelper" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppFilterHelper].[Val] AS [Val], 
+    [vwAppFilterHelper].[Fld] AS [Fld], 
+    [vwAppFilterHelper].[Token] AS [Token], 
+    [vwAppFilterHelper].[NAVID] AS [NAVID]
+    FROM [dbo].[vwAppFilterHelper] AS [vwAppFilterHelper]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppNav" EntityType="Self.vwAppNav" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppNav].[NAVID] AS [NAVID], 
+    [vwAppNav].[BT_Desc] AS [BT_Desc], 
+    [vwAppNav].[NAV_Desc] AS [NAV_Desc], 
+    [vwAppNav].[NAV_Item] AS [NAV_Item], 
+    [vwAppNav].[NAV_Table] AS [NAV_Table], 
+    [vwAppNav].[NAV_Option] AS [NAV_Option], 
+    [vwAppNav].[NAV_Filter] AS [NAV_Filter], 
+    [vwAppNav].[NAV_Order] AS [NAV_Order], 
+    [vwAppNav].[NAV_Server] AS [NAV_Server], 
+    [vwAppNav].[APPID] AS [APPID], 
+    [vwAppNav].[APP_Desc] AS [APP_Desc]
+    FROM [dbo].[vwAppNav] AS [vwAppNav]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppNavigation" EntityType="Self.vwAppNavigation" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppNavigation].[NAVID] AS [NAVID], 
+    [vwAppNavigation].[BTID] AS [BTID], 
+    [vwAppNavigation].[NAV_Desc] AS [NAV_Desc], 
+    [vwAppNavigation].[NAV_Item] AS [NAV_Item], 
+    [vwAppNavigation].[NAV_Option] AS [NAV_Option], 
+    [vwAppNavigation].[NAV_Filter] AS [NAV_Filter], 
+    [vwAppNavigation].[NAV_Order] AS [NAV_Order], 
+    [vwAppNavigation].[NAV_Image] AS [NAV_Image], 
+    [vwAppNavigation].[NAV_Table] AS [NAV_Table], 
+    [vwAppNavigation].[NAV_Server] AS [NAV_Server], 
+    [vwAppNavigation].[NAV_Deleted] AS [NAV_Deleted], 
+    [vwAppNavigation].[NAV_Active] AS [NAV_Active], 
+    [vwAppNavigation].[NAV_GV2] AS [NAV_GV2], 
+    [vwAppNavigation].[NAV_GV3] AS [NAV_GV3], 
+    [vwAppNavigation].[NAV_GV4] AS [NAV_GV4], 
+    [vwAppNavigation].[NAV_GV5] AS [NAV_GV5], 
+    [vwAppNavigation].[NAV_GV6] AS [NAV_GV6]
+    FROM [dbo].[vwAppNavigation] AS [vwAppNavigation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppView" EntityType="Self.vwAppView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppView].[APPID] AS [APPID], 
+    [vwAppView].[APP_Desc] AS [APP_Desc], 
+    [vwAppView].[APP_Version] AS [APP_Version], 
+    [vwAppView].[Name] AS [Name], 
+    [vwAppView].[RL_Desc] AS [RL_Desc], 
+    [vwAppView].[ARID] AS [ARID], 
+    [vwAppView].[AS_User] AS [AS_User], 
+    [vwAppView].[ASID] AS [ASID], 
+    [vwAppView].[AB_Level] AS [AB_Level], 
+    [vwAppView].[APP_HelpdeskOrg] AS [APP_HelpdeskOrg], 
+    [vwAppView].[AUID] AS [AUID], 
+    [vwAppView].[Expr1] AS [Expr1], 
+    [vwAppView].[AU_Deleted] AS [AU_Deleted], 
+    [vwAppView].[AR_Deleted] AS [AR_Deleted], 
+    [vwAppView].[RL_Deleted] AS [RL_Deleted], 
+    [vwAppView].[RLID] AS [RLID]
+    FROM [dbo].[vwAppView] AS [vwAppView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAppView2" EntityType="Self.vwAppView2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAppView2].[APPID] AS [APPID], 
+    [vwAppView2].[APP_Desc] AS [APP_Desc], 
+    [vwAppView2].[APP_Version] AS [APP_Version], 
+    [vwAppView2].[AS_Display] AS [AS_Display], 
+    [vwAppView2].[RL_Desc] AS [RL_Desc], 
+    [vwAppView2].[ARID] AS [ARID], 
+    [vwAppView2].[AS_Active] AS [AS_Active], 
+    [vwAppView2].[AS_User] AS [AS_User], 
+    [vwAppView2].[ASID] AS [ASID], 
+    [vwAppView2].[AB_Level] AS [AB_Level]
+    FROM [dbo].[vwAppView2] AS [vwAppView2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwAssociate" EntityType="Self.vwAssociate" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwAssociate].[FullName] AS [FullName], 
+    [vwAssociate].[AS_First] AS [AS_First], 
+    [vwAssociate].[AS_Last] AS [AS_Last], 
+    [vwAssociate].[AS_User] AS [AS_User], 
+    [vwAssociate].[AS_Email] AS [AS_Email], 
+    [vwAssociate].[ARID] AS [ARID], 
+    [vwAssociate].[AB_Level] AS [AB_Level], 
+    [vwAssociate].[RL_Desc] AS [RL_Desc], 
+    [vwAssociate].[ASID] AS [ASID], 
+    [vwAssociate].[AUID] AS [AUID], 
+    [vwAssociate].[APPID] AS [APPID], 
+    [vwAssociate].[PERNR] AS [PERNR]
+    FROM [dbo].[vwAssociate] AS [vwAssociate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDriverLog" EntityType="Self.vwDriverLog" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDriverLog].[LogEntry] AS [LogEntry], 
+    [vwDriverLog].[TimeIn] AS [TimeIn], 
+    [vwDriverLog].[TimeOut] AS [TimeOut], 
+    [vwDriverLog].[CarrierName] AS [CarrierName], 
+    [vwDriverLog].[DriverName] AS [DriverName], 
+    [vwDriverLog].[DLCID] AS [DLCID], 
+    [vwDriverLog].[DLNID] AS [DLNID], 
+    [vwDriverLog].[DLLID] AS [DLLID], 
+    [vwDriverLog].[LogTimeStamp] AS [LogTimeStamp], 
+    [vwDriverLog].[Building] AS [Building], 
+    [vwDriverLog].[TruckNumber] AS [TruckNumber], 
+    [vwDriverLog].[ASID_In] AS [ASID_In], 
+    [vwDriverLog].[ASID_Out] AS [ASID_Out]
+    FROM [dbo].[vwDriverLog] AS [vwDriverLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwEmailDistribution" EntityType="Self.vwEmailDistribution" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwEmailDistribution].[EDID] AS [EDID], 
+    [vwEmailDistribution].[ED_Desc] AS [ED_Desc], 
+    [vwEmailDistribution].[AS_Display] AS [AS_Display], 
+    [vwEmailDistribution].[AS_Email] AS [AS_Email], 
+    [vwEmailDistribution].[EDDID] AS [EDDID], 
+    [vwEmailDistribution].[AS_CellForSMS] AS [AS_CellForSMS], 
+    [vwEmailDistribution].[ASID] AS [ASID]
+    FROM [dbo].[vwEmailDistribution] AS [vwEmailDistribution]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPBTracking" EntityType="Self.vwPBTracking" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwPBTracking].[PBS_Desc] AS [PBS_Desc], 
+    [vwPBTracking].[PBST_Date] AS [PBST_Date], 
+    [vwPBTracking].[PB2ID] AS [PB2ID], 
+    [vwPBTracking].[PB_Material] AS [PB_Material], 
+    [vwPBTracking].[PB_MaterialDescription] AS [PB_MaterialDescription], 
+    [vwPBTracking].[PB_TrackingDate] AS [PB_TrackingDate], 
+    [vwPBTracking].[PB_Reason] AS [PB_Reason], 
+    [vwPBTracking].[IssueLast] AS [IssueLast], 
+    [vwPBTracking].[CommentLast] AS [CommentLast], 
+    [vwPBTracking].[ECNNumber] AS [ECNNumber], 
+    [vwPBTracking].[PBID] AS [PBID], 
+    [vwPBTracking].[PBDID] AS [PBDID], 
+    [vwPBTracking].[PBSID] AS [PBSID], 
+    [vwPBTracking].[PBPTID] AS [PBPTID], 
+    [vwPBTracking].[PBFTID] AS [PBFTID], 
+    [vwPBTracking].[PBSTID] AS [PBSTID], 
+    [vwPBTracking].[PBOID] AS [PBOID], 
+    [vwPBTracking].[PBSFID] AS [PBSFID], 
+    [vwPBTracking].[PBRTID] AS [PBRTID], 
+    [vwPBTracking].[PB_LeadPlant] AS [PB_LeadPlant], 
+    [vwPBTracking].[ZMNRNumber] AS [ZMNRNumber], 
+    [vwPBTracking].[ConversionNumber] AS [ConversionNumber], 
+    [vwPBTracking].[PCTNumber] AS [PCTNumber], 
+    [vwPBTracking].[PB_Deleted] AS [PB_Deleted], 
+    [vwPBTracking].[ASID] AS [ASID], 
+    [vwPBTracking].[AS_Display] AS [AS_Display], 
+    [vwPBTracking].[PB_TimeStamp] AS [PB_TimeStamp], 
+    [vwPBTracking].[NextTask] AS [NextTask], 
+    [vwPBTracking].[NextTaskOwner] AS [NextTaskOwner], 
+    [vwPBTracking].[AS_Email] AS [AS_Email], 
+    [vwPBTracking].[PBRL_Assigned] AS [PBRL_Assigned], 
+    [vwPBTracking].[PastDue] AS [PastDue], 
+    [vwPBTracking].[ServiceRequestNumber] AS [ServiceRequestNumber], 
+    [vwPBTracking].[FinishedUnit] AS [FinishedUnit], 
+    [vwPBTracking].[PBDVID] AS [PBDVID], 
+    [vwPBTracking].[PBD_Desc] AS [PBD_Desc], 
+    [vwPBTracking].[PrototypeRequestNumber] AS [PrototypeRequestNumber], 
+    [vwPBTracking].[PB_Batch] AS [PB_Batch], 
+    [vwPBTracking].[PBXID] AS [PBXID], 
+    [vwPBTracking].[PBPRID] AS [PBPRID], 
+    [vwPBTracking].[PB_Delivery] AS [PB_Delivery], 
+    [vwPBTracking].[PB_EstCompletion] AS [PB_EstCompletion], 
+    [vwPBTracking].[PR1_Special_Procurement] AS [PR1_Special_Procurement], 
+    [vwPBTracking].[PR1_Procurement] AS [PR1_Procurement], 
+    [vwPBTracking].[PRA_Special_Procurement] AS [PRA_Special_Procurement], 
+    [vwPBTracking].[PRA_Procurement] AS [PRA_Procurement], 
+    [vwPBTracking].[Organization] AS [Organization], 
+    [vwPBTracking].[Product_Type] AS [Product_Type], 
+    [vwPBTracking].[Lead_Plant] AS [Lead_Plant], 
+    [vwPBTracking].[Priority] AS [Priority], 
+    [vwPBTracking].[Complexity] AS [Complexity], 
+    [vwPBTracking].[PBRL_Sort] AS [PBRL_Sort], 
+    [vwPBTracking].[Customer] AS [Customer], 
+    [vwPBTracking].[ThreeDay] AS [ThreeDay], 
+    [vwPBTracking].[Division] AS [Division], 
+    [vwPBTracking].[PBSIDLast] AS [PBSIDLast], 
+    [vwPBTracking].[PBIDRed] AS [PBIDRed]
+    FROM [dbo].[vwPBTracking] AS [vwPBTracking]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tblAppButton_tblApp" Association="Self.FK_tblAppButton_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppColumns_tblAppColumnOption" Association="Self.FK_tblAppColumns_tblAppColumnOption">
+      <End Role="tblAppColumnOption" EntitySet="tblAppColumnOption" />
+      <End Role="tblAppColumns" EntitySet="tblAppColumns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppColumns_tblAppNavigation" Association="Self.FK_tblAppColumns_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppColumns" EntitySet="tblAppColumns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppErrorLog_tblAppErrorLog" Association="Self.FK_tblAppErrorLog_tblAppErrorLog">
+      <End Role="tblAppErrorLog" EntitySet="tblAppErrorLog" />
+      <End Role="tblAppErrorLog1" EntitySet="tblAppErrorLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavAdditionalButtons_tblAppButton" Association="Self.FK_tblAppNavAdditionalButtons_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppNavMoreButton" EntitySet="tblAppNavMoreButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavAdditionalButtons_tblAppNavigation" Association="Self.FK_tblAppNavAdditionalButtons_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppNavMoreButton" EntitySet="tblAppNavMoreButton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavigation_tblAppButton" Association="Self.FK_tblAppNavigation_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppNavigationUser_tblAppNavigation" Association="Self.FK_tblAppNavigationUser_tblAppNavigation">
+      <End Role="tblAppNavigation" EntitySet="tblAppNavigation" />
+      <End Role="tblAppNavigationUser" EntitySet="tblAppNavigationUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppOptions_tblApp" Association="Self.FK_tblAppOptions_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppOptions" EntitySet="tblAppOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppPath_tblApplication" Association="Self.FK_tblAppPath_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppPath" EntitySet="tblAppPath" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppReport_tblApp" Association="Self.FK_tblAppReport_tblApp">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppReport" EntitySet="tblAppReport" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRole_tblApplication" Association="Self.FK_tblAppRole_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRole_tblRole" Association="Self.FK_tblAppRole_tblRole">
+      <End Role="tblAppRole" EntitySet="tblAppRole" />
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRoleButtons_tblAppButton" Association="Self.FK_tblAppRoleButtons_tblAppButton">
+      <End Role="tblAppButton" EntitySet="tblAppButton" />
+      <End Role="tblAppRoleButtons" EntitySet="tblAppRoleButtons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppRoleButtons_tblAppRoles" Association="Self.FK_tblAppRoleButtons_tblAppRoles">
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+      <End Role="tblAppRoleButtons" EntitySet="tblAppRoleButtons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppTraining_tblApplication" Association="Self.FK_tblAppTraining_tblApplication">
+      <End Role="tblApp" EntitySet="tblApp" />
+      <End Role="tblAppTraining" EntitySet="tblAppTraining" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAppUser_tblAppRole" Association="Self.FK_tblAppUser_tblAppRole">
+      <End Role="tblAppRoles" EntitySet="tblAppRoles" />
+      <End Role="tblAppUser" EntitySet="tblAppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEmailDistributionDetail_tblEmailDistribution" Association="Self.FK_tblEmailDistributionDetail_tblEmailDistribution">
+      <End Role="tblEmailDistribution" EntitySet="tblEmailDistribution" />
+      <End Role="tblEmailDistributionDetail" EntitySet="tblEmailDistributionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFilePath_tblFileType" Association="Self.FK_tblFilePath_tblFileType">
+      <End Role="tblFileType" EntitySet="tblFileType" />
+      <End Role="tblFilePath" EntitySet="tblFilePath" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblReportOption_tblReport" Association="Self.FK_tblReportOption_tblReport">
+      <End Role="tblAppReport" EntitySet="tblAppReport" />
+      <End Role="tblAppReportOption" EntitySet="tblAppReportOption" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

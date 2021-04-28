@@ -1,0 +1,2071 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VisualModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblMRPController">
+    <Key>
+      <PropertyRef Name="MRPID" />
+    </Key>
+    <Property Name="MRPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MRP_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MRP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MRP_Type" Type="Int32" Nullable="false" />
+    <Property Name="MRP_Active" Type="Int32" Nullable="false" />
+    <Property Name="MRP_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="MPTID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblShipping">
+    <Key>
+      <PropertyRef Name="SHID" />
+    </Key>
+    <Property Name="SHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SRCID" Type="Int32" />
+    <Property Name="CSNID" Type="Int32" Nullable="false" />
+    <Property Name="MRPID" Type="Int32" />
+    <Property Name="FLDID" Type="Int32" />
+    <Property Name="SH_Desc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SH_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SH_Sort" Type="Int32" />
+    <Property Name="SH_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SH_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SH_Location" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="SH_ShipDate" Type="DateTime" Precision="3" />
+    <Property Name="SH_SSSent" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SH_SSPull" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SH_FromPack" Type="Boolean" Nullable="false" />
+    <Property Name="SH_PlannedGIDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingAction">
+    <Key>
+      <PropertyRef Name="SHAID" />
+    </Key>
+    <Property Name="SHAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHA_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHA_Active" Type="Int32" Nullable="false" />
+    <Property Name="SHA_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingComment">
+    <Key>
+      <PropertyRef Name="SHCID" />
+    </Key>
+    <Property Name="SHCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="SHCTID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="SHC_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SHC_Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHC_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SHPID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblShippingCommentType">
+    <Key>
+      <PropertyRef Name="SHCTID" />
+    </Key>
+    <Property Name="SHCTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHAID" Type="Int32" Nullable="false" />
+    <Property Name="SHCT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHCT_Active" Type="Int32" Nullable="false" />
+    <Property Name="SHCT_Color" Type="Int32" />
+    <Property Name="SHCT_ForeColor" Type="Int32" />
+    <Property Name="ARID" Type="Int32" />
+    <Property Name="SHCT_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingDetailStatus">
+    <Key>
+      <PropertyRef Name="SHDSID" />
+    </Key>
+    <Property Name="SHDSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHMSID" Type="Int32" Nullable="false" />
+    <Property Name="SHDS_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHDS_Active" Type="Int32" Nullable="false" />
+    <Property Name="SHDS_SAP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHDS_Sort" Type="Int32" Nullable="false" />
+    <Property Name="SHDS_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingMasterStatus">
+    <Key>
+      <PropertyRef Name="SHMSID" />
+    </Key>
+    <Property Name="SHMSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHMS_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHMS_Active" Type="Int32" Nullable="false" />
+    <Property Name="SHMS_Ship" Type="Int32" />
+    <Property Name="SHMS_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingPart">
+    <Key>
+      <PropertyRef Name="SHPID" />
+    </Key>
+    <Property Name="SHPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="SRCID" Type="Int32" />
+    <Property Name="SHP_Qty" Type="Int32" />
+    <Property Name="SHP_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SHP_Line" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SHP_Shipped" Type="DateTime" Precision="3" />
+    <Property Name="MRPID" Type="Int32" />
+    <Property Name="SHP_Location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSSent" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSPull" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSPullOK" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_PlannedGIDate" Type="DateTime" Precision="3" />
+    <Property Name="SHP_SVPSkip" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblShippingReasonCode">
+    <Key>
+      <PropertyRef Name="SRCID" />
+    </Key>
+    <Property Name="SRCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SRC_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SRC_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblShippingStatus">
+    <Key>
+      <PropertyRef Name="SHSID" />
+    </Key>
+    <Property Name="SHSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="SHDSID" Type="Int32" Nullable="false" />
+    <Property Name="SHS_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="SHS_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FLID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="VisualEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblMRPController" EntityType="Self.tblMRPController" />
+    <EntitySet Name="tblShipping" EntityType="Self.tblShipping" />
+    <EntitySet Name="tblShippingAction" EntityType="Self.tblShippingAction" />
+    <EntitySet Name="tblShippingComment" EntityType="Self.tblShippingComment" />
+    <EntitySet Name="tblShippingCommentType" EntityType="Self.tblShippingCommentType" />
+    <EntitySet Name="tblShippingDetailStatus" EntityType="Self.tblShippingDetailStatus" />
+    <EntitySet Name="tblShippingMasterStatus" EntityType="Self.tblShippingMasterStatus" />
+    <EntitySet Name="tblShippingPart" EntityType="Self.tblShippingPart" />
+    <EntitySet Name="tblShippingReasonCode" EntityType="Self.tblShippingReasonCode" />
+    <EntitySet Name="tblShippingStatus" EntityType="Self.tblShippingStatus" />
+    <EntitySet Name="vwShippingStatus" EntityType="VisualModel.vwShippingStatus" />
+    <EntitySet Name="vwShippingComments" EntityType="VisualModel.vwShippingComments" />
+    <EntitySet Name="vwShippingStatusHistory" EntityType="VisualModel.vwShippingStatusHistory" />
+    <EntitySet Name="tblOptions" EntityType="VisualModel.tblOptions" />
+    <FunctionImport Name="p_tblShipping_DSB_v4">
+      <Parameter Name="OPID" Mode="In" Type="Int32" />
+      <Parameter Name="SHCTID" Mode="In" Type="Int32" />
+      <Parameter Name="Cnt" Mode="In" Type="Int32" />
+      <Parameter Name="SH_Desc" Mode="In" Type="String" />
+      <Parameter Name="CSN_Desc" Mode="In" Type="String" />
+      <Parameter Name="PART_Desc" Mode="In" Type="String" />
+      <Parameter Name="MRP" Mode="In" Type="String" />
+      <Parameter Name="Location" Mode="In" Type="String" />
+      <Parameter Name="Packed" Mode="In" Type="String" />
+      <Parameter Name="Export" Mode="In" Type="Int32" />
+      <Parameter Name="GoTo" Mode="In" Type="Int32" />
+      <Parameter Name="Start" Mode="In" Type="String" />
+      <Parameter Name="End" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblPart" EntityType="VisualModel.tblPart" />
+    <EntitySet Name="tblPartBearing" EntityType="VisualModel.tblPartBearing" />
+    <EntitySet Name="tblPartDisp" EntityType="VisualModel.tblPartDisp" />
+    <EntitySet Name="tblPartPackage" EntityType="VisualModel.tblPartPackage" />
+    <EntitySet Name="tblPartPort" EntityType="VisualModel.tblPartPort" />
+    <EntitySet Name="tblPartSeal" EntityType="VisualModel.tblPartSeal" />
+    <EntitySet Name="tblPartSeries" EntityType="VisualModel.tblPartSeries" />
+    <EntitySet Name="tblPartShaft" EntityType="VisualModel.tblPartShaft" />
+    <EntitySet Name="tblPartSpecial" EntityType="VisualModel.tblPartSpecial" />
+    <EntitySet Name="tblPath" EntityType="VisualModel.tblPath" />
+    <EntitySet Name="tblPartRineerMotor" EntityType="VisualModel.tblPartRineerMotor" />
+    <EntitySet Name="tblPartRineerMotorType" EntityType="VisualModel.tblPartRineerMotorType" />
+    <EntitySet Name="tblPartRineerPath" EntityType="VisualModel.tblPartRineerPath" />
+    <EntitySet Name="vwPartRineerMatch2" EntityType="VisualModel.vwPartRineerMatch2" />
+    <EntitySet Name="vwPartBomValueStream" EntityType="VisualModel.vwPartBomValueStream" />
+    <EntitySet Name="tblPartFolder" EntityType="VisualModel.tblPartFolder" />
+    <EntitySet Name="tblPartFolderPPT" EntityType="VisualModel.tblPartFolderPPT" />
+    <EntitySet Name="tblPartFolderPPTPics" EntityType="VisualModel.tblPartFolderPPTPics" />
+    <EntitySet Name="tblDSB_Status" EntityType="VisualModel.tblDSB_Status" />
+    <EntitySet Name="tblValueStream" EntityType="VisualModel.tblValueStream" />
+    <EntitySet Name="tblValueMachine" EntityType="VisualModel.tblValueMachine" />
+    <EntitySet Name="tblValueMachineWC" EntityType="VisualModel.tblValueMachineWC" />
+    <EntitySet Name="tblValueMachineSetup" EntityType="VisualModel.tblValueMachineSetup" />
+    <EntitySet Name="tblValueMachineCastings" EntityType="VisualModel.tblValueMachineCastings" />
+    <EntitySet Name="tblValueMachinePartSetup" EntityType="VisualModel.tblValueMachinePartSetup" />
+    <EntitySet Name="tblValueMachineOpList" EntityType="VisualModel.tblValueMachineOpList" />
+    <EntitySet Name="tblValueMachineOrder" EntityType="VisualModel.tblValueMachineOrder" />
+    <EntitySet Name="tblValueMachineOrderOp" EntityType="VisualModel.tblValueMachineOrderOp" />
+    <EntitySet Name="tblValueMachineOrderStatus" EntityType="VisualModel.tblValueMachineOrderStatus" />
+    <EntitySet Name="tblValueMachinePart" EntityType="VisualModel.tblValueMachinePart" />
+    <EntitySet Name="tblValueMachineStatus" EntityType="VisualModel.tblValueMachineStatus" />
+    <EntitySet Name="vwValueMachineOrder" EntityType="VisualModel.vwValueMachineOrder" />
+    <EntitySet Name="vwSerialPartWO" EntityType="VisualModel.vwSerialPartWO" />
+    <EntitySet Name="tblValueMachineCastingPart" EntityType="VisualModel.tblValueMachineCastingPart" />
+    <EntitySet Name="tblValueMachineCommentType" EntityType="VisualModel.tblValueMachineCommentType" />
+    <EntitySet Name="tblValueMachineOrderComment" EntityType="VisualModel.tblValueMachineOrderComment" />
+    <EntitySet Name="tblValueMachineWCSetup" EntityType="VisualModel.tblValueMachineWCSetup" />
+    <EntitySet Name="vwValueMachinePartCross" EntityType="VisualModel.vwValueMachinePartCross" />
+    <EntitySet Name="vwValueMachinePartCrossExt" EntityType="VisualModel.vwValueMachinePartCrossExt" />
+    <EntitySet Name="tblValueMachineOpArea" EntityType="VisualModel.tblValueMachineOpArea" />
+    <EntitySet Name="tblValueMachineOpListWC" EntityType="VisualModel.tblValueMachineOpListWC" />
+    <EntitySet Name="tblCustomerNumber" EntityType="VisualModel.tblCustomerNumber" />
+    <EntitySet Name="vwValueMachinePartCast_Search" EntityType="VisualModel.vwValueMachinePartCast_Search" />
+    <EntitySet Name="vwPartBOM" EntityType="VisualModel.vwPartBOM" />
+    <FunctionImport Name="p_tblValueMachinePart_Add">
+      <Parameter Name="Part" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblIssue" EntityType="VisualModel.tblIssue" />
+    <EntitySet Name="tblPrinter" EntityType="VisualModel.tblPrinter" />
+    <EntitySet Name="tblKitter" EntityType="VisualModel.tblKitter" />
+    <EntitySet Name="tblKitterLog" EntityType="VisualModel.tblKitterLog" />
+    <EntitySet Name="tblKitterStatus" EntityType="VisualModel.tblKitterStatus" />
+    <EntitySet Name="tblKitterAuditError" EntityType="VisualModel.tblKitterAuditError" />
+    <EntitySet Name="vwKitter" EntityType="VisualModel.vwKitter" />
+    <EntitySet Name="vwKitterAudited" EntityType="VisualModel.vwKitterAudited" />
+    <EntitySet Name="tblPartBOMComp" EntityType="VisualModel.tblPartBOMComp" />
+    <EntitySet Name="tblPartBOMParent" EntityType="VisualModel.tblPartBOMParent" />
+    <EntitySet Name="tblKitterAuditQuestions" EntityType="VisualModel.tblKitterAuditQuestions" />
+    <EntitySet Name="tblBuilding" EntityType="VisualModel.tblBuilding" />
+    <EntitySet Name="tblValueMachineHealth" EntityType="VisualModel.tblValueMachineHealth" />
+    <EntitySet Name="tblKitterAudit" EntityType="VisualModel.tblKitterAudit" />
+    <EntitySet Name="tblValueMachineDown" EntityType="VisualModel.tblValueMachineDown" />
+    <EntitySet Name="tblValueMachineReasonCodes" EntityType="VisualModel.tblValueMachineReasonCodes" />
+    <EntitySet Name="vwValueMachineComment_History" EntityType="VisualModel.vwValueMachineComment_History" />
+    <EntitySet Name="vwValueMachineDown" EntityType="VisualModel.vwValueMachineDown" />
+    <EntitySet Name="vwPartFolderSHID" EntityType="VisualModel.vwPartFolderSHID" />
+    <EntitySet Name="vwPartBOM_Details" EntityType="VisualModel.vwPartBOM_Details" />
+    <EntitySet Name="tblPartModelCodeBreakdown" EntityType="VisualModel.tblPartModelCodeBreakdown" />
+    <EntitySet Name="tblSparePartsDelivery" EntityType="VisualModel.tblSparePartsDelivery" />
+    <EntitySet Name="tblSparePartsDeliveryStatus" EntityType="VisualModel.tblSparePartsDeliveryStatus" />
+    <EntitySet Name="tblSparePartsDeliveryRole" EntityType="VisualModel.tblSparePartsDeliveryRole" />
+    <EntitySet Name="tblSparePartsInspections" EntityType="VisualModel.tblSparePartsInspections" />
+    <EntitySet Name="tblSparePartsInspQuestions" EntityType="VisualModel.tblSparePartsInspQuestions" />
+    <EntitySet Name="tblSparePartsComments" EntityType="VisualModel.tblSparePartsComments" />
+    <EntitySet Name="tblValueMachineSupplier" EntityType="VisualModel.tblValueMachineSupplier" />
+    <EntitySet Name="tblValueMachineOrderOpManualConfirm" EntityType="VisualModel.tblValueMachineOrderOpManualConfirm" />
+    <EntitySet Name="tblValueMachineOrderOpManualConfirmErr" EntityType="VisualModel.tblValueMachineOrderOpManualConfirmErr" />
+    <EntitySet Name="vwValueMachineOrderManualConfirmErr" EntityType="VisualModel.vwValueMachineOrderManualConfirmErr" />
+    <EntitySet Name="vwValueMachineOrderLostCapacity" EntityType="VisualModel.vwValueMachineOrderLostCapacity" />
+    <EntitySet Name="vwValueMachineOrderOp" EntityType="VisualModel.vwValueMachineOrderOp" />
+    <EntitySet Name="tblValueMachineOrderCastingEmail" EntityType="VisualModel.tblValueMachineOrderCastingEmail" />
+    <EntitySet Name="tblValueMachineScrapCode" EntityType="VisualModel.tblValueMachineScrapCode" />
+    <EntitySet Name="tblValueMachinePC" EntityType="VisualModel.tblValueMachinePC" />
+    <EntitySet Name="tblValueMachinePCLink" EntityType="VisualModel.tblValueMachinePCLink" />
+    <EntitySet Name="tblValueMachinePrinter" EntityType="VisualModel.tblValueMachinePrinter" />
+    <EntitySet Name="tblValueMachineWC_VMID" EntityType="VisualModel.tblValueMachineWC_VMID" />
+    <EntitySet Name="tblValueMachinePCPrinters" EntityType="VisualModel.tblValueMachinePCPrinters" />
+    <EntitySet Name="vwValueMachineOrderOpCon_SAP" EntityType="VisualModel.vwValueMachineOrderOpCon_SAP" />
+    <FunctionImport Name="p_tblValueMachineOrderOpManualConfirmLog_Add">
+      <Parameter Name="VVID" Mode="In" Type="Int32" />
+      <Parameter Name="VQID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="vwValueMachineOrderManualConfirm" EntityType="VisualModel.vwValueMachineOrderManualConfirm" />
+    <EntitySet Name="vwValueMachineOrderManualConfirmLog_Last" EntityType="VisualModel.vwValueMachineOrderManualConfirmLog_Last" />
+    <EntitySet Name="vwValueMachineOrderOpManualConfirmQUE" EntityType="VisualModel.vwValueMachineOrderOpManualConfirmQUE" />
+    <EntitySet Name="vwSparePartsInspectionsSumUp" EntityType="VisualModel.vwSparePartsInspectionsSumUp" />
+    <EntitySet Name="vwSparePartsInspectionsTotals" EntityType="VisualModel.vwSparePartsInspectionsTotals" />
+    <EntitySet Name="aaaPKOldLeakTest" EntityType="VisualModel.aaaPKOldLeakTest" />
+    <EntitySet Name="tblFPYBreaks" EntityType="VisualModel.tblFPYBreaks" />
+    <EntitySet Name="tblFPYResults" EntityType="VisualModel.tblFPYResults" />
+    <EntitySet Name="tblFPYTargets" EntityType="VisualModel.tblFPYTargets" />
+    <EntitySet Name="tblLeakTestCycleTime" EntityType="VisualModel.tblLeakTestCycleTime" />
+    <EntitySet Name="tblFPYResultsTest" EntityType="VisualModel.tblFPYResultsTest" />
+    <EntitySet Name="tblFPYTargetsTest" EntityType="VisualModel.tblFPYTargetsTest" />
+    <EntitySet Name="tblTestStandCycleTime" EntityType="VisualModel.tblTestStandCycleTime" />
+  </EntityContainer>
+  <EntityType Name="vwShippingStatus">
+    <Key>
+      <PropertyRef Name="SH_Desc" />
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="SHPID" />
+      <PropertyRef Name="SHP_Line" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="COMAT_GoTo" />
+      <PropertyRef Name="MRP_Type" />
+      <PropertyRef Name="MRP_Number" />
+      <PropertyRef Name="SHS_Date" />
+      <PropertyRef Name="SHDSID" />
+      <PropertyRef Name="SHSID" />
+      <PropertyRef Name="SHDS_Desc" />
+      <PropertyRef Name="SHMSID" />
+      <PropertyRef Name="SHMS_Desc" />
+      <PropertyRef Name="Rushed" />
+    </Key>
+    <Property Name="SH_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SH_Sort" Type="Int32" />
+    <Property Name="SH_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="FLDID" Type="Int32" />
+    <Property Name="SH_Location" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="SH_ShipDate" Type="DateTime" Precision="3" />
+    <Property Name="SH_SSSent" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SH_SSPull" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SH_Date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SRC_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SHPID" Type="Int32" Nullable="false" />
+    <Property Name="SHP_Qty" Type="Int32" />
+    <Property Name="SHP_Shipped" Type="DateTime" Precision="3" />
+    <Property Name="SRCID" Type="Int32" />
+    <Property Name="SHP_Location" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_Line" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSSent" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSPull" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="COMAT_GoTo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MPTID" Type="Int32" />
+    <Property Name="MPT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MRP_Type" Type="Int32" Nullable="false" />
+    <Property Name="MRP_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CSN_Desc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="SHS_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SHDSID" Type="Int32" Nullable="false" />
+    <Property Name="SHSID" Type="Int32" Nullable="false" />
+    <Property Name="SHDS_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHMSID" Type="Int32" Nullable="false" />
+    <Property Name="SHMS_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RushComment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Rushed" Type="Int32" Nullable="false" />
+    <Property Name="CSR" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="LOG2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SHCID" Type="Int32" />
+    <Property Name="SHCTID" Type="Int32" />
+    <Property Name="SHAID" Type="Int32" />
+    <Property Name="SHCT_Color" Type="Int32" />
+    <Property Name="SHCT_ForeColor" Type="Int32" />
+    <Property Name="SHCT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHC_Date" Type="DateTime" Precision="3" />
+    <Property Name="SHC_Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_SSPullOK" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CSN_Long" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SHP_PlannedGIDate" Type="DateTime" Precision="3" />
+    <Property Name="SHP_SVPSkip" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwShippingComments">
+    <Key>
+      <PropertyRef Name="SHCT_Desc" />
+      <PropertyRef Name="SHC_Comment" />
+      <PropertyRef Name="SHC_Date" />
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="SHCID" />
+    </Key>
+    <Property Name="SHCT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHC_Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SHC_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Associate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="SHCID" Type="Int32" Nullable="false" />
+    <Property Name="SHPID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwShippingStatusHistory">
+    <Key>
+      <PropertyRef Name="SHMS_Desc" />
+      <PropertyRef Name="SHDS_Desc" />
+      <PropertyRef Name="SHS_Date" />
+      <PropertyRef Name="SHSID" />
+      <PropertyRef Name="SHID" />
+    </Key>
+    <Property Name="SHMS_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHDS_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHS_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Associate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHSID" Type="Int32" Nullable="false" />
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblOptions">
+    <Key>
+      <PropertyRef Name="OPID" />
+      <PropertyRef Name="OP_ID" />
+      <PropertyRef Name="OP_Desc" />
+    </Key>
+    <Property Name="OPID" Type="Int32" Nullable="false" />
+    <Property Name="OP_ID" Type="Int32" Nullable="false" />
+    <Property Name="OP_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OP_Function" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblPart">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSID" Type="Int32" Nullable="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PART_Active" Type="Int32" Nullable="false" />
+    <Property Name="BatchNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateImported" Type="DateTime" Precision="3" />
+    <Property Name="PART_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="PSRID" Type="Int32" />
+    <Property Name="PPTID" Type="Int32" />
+    <Property Name="PPKID" Type="Int32" />
+    <Property Name="PDPID" Type="Int32" />
+    <Property Name="PSFID" Type="Int32" />
+    <Property Name="PSBID" Type="Int32" />
+    <Property Name="PSLID" Type="Int32" />
+    <Property Name="PSPID" Type="Int32" />
+    <Property Name="PART_Group" Type="Byte" />
+    <Property Name="PART_Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PART_MM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PKList_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PART_CusNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PCLID" Type="Int32" />
+    <Property Name="PART_EBZnum" Type="String" MaxLength="31" FixedLength="false" Unicode="false" />
+    <Property Name="US55_Part" Type="Boolean" />
+    <Property Name="Part_RevUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartBearing">
+    <Key>
+      <PropertyRef Name="PSBID" />
+    </Key>
+    <Property Name="PSBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSB_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSB_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartDisp">
+    <Key>
+      <PropertyRef Name="PDPID" />
+    </Key>
+    <Property Name="PDPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PDP_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PDP_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartPackage">
+    <Key>
+      <PropertyRef Name="PPKID" />
+    </Key>
+    <Property Name="PPKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PPK_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPK_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartPort">
+    <Key>
+      <PropertyRef Name="PPTID" />
+    </Key>
+    <Property Name="PPTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PPT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPT_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartSeal">
+    <Key>
+      <PropertyRef Name="PSLID" />
+    </Key>
+    <Property Name="PSLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSL_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSL_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartSeries">
+    <Key>
+      <PropertyRef Name="PSRID" />
+    </Key>
+    <Property Name="PSRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSR_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSR_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartShaft">
+    <Key>
+      <PropertyRef Name="PSFID" />
+    </Key>
+    <Property Name="PSFID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSF_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSF_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartSpecial">
+    <Key>
+      <PropertyRef Name="PSPID" />
+    </Key>
+    <Property Name="PSPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSP_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSP_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPath">
+    <Key>
+      <PropertyRef Name="PTID" />
+    </Key>
+    <Property Name="PTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LNID" Type="Int32" Nullable="false" />
+    <Property Name="PT_Desc" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OPID" Type="Int32" />
+    <Property Name="FTID" Type="Int32" />
+    <Property Name="PT_ArchiveFolder" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPartRineerMotor">
+    <Key>
+      <PropertyRef Name="PARTRID" />
+    </Key>
+    <Property Name="PARTRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="Motor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PARTR_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="RMTID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblPartRineerMotorType">
+    <Key>
+      <PropertyRef Name="RMTID" />
+    </Key>
+    <Property Name="RMTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RMT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RMT_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="RMT_Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPartRineerPath">
+    <Key>
+      <PropertyRef Name="PPZID" />
+    </Key>
+    <Property Name="PPZID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PSRID" Type="Int32" Nullable="false" />
+    <Property Name="PPTID" Type="Int32" Nullable="false" />
+    <Property Name="PPKID" Type="Int32" Nullable="false" />
+    <Property Name="PDPID" Type="Int32" Nullable="false" />
+    <Property Name="PSFID" Type="Int32" Nullable="false" />
+    <Property Name="PSBID" Type="Int32" Nullable="false" />
+    <Property Name="PSLID" Type="Int32" Nullable="false" />
+    <Property Name="PSPID" Type="Int32" Nullable="false" />
+    <Property Name="PPZ_Desc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="PPZ_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwPartRineerMatch2">
+    <Key>
+      <PropertyRef Name="PARTID" />
+    </Key>
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="PPZ_Desc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="PSR_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PPK_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PDP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSF_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSB_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PSP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwPartBomValueStream">
+    <Key>
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="VSID" />
+    </Key>
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="Rows" Type="Int32" />
+    <Property Name="Updated" Type="DateTime" Precision="3" />
+    <Property Name="VSID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPartFolder">
+    <Key>
+      <PropertyRef Name="PTFLDID" />
+    </Key>
+    <Property Name="PTFLDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="PTFLD_Desc" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="PTFLD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PTFLD_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblPartFolderPPT">
+    <Key>
+      <PropertyRef Name="PTPTID" />
+    </Key>
+    <Property Name="PTPTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PTFLDID" Type="Int32" Nullable="false" />
+    <Property Name="PTPT_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTPT_LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PTPT_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PTPT_PDFImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblPartFolderPPTPics">
+    <Key>
+      <PropertyRef Name="PTPPTID" />
+    </Key>
+    <Property Name="PTPPTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PTPTID" Type="Int32" Nullable="false" />
+    <Property Name="PTPPT_Slide" Type="Int32" Nullable="false" />
+    <Property Name="PTPPT_PicName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTPPT_Top" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Left" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Height" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_Width" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="PTPPT_AltText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTPPT_Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PTPPT_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblDSB_Status">
+    <Key>
+      <PropertyRef Name="DSTID" />
+    </Key>
+    <Property Name="DSTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASTID" Type="Int32" Nullable="false" />
+    <Property Name="DST_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DST_Active" Type="Int32" Nullable="false" />
+    <Property Name="DST_SAP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DST_Sort" Type="Int32" Nullable="false" />
+    <Property Name="ARID" Type="Int32" Nullable="false" />
+    <Property Name="DST_Short" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DST_Visual" Type="Int32" />
+    <Property Name="DST_SAP4" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DST_RptSort" Type="Int32" />
+    <Property Name="DST_QVS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueStream">
+    <Key>
+      <PropertyRef Name="VSID" />
+    </Key>
+    <Property Name="VSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VSGID" Type="Int32" Nullable="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VS_Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VS_Active" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="VS_ForeColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VS_SAP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VS_Sort" Type="Int32" />
+    <Property Name="VS_TAKT" Type="Int32" />
+    <Property Name="VS_DSB" Type="Boolean" Nullable="false" />
+    <Property Name="VS_UseDSTID" Type="Boolean" Nullable="false" />
+    <Property Name="VS_QVS" Type="Boolean" />
+    <Property Name="VS_MDB" Type="Boolean" />
+    <Property Name="VS_LogPickScreen" Type="Boolean" />
+    <Property Name="VS_Andon" Type="Boolean" />
+    <Property Name="VS_Added" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachine">
+    <Key>
+      <PropertyRef Name="VMID" />
+    </Key>
+    <Property Name="VMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VM_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Short" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_TotalHours" Type="Int32" />
+    <Property Name="VM_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VM_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ASID1" Type="Int32" />
+    <Property Name="ASID2" Type="Int32" />
+    <Property Name="ASID3" Type="Int32" />
+    <Property Name="ASID4" Type="Int32" />
+    <Property Name="ASID5" Type="Int32" />
+    <Property Name="BLDID" Type="Int32" />
+    <Property Name="VM_ManPower" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Machining" Type="Boolean" Nullable="false" />
+    <Property Name="VM_AvgRunTime" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="VSID_Pre" Type="Int32" />
+    <Property Name="ASIDVOIS" Type="Int32" />
+    <Property Name="VM_FLoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VSID_Pre2" Type="Int32" />
+    <Property Name="VSID_Pre3" Type="Int32" />
+    <Property Name="VM_ProdSupplyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWC">
+    <Key>
+      <PropertyRef Name="VWID" />
+    </Key>
+    <Property Name="VWID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="VW_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Long" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VW_TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="VAID" Type="Int32" />
+    <Property Name="VW_Short" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineSetup">
+    <Key>
+      <PropertyRef Name="SUPID" />
+    </Key>
+    <Property Name="SUPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SUP_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SUP_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCastings">
+    <Key>
+      <PropertyRef Name="CASTID" />
+    </Key>
+    <Property Name="CASTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CAST_Desc" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="CAST_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VLID" Type="Int32" />
+    <Property Name="BLDID" Type="Int32" />
+    <Property Name="CAST_BoxQty" Type="Int32" />
+    <Property Name="CAST_KanbanID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAST_5018Min" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePartSetup">
+    <Key>
+      <PropertyRef Name="SUPTID" />
+    </Key>
+    <Property Name="SUPTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUPID" Type="Int32" />
+    <Property Name="PARTID" Type="Int32" />
+    <Property Name="SUPT_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SUPT_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VWID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpList">
+    <Key>
+      <PropertyRef Name="VNID" />
+    </Key>
+    <Property Name="VNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VN_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VN_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VN_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VAID" Type="Int32" />
+    <Property Name="VN_Operation" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrder">
+    <Key>
+      <PropertyRef Name="VOID" />
+    </Key>
+    <Property Name="VOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VSID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="VO_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VO_Qty" Type="Int32" />
+    <Property Name="VO_BSCStart" Type="DateTime" Precision="0" />
+    <Property Name="VO_BSCFinish" Type="DateTime" Precision="0" />
+    <Property Name="VO_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VO_Updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VO_Sort" Type="Int32" />
+    <Property Name="VO_SortDate" Type="DateTime" Precision="0" />
+    <Property Name="CASTID" Type="Int32" />
+    <Property Name="SUPID" Type="Int32" />
+    <Property Name="VO_StartDate" Type="DateTime" Precision="3" />
+    <Property Name="VO_FinishDate" Type="DateTime" Precision="3" />
+    <Property Name="VO_Created" Type="Boolean" />
+    <Property Name="VO_DeliveredQty" Type="Int32" />
+    <Property Name="VO_SAPStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VMID_Machining" Type="Int32" />
+    <Property Name="VO_RunSetup" Type="Int32" />
+    <Property Name="VO_RunTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunStart" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunFinish" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VO_RunSort" Type="Int32" />
+    <Property Name="VO_DeliveredQtyUpdated" Type="DateTime" Precision="3" />
+    <Property Name="VO_Short1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="VO_UpdatedVMID" Type="DateTime" Precision="3" />
+    <Property Name="VO_Scrap" Type="Int32" />
+    <Property Name="VSID_Pre" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOp">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VWID" Type="Int32" Nullable="false" />
+    <Property Name="VNID" Type="Int32" Nullable="false" />
+    <Property Name="VP_StartDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_FinishDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VP_Updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VP_ProcessingTime" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="VP_ProcessingMin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VP_OpOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VP_SAPStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VP_Yield" Type="Int32" />
+    <Property Name="VP_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VP_OpSort" Type="Int32" />
+    <Property Name="VP_Confirmation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VP_PrintAttempts" Type="Int32" />
+    <Property Name="VP_Open" Type="Boolean" Nullable="false" />
+    <Property Name="VP_Row" Type="Int32" />
+    <Property Name="VP_Rank" Type="Int32" />
+    <Property Name="VP_AddedLater" Type="DateTime" Precision="3" />
+    <Property Name="VP_RemovedLater" Type="DateTime" Precision="3" />
+    <Property Name="VP_Scrap" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderStatus">
+    <Key>
+      <PropertyRef Name="SVID" />
+    </Key>
+    <Property Name="SVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="SMID" Type="Int32" Nullable="false" />
+    <Property Name="SV_TimeStamp" Type="DateTime" Precision="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePart">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="VP_Primary" Type="Int32" Nullable="false" />
+    <Property Name="VP_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VP_RunTime" Type="Decimal" Nullable="false" Precision="7" Scale="4" />
+    <Property Name="VWID" Type="Int32" />
+    <Property Name="VP_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineStatus">
+    <Key>
+      <PropertyRef Name="SMID" />
+    </Key>
+    <Property Name="SMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SM_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SM_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrder">
+    <Key>
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="VSID" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="VO_TimeStamp" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_CreatedPlus" />
+    </Key>
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VO_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VO_Qty" Type="Int32" />
+    <Property Name="VO_BSCStart" Type="DateTime" Precision="0" />
+    <Property Name="VO_BSCFinish" Type="DateTime" Precision="0" />
+    <Property Name="VSID" Type="Int32" Nullable="false" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="VO_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CAST_Desc" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SUP_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="CASTID" Type="Int32" />
+    <Property Name="SUPID" Type="Int32" />
+    <Property Name="SM_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VO_SortDate" Type="DateTime" Precision="0" />
+    <Property Name="VO_Sort" Type="Int32" />
+    <Property Name="SV_TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="SMID" Type="Int32" />
+    <Property Name="VM_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="CurrentOp" Type="String" MaxLength="376" FixedLength="false" Unicode="false" />
+    <Property Name="LastFinishDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_ProcessingTime" Type="Decimal" Precision="10" Scale="5" Nullable="false" />
+    <Property Name="VNID" Type="Int32" />
+    <Property Name="VOC_Comment" Type="String" MaxLength="1137" FixedLength="false" Unicode="false" />
+    <Property Name="VOCID" Type="Int32" />
+    <Property Name="VMCT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VMCT_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CommentAssociate" Type="String" MaxLength="53" FixedLength="false" Unicode="false" />
+    <Property Name="RunTime" Type="Decimal" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="VO_StartDate" Type="DateTime" Precision="3" />
+    <Property Name="VO_FinishDate" Type="DateTime" Precision="3" />
+    <Property Name="VO_Created" Type="Boolean" />
+    <Property Name="VAID" Type="Int32" />
+    <Property Name="VA_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VWID" Type="Int32" />
+    <Property Name="VW_Short" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VW_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Long" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="VO_CreatedPlus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VSP_Date" Type="DateTime" Precision="3" />
+    <Property Name="VP_SAPStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VO_DeliveredQty" Type="Int32" />
+    <Property Name="BLD_Desc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BLDID" Type="Int32" />
+    <Property Name="BLD_Long" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VM_ManPower" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CastingBuilding" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BLDIDCast" Type="Int32" />
+    <Property Name="VMID_Machining" Type="Int32" />
+    <Property Name="VO_RunSetup" Type="Int32" />
+    <Property Name="VO_RunTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunStart" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunFinish" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VO_RunSort" Type="Int32" />
+    <Property Name="VO_Short1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="VMCTID" Type="Int32" />
+    <Property Name="VM_Machining" Type="Boolean" />
+    <Property Name="PV_Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PV_Created" Type="DateTime" Precision="3" />
+    <Property Name="VPID" Type="Int32" />
+    <Property Name="YieldQued" Type="Int32" />
+    <Property Name="ScrapQued" Type="Int32" />
+    <Property Name="PV_Rev2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastOrdered" Type="DateTime" Precision="3" />
+    <Property Name="Samples" Type="Int32" />
+    <Property Name="LastSampleDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_Scrap" Type="Int32" />
+    <Property Name="VS_Desc_Pre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwSerialPartWO">
+    <Key>
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="WO_Desc" />
+      <PropertyRef Name="PartID" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="Serial" />
+    </Key>
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="WO_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VSID" Type="Int32" />
+    <Property Name="PartID" Type="Int32" Nullable="false" />
+    <Property Name="WOID" Type="Int32" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Serial" Type="Int32" Nullable="false" />
+    <Property Name="WO_Qty" Type="Int32" />
+    <Property Name="BatchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCastingPart">
+    <Key>
+      <PropertyRef Name="CASPID" />
+    </Key>
+    <Property Name="CASPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="CASTID" Type="Int32" Nullable="false" />
+    <Property Name="CASP_SetupTime" Type="Decimal" Precision="8" Scale="5" />
+    <Property Name="CASPID_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CASPID_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineCommentType">
+    <Key>
+      <PropertyRef Name="VMCTID" />
+    </Key>
+    <Property Name="VMCTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VMCT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VMCT_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VMCT_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderComment">
+    <Key>
+      <PropertyRef Name="VOCID" />
+    </Key>
+    <Property Name="VOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VMCTID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VOC_Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="VOC_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VOC_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWCSetup">
+    <Key>
+      <PropertyRef Name="WSID" />
+    </Key>
+    <Property Name="WSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VWID" Type="Int32" Nullable="false" />
+    <Property Name="WS_Process" Type="Decimal" Nullable="false" Precision="6" Scale="4" />
+    <Property Name="WS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="WS_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WS_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SUPID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachinePartCross">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PartNum" />
+      <PropertyRef Name="PART_TX" />
+    </Key>
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="VMID1" Type="Int32" />
+    <Property Name="VMID2" Type="Int32" />
+    <Property Name="VMID3" Type="Int32" />
+    <Property Name="VMID4" Type="Int32" />
+    <Property Name="RunTime1" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime2" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime3" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime4" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="PartNum" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="CASTID" Type="Int32" />
+    <Property Name="CAST_Desc" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="VMID5" Type="Int32" />
+    <Property Name="VMID6" Type="Int32" />
+    <Property Name="VMID7" Type="Int32" />
+    <Property Name="VMID8" Type="Int32" />
+    <Property Name="VMID9" Type="Int32" />
+    <Property Name="VMID10" Type="Int32" />
+    <Property Name="RunTime5" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime6" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime7" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime8" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime9" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="RunTime10" Type="Decimal" Precision="7" Scale="4" />
+    <Property Name="VS_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VSID" Type="Int32" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachinePartCrossExt">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="VM_Color1" />
+      <PropertyRef Name="VM_Color2" />
+      <PropertyRef Name="VM_Color3" />
+      <PropertyRef Name="VM_Color4" />
+      <PropertyRef Name="VM_TotalHours1" />
+      <PropertyRef Name="VM_TotalHours2" />
+      <PropertyRef Name="VM_TotalHours3" />
+      <PropertyRef Name="VM_TotalHours4" />
+    </Key>
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="VMID1" Type="Int32" />
+    <Property Name="VM_Desc1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VMID2" Type="Int32" />
+    <Property Name="VM_Desc2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VMID3" Type="Int32" />
+    <Property Name="VM_Desc3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VMID4" Type="Int32" />
+    <Property Name="VM_Desc4" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color2" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color3" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color4" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_TotalHours1" Type="Int32" Nullable="false" />
+    <Property Name="VM_TotalHours2" Type="Int32" Nullable="false" />
+    <Property Name="VM_TotalHours3" Type="Int32" Nullable="false" />
+    <Property Name="VM_TotalHours4" Type="Int32" Nullable="false" />
+    <Property Name="RunTime1" Type="Decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime2" Type="Decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime3" Type="Decimal" Precision="6" Scale="4" />
+    <Property Name="RunTime4" Type="Decimal" Precision="6" Scale="4" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpArea">
+    <Key>
+      <PropertyRef Name="VAID" />
+    </Key>
+    <Property Name="VAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VA_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VA_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VA_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VA_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOpListWC">
+    <Key>
+      <PropertyRef Name="VNDID" />
+    </Key>
+    <Property Name="VNDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VNID" Type="Int32" Nullable="false" />
+    <Property Name="VWID" Type="Int32" Nullable="false" />
+    <Property Name="VND_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VND_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VND_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblCustomerNumber">
+    <Key>
+      <PropertyRef Name="CSNID" />
+    </Key>
+    <Property Name="CSNID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSID" Type="Int32" Nullable="false" />
+    <Property Name="CSN_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CSN_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CSN_Long" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachinePartCast_Search">
+    <Key>
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+    </Key>
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="CAST_Desc" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="VM_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="BLDID" Type="Int32" />
+    <Property Name="VS_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwPartBOM">
+    <Key>
+      <PropertyRef Name="BPID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="BP_Created" />
+      <PropertyRef Name="BP_Updated" />
+    </Key>
+    <Property Name="BPID" Type="Int32" Nullable="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BP_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BP_Updated" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblIssue">
+    <Key>
+      <PropertyRef Name="IUID" />
+    </Key>
+    <Property Name="IUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDID" Type="Int32" Nullable="false" />
+    <Property Name="IVID" Type="Int32" />
+    <Property Name="ICID" Type="Int32" />
+    <Property Name="VSID" Type="Int32" />
+    <Property Name="DSTID" Type="Int32" />
+    <Property Name="IU_Order" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IU_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="IU_Part" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IU_Qty" Type="Int32" />
+    <Property Name="IX_BoxQty" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IU_UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IU_Badge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WOID" Type="Int32" />
+    <Property Name="IPID" Type="Int32" />
+    <Property Name="IU_TOCreated" Type="Boolean" Nullable="false" />
+    <Property Name="IU_SAP" Type="Boolean" Nullable="false" />
+    <Property Name="ITID" Type="Int32" />
+    <Property Name="IU_BinLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VOID" Type="Int32" />
+    <Property Name="BldgOneCleared" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblPrinter">
+    <Key>
+      <PropertyRef Name="PRID" />
+    </Key>
+    <Property Name="PRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PR_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PR_Long" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="PR_Active" Type="Boolean" Nullable="false" />
+    <Property Name="PR_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PR_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblKitter">
+    <Key>
+      <PropertyRef Name="KIID" />
+    </Key>
+    <Property Name="KIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KI_Badge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="WOID" Type="Int32" Nullable="false" />
+    <Property Name="KI_Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AU_Badge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AU_ASID" Type="Int32" />
+    <Property Name="AU_Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="KI_Good" Type="Boolean" Nullable="false" />
+    <Property Name="AEID" Type="Int32" />
+    <Property Name="AU_Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="AU_Count" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblKitterLog">
+    <Key>
+      <PropertyRef Name="KLID" />
+    </Key>
+    <Property Name="KLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KIID" Type="Int32" Nullable="false" />
+    <Property Name="KSID" Type="Int32" Nullable="false" />
+    <Property Name="KL_Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblKitterStatus">
+    <Key>
+      <PropertyRef Name="KSID" />
+    </Key>
+    <Property Name="KSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="KS_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KS_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblKitterAuditError">
+    <Key>
+      <PropertyRef Name="AEID" />
+    </Key>
+    <Property Name="AEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AE_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AE_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AE_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AE_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwKitter">
+    <Key>
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="KLID" />
+      <PropertyRef Name="KSID" />
+    </Key>
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KitterBadge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <Property Name="KIID" Type="Int32" />
+    <Property Name="WOID" Type="Int32" />
+    <Property Name="ValueStream" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KI_Good" Type="Boolean" />
+    <Property Name="KLID" Type="Int32" Nullable="false" />
+    <Property Name="KSID" Type="Int32" Nullable="false" />
+    <Property Name="WkHour" Type="Int32" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwKitterAudited">
+    <Key>
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="WorkOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KitterBadge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KIID" Type="Int32" />
+    <Property Name="WOID" Type="Int32" />
+    <Property Name="ValueStream" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KI_Good" Type="Boolean" />
+    <Property Name="AuditorBadge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuditError" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KitterName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KitterCount" Type="Int32" />
+    <Property Name="KittedTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditorCount" Type="Int32" />
+    <Property Name="AuditTime" Type="DateTime" Precision="3" />
+    <Property Name="AU_ASID" Type="Int32" />
+    <Property Name="AU_Comment" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="AuditorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblPartBOMComp">
+    <Key>
+      <PropertyRef Name="BCID" />
+    </Key>
+    <Property Name="BCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BC_ItemNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Component" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BC_CompDesc" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BC_Fam" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Size" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_X" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Rot" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Seal" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Shaft" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Flan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_PB" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Thdr" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Fam1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Type1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Size1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Control1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_X1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Rot1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Seal1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Shaft1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Flan1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_PB1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Thdr1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Prefix" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BC_Prefix1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPartBOMParent">
+    <Key>
+      <PropertyRef Name="BPID" />
+    </Key>
+    <Property Name="BPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="BP_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BP_Updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BP_MaxValidFromPre" Type="DateTime" Precision="3" />
+    <Property Name="BP_MaxValidFrom" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblKitterAuditQuestions">
+    <Key>
+      <PropertyRef Name="AQID" />
+    </Key>
+    <Property Name="AQID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AQ_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AQ_Active" Type="Boolean" Nullable="false" />
+    <Property Name="AQ_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AQ_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblBuilding">
+    <Key>
+      <PropertyRef Name="BLDID" />
+    </Key>
+    <Property Name="BLDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BLD_Desc" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BLD_Long" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BLD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="BLD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PRID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineHealth">
+    <Key>
+      <PropertyRef Name="MHID" />
+    </Key>
+    <Property Name="MHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MH_1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MH_2" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MH_3" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MH_4" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblKitterAudit">
+    <Key>
+      <PropertyRef Name="KQID" />
+    </Key>
+    <Property Name="KQID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KQ_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="KQ_Active" Type="Boolean" Nullable="false" />
+    <Property Name="KQ_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KQ_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="AQID" Type="Int32" />
+    <Property Name="KIID" Type="Int32" />
+    <Property Name="KQ_Answer" Type="Int32" />
+    <Property Name="KQ_Corrected" Type="Boolean" />
+    <Property Name="KQ_CorrectedDate" Type="DateTime" Precision="3" />
+    <Property Name="KQ_Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineDown">
+    <Key>
+      <PropertyRef Name="VMDID" />
+    </Key>
+    <Property Name="VMDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VMCID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VMD_Comment" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="VMD_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VMD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VMD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VMD_Entered" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VMD_Resolved" Type="DateTime" Precision="3" />
+    <Property Name="VMD_ResolvedASID" Type="Int32" />
+    <Property Name="VMD_ResolvedAssociate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VMD_Priority" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineReasonCodes">
+    <Key>
+      <PropertyRef Name="VMCID" />
+    </Key>
+    <Property Name="VMCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VMC_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VMC_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VMC_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VMC_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwValueMachineComment_History">
+    <Key>
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VOC_TimeStamp" />
+      <PropertyRef Name="VMCT_Desc" />
+      <PropertyRef Name="VOC_Comment" />
+    </Key>
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VOC_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VMCT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="VOC_Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachineDown">
+    <Key>
+      <PropertyRef Name="VMDID" />
+      <PropertyRef Name="VMCID" />
+      <PropertyRef Name="VMID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="VMD_Comment" />
+      <PropertyRef Name="VMD_Active" />
+      <PropertyRef Name="VMD_Created" />
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VMC_Desc" />
+      <PropertyRef Name="lnkBackUp" />
+    </Key>
+    <Property Name="VMDID" Type="Int32" Nullable="false" />
+    <Property Name="VMCID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VMD_Comment" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="VMD_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VMD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VMD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VMD_Resolved" Type="DateTime" Precision="3" />
+    <Property Name="VM_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Short" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VMC_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Associate" Type="String" MaxLength="102" FixedLength="false" Unicode="false" />
+    <Property Name="Associate2" Type="String" MaxLength="102" FixedLength="false" Unicode="false" />
+    <Property Name="lnkBackUp" Type="String" Nullable="false" MaxLength="22" FixedLength="false" Unicode="false" />
+    <Property Name="VMD_Priority" Type="Int32" />
+    <Property Name="BLD_Desc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwPartFolderSHID">
+    <Key>
+      <PropertyRef Name="SHID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="PTPTID" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PTPT_Name" />
+      <PropertyRef Name="PTFLD_Desc" />
+    </Key>
+    <Property Name="SHID" Type="Int32" Nullable="false" />
+    <Property Name="PTPT_PDFImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="PTPTID" Type="Int32" Nullable="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTPT_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTFLD_Desc" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwPartBOM_Details">
+    <Key>
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="PARTID" />
+      <PropertyRef Name="BPPID" />
+      <PropertyRef Name="BPID" />
+    </Key>
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PARTID" Type="Int32" Nullable="false" />
+    <Property Name="BPPID" Type="Int32" Nullable="false" />
+    <Property Name="BPID" Type="Int32" Nullable="false" />
+    <Property Name="PTS_Lev" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_Item" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_ICt" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_Component" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_Asm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_PrcoType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_SPT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_MatDoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_MatDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_ValidFrom" Type="DateTime" Precision="3" />
+    <Property Name="PTS_ValidTo" Type="DateTime" Precision="3" />
+    <Property Name="PTS_ChangeNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PTS_TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Fam" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Control" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="C_X" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Rot" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Seal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Shaft" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Flan" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Thdr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Two" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Three" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPartModelCodeBreakdown">
+    <Key>
+      <PropertyRef Name="MXID" />
+    </Key>
+    <Property Name="MXID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MX_ModelCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MX_CorrectedModelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Part2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Part3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Prefix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Family" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Size" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Control" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_AuxOptions" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_CtrlOptions" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_POR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_NeutralPosSwitch" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_AngleSensor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_StrokeLimiter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_X3X4Ports" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_DAValve" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Damping" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_DispScrew" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Series" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Threads" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Rotation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_MinDisp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Dash" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Seals" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Bearing" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Shaft" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Flange" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_PortBlock" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_BoostPump" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_ThroughDrive" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_End" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Valve" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_PortsValve" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Filter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Connector" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Version" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Sensor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_SpecialOption" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_DiscountCombo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Plant" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Product" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MX_Operation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PARTID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDelivery">
+    <Key>
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="SPDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPD_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPD_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="PARTID" Type="Int32" />
+    <Property Name="SPD_Qty" Type="Int32" />
+    <Property Name="SPD_Shipped" Type="DateTime" Precision="3" />
+    <Property Name="SPD_Picked" Type="DateTime" Precision="3" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="ASID_I" Type="Int32" />
+    <Property Name="ASID_S" Type="Int32" />
+    <Property Name="SPDSID" Type="Int32" />
+    <Property Name="SPD_Inspected" Type="DateTime" Precision="3" />
+    <Property Name="SPD_Changed" Type="Boolean" />
+    <Property Name="SPD_Issue" Type="Boolean" />
+    <Property Name="SPD_Override" Type="DateTime" Precision="3" />
+    <Property Name="ASID_O" Type="Int32" />
+    <Property Name="SPD_Claim" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDeliveryStatus">
+    <Key>
+      <PropertyRef Name="SPDSID" />
+    </Key>
+    <Property Name="SPDSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPDS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPDS_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPDS_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPDS_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblSparePartsDeliveryRole">
+    <Key>
+      <PropertyRef Name="SPDRID" />
+    </Key>
+    <Property Name="SPDRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPDR_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPDR_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPDR_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPDR_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="PNum" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="Initials" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblSparePartsInspections">
+    <Key>
+      <PropertyRef Name="SPIID" />
+    </Key>
+    <Property Name="SPIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPDID" Type="Int32" Nullable="false" />
+    <Property Name="SPDQID" Type="Int32" Nullable="false" />
+    <Property Name="SPI_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPI_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPI_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPI_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SPI_Answer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SPI_ASID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblSparePartsInspQuestions">
+    <Key>
+      <PropertyRef Name="SPDQID" />
+    </Key>
+    <Property Name="SPDQID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPDQ_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPDQ_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPDQ_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPDQ_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblSparePartsComments">
+    <Key>
+      <PropertyRef Name="SPDCID" />
+    </Key>
+    <Property Name="SPDCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SPDC_Desc" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SPDC_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SPDC_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPDC_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="SPDID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineSupplier">
+    <Key>
+      <PropertyRef Name="VLID" />
+    </Key>
+    <Property Name="VLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VL_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VL_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VL_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VL_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOpManualConfirm">
+    <Key>
+      <PropertyRef Name="VVID" />
+    </Key>
+    <Property Name="VVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="VQID" Type="Int32" Nullable="false" />
+    <Property Name="VV_Yield" Type="Int32" Nullable="false" />
+    <Property Name="VV_Scrap" Type="Int32" Nullable="false" />
+    <Property Name="VV_OP" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="VV_WorkCenter" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VV_PNum" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VV_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PCID" Type="Int32" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="PRID" Type="Int32" />
+    <Property Name="SAID" Type="Int32" />
+    <Property Name="VYID" Type="Int32" />
+    <Property Name="VV_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VV_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderOpManualConfirmErr">
+    <Key>
+      <PropertyRef Name="VZID" />
+    </Key>
+    <Property Name="VZID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="VZ_Desc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Host" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Caller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderManualConfirmErr">
+    <Key>
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VZID" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="VZ_Desc" />
+      <PropertyRef Name="VZ_Created" />
+    </Key>
+    <Property Name="VO_Desc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VN_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VW_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Short" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="VP_OpOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VZID" Type="Int32" Nullable="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="VZ_Desc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Host" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Caller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VZ_Created" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderLostCapacity">
+    <Key>
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="RunTime" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VSID" />
+      <PropertyRef Name="PART_Desc" />
+    </Key>
+    <Property Name="LostDate" Type="DateTime" Precision="0" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="VO_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VO_Qty" Type="Int32" />
+    <Property Name="VO_DeliveredQty" Type="Int32" />
+    <Property Name="RunTime" Type="Decimal" Nullable="false" Precision="7" Scale="4" />
+    <Property Name="VO_RunStart" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunFinish" Type="DateTime" Precision="3" />
+    <Property Name="VO_RunSetup" Type="Int32" />
+    <Property Name="VO_RunTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="VO_RunTotalHR" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VM_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Short" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VSID" Type="Int32" Nullable="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderOp">
+    <Key>
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VP_TimeStamp" />
+      <PropertyRef Name="VP_Updated" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VWID" />
+      <PropertyRef Name="VNID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="VO_TimeStamp" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="SUP_Desc" />
+      <PropertyRef Name="CAST_Desc" />
+      <PropertyRef Name="SM_Desc" />
+    </Key>
+    <Property Name="VO_Desc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VN_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VW_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Short" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="VP_StartDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_FinishDate" Type="DateTime" Precision="3" />
+    <Property Name="VP_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VP_Updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VP_ProcessingTime" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="VP_ProcessingMin" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VP_OpOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VP_SAPStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VWID" Type="Int32" Nullable="false" />
+    <Property Name="VNID" Type="Int32" Nullable="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VO_Qty" Type="Int32" />
+    <Property Name="VO_BSCStart" Type="DateTime" Precision="0" />
+    <Property Name="VO_BSCFinish" Type="DateTime" Precision="0" />
+    <Property Name="VO_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SUP_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CAST_Desc" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="SM_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SV_TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="VM_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VP_Yield" Type="Int32" />
+    <Property Name="VP_OpSort" Type="Int32" />
+    <Property Name="VMID_Machining" Type="Int32" />
+    <Property Name="VM_DescDSB" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VP_PrintAttempts" Type="Int32" />
+    <Property Name="VS_Desc_Pre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblValueMachineOrderCastingEmail">
+    <Key>
+      <PropertyRef Name="VQID" />
+    </Key>
+    <Property Name="VQID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VQ_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VO_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VO_RunStart" Type="DateTime" Precision="3" />
+    <Property Name="VO_Qty" Type="Int32" />
+    <Property Name="VO_DeliveredQty" Type="Int32" />
+    <Property Name="Supplier" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Casting" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BoxQty" Type="Double" />
+    <Property Name="OrderQtyTotal" Type="Double" />
+    <Property Name="DeliveredQtyTotal" Type="Double" />
+    <Property Name="DeltaQtyTotal" Type="Double" />
+    <Property Name="OrderBoxes" Type="Double" />
+    <Property Name="OrderBoxesRndDown" Type="Int32" />
+    <Property Name="Building" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="C5018" Type="Double" />
+    <Property Name="C5018Min" Type="Int32" />
+    <Property Name="Boxes" Type="Int32" />
+    <Property Name="C5018RunAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineScrapCode">
+    <Key>
+      <PropertyRef Name="SAID" />
+    </Key>
+    <Property Name="SAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SA_Short" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SA_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SA_Active" Type="Boolean" Nullable="false" />
+    <Property Name="SA_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SA_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePC">
+    <Key>
+      <PropertyRef Name="PCID" />
+    </Key>
+    <Property Name="PCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PC_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PC_Active" Type="Boolean" Nullable="false" />
+    <Property Name="PC_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PC_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="PC_AutoConfirm" Type="Boolean" Nullable="false" />
+    <Property Name="PC_AutoFromPC" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePCLink">
+    <Key>
+      <PropertyRef Name="VKID" />
+    </Key>
+    <Property Name="VKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PCID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="VK_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VK_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VK_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePrinter">
+    <Key>
+      <PropertyRef Name="VUID" />
+    </Key>
+    <Property Name="VUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="VU_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VU_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VU_Deleted" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblValueMachineWC_VMID">
+    <Key>
+      <PropertyRef Name="WMID" />
+    </Key>
+    <Property Name="WMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VMID" Type="Int32" Nullable="false" />
+    <Property Name="WM_Active" Type="Boolean" Nullable="false" />
+    <Property Name="WM_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="WM_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VWID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblValueMachinePCPrinters">
+    <Key>
+      <PropertyRef Name="VDID" />
+    </Key>
+    <Property Name="VDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRID" Type="Int32" Nullable="false" />
+    <Property Name="PCID" Type="Int32" Nullable="false" />
+    <Property Name="VD_Active" Type="Boolean" Nullable="false" />
+    <Property Name="VD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VD_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="VD_LabelSort" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderOpCon_SAP">
+    <Key>
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VO_Desc" />
+      <PropertyRef Name="VO_QTY" />
+    </Key>
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="Confimred" Type="Int32" />
+    <Property Name="Scrapped" Type="Int32" Nullable="false" />
+    <Property Name="LastConfirm" Type="DateTime" Precision="3" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="VO_Desc" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VP_OpOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VO_QTY" Type="Int32" Nullable="false" />
+    <Property Name="YieldQued" Type="Int32" />
+    <Property Name="ScrapQued" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderManualConfirm">
+    <Key>
+      <PropertyRef Name="VM_Desc" />
+      <PropertyRef Name="VOID" />
+      <PropertyRef Name="VS_Desc" />
+      <PropertyRef Name="PART_Desc" />
+      <PropertyRef Name="PART_TX" />
+      <PropertyRef Name="VVID" />
+      <PropertyRef Name="ASID" />
+      <PropertyRef Name="VPID" />
+      <PropertyRef Name="VV_Yield" />
+      <PropertyRef Name="VV_Scrap" />
+      <PropertyRef Name="VV_OP" />
+      <PropertyRef Name="VV_WorkCenter" />
+      <PropertyRef Name="VV_PNum" />
+      <PropertyRef Name="VV_Created" />
+      <PropertyRef Name="VQID" />
+      <PropertyRef Name="PC_Desc" />
+      <PropertyRef Name="LY_Created" />
+      <PropertyRef Name="VQ_Desc" />
+    </Key>
+    <Property Name="VO_Desc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="VM_Desc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VN_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VW_Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VW_Short" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VP_OpOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VOID" Type="Int32" Nullable="false" />
+    <Property Name="VS_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PART_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PART_TX" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="VVID" Type="Int32" Nullable="false" />
+    <Property Name="ASID" Type="Int32" Nullable="false" />
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="VV_Yield" Type="Int32" Nullable="false" />
+    <Property Name="VV_Scrap" Type="Int32" Nullable="false" />
+    <Property Name="VV_OP" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="VV_WorkCenter" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VV_PNum" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VV_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VQID" Type="Int32" Nullable="false" />
+    <Property Name="SA_Short" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PC_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PCID" Type="Int32" />
+    <Property Name="VMID" Type="Int32" />
+    <Property Name="SAID" Type="Int32" />
+    <Property Name="VV_Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VV_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="LY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VQ_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="YieldQued" Type="Int32" />
+    <Property Name="ScrapQued" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderManualConfirmLog_Last">
+    <Key>
+      <PropertyRef Name="LYID" />
+      <PropertyRef Name="VVID" />
+      <PropertyRef Name="VQID" />
+      <PropertyRef Name="LY_Created" />
+      <PropertyRef Name="VQ_Desc" />
+    </Key>
+    <Property Name="LYID" Type="Int32" Nullable="false" />
+    <Property Name="VVID" Type="Int32" Nullable="false" />
+    <Property Name="VQID" Type="Int32" Nullable="false" />
+    <Property Name="LY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="row" Type="Int64" />
+    <Property Name="Rank" Type="Int64" />
+    <Property Name="VQ_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwValueMachineOrderOpManualConfirmQUE">
+    <Key>
+      <PropertyRef Name="VPID" />
+    </Key>
+    <Property Name="VPID" Type="Int32" Nullable="false" />
+    <Property Name="YieldQued" Type="Int32" />
+    <Property Name="ScrapQued" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwSparePartsInspectionsSumUp">
+    <Key>
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="SPDID" Type="Int32" Nullable="false" />
+    <Property Name="Pre_Packed" Type="Int32" />
+    <Property Name="No_Rust" Type="Int32" />
+    <Property Name="No_Damage" Type="Int32" />
+    <Property Name="Correct_Qty" Type="Int32" />
+    <Property Name="Correct_PN" Type="Int32" />
+    <Property Name="Correct_Desc" Type="Int32" />
+    <Property Name="Complete" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwSparePartsInspectionsTotals">
+    <Key>
+      <PropertyRef Name="SPD_Desc" />
+      <PropertyRef Name="SPD_Created" />
+      <PropertyRef Name="SPDC_Desc" />
+      <PropertyRef Name="SPDID" />
+    </Key>
+    <Property Name="ASID" Type="Int32" />
+    <Property Name="SPD_Desc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SPD_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SPD_Picked" Type="DateTime" Precision="3" />
+    <Property Name="Expr1" Type="Int32" />
+    <Property Name="SPD_Inspected" Type="DateTime" Precision="3" />
+    <Property Name="Pre_Packed" Type="Int32" />
+    <Property Name="No_Rust" Type="Int32" />
+    <Property Name="No_Damage" Type="Int32" />
+    <Property Name="Correct_Qty" Type="Int32" />
+    <Property Name="Correct_PN" Type="Int32" />
+    <Property Name="Correct_Desc" Type="Int32" />
+    <Property Name="Complete" Type="Int32" />
+    <Property Name="ASID_I" Type="Int32" />
+    <Property Name="SPD_Override" Type="DateTime" Precision="3" />
+    <Property Name="ASID_O" Type="Int32" />
+    <Property Name="SPDSID" Type="Int32" />
+    <Property Name="SPDC_Desc" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SPDID" Type="Int32" Nullable="false" />
+    <Property Name="SPD_Claim" Type="Boolean" />
+    <Property Name="SPD_Issue" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="aaaPKOldLeakTest">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="hour" Type="Int32" />
+    <Property Name="minit" Type="Int32" />
+    <Property Name="serialnumber" Type="Int32" />
+    <Property Name="PKLine" Type="Int32" />
+    <Property Name="cntPass" Type="Int32" />
+    <Property Name="cntFail" Type="Int32" />
+    <Property Name="WorkOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="GridCol" Type="Int32" />
+    <Property Name="Bucket" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bucket2" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblFPYBreaks">
+    <Key>
+      <PropertyRef Name="FPYID" />
+    </Key>
+    <Property Name="FPYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FPY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FPY_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="FPY_Hour" Type="Int32" />
+    <Property Name="FPY_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FPY_Shift" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="FPY_StartMinute" Type="Int32" />
+    <Property Name="FPY_TotalMinutes" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblFPYResults">
+    <Key>
+      <PropertyRef Name="FPYRID" />
+    </Key>
+    <Property Name="FPYRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TotalTests" Type="Int32" />
+    <Property Name="FirstPass" Type="Int32" />
+    <Property Name="Fails" Type="Int32" />
+    <Property Name="FPY" Type="Double" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="Nu" Type="Double" />
+    <Property Name="ResultsDate" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="VSID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblFPYTargets">
+    <Key>
+      <PropertyRef Name="FPYTID" />
+    </Key>
+    <Property Name="FPYTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FPYT_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FPYT_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="FPY_ShiftTarget" Type="Int32" />
+    <Property Name="FPY_TwentyFourTarget" Type="Int32" />
+    <Property Name="Nu_ShiftTarget" Type="Int32" />
+    <Property Name="Nu_TwentyFourTarget" Type="Int32" />
+    <Property Name="VSID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblLeakTestCycleTime">
+    <Key>
+      <PropertyRef Name="LTCYID" />
+    </Key>
+    <Property Name="LTCYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LTCY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LTCY_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="LTCY_Part" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="LTCY_Time" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_Family" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LTCY_Line" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="LTCY_HousingTime" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_FlangeTime" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="LTCY_BoltUpTime" Type="Decimal" Precision="4" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblFPYResultsTest">
+    <Key>
+      <PropertyRef Name="FPYRID" />
+    </Key>
+    <Property Name="FPYRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="TotalTests" Type="Int32" />
+    <Property Name="FirstPass" Type="Int32" />
+    <Property Name="Fails" Type="Int32" />
+    <Property Name="FPY" Type="Double" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="Nu" Type="Double" />
+    <Property Name="ResultsDate" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TestStand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblFPYTargetsTest">
+    <Key>
+      <PropertyRef Name="FPYTSID" />
+    </Key>
+    <Property Name="FPYTSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FPYTS_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FPYTS_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="FPYTS_ShiftTarget" Type="Int32" />
+    <Property Name="FPYTS_TwentyFourTarget" Type="Int32" />
+    <Property Name="Nu_ShiftTarget" Type="Int32" />
+    <Property Name="Nu_TwentyFourTarget" Type="Int32" />
+    <Property Name="TestStand" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblTestStandCycleTime">
+    <Key>
+      <PropertyRef Name="TSCYID" />
+    </Key>
+    <Property Name="TSCYID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TSCY_Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TSCY_Deleted" Type="DateTime" Precision="3" />
+    <Property Name="TSCY_Part" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TSCY_Time" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="TSCY_Family" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TSCY_TestStand" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

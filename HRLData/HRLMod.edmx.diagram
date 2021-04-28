@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="164870916b054c518e72024a098d350f" Name="Diagram1">
+        <EntityTypeShape EntityType="HRLModel.tblApp" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppButton" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppColumnOption" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppColumns" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppErrorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppFilter" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppNavigation" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppNavigationUser" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppNavigationUserGrid" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppNavMoreButton" Width="1.5" PointX="10.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppOptions" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppPath" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppReport" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppReportOption" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppRole" Width="1.5" PointX="5.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppRoleButtons" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppRoles" Width="1.5" PointX="8" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppTraining" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAppUser" Width="1.5" PointX="10.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblEmailDistribution" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblEmailDistributionDetail" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblFilePath" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblFileType" Width="1.5" PointX="2.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblOptions" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblShift" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.tblAssociate" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppButton" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppColumnFilter" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppColumnFilterClear" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppColumnFilterFields" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppFilterHelper" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppNav" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppNavigation" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppView" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAppView2" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwAssociate" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRLModel.vwEmailDistribution" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="HRLModel.FK_tblAppButton_tblApp" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppOptions_tblApp" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppPath_tblApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppReport_tblApp" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppRole_tblApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppTraining_tblApplication" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppNavAdditionalButtons_tblAppButton" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppNavigation_tblAppButton" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppRoleButtons_tblAppButton" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppColumns_tblAppColumnOption" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppColumns_tblAppNavigation" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppErrorLog_tblAppErrorLog" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppNavAdditionalButtons_tblAppNavigation" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppNavigationUser_tblAppNavigation" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblReportOption_tblReport" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppRole_tblRole" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppRoleButtons_tblAppRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblAppUser_tblAppRole" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblEmailDistributionDetail_tblEmailDistribution" ManuallyRouted="false" />
+        <AssociationConnector Association="HRLModel.FK_tblFilePath_tblFileType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HRLModel.Nums" Width="1.5" PointX="17.375" PointY="18.75" />
+        <EntityTypeShape EntityType="HRLModel.tblAppDropDown" Width="1.5" PointX="19.375" PointY="17.75" />
+        <EntityTypeShape EntityType="HRLModel.tblPBProxy" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HRLModel.vwPBTracking" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HRLModel.tblDriverCompany" Width="1.5" PointX="10.375" PointY="21.75" />
+        <EntityTypeShape EntityType="HRLModel.tblDriverName" Width="1.5" PointX="17.375" PointY="21.75" />
+        <EntityTypeShape EntityType="HRLModel.tblDriverLog" Width="1.5" PointX="21.375" PointY="16.75" />
+        <EntityTypeShape EntityType="HRLModel.vwDriverLog" Width="1.5" PointX="19.375" PointY="21.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

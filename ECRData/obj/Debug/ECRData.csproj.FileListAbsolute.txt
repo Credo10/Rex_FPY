@@ -1,0 +1,9 @@
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\ECRData.dll.config
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\ECRData.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\ECRData.pdb
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\EntityFramework.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\EntityFramework.SqlServer.dll
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\EntityFramework.xml
+Z:\RexNewMaterialRequest\ECRData\bin\Debug\EntityFramework.SqlServer.xml
+Z:\RexNewMaterialRequest\ECRData\obj\Debug\ECRData.dll
+Z:\RexNewMaterialRequest\ECRData\obj\Debug\ECRData.pdb

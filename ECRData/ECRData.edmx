@@ -1,0 +1,1438 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ECRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAssociateDocShow">
+          <Key>
+            <PropertyRef Name="ASBID" />
+          </Key>
+          <Property Name="ASBID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="ASB_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcession">
+          <Key>
+            <PropertyRef Name="CSSID" />
+          </Key>
+          <Property Name="CSSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CZGID" Type="int" Nullable="false" />
+          <Property Name="CVID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="ASID_Entered" Type="int" Nullable="false" />
+          <Property Name="CSS_Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CSS_Deleted" Type="datetime" />
+          <Property Name="CSS_Hot" Type="bit" Nullable="false" />
+          <Property Name="CSS_Repeat" Type="bit" Nullable="false" />
+          <Property Name="CSS_RegNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CSS_Date" Type="datetime" Nullable="false" />
+          <Property Name="CSS_TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="CSS_Supplier" Type="varchar" MaxLength="50" />
+          <Property Name="CSS_UsedIn" Type="varchar" MaxLength="50" />
+          <Property Name="CSS_Image" Type="image" />
+          <Property Name="CSS_UseBy" Type="datetime" />
+          <Property Name="CSS_SpecialRequirement" Type="varchar" MaxLength="1000" />
+         <Property Name="CSS_ActualValue" Type="varchar" MaxLength="1000" />
+          <Property Name="CSS_RootCause" Type="varchar" MaxLength="1000" />
+          <Property Name="CSS_Description" Type="varchar" MaxLength="500" />
+          <Property Name="CSS_AttachList" Type="varchar" MaxLength="500" />
+          <Property Name="CSS_UseStart" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcessionApproval">
+          <Key>
+            <PropertyRef Name="CSAID" />
+          </Key>
+          <Property Name="CSAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CSSID" Type="int" Nullable="false" />
+          <Property Name="CZRID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="CSA_Approved" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcessionDeviation">
+          <Key>
+            <PropertyRef Name="CVID" />
+          </Key>
+          <Property Name="CVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="CZRID" Type="int" />
+          <Property Name="CV_Desc" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="CV_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcessionGroup">
+          <Key>
+            <PropertyRef Name="CZGID" />
+          </Key>
+          <Property Name="CZGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CZG_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CZG_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcessionMaterial">
+          <Key>
+            <PropertyRef Name="CSMID" />
+          </Key>
+          <Property Name="CSMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CSSID" Type="int" Nullable="false" />
+          <Property Name="CSM_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CSM_Qty" Type="int" />
+          <Property Name="CSM_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConcessionRole">
+          <Key>
+            <PropertyRef Name="CZRID" />
+          </Key>
+          <Property Name="CZRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CZR_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CZR_Deleted" Type="datetime" />
+          <Property Name="CZR_DefaultTask" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tblConcessionRoleAssign">
+          <Key>
+            <PropertyRef Name="CZAID" />
+          </Key>
+          <Property Name="CZAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CZGID" Type="int" Nullable="false" />
+          <Property Name="CZRID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDoc">
+          <Key>
+            <PropertyRef Name="DOCID" />
+          </Key>
+          <Property Name="DOCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DTID" Type="int" Nullable="false" />
+          <Property Name="DOC_Num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOC_Rev" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOC_Title" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="DOC_URL" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocAppDetail">
+          <Key>
+            <PropertyRef Name="DADID" />
+          </Key>
+          <Property Name="DADID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="DAATID" Type="int" />
+          <Property Name="DAD_Approved" Type="datetime" />
+          <Property Name="DAD_Viewed" Type="datetime" />
+          <Property Name="DAD_Order" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDocApproval">
+          <Key>
+            <PropertyRef Name="DAID" />
+          </Key>
+          <Property Name="DAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DLID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="ASID_Creator" Type="int" />
+          <Property Name="DOCID" Type="int" Nullable="false" />
+          <Property Name="DASID" Type="int" Nullable="false" />
+          <Property Name="DA_Date" Type="datetime" Nullable="false" />
+          <Property Name="DA_BriefText" Type="varchar" MaxLength="500" />
+          <Property Name="DA_Subtitle" Type="varchar" MaxLength="500" />
+          <Property Name="DA_Amendment" Type="varchar" MaxLength="1000" />
+          <Property Name="DA_Created" Type="datetime" Nullable="false" />
+          <Property Name="DA_Hot" Type="bit" />
+          <Property Name="DA_New" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblDocApprovalType">
+          <Key>
+            <PropertyRef Name="DAATID" />
+          </Key>
+          <Property Name="DAATID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAAT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DAAT_DescLong" Type="varchar" MaxLength="500" />
+          <Property Name="DAAT_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblDocAppStatus">
+          <Key>
+            <PropertyRef Name="DASID" />
+          </Key>
+          <Property Name="DASID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAS_Desc" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DAS_Active" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocAppStatusHistory">
+          <Key>
+            <PropertyRef Name="DHID" />
+          </Key>
+          <Property Name="DHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAID" Type="int" Nullable="false" />
+          <Property Name="DASID" Type="int" Nullable="false" />
+          <Property Name="DH_Created" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocLine">
+          <Key>
+            <PropertyRef Name="DLID" />
+          </Key>
+          <Property Name="DLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DL_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DL_Long" Type="varchar" MaxLength="250" />
+          <Property Name="DL_Active" Type="bit" Nullable="false" />
+          <Property Name="DL_Deleted" Type="datetime" />
+          <Property Name="ASID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDocLineAsc">
+          <Key>
+            <PropertyRef Name="DLDID" />
+          </Key>
+          <Property Name="DLDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DLID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="DLD_Type" Type="int" Nullable="false" />
+          <Property Name="DAATID" Type="int" />
+          <Property Name="DLD_Created" Type="datetime" />
+          <Property Name="DLD_Updated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblDocType">
+          <Key>
+            <PropertyRef Name="DTID" />
+          </Key>
+          <Property Name="DTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DT_Short" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="DT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DT_Active" Type="int" Nullable="false" />
+          <Property Name="DT_Deleted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblFile">
+          <Key>
+            <PropertyRef Name="FLID" />
+          </Key>
+          <Property Name="FLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FL_Desc" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FL_Date" Type="datetime" Nullable="false" />
+          <Property Name="FL_DateCreated" Type="datetime" />
+          <Property Name="FTID" Type="int" Nullable="false" />
+          <Property Name="FL_DescArchive" Type="varchar" MaxLength="1000" />
+          <Property Name="FL_Completed" Type="datetime" />
+          <Property Name="FL_DetailCount" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.tblAssociate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblAssociate">
+          <Key>
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="AS_Last" />
+            <PropertyRef Name="AS_User" />
+            <PropertyRef Name="AS_Active" />
+            <PropertyRef Name="AS_Reso" />
+          </Key>
+          <Property Name="ASID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DPID" Type="int" />
+          <Property Name="OFID" Type="int" />
+          <Property Name="AS_Display" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AS_First" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AS_Phone" Type="varchar" MaxLength="25" />
+          <Property Name="AS_Last" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="AS_User" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="AS_OutID" Type="varchar" MaxLength="255" />
+          <Property Name="AS_Sync" Type="datetime" />
+          <Property Name="AS_Active" Type="bit" Nullable="false" />
+          <Property Name="AS_Reso" Type="bit" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="80" />
+          <Property Name="AS_Domain" Type="varchar" MaxLength="10" />
+          <Property Name="AS_Group" Type="varchar" MaxLength="50" />
+          <Property Name="AS_DC" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.vwConcessionDiviationRiskPerson' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwConcessionDiviationRiskPerson">
+          <Key>
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="CVID" />
+            <PropertyRef Name="CZR_Desc" />
+            <PropertyRef Name="CZRID" />
+            <PropertyRef Name="ASID" />
+          </Key>
+          <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+          <Property Name="CVID" Type="int" Nullable="false" />
+          <Property Name="CZR_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CZRID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.vwDocApproval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDocApproval">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Product" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Document" />
+            <PropertyRef Name="Rev" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="DASID" />
+            <PropertyRef Name="DTID" />
+            <PropertyRef Name="DOC_URL" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="DLID" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="DA_Created" />
+            <PropertyRef Name="Approved" />
+          </Key>
+          <Property Name="DAID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Document" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rev" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DOCID" Type="int" Nullable="false" />
+          <Property Name="DASID" Type="int" Nullable="false" />
+          <Property Name="DTID" Type="int" Nullable="false" />
+          <Property Name="DA_BriefText" Type="varchar" MaxLength="500" />
+          <Property Name="DOC_URL" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+          <Property Name="DLID" Type="int" Nullable="false" />
+          <Property Name="Approved" Type="int" Nullable="false" />
+          <Property Name="AS_First" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASID_Creator" Type="int" />
+          <Property Name="Creator" Type="varchar" MaxLength="150" />
+          <Property Name="CreatorEmail" Type="varchar" MaxLength="100" />
+          <Property Name="DA_Subtitle" Type="varchar" MaxLength="500" />
+          <Property Name="DA_Amendment" Type="varchar" MaxLength="1000" />
+          <Property Name="DA_Hot" Type="bit" />
+          <Property Name="DA_Created" Type="datetime" Nullable="false" />
+          <Property Name="DaysOpen" Type="int" />
+          <Property Name="ASID" Type="int" />
+          <Property Name="OwnerDisplay" Type="varchar" MaxLength="150" />
+          <Property Name="OwnerEmail" Type="varchar" MaxLength="100" />
+          <Property Name="OwnerFirst" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerLast" Type="varchar" MaxLength="50" />
+          <Property Name="DA_New" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.vwDocApproved' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDocApproved">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Approved" />
+          </Key>
+          <Property Name="DAID" Type="int" Nullable="false" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Approvals" Type="int" />
+          <Property Name="Approved" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.vwDocApprovers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDocApprovers">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Product" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Document" />
+            <PropertyRef Name="Rev" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="DASID" />
+            <PropertyRef Name="DTID" />
+            <PropertyRef Name="DOC_URL" />
+            <PropertyRef Name="DLID" />
+            <PropertyRef Name="DADID" />
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="AS_Last" />
+            <PropertyRef Name="DLD_Type" />
+            <PropertyRef Name="DAAT_Desc" />
+            <PropertyRef Name="DA_Created" />
+            <PropertyRef Name="DA_Hot" />
+          </Key>
+          <Property Name="DAID" Type="int" Nullable="false" />
+          <Property Name="Product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Document" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rev" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="753" Nullable="false" />
+          <Property Name="DOCID" Type="int" Nullable="false" />
+          <Property Name="DASID" Type="int" Nullable="false" />
+          <Property Name="DTID" Type="int" Nullable="false" />
+          <Property Name="DA_BriefText" Type="varchar" MaxLength="500" />
+          <Property Name="DOC_URL" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="DLID" Type="int" Nullable="false" />
+          <Property Name="DAD_Approved" Type="datetime" />
+          <Property Name="DAD_Viewed" Type="datetime" />
+          <Property Name="DADID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+          <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AS_First" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AS_Last" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DAD_Order" Type="int" />
+          <Property Name="AS_User" Type="varchar" MaxLength="55" />
+          <Property Name="DLD_Type" Type="int" Nullable="false" />
+          <Property Name="DAAT_Desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DAATID" Type="int" />
+          <Property Name="DAAT_DescLong" Type="varchar" MaxLength="500" />
+          <Property Name="DA_Created" Type="datetime" Nullable="false" />
+          <Property Name="DA_Hot" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DaysOpen" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ECR.dbo.vwDocAssociates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDocAssociates">
+          <Key>
+            <PropertyRef Name="DADID" />
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="DADID" Type="int" Nullable="false" />
+          <Property Name="DAID" Type="int" Nullable="false" />
+          <Property Name="ASID" Type="int" Nullable="false" />
+          <Property Name="AS_Display" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="AS_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Role" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Viewed" Type="datetime" />
+          <Property Name="Approved" Type="datetime" />
+        </EntityType>
+        <Function Name="p_GetDocApprovers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DAID" Type="int" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="p_tblDocDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DAID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="p_tblDocFind" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PLID" Type="varchar" Mode="In" />
+          <Parameter Name="Doc" Type="varchar" Mode="In" />
+          <Parameter Name="DASID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="p_tblDocInUp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DAID" Type="varchar" Mode="In" />
+          <Parameter Name="DLID" Type="varchar" Mode="In" />
+          <Parameter Name="ASID" Type="varchar" Mode="In" />
+          <Parameter Name="Doc" Type="varchar" Mode="In" />
+          <Parameter Name="DTID" Type="varchar" Mode="In" />
+          <Parameter Name="Rev" Type="varchar" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="BriefText" Type="varchar" Mode="In" />
+          <Parameter Name="Path" Type="varchar" Mode="In" />
+          <Parameter Name="DASID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="p_tblDocLineAsc_Cross" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="p_tblDocLineAsc_Del" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ASIDs" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="p_tblDocLineAsc_Up" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ASID" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Val" Type="int" Mode="In" />
+        </Function>
+        <Function Name="p_tblDocLineAsc_Up2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ASIDs" Type="varchar" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ECRModelStoreContainer">
+          <EntitySet Name="tblAssociateDocShow" EntityType="Self.tblAssociateDocShow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcession" EntityType="Self.tblConcession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionApproval" EntityType="Self.tblConcessionApproval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionDeviation" EntityType="Self.tblConcessionDeviation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionGroup" EntityType="Self.tblConcessionGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionMaterial" EntityType="Self.tblConcessionMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionRole" EntityType="Self.tblConcessionRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConcessionRoleAssign" EntityType="Self.tblConcessionRoleAssign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDoc" EntityType="Self.tblDoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocAppDetail" EntityType="Self.tblDocAppDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocApproval" EntityType="Self.tblDocApproval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocApprovalType" EntityType="Self.tblDocApprovalType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocAppStatus" EntityType="Self.tblDocAppStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocAppStatusHistory" EntityType="Self.tblDocAppStatusHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocLine" EntityType="Self.tblDocLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocLineAsc" EntityType="Self.tblDocLineAsc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDocType" EntityType="Self.tblDocType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFile" EntityType="Self.tblFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAssociate" EntityType="Self.tblAssociate" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [tblAssociate].[ASID] AS [ASID],
+              [tblAssociate].[DPID] AS [DPID],
+              [tblAssociate].[OFID] AS [OFID],
+              [tblAssociate].[AS_Display] AS [AS_Display],
+              [tblAssociate].[AS_First] AS [AS_First],
+              [tblAssociate].[AS_Phone] AS [AS_Phone],
+              [tblAssociate].[AS_Last] AS [AS_Last],
+              [tblAssociate].[AS_User] AS [AS_User],
+              [tblAssociate].[AS_OutID] AS [AS_OutID],
+              [tblAssociate].[AS_Sync] AS [AS_Sync],
+              [tblAssociate].[AS_Active] AS [AS_Active],
+              [tblAssociate].[AS_Reso] AS [AS_Reso],
+              [tblAssociate].[AS_Email] AS [AS_Email],
+              [tblAssociate].[AS_Domain] AS [AS_Domain],
+              [tblAssociate].[AS_Group] AS [AS_Group],
+              [tblAssociate].[AS_DC] AS [AS_DC]
+              FROM [dbo].[tblAssociate] AS [tblAssociate]
+            </DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwConcessionDiviationRiskPerson" EntityType="Self.vwConcessionDiviationRiskPerson" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [vwConcessionDiviationRiskPerson].[AS_Display] AS [AS_Display],
+              [vwConcessionDiviationRiskPerson].[AS_Email] AS [AS_Email],
+              [vwConcessionDiviationRiskPerson].[CVID] AS [CVID],
+              [vwConcessionDiviationRiskPerson].[CZR_Desc] AS [CZR_Desc],
+              [vwConcessionDiviationRiskPerson].[CZRID] AS [CZRID],
+              [vwConcessionDiviationRiskPerson].[ASID] AS [ASID]
+              FROM [dbo].[vwConcessionDiviationRiskPerson] AS [vwConcessionDiviationRiskPerson]
+            </DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDocApproval" EntityType="Self.vwDocApproval" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [vwDocApproval].[DAID] AS [DAID],
+              [vwDocApproval].[Product] AS [Product],
+              [vwDocApproval].[Type] AS [Type],
+              [vwDocApproval].[Document] AS [Document],
+              [vwDocApproval].[Rev] AS [Rev],
+              [vwDocApproval].[Title] AS [Title],
+              [vwDocApproval].[Status] AS [Status],
+              [vwDocApproval].[DOCID] AS [DOCID],
+              [vwDocApproval].[DASID] AS [DASID],
+              [vwDocApproval].[DTID] AS [DTID],
+              [vwDocApproval].[DA_BriefText] AS [DA_BriefText],
+              [vwDocApproval].[DOC_URL] AS [DOC_URL],
+              [vwDocApproval].[AS_Display] AS [AS_Display],
+              [vwDocApproval].[AS_Email] AS [AS_Email],
+              [vwDocApproval].[DLID] AS [DLID],
+              [vwDocApproval].[Approved] AS [Approved],
+              [vwDocApproval].[AS_First] AS [AS_First],
+              [vwDocApproval].[ASID_Creator] AS [ASID_Creator],
+              [vwDocApproval].[Creator] AS [Creator],
+              [vwDocApproval].[CreatorEmail] AS [CreatorEmail],
+              [vwDocApproval].[DA_Subtitle] AS [DA_Subtitle],
+              [vwDocApproval].[DA_Amendment] AS [DA_Amendment],
+              [vwDocApproval].[DA_Hot] AS [DA_Hot],
+              [vwDocApproval].[DA_Created] AS [DA_Created],
+              [vwDocApproval].[DaysOpen] AS [DaysOpen],
+              [vwDocApproval].[ASID] AS [ASID],
+              [vwDocApproval].[OwnerDisplay] AS [OwnerDisplay],
+              [vwDocApproval].[OwnerEmail] AS [OwnerEmail],
+              [vwDocApproval].[OwnerFirst] AS [OwnerFirst],
+              [vwDocApproval].[OwnerLast] AS [OwnerLast],
+              [vwDocApproval].[DA_New] AS [DA_New]
+              FROM [dbo].[vwDocApproval] AS [vwDocApproval]
+            </DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDocApproved" EntityType="Self.vwDocApproved" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [vwDocApproved].[DAID] AS [DAID],
+              [vwDocApproved].[Total] AS [Total],
+              [vwDocApproved].[Approvals] AS [Approvals],
+              [vwDocApproved].[Approved] AS [Approved]
+              FROM [dbo].[vwDocApproved] AS [vwDocApproved]
+            </DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDocApprovers" EntityType="Self.vwDocApprovers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [vwDocApprovers].[DAID] AS [DAID],
+              [vwDocApprovers].[Product] AS [Product],
+              [vwDocApprovers].[Type] AS [Type],
+              [vwDocApprovers].[Document] AS [Document],
+              [vwDocApprovers].[Rev] AS [Rev],
+              [vwDocApprovers].[Title] AS [Title],
+              [vwDocApprovers].[DOCID] AS [DOCID],
+              [vwDocApprovers].[DASID] AS [DASID],
+              [vwDocApprovers].[DTID] AS [DTID],
+              [vwDocApprovers].[DA_BriefText] AS [DA_BriefText],
+              [vwDocApprovers].[DOC_URL] AS [DOC_URL],
+              [vwDocApprovers].[DLID] AS [DLID],
+              [vwDocApprovers].[DAD_Approved] AS [DAD_Approved],
+              [vwDocApprovers].[DAD_Viewed] AS [DAD_Viewed],
+              [vwDocApprovers].[DADID] AS [DADID],
+              [vwDocApprovers].[ASID] AS [ASID],
+              [vwDocApprovers].[AS_Email] AS [AS_Email],
+              [vwDocApprovers].[AS_Display] AS [AS_Display],
+              [vwDocApprovers].[AS_First] AS [AS_First],
+              [vwDocApprovers].[AS_Last] AS [AS_Last],
+              [vwDocApprovers].[DAD_Order] AS [DAD_Order],
+              [vwDocApprovers].[AS_User] AS [AS_User],
+              [vwDocApprovers].[DLD_Type] AS [DLD_Type],
+              [vwDocApprovers].[DAAT_Desc] AS [DAAT_Desc],
+              [vwDocApprovers].[DAATID] AS [DAATID],
+              [vwDocApprovers].[DAAT_DescLong] AS [DAAT_DescLong],
+              [vwDocApprovers].[DA_Created] AS [DA_Created],
+              [vwDocApprovers].[DA_Hot] AS [DA_Hot],
+              [vwDocApprovers].[DaysOpen] AS [DaysOpen]
+              FROM [dbo].[vwDocApprovers] AS [vwDocApprovers]
+            </DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDocAssociates" EntityType="Self.vwDocAssociates" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>
+              SELECT
+              [vwDocAssociates].[DADID] AS [DADID],
+              [vwDocAssociates].[DAID] AS [DAID],
+              [vwDocAssociates].[ASID] AS [ASID],
+              [vwDocAssociates].[AS_Display] AS [AS_Display],
+              [vwDocAssociates].[AS_Email] AS [AS_Email],
+              [vwDocAssociates].[Role] AS [Role],
+              [vwDocAssociates].[Viewed] AS [Viewed],
+              [vwDocAssociates].[Approved] AS [Approved]
+              FROM [dbo].[vwDocAssociates] AS [vwDocAssociates]
+            </DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ECRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDoc">
+          <Key>
+            <PropertyRef Name="DOCID" />
+          </Key>
+          <Property Name="DOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DTID" Type="Int32" Nullable="false" />
+          <Property Name="DOC_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOC_Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOC_Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocAppDetail">
+          <Key>
+            <PropertyRef Name="DADID" />
+          </Key>
+          <Property Name="DADID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="DAD_Approved" Type="DateTime" Precision="3" />
+          <Property Name="DAD_Viewed" Type="DateTime" Precision="3" />
+          <Property Name="DAD_Order" Type="Int32" />
+          <Property Name="DAATID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblDocApproval">
+          <Key>
+            <PropertyRef Name="DAID" />
+          </Key>
+          <Property Name="DAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DLID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="DOCID" Type="Int32" Nullable="false" />
+          <Property Name="DASID" Type="Int32" Nullable="false" />
+          <Property Name="DA_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ASID_Creator" Type="Int32" />
+          <Property Name="DA_Subtitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DA_Amendment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DA_Hot" Type="Boolean" />
+          <Property Name="DA_New" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblDocAppStatus">
+          <Key>
+            <PropertyRef Name="DASID" />
+          </Key>
+          <Property Name="DASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAS_Desc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DAS_Active" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocLine">
+          <Key>
+            <PropertyRef Name="DLID" />
+          </Key>
+          <Property Name="DLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DL_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DL_Long" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DL_Deleted" Type="DateTime" Precision="3" />
+          <Property Name="DL_Active" Type="Boolean" Nullable="false" />
+          <Property Name="ASID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblDocLineAsc">
+          <Key>
+            <PropertyRef Name="DLDID" />
+          </Key>
+          <Property Name="DLDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DLID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="DLD_Type" Type="Int32" Nullable="false" />
+          <Property Name="DAATID" Type="Int32" />
+          <Property Name="DLD_Created" Type="DateTime" Precision="3" />
+          <Property Name="DLD_Updated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblDocType">
+          <Key>
+            <PropertyRef Name="DTID" />
+          </Key>
+          <Property Name="DTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DT_Short" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DT_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DT_Active" Type="Int32" Nullable="false" />
+          <Property Name="DT_Deleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwDocApproval">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Product" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Document" />
+            <PropertyRef Name="Rev" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="DASID" />
+            <PropertyRef Name="DTID" />
+            <PropertyRef Name="DOC_URL" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="DLID" />
+            <PropertyRef Name="Approved" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="DA_Created" />
+          </Key>
+          <Property Name="DAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCID" Type="Int32" Nullable="false" />
+          <Property Name="DASID" Type="Int32" Nullable="false" />
+          <Property Name="DTID" Type="Int32" Nullable="false" />
+          <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AS_Display" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DLID" Type="Int32" Nullable="false" />
+          <Property Name="Approved" Type="Int32" Nullable="false" />
+          <Property Name="AS_First" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ASID_Creator" Type="Int32" />
+          <Property Name="Creator" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DA_Subtitle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DA_Amendment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DaysOpen" Type="Int32" />
+          <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DA_Hot" Type="Boolean" />
+          <Property Name="ASID" Type="Int32" />
+          <Property Name="OwnerDisplay" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerFirst" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerLast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DA_New" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="vwDocApproved">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Approved" />
+          </Key>
+          <Property Name="DAID" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Approvals" Type="Int32" />
+          <Property Name="Approved" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwDocApprovers">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="Product" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Document" />
+            <PropertyRef Name="Rev" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="DASID" />
+            <PropertyRef Name="DTID" />
+            <PropertyRef Name="DOC_URL" />
+            <PropertyRef Name="DLID" />
+            <PropertyRef Name="DADID" />
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="DLD_Type" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="AS_Last" />
+            <PropertyRef Name="DAAT_Desc" />
+            <PropertyRef Name="DA_Created" />
+            <PropertyRef Name="DA_Hot" />
+          </Key>
+          <Property Name="DAID" Type="Int32" Nullable="false" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Document" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="753" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCID" Type="Int32" Nullable="false" />
+          <Property Name="DASID" Type="Int32" Nullable="false" />
+          <Property Name="DTID" Type="Int32" Nullable="false" />
+          <Property Name="DA_BriefText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DLID" Type="Int32" Nullable="false" />
+          <Property Name="DAD_Approved" Type="DateTime" Precision="3" />
+          <Property Name="DAD_Viewed" Type="DateTime" Precision="3" />
+          <Property Name="DADID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="DLD_Type" Type="Int32" Nullable="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AS_First" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Last" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAD_Order" Type="Int32" />
+          <Property Name="AS_User" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+          <Property Name="DAAT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAATID" Type="Int32" />
+          <Property Name="DAAT_DescLong" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DaysOpen" Type="Int32" />
+          <Property Name="DA_Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DA_Hot" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ECREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDoc" EntityType="Self.tblDoc" />
+          <EntitySet Name="tblDocAppDetail" EntityType="Self.tblDocAppDetail" />
+          <EntitySet Name="tblDocApproval" EntityType="Self.tblDocApproval" />
+          <EntitySet Name="tblDocAppStatus" EntityType="Self.tblDocAppStatus" />
+          <EntitySet Name="tblDocLine" EntityType="Self.tblDocLine" />
+          <EntitySet Name="tblDocLineAsc" EntityType="Self.tblDocLineAsc" />
+          <EntitySet Name="tblDocType" EntityType="Self.tblDocType" />
+          <EntitySet Name="vwDocApproval" EntityType="Self.vwDocApproval" />
+          <EntitySet Name="vwDocApproved" EntityType="Self.vwDocApproved" />
+          <EntitySet Name="vwDocApprovers" EntityType="Self.vwDocApprovers" />
+          <FunctionImport Name="p_GetDocApprovers">
+            <Parameter Name="DAID" Mode="In" Type="Int32" />
+            <Parameter Name="Email" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocDel">
+            <Parameter Name="DAID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocFind">
+            <Parameter Name="PLID" Mode="In" Type="String" />
+            <Parameter Name="Doc" Mode="In" Type="String" />
+            <Parameter Name="DASID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocInUp" ReturnType="Collection(ECRModel.p_tblDocInUp_Result)">
+            <Parameter Name="DAID" Mode="In" Type="String" />
+            <Parameter Name="DLID" Mode="In" Type="String" />
+            <Parameter Name="ASID" Mode="In" Type="String" />
+            <Parameter Name="Doc" Mode="In" Type="String" />
+            <Parameter Name="DTID" Mode="In" Type="String" />
+            <Parameter Name="Rev" Mode="In" Type="String" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="BriefText" Mode="In" Type="String" />
+            <Parameter Name="Path" Mode="In" Type="String" />
+            <Parameter Name="DASID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocLineAsc_Cross" />
+          <FunctionImport Name="p_tblDocLineAsc_Del">
+            <Parameter Name="ASIDs" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocLineAsc_Up">
+            <Parameter Name="ASID" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Val" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="p_tblDocLineAsc_Up2">
+            <Parameter Name="ASIDs" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblAssociate" EntityType="ECRModel.tblAssociate" />
+          <EntitySet Name="tblDocApprovalType" EntityType="ECRModel.tblDocApprovalType" />
+          <EntitySet Name="tblFile" EntityType="ECRModel.tblFile" />
+          <EntitySet Name="vwDocAssociates" EntityType="ECRModel.vwDocAssociates" />
+          <EntitySet Name="tblAssociateDocShow" EntityType="ECRModel.tblAssociateDocShow" />
+          <EntitySet Name="tblConcessionGroup" EntityType="ECRModel.tblConcessionGroup" />
+          <EntitySet Name="tblConcessionRole" EntityType="ECRModel.tblConcessionRole" />
+          <EntitySet Name="tblConcessionRoleAssign" EntityType="ECRModel.tblConcessionRoleAssign" />
+          <EntitySet Name="tblConcessionDeviation" EntityType="ECRModel.tblConcessionDeviation" />
+          <EntitySet Name="tblConcession" EntityType="ECRModel.tblConcession" />
+          <EntitySet Name="tblConcessionApproval" EntityType="ECRModel.tblConcessionApproval" />
+          <EntitySet Name="tblConcessionMaterial" EntityType="ECRModel.tblConcessionMaterial" />
+          <EntitySet Name="vwConcessionDiviationRiskPerson" EntityType="ECRModel.vwConcessionDiviationRiskPerson" />
+          <EntitySet Name="tblDocAppStatusHistory" EntityType="ECRModel.tblDocAppStatusHistory" />
+        </EntityContainer>
+        <ComplexType Name="p_tblDocInUp_Result">
+          <Property Type="Int32" Name="DAID" Nullable="false" />
+          <Property Type="Int32" Name="DLID" Nullable="false" />
+          <Property Type="Int32" Name="ASID" Nullable="false" />
+          <Property Type="Int32" Name="DOCID" Nullable="false" />
+          <Property Type="Int32" Name="DASID" Nullable="false" />
+          <Property Type="DateTime" Name="DA_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="DA_BriefText" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <EntityType Name="tblAssociate">
+          <Key>
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="AS_First" />
+            <PropertyRef Name="AS_Last" />
+            <PropertyRef Name="AS_User" />
+            <PropertyRef Name="AS_Active" />
+            <PropertyRef Name="AS_Reso" />
+          </Key>
+          <Property Name="ASID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DPID" Type="Int32" />
+          <Property Name="OFID" Type="Int32" />
+          <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_First" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Last" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AS_User" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="AS_OutID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Sync" Type="DateTime" Precision="3" />
+          <Property Name="AS_Active" Type="Boolean" Nullable="false" />
+          <Property Name="AS_Reso" Type="Boolean" Nullable="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Domain" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AS_DC" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblDocApprovalType">
+          <Key>
+            <PropertyRef Name="DAATID" />
+          </Key>
+          <Property Name="DAATID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAAT_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAAT_DescLong" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DAAT_Deleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblFile">
+          <Key>
+            <PropertyRef Name="FLID" />
+          </Key>
+          <Property Name="FLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FL_Desc" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FL_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FL_DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="FTID" Type="Int32" Nullable="false" />
+          <Property Name="FL_DescArchive" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FL_Completed" Type="DateTime" Precision="3" />
+          <Property Name="FL_DetailCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwDocAssociates">
+          <Key>
+            <PropertyRef Name="DAID" />
+            <PropertyRef Name="ASID" />
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="Role" />
+            <PropertyRef Name="DADID" />
+          </Key>
+          <Property Name="DAID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Viewed" Type="DateTime" Precision="3" />
+          <Property Name="Approved" Type="DateTime" Precision="3" />
+          <Property Name="DADID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblAssociateDocShow">
+          <Key>
+            <PropertyRef Name="ASBID" />
+          </Key>
+          <Property Name="ASBID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="ASB_Deleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblConcessionGroup">
+          <Key>
+            <PropertyRef Name="CZGID" />
+          </Key>
+          <Property Name="CZGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CZG_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CZG_Deleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblConcessionRole">
+          <Key>
+            <PropertyRef Name="CZRID" />
+          </Key>
+          <Property Name="CZRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CZR_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CZR_Deleted" Type="DateTime" Precision="3" />
+          <Property Name="CZR_DefaultTask" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblConcessionRoleAssign">
+          <Key>
+            <PropertyRef Name="CZAID" />
+          </Key>
+          <Property Name="CZAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CZGID" Type="Int32" Nullable="false" />
+          <Property Name="CZRID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblConcessionDeviation">
+          <Key>
+            <PropertyRef Name="CVID" />
+          </Key>
+          <Property Name="CVID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="CV_Desc" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CV_Deleted" Type="DateTime" Precision="3" />
+          <Property Name="CZRID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblConcession">
+          <Key>
+            <PropertyRef Name="CSSID" />
+          </Key>
+          <Property Name="CSSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CZGID" Type="Int32" Nullable="false" />
+          <Property Name="CVID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="CSS_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CSS_Deleted" Type="DateTime" Precision="3" />
+          <Property Name="ASID_Entered" Type="Int32" Nullable="false" />
+          <Property Name="CSS_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_Hot" Type="Boolean" Nullable="false" />
+          <Property Name="CSS_Repeat" Type="Boolean" Nullable="false" />
+          <Property Name="CSS_RegNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CSS_TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CSS_Supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_UsedIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_UseBy" Type="DateTime" Precision="3" />
+          <Property Name="CSS_SpecialRequirement" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_ActualValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_RootCause" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_AttachList" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CSS_UseStart" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblConcessionApproval">
+          <Key>
+            <PropertyRef Name="CSAID" />
+          </Key>
+          <Property Name="CSAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CSSID" Type="Int32" Nullable="false" />
+          <Property Name="CZRID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+          <Property Name="CSA_Approved" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblConcessionMaterial">
+          <Key>
+            <PropertyRef Name="CSMID" />
+          </Key>
+          <Property Name="CSMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CSSID" Type="Int32" Nullable="false" />
+          <Property Name="CSM_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSM_Qty" Type="Int32" />
+          <Property Name="CSM_Deleted" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwConcessionDiviationRiskPerson">
+          <Key>
+            <PropertyRef Name="AS_Display" />
+            <PropertyRef Name="CVID" />
+            <PropertyRef Name="CZR_Desc" />
+            <PropertyRef Name="CZRID" />
+            <PropertyRef Name="ASID" />
+          </Key>
+          <Property Name="AS_Display" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AS_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CVID" Type="Int32" Nullable="false" />
+          <Property Name="CZR_Desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CZRID" Type="Int32" Nullable="false" />
+          <Property Name="ASID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDocAppStatusHistory">
+          <Key>
+            <PropertyRef Name="DHID" />
+          </Key>
+          <Property Name="DHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAID" Type="Int32" Nullable="false" />
+          <Property Name="DASID" Type="Int32" Nullable="false" />
+          <Property Name="DH_Created" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ECRModelStoreContainer" CdmEntityContainer="ECREntities">
+          <EntitySetMapping Name="tblDoc">
+            <EntityTypeMapping TypeName="ECRModel.tblDoc">
+              <MappingFragment StoreEntitySet="tblDoc">
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="DTID" ColumnName="DTID" />
+                <ScalarProperty Name="DOC_Num" ColumnName="DOC_Num" />
+                <ScalarProperty Name="DOC_Rev" ColumnName="DOC_Rev" />
+                <ScalarProperty Name="DOC_Title" ColumnName="DOC_Title" />
+                <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocAppDetail">
+            <EntityTypeMapping TypeName="ECRModel.tblDocAppDetail">
+              <MappingFragment StoreEntitySet="tblDocAppDetail">
+                <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+                <ScalarProperty Name="DAD_Order" ColumnName="DAD_Order" />
+                <ScalarProperty Name="DADID" ColumnName="DADID" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DAD_Approved" ColumnName="DAD_Approved" />
+                <ScalarProperty Name="DAD_Viewed" ColumnName="DAD_Viewed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocApproval">
+            <EntityTypeMapping TypeName="ECRModel.tblDocApproval">
+              <MappingFragment StoreEntitySet="tblDocApproval">
+                <ScalarProperty Name="DA_New" ColumnName="DA_New" />
+                <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+                <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+                <ScalarProperty Name="DA_Amendment" ColumnName="DA_Amendment" />
+                <ScalarProperty Name="DA_Subtitle" ColumnName="DA_Subtitle" />
+                <ScalarProperty Name="ASID_Creator" ColumnName="ASID_Creator" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DA_Date" ColumnName="DA_Date" />
+                <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocAppStatus">
+            <EntityTypeMapping TypeName="ECRModel.tblDocAppStatus">
+              <MappingFragment StoreEntitySet="tblDocAppStatus">
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DAS_Desc" ColumnName="DAS_Desc" />
+                <ScalarProperty Name="DAS_Active" ColumnName="DAS_Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocLine">
+            <EntityTypeMapping TypeName="ECRModel.tblDocLine">
+              <MappingFragment StoreEntitySet="tblDocLine">
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DL_Active" ColumnName="DL_Active" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="DL_Desc" ColumnName="DL_Desc" />
+                <ScalarProperty Name="DL_Long" ColumnName="DL_Long" />
+                <ScalarProperty Name="DL_Deleted" ColumnName="DL_Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocLineAsc">
+            <EntityTypeMapping TypeName="ECRModel.tblDocLineAsc">
+              <MappingFragment StoreEntitySet="tblDocLineAsc">
+                <ScalarProperty Name="DLD_Updated" ColumnName="DLD_Updated" />
+                <ScalarProperty Name="DLD_Created" ColumnName="DLD_Created" />
+                <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+                <ScalarProperty Name="DLDID" ColumnName="DLDID" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DLD_Type" ColumnName="DLD_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocType">
+            <EntityTypeMapping TypeName="ECRModel.tblDocType">
+              <MappingFragment StoreEntitySet="tblDocType">
+                <ScalarProperty Name="DTID" ColumnName="DTID" />
+                <ScalarProperty Name="DT_Short" ColumnName="DT_Short" />
+                <ScalarProperty Name="DT_Desc" ColumnName="DT_Desc" />
+                <ScalarProperty Name="DT_Active" ColumnName="DT_Active" />
+                <ScalarProperty Name="DT_Deleted" ColumnName="DT_Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDocApproval">
+            <EntityTypeMapping TypeName="ECRModel.vwDocApproval">
+              <MappingFragment StoreEntitySet="vwDocApproval">
+                <ScalarProperty Name="DA_New" ColumnName="DA_New" />
+                <ScalarProperty Name="OwnerLast" ColumnName="OwnerLast" />
+                <ScalarProperty Name="OwnerFirst" ColumnName="OwnerFirst" />
+                <ScalarProperty Name="OwnerEmail" ColumnName="OwnerEmail" />
+                <ScalarProperty Name="OwnerDisplay" ColumnName="OwnerDisplay" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+                <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+                <ScalarProperty Name="DaysOpen" ColumnName="DaysOpen" />
+                <ScalarProperty Name="DA_Amendment" ColumnName="DA_Amendment" />
+                <ScalarProperty Name="DA_Subtitle" ColumnName="DA_Subtitle" />
+                <ScalarProperty Name="CreatorEmail" ColumnName="CreatorEmail" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="ASID_Creator" ColumnName="ASID_Creator" />
+                <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Document" ColumnName="Document" />
+                <ScalarProperty Name="Rev" ColumnName="Rev" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DTID" ColumnName="DTID" />
+                <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+                <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDocApproved">
+            <EntityTypeMapping TypeName="ECRModel.vwDocApproved">
+              <MappingFragment StoreEntitySet="vwDocApproved">
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Approvals" ColumnName="Approvals" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDocApprovers">
+            <EntityTypeMapping TypeName="ECRModel.vwDocApprovers">
+              <MappingFragment StoreEntitySet="vwDocApprovers">
+                <ScalarProperty Name="DA_Hot" ColumnName="DA_Hot" />
+                <ScalarProperty Name="DA_Created" ColumnName="DA_Created" />
+                <ScalarProperty Name="DaysOpen" ColumnName="DaysOpen" />
+                <ScalarProperty Name="DAAT_DescLong" ColumnName="DAAT_DescLong" />
+                <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+                <ScalarProperty Name="DAAT_Desc" ColumnName="DAAT_Desc" />
+                <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+                <ScalarProperty Name="DAD_Order" ColumnName="DAD_Order" />
+                <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+                <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="DLD_Type" ColumnName="DLD_Type" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Document" ColumnName="Document" />
+                <ScalarProperty Name="Rev" ColumnName="Rev" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DTID" ColumnName="DTID" />
+                <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+                <ScalarProperty Name="DOC_URL" ColumnName="DOC_URL" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="DAD_Approved" ColumnName="DAD_Approved" />
+                <ScalarProperty Name="DAD_Viewed" ColumnName="DAD_Viewed" />
+                <ScalarProperty Name="DADID" ColumnName="DADID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_GetDocApprovers" FunctionName="ECRModel.Store.p_GetDocApprovers" />
+          <FunctionImportMapping FunctionImportName="p_tblDocDel" FunctionName="ECRModel.Store.p_tblDocDel" />
+          <FunctionImportMapping FunctionImportName="p_tblDocFind" FunctionName="ECRModel.Store.p_tblDocFind" />
+          <FunctionImportMapping FunctionImportName="p_tblDocInUp" FunctionName="ECRModel.Store.p_tblDocInUp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ECRModel.p_tblDocInUp_Result">
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="DLID" ColumnName="DLID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DA_Date" ColumnName="DA_Date" />
+                <ScalarProperty Name="DA_BriefText" ColumnName="DA_BriefText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Cross" FunctionName="ECRModel.Store.p_tblDocLineAsc_Cross" />
+          <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Del" FunctionName="ECRModel.Store.p_tblDocLineAsc_Del" />
+          <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Up" FunctionName="ECRModel.Store.p_tblDocLineAsc_Up" />
+          <FunctionImportMapping FunctionImportName="p_tblDocLineAsc_Up2" FunctionName="ECRModel.Store.p_tblDocLineAsc_Up2" />
+          <EntitySetMapping Name="tblAssociate">
+            <EntityTypeMapping TypeName="ECRModel.tblAssociate">
+              <MappingFragment StoreEntitySet="tblAssociate">
+                <ScalarProperty Name="AS_DC" ColumnName="AS_DC" />
+                <ScalarProperty Name="AS_Group" ColumnName="AS_Group" />
+                <ScalarProperty Name="AS_Domain" ColumnName="AS_Domain" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="AS_Reso" ColumnName="AS_Reso" />
+                <ScalarProperty Name="AS_Active" ColumnName="AS_Active" />
+                <ScalarProperty Name="AS_Sync" ColumnName="AS_Sync" />
+                <ScalarProperty Name="AS_OutID" ColumnName="AS_OutID" />
+                <ScalarProperty Name="AS_User" ColumnName="AS_User" />
+                <ScalarProperty Name="AS_Last" ColumnName="AS_Last" />
+                <ScalarProperty Name="AS_Phone" ColumnName="AS_Phone" />
+                <ScalarProperty Name="AS_First" ColumnName="AS_First" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+                <ScalarProperty Name="OFID" ColumnName="OFID" />
+                <ScalarProperty Name="DPID" ColumnName="DPID" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocApprovalType">
+            <EntityTypeMapping TypeName="ECRModel.tblDocApprovalType">
+              <MappingFragment StoreEntitySet="tblDocApprovalType">
+                <ScalarProperty Name="DAAT_Deleted" ColumnName="DAAT_Deleted" />
+                <ScalarProperty Name="DAAT_DescLong" ColumnName="DAAT_DescLong" />
+                <ScalarProperty Name="DAAT_Desc" ColumnName="DAAT_Desc" />
+                <ScalarProperty Name="DAATID" ColumnName="DAATID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFile">
+            <EntityTypeMapping TypeName="ECRModel.tblFile">
+              <MappingFragment StoreEntitySet="tblFile">
+                <ScalarProperty Name="FL_DetailCount" ColumnName="FL_DetailCount" />
+                <ScalarProperty Name="FL_Completed" ColumnName="FL_Completed" />
+                <ScalarProperty Name="FL_DescArchive" ColumnName="FL_DescArchive" />
+                <ScalarProperty Name="FTID" ColumnName="FTID" />
+                <ScalarProperty Name="FL_DateCreated" ColumnName="FL_DateCreated" />
+                <ScalarProperty Name="FL_Date" ColumnName="FL_Date" />
+                <ScalarProperty Name="FL_Desc" ColumnName="FL_Desc" />
+                <ScalarProperty Name="FLID" ColumnName="FLID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDocAssociates">
+            <EntityTypeMapping TypeName="ECRModel.vwDocAssociates">
+              <MappingFragment StoreEntitySet="vwDocAssociates">
+                <ScalarProperty Name="DADID" ColumnName="DADID" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Viewed" ColumnName="Viewed" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAssociateDocShow">
+            <EntityTypeMapping TypeName="ECRModel.tblAssociateDocShow">
+              <MappingFragment StoreEntitySet="tblAssociateDocShow">
+                <ScalarProperty Name="ASB_Deleted" ColumnName="ASB_Deleted" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="ASBID" ColumnName="ASBID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionGroup">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionGroup">
+              <MappingFragment StoreEntitySet="tblConcessionGroup">
+                <ScalarProperty Name="CZG_Deleted" ColumnName="CZG_Deleted" />
+                <ScalarProperty Name="CZG_Desc" ColumnName="CZG_Desc" />
+                <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionRole">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionRole">
+              <MappingFragment StoreEntitySet="tblConcessionRole">
+                <ScalarProperty Name="CZR_DefaultTask" ColumnName="CZR_DefaultTask" />
+                <ScalarProperty Name="CZR_Deleted" ColumnName="CZR_Deleted" />
+                <ScalarProperty Name="CZR_Desc" ColumnName="CZR_Desc" />
+                <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionRoleAssign">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionRoleAssign">
+              <MappingFragment StoreEntitySet="tblConcessionRoleAssign">
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+                <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+                <ScalarProperty Name="CZAID" ColumnName="CZAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionDeviation">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionDeviation">
+              <MappingFragment StoreEntitySet="tblConcessionDeviation">
+                <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+                <ScalarProperty Name="CV_Deleted" ColumnName="CV_Deleted" />
+                <ScalarProperty Name="CV_Desc" ColumnName="CV_Desc" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="CVID" ColumnName="CVID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcession">
+            <EntityTypeMapping TypeName="ECRModel.tblConcession">
+              <MappingFragment StoreEntitySet="tblConcession">
+                <ScalarProperty Name="CSS_UseStart" ColumnName="CSS_UseStart" />
+                <ScalarProperty Name="CSS_AttachList" ColumnName="CSS_AttachList" />
+                <ScalarProperty Name="CSS_Description" ColumnName="CSS_Description" />
+                <ScalarProperty Name="CSS_RootCause" ColumnName="CSS_RootCause" />
+                <ScalarProperty Name="CSS_ActualValue" ColumnName="CSS_ActualValue" />
+                <ScalarProperty Name="CSS_SpecialRequirement" ColumnName="CSS_SpecialRequirement" />
+                <ScalarProperty Name="CSS_UseBy" ColumnName="CSS_UseBy" />
+                <ScalarProperty Name="CSS_UsedIn" ColumnName="CSS_UsedIn" />
+                <ScalarProperty Name="CSS_Supplier" ColumnName="CSS_Supplier" />
+                <ScalarProperty Name="CSS_TimeStamp" ColumnName="CSS_TimeStamp" />
+                <ScalarProperty Name="CSS_Date" ColumnName="CSS_Date" />
+                <ScalarProperty Name="CSS_RegNumber" ColumnName="CSS_RegNumber" />
+                <ScalarProperty Name="CSS_Repeat" ColumnName="CSS_Repeat" />
+                <ScalarProperty Name="CSS_Hot" ColumnName="CSS_Hot" />
+                <ScalarProperty Name="CSS_Location" ColumnName="CSS_Location" />
+                <ScalarProperty Name="ASID_Entered" ColumnName="ASID_Entered" />
+                <ScalarProperty Name="CSS_Deleted" ColumnName="CSS_Deleted" />
+                <ScalarProperty Name="CSS_Image" ColumnName="CSS_Image" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="CVID" ColumnName="CVID" />
+                <ScalarProperty Name="CZGID" ColumnName="CZGID" />
+                <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionApproval">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionApproval">
+              <MappingFragment StoreEntitySet="tblConcessionApproval">
+                <ScalarProperty Name="CSA_Approved" ColumnName="CSA_Approved" />
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+                <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+                <ScalarProperty Name="CSAID" ColumnName="CSAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConcessionMaterial">
+            <EntityTypeMapping TypeName="ECRModel.tblConcessionMaterial">
+              <MappingFragment StoreEntitySet="tblConcessionMaterial">
+                <ScalarProperty Name="CSM_Deleted" ColumnName="CSM_Deleted" />
+                <ScalarProperty Name="CSM_Qty" ColumnName="CSM_Qty" />
+                <ScalarProperty Name="CSM_Desc" ColumnName="CSM_Desc" />
+                <ScalarProperty Name="CSSID" ColumnName="CSSID" />
+                <ScalarProperty Name="CSMID" ColumnName="CSMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwConcessionDiviationRiskPerson">
+            <EntityTypeMapping TypeName="ECRModel.vwConcessionDiviationRiskPerson">
+              <MappingFragment StoreEntitySet="vwConcessionDiviationRiskPerson">
+                <ScalarProperty Name="ASID" ColumnName="ASID" />
+                <ScalarProperty Name="CZRID" ColumnName="CZRID" />
+                <ScalarProperty Name="CZR_Desc" ColumnName="CZR_Desc" />
+                <ScalarProperty Name="CVID" ColumnName="CVID" />
+                <ScalarProperty Name="AS_Email" ColumnName="AS_Email" />
+                <ScalarProperty Name="AS_Display" ColumnName="AS_Display" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDocAppStatusHistory">
+            <EntityTypeMapping TypeName="ECRModel.tblDocAppStatusHistory">
+              <MappingFragment StoreEntitySet="tblDocAppStatusHistory">
+                <ScalarProperty Name="DH_Created" ColumnName="DH_Created" />
+                <ScalarProperty Name="DASID" ColumnName="DASID" />
+                <ScalarProperty Name="DAID" ColumnName="DAID" />
+                <ScalarProperty Name="DHID" ColumnName="DHID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

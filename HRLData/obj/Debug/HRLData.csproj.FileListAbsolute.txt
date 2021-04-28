@@ -1,0 +1,12 @@
+Z:\DriverLog\HRLData\bin\Debug\HRLData.dll.config
+Z:\DriverLog\HRLData\bin\Debug\HRLData.dll
+Z:\DriverLog\HRLData\bin\Debug\HRLData.pdb
+Z:\DriverLog\HRLData\bin\Debug\EntityFramework.dll
+Z:\DriverLog\HRLData\bin\Debug\EntityFramework.SqlServer.dll
+Z:\DriverLog\HRLData\bin\Debug\EntityFramework.xml
+Z:\DriverLog\HRLData\bin\Debug\EntityFramework.SqlServer.xml
+Z:\DriverLog\HRLData\obj\Debug\HRLData.dll
+Z:\DriverLog\HRLData\obj\Debug\HRLData.pdb
+Z:\DriverLog\HRLData\obj\Debug\HRLData.csprojAssemblyReference.cache
+Z:\DriverLog\HRLData\obj\Debug\HRLData.csproj.CoreCompileInputs.cache
+Z:\DriverLog\HRLData\obj\Debug\HRLData.csproj.CopyComplete
